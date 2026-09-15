@@ -1,0 +1,2307 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes básicos de Angular para Martos y alrededores.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Unidad 3: Diseño de Interfaces con Figma - Curso de Angular</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unidad-3-diseno-de-interfaces-con-figma" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="./.." title="Curso de Angular" class="md-header__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Angular
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unidad 3: Diseño de Interfaces con Figma
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Curso de Angular" class="md-nav__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Curso de Angular
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  01-introduccion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objetivos de aprendizaje
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-asociado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resultado de aprendizaje asociado
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conocimientos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conocimientos previos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Contenidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo-teorico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo teórico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo teórico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-introduccion-a-figma-por-que-es-el-estandar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Introducción a Figma: por qué es el estándar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-el-espacio-de-trabajo-de-figma" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. El espacio de trabajo de Figma
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-auto-layout-flexbox-en-figma" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Auto Layout: Flexbox en Figma
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-variables-en-figma-design-tokens-nativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Variables en Figma: Design Tokens nativos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-componentes-en-figma-del-diseno-al-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Componentes en Figma: del diseño al código
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-variantes-component-sets-todos-los-estados-de-un-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Variantes (Component Sets): todos los estados de un componente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-design-tokens-concretando-los-atomos-del-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Design Tokens: concretando los átomos del diseño
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-sistemas-de-diseno-en-figma-el-blueprint-de-la-interfaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Sistemas de diseño en Figma: el blueprint de la interfaz
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-plugins-para-el-flujo-de-trabajo-diseno-desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Plugins para el flujo de trabajo diseño-desarrollo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-dev-mode-y-handoff-entregar-el-diseno-a-desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Dev Mode y Handoff: entregar el diseño a desarrollo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-guiados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplos guiados
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos guiados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-1-disenar-un-boton-con-todas-sus-variantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 1: Diseñar un botón con todas sus variantes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-2-crear-un-sistema-de-colores-y-tipografia-con-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 2: Crear un sistema de colores y tipografía con variables
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-3-disenar-una-pantalla-de-login-completa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 3: Diseñar una pantalla de login completa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casos-reales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Casos reales
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Casos reales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caso-1-el-design-system-de-shopify-polaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Caso 1: El Design System de Shopify (Polaris)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caso-2-startup-andaluza-sistema-de-diseno-para-una-app-de-turismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Caso 2: Startup andaluza: sistema de diseño para una app de turismo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-guiadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades guiadas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades guiadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-1-reproduccion-de-un-componente-existente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 1: Reproducción de un componente existente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-2-creacion-de-un-mini-sistema-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 2: Creación de un mini sistema de diseño
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-3-inspeccion-de-diseno-en-dev-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 3: Inspección de diseño en Dev Mode
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-propuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades propuestas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades propuestas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad 1
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad 2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad 3
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad 4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad 5
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades de ampliación
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades de ampliación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-1-design-system-completo-listo-para-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliación 1: Design system completo listo para producción
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-2-plugin-de-figma-para-auditoria-de-accesibilidad-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliación 2: Plugin de Figma para auditoría de accesibilidad visual
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-3-automatizacion-de-design-tokens-con-style-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliación 3: Automatización de Design Tokens con Style Dictionary
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Buenas prácticas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errores-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Errores frecuentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-complementarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recursos complementarios
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursos complementarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentación oficial
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tutoriales-y-cursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tutoriales y cursos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#figma-community-archivos-de-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Figma Community (archivos de ejemplo)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins-recomendados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Plugins recomendados
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libros-recomendados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libros recomendados
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comunidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Comunidades
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="unidad-3-diseno-de-interfaces-con-figma">Unidad 3: Diseño de Interfaces con Figma</h1>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p>Al finalizar esta unidad, el alumnado será capaz de:</p>
+<ol>
+<li>Navegar con soltura por el espacio de trabajo de Figma, utilizando frames, capas, páginas, componentes y paneles de propiedades para organizar proyectos de diseño de interfaces de forma profesional.</li>
+<li>Diseñar layouts responsivos y flexibles utilizando Auto Layout, comprendiendo la equivalencia directa entre las propiedades de Auto Layout en Figma y las propiedades de Flexbox en CSS/Tailwind.</li>
+<li>Crear y gestionar variables de diseño (colores, tipografías, espaciados, border-radius) en Figma, organizadas en colecciones y con soporte para múltiples modos (light/dark).</li>
+<li>Construir componentes reutilizables con propiedades configurables y conjuntos de variantes, aplicando los principios de Atomic Design y los sistemas de diseño profesionales.</li>
+<li>Exportar correctamente assets (SVG, PNG, PDF) y especificaciones de diseño (código CSS, medidas, colores, tipografías) para el handoff a desarrollo.</li>
+<li>Utilizar el modo desarrollador de Figma (Dev Mode) para inspeccionar diseños, extraer medidas, colores y fragmentos de código CSS/Tailwind.</li>
+<li>Diseñar un sistema de diseño básico completo (Design System) utilizando las funcionalidades avanzadas de Figma, preparado para su posterior implementación en Angular + Tailwind CSS.</li>
+<li>Valorar la importancia del handoff eficiente entre diseño y desarrollo, identificando los problemas comunes en este proceso y las prácticas que los previenen.</li>
+</ol>
+<h2 id="resultado-de-aprendizaje-asociado">Resultado de aprendizaje asociado</h2>
+<p><strong>RA 1. Diseña interfaces de usuario, analizando los requisitos y las tecnologías involucradas.</strong></p>
+<p>Este resultado de aprendizaje se concreta en los siguientes criterios de evaluación del currículo oficial:</p>
+<ul>
+<li>CE b. Se han descrito las características y tecnologías de los diferentes tipos de interfaces, aplicándolo al diseño de interfaces gráficas de usuario.</li>
+<li>CE d. Se han identificado las herramientas de desarrollo de interfaces de usuario, con especial atención a Figma como herramienta de diseño visual.</li>
+<li>CE g. Se ha analizado la configuración de un entorno de desarrollo de interfaces, extendiéndolo al entorno de diseño (Figma, plugins, Dev Mode).</li>
+</ul>
+<p>Asimismo, esta unidad contribuye al RA 2 del módulo ("Genera interfaces web utilizando herramientas de diseño visual") en sus criterios de evaluación:</p>
+<ul>
+<li>CE a. Se han reconocido los elementos de una interfaz web (botones, formularios, tablas, menús, tarjetas, modales).</li>
+<li>CE b. Se han utilizado herramientas de diseño visual para generar interfaces (Figma).</li>
+<li>CE c. Se ha generado un sistema de diseño con elementos reutilizables.</li>
+</ul>
+<h2 id="conocimientos-previos">Conocimientos previos</h2>
+<p>El alumnado debe poseer los siguientes conocimientos y habilidades antes de abordar esta unidad:</p>
+<ul>
+<li>Comprensión sólida de los conceptos de UX y UI tratados en la Unidad 1, incluyendo la distinción entre ambas disciplinas y las fases del proceso de diseño.</li>
+<li>Familiaridad con los fundamentos de HTML5 y CSS3: modelo de caja, selectores, propiedades de layout (display, position, flex), colores (hex, rgb, hsl), tipografía y espaciado. Esta base es esencial porque Figma utiliza conceptos análogos (Auto Layout = Flexbox, constraints = posicionamiento CSS, variables = custom properties).</li>
+<li>Conocimientos básicos de Tailwind CSS vistos en la Unidad 2, especialmente la nomenclatura de colores, tamaños de espaciado y sistema responsive. Figma y Tailwind comparten filosofía de sistema de diseño, y estableceremos equivalencias directas entre ambos.</li>
+<li>Experiencia con el entorno de desarrollo configurado en la Unidad 2 (Angular + Tailwind + Storybook + VS Code) porque, aunque esta unidad se centre en Figma, los diseños que creemos serán implementados posteriormente en Angular + Tailwind. La unidad 5 cerrará el ciclo.</li>
+<li>Cuenta de Figma (gratuita, plan Starter) creada y verificada. Figma ofrece el plan gratuito con todas las funcionalidades necesarias para esta unidad. Opcionalmente, el alumnado puede solicitar el plan educativo (Figma for Education) que incluye funcionalidades adicionales.</li>
+</ul>
+<h2 id="contenidos">Contenidos</h2>
+<p><strong>Bloque 1: Fundamentos de Figma</strong>
+- Qué es Figma: herramienta de diseño de interfaces basada en web, colaborativa en tiempo real, con soporte para diseño vectorial, prototipado interactivo, sistemas de diseño y modo desarrollador.
+- Por qué Figma es el estándar de la industria: accesibilidad multiplataforma (funciona en navegador, no requiere macOS como Sketch), colaboración en tiempo real tipo Google Docs, gratuito para educación, único source of truth para diseño y desarrollo.
+- Espacio de trabajo: toolbar (herramientas de creación y edición), panel izquierdo (capas, assets, páginas), canvas (área de trabajo infinita), panel derecho (propiedades de diseño, prototipado, inspección).
+- Herramientas fundamentales: Move (V), Frame (F), Rectangle (R), Text (T), Pen (P), Hand (H), Comment (C). Atajos de teclado para productividad.
+- Navegación por capas y páginas: jerarquía padre-hijo, agrupación (Ctrl+G), bloqueo, ocultación, renombrado semántico.
+- Plugins: qué son, cómo instalarlos desde Figma Community, plugins esenciales para el flujo de trabajo (Tailwind CSS, Iconify, Unsplash, Stark, Content Reel).</p>
+<p><strong>Bloque 2: Frames y elementos básicos</strong>
+- Concepto de Frame: contenedor fundamental de Figma, equivalente a un div en HTML o una pantalla/componente en diseño.
+- Tamaños predefinidos de Frame: dispositivos (iPhone, Android, tablet, desktop presets), tamaños personalizados.
+- Constraints: sistema de anclaje de elementos hijos respecto al frame padre (left, right, top, bottom, center, scale), equivalente al posicionamiento CSS (relative, absolute, fixed).
+- Propiedades de rectángulo y formas: dimensiones (W, H), radio de esquina (corner radius), rotación, opacidad, relleno (fill), trazo (stroke), efectos (shadows: drop shadow, inner shadow; blur: layer blur, background blur).
+- Texto en Figma: propiedades tipográficas (font family, weight, size, line height, letter spacing, paragraph spacing), alineación, color, estilos de texto.</p>
+<p><strong>Bloque 3: Auto Layout (función estrella de Figma)</strong>
+- Qué es Auto Layout: sistema de layout dinámico que permite crear diseños flexibles que se adaptan al contenido. Es el equivalente directo de CSS Flexbox.
+- Propiedades de Auto Layout:
+  - Direction: horizontal (→ flex-row) o vertical (↓ flex-col).
+  - Gap: espacio entre elementos hijos (equivalente a gap en CSS/Tailwind).
+  - Padding: espacio interior en los cuatro lados (equivalente a padding en CSS).
+  - Alignment: alineación de hijos en ambos ejes (equivalente a justify-content + align-items).
+  - Resizing: hug contents (el frame se adapta al tamaño del contenido, equivalente a width: fit-content), fill container (el frame se expande para llenar el espacio disponible, equivalente a flex: 1), fixed (tamaño fijo).
+- Auto Layout anidado: combinar frames con Auto Layout dentro de otros frames con Auto Layout para construir layouts complejos.
+- Comparación directa Tabla Figma ↔ Tailwind CSS: mapear cada propiedad de Auto Layout a su clase Tailwind equivalente para que el alumnado entienda el puente entre diseño y código.
+- Wrap: habilitar ajuste de línea en Auto Layout horizontal (equivalente a flex-wrap en CSS).</p>
+<p><strong>Bloque 4: Variables en Figma</strong>
+- Concepto de variables: valores reutilizables y centralizados que pueden aplicarse a fills, strokes, effects, texto, dimensiones, etc. Equivalente a Design Tokens y a CSS Custom Properties (variables CSS).
+- Tipos de variables: Color, Number (dimensiones, spacing, border-radius, opacidad), String (textos reutilizables), Boolean (toggles true/false).
+- Colecciones: agrupación de variables por categoría (Colors, Typography, Spacing, Radius, Effects).
+- Modos: el mismo nombre de variable puede tener diferentes valores según el modo (light/dark mode, high contrast mode, diferentes marcas de la misma empresa). Equivalente a aplicar diferentes valores de custom properties según <code>prefers-color-scheme</code>.
+- Vinculación de variables: una variable puede referenciar a otra (ej: el color de texto por defecto referencia a la variable de color neutral-900).
+- Organización profesional: jerarquía de variables (primitivas → semánticas → componentes), convenciones de nomenclatura (categoría/nombre-tono, ej: color/primary-500).</p>
+<p><strong>Bloque 5: Componentes en Figma</strong>
+- Qué es un componente: elemento reutilizable con un "master" (componente principal) y múltiples "instances" (copias vinculadas). Equivalente a un componente de Angular o React.
+- Creación de un componente: seleccionar elementos, Ctrl+Alt+K (Create component).
+- Instancias: copias de un componente que mantienen vínculo con el master. Modificar el master actualiza todas las instancias.
+- Propiedades de componente:
+  - Propiedad de texto: permite editar texto en instancias sin desvincular.
+  - Propiedad booleana (toggle): mostrar/ocultar capas dentro del componente (ej: mostrar u ocultar un icono en un botón).
+  - Propiedad de intercambio de instancia (instance swap): reemplazar un componente hijo por otro del mismo conjunto (ej: cambiar el icono de un botón).
+  - Propiedad de variante: seleccionar entre variantes de un componente set (ej: cambiar un botón de primary a secondary).
+- Buenas prácticas en la creación de componentes: nomenclatura consistente, descripción (para documentación en el panel Assets), organización en subcarpetas.</p>
+<p><strong>Bloque 6: Variantes (Component Sets)</strong>
+- Concepto de variantes: conjunto de estados o versiones de un mismo componente que se agrupan en un "component set". Equivalente a las variantes de un componente en Angular (prop input <code>variant: 'primary' | 'secondary' | 'outline'</code>).
+- Creación de un component set: seleccionar dos o más componentes relacionados, "Combine as variants".
+- Propiedades de variante: se definen automáticamente como propiedades del component set. Cada variante tendrá un valor para cada propiedad.
+- Ejemplo completo: Button component set con propiedades:
+  - Variant: Primary, Secondary, Outline, Ghost
+  - Size: Small (sm), Medium (md), Large (lg)
+  - State: Default, Hover, Focus, Disabled, Loading
+  - Icon: None, Left, Right
+- Esto genera 4 × 3 × 5 × 3 = 180 variantes teóricas. No es necesario diseñarlas todas manualmente (se pueden derivar con propiedades booleanas para estados como hover), pero el sistema lo permite.
+- Organización visual del component set en el canvas de Figma para mantener la cordura con muchos componentes.</p>
+<p><strong>Bloque 7: Design Tokens</strong>
+- Definición formal de Design Tokens: valores indivisibles que almacenan decisiones de diseño y pueden aplicarse consistentemente a través del sistema. Según la especificación W3C Design Tokens Community Group.
+- Implementación de Design Tokens en Figma con variables: crear todas las variables necesarias (colores, tipografías, espaciados, bordes, sombras) como fuente de verdad única.
+- Mapeo Figma → Código: correspondencia entre:
+  - Variable de color en Figma → <code>--color-*</code> en <code>@theme</code> de Tailwind 4.
+  - Variable de número (spacing) en Figma → <code>--spacing-*</code> en <code>@theme</code>.
+  - Variable de número (font-size) en Figma → <code>--text-*</code> en <code>@theme</code>.
+- Plugins de exportación de tokens: Design Tokens (plugin para exportar JSON), Tailwind CSS (plugin para generar configuración), Tokens Studio for Figma (plugin avanzado para gestionar tokens con soporte para múltiples plataformas de destino: CSS, SCSS, JS, Tailwind, Android, iOS).</p>
+<p><strong>Bloque 8: Sistemas de diseño (Design Systems) en Figma</strong>
+- Qué es un sistema de diseño: colección de componentes reutilizables, guiados por estándares claros, que pueden ensamblarse para construir aplicaciones.
+- Componentes del sistema de diseño en Figma:
+  - Foundations (cimientos): colores, tipografía, espaciado, iconografía, border-radius, sombras, grid. Todo basado en variables.
+  - Components (componentes): botones, inputs, selects, checkboxes, radios, toggles, cards, modals, tooltips, tabs, tables, avatars, badges, etc. Construidos con Auto Layout y organizados en component sets con variantes.
+  - Patterns (patrones): combinaciones de componentes que resuelven necesidades comunes (header con navegación, tabla con filtros y paginación, formulario de búsqueda avanzada).
+  - Pages (pantallas de ejemplo): layouts completos que muestran cómo se combinan los componentes en situaciones reales.
+- Bibliotecas compartidas (Shared Libraries): publicar componentes y estilos como una librería de equipo, accesible desde cualquier archivo de Figma. Los cambios en la librería se propagan a todos los archivos que la usan (con aceptación explícita de actualizaciones para control de versiones).
+- Analogía con el desarrollo: el sistema de diseño en Figma es el equivalente al sistema de diseño en código (componentes Angular + estilos Tailwind). El objetivo de las Unidades 3 y 5 es alinear ambos.</p>
+<p><strong>Bloque 9: Plugins útiles para desarrolladores</strong>
+- Tailwind CSS: convierte selecciones de Figma a clases Tailwind (versión gratuita limitada, de pago completo). Alternativamente, usar el Dev Mode que genera CSS y traducir mentalmente.
+- Iconify: búsqueda e inserción de iconos SVG de más de 150 sets (Material Design, Heroicons, Lucide, Phosphor, etc.) directamente en Figma.
+- Unsplash: inserción de imágenes de stock gratuitas para rellenar diseños de forma realista.
+- Content Reel: generación de contenido placeholder realista (nombres, direcciones, emails, avatares, textos).
+- Stark: herramientas de accesibilidad (simulación de daltonismo, verificación de contraste WCAG, simulación de visión borrosa).
+- Figma to Code (varios plugins): generación de código HTML/CSS/React/Angular desde diseños. Útiles como punto de partida, pero requieren revisión y ajuste manual (no son "mágicos").
+- html.to.design: convierte cualquier página web en un diseño Figma editable (útil para analizar interfaces existentes).</p>
+<p><strong>Bloque 10: Modo desarrollador (Dev Mode) y handoff</strong>
+- Activación y uso del Dev Mode: toggle en la barra superior (o atajo Shift+D).
+- Información disponible en Dev Mode:
+  - Medidas entre elementos seleccionados (distancia, dimensiones).
+  - Código CSS generado automáticamente (con unidades, colores en hex, tipografía en px).
+  - Variables de Figma con sus nombres.
+  - Assets exportables (seleccionar capa → Export → formato y resolución).
+  - Comparación de cambios entre versiones del diseño (diff visual).
+- Configuración de la salida de código: Tailwind (si el plugin está instalado y configurado), CSS, SwiftUI, Compose.
+- Plugins de VS Code para Figma: Figma for VS Code (incrustar diseños en el editor), Figma Embed.
+- Handoff: proceso de transferencia del diseño al desarrollo:
+  - Qué información necesita el desarrollador: medidas exactas, colores, tipografías, assets, comportamiento interactivo (estados: hover, focus, disabled, loading), flujo de navegación (prototipo).
+  - Buenas prácticas del diseñador: nombrar capas semánticamente, agrupar lógicamente, limpiar capas ocultas, anotar decisiones de diseño, proporcionar specs.
+  - Buenas prácticas del desarrollador: revisar el diseño completo antes de empezar a programar, preguntar dudas antes de asumir, verificar medidas y colores en Dev Mode, no adivinar.</p>
+<p><strong>Bloque 11: Figma ↔ Tailwind ↔ Angular: el puente completo</strong>
+- Mapeo semántico: entender que lo que se hace en Figma tiene una traducción directa al código.
+- Tabla de correspondencias:
+  - Color Fill → <code>bg-{color}-{shade}</code> en Tailwind.
+  - Text → componente <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> con clases <code>text-*</code>, <code>font-*</code>.
+  - Auto Layout direction horizontal → <code>class="flex flex-row"</code>.
+  - Auto Layout direction vertical → <code>class="flex flex-col"</code>.
+  - Auto Layout gap → <code>class="gap-{size}"</code>.
+  - Auto Layout padding → <code>class="p-{size}"</code>.
+  - Corner radius → <code>class="rounded-{size}"</code>.
+  - Drop shadow → <code>class="shadow-{size}"</code>.
+  - Component (Figma) → Component (Angular standalone).
+  - Variant property → <code>@Input() variant</code>.
+  - Instance → Uso del componente en un template padre: <code>&lt;app-button variant="primary"&gt;</code>.</p>
+<h2 id="desarrollo-teorico">Desarrollo teórico</h2>
+<h3 id="1-introduccion-a-figma-por-que-es-el-estandar">1. Introducción a Figma: por qué es el estándar</h3>
+<p>Figma irrumpió en 2016 y en menos de cinco años desplazó a herramientas establecidas como Sketch (que dominaba el mercado de diseño UI desde 2010) y Adobe XD (el intento de Adobe por competir). Este desplazamiento no fue casual: Figma resolvió problemas que las herramientas anteriores, por su arquitectura, no podían abordar.</p>
+<p>El primero y más fundamental: <strong>Figma es una aplicación web</strong>. No requiere instalación de software nativo (aunque tiene aplicación de escritorio Electron), funciona en cualquier sistema operativo (Windows, macOS, Linux, ChromeOS), y los archivos se almacenan en la nube y están siempre sincronizados. Cualquier persona con un navegador puede abrir el mismo archivo, desde cualquier ordenador, sin preocuparse de versiones ni compatibilidad.</p>
+<p>El segundo: <strong>colaboración en tiempo real</strong>. Múltiples personas pueden editar el mismo archivo simultáneamente, viendo los cursores de los demás en tiempo real, como Google Docs. Esto transforma las revisiones de diseño: en lugar de exportar PNGs, enviar por email, recibir feedback descontextualizado, implementar cambios, re-exportar, etc., el diseñador y el desarrollador pueden reunirse en el mismo archivo Figma, señalar elementos, hacer cambios en directo y validarlos instantáneamente.</p>
+<p>El tercero: <strong>modo desarrollador integrado</strong>. Figma entiende que sus usuarios no son solo diseñadores. El Dev Mode proporciona a los desarrolladores exactamente lo que necesitan (medidas, colores, código CSS, assets exportables) sin las funcionalidades de diseño que les son irrelevantes. Esta integración ha acortado drásticamente la distancia entre diseño y desarrollo.</p>
+<p>El cuarto: <strong>comunidad y plugins</strong>. Figma Community aloja miles de recursos gratuitos (plantillas, componentes, iconos, sistemas de diseño completos) y plugins que extienden la funcionalidad de la herramienta. Esto permite a equipos pequeños acceder a recursos de nivel profesional sin presupuesto.</p>
+<p>Para los estudiantes de Desarrollo de Interfaces, Figma es la herramienta donde aprenderéis a pensar visualmente, a materializar ideas de interfaz y a comunicaros con diseñadores. Aunque vuestro perfil profesional es más técnico (Angular, TypeScript, Tailwind), la capacidad de entender, inspeccionar e incluso crear diseños en Figma os hará profesionales mucho más completos y valorados.</p>
+<h3 id="2-el-espacio-de-trabajo-de-figma">2. El espacio de trabajo de Figma</h3>
+<p>Al abrir Figma por primera vez, la interfaz puede resultar abrumadora. Vamos a descomponerla en sus partes principales, estableciendo analogías con herramientas que ya conocéis (VS Code, explorador de archivos, etc.).</p>
+<p><strong>La toolbar (barra de herramientas superior)</strong></p>
+<p>Es el equivalente a la barra de herramientas de VS Code, pero en diseño. Contiene:</p>
+<ul>
+<li>
+<p><strong>Herramientas de creación:</strong> Frame (F), Rectangle (R), Line (L), Arrow (Shift+L), Ellipse (O), Polygon, Star, Place image (Ctrl+Shift+K), Pen (P) para dibujo vectorial, Pencil (Shift+P) para dibujo libre, Text (T).</p>
+</li>
+<li>
+<p><strong>Herramientas de manipulación:</strong> Move (V) para seleccionar y mover elementos, Scale (K) para redimensionar proporcionalmente, Slice (S) para definir áreas de exportación.</p>
+</li>
+<li>
+<p><strong>Herramientas de navegación:</strong> Hand (H) para desplazarse por el canvas, Comment (C) para dejar comentarios (estilo Google Docs) en puntos específicos del diseño.</p>
+</li>
+<li>
+<p><strong>Controles contextuales:</strong> Según el elemento seleccionado, la toolbar muestra acciones específicas (Create component, Add auto layout, Mask, Boolean operations, etc.).</p>
+</li>
+<li>
+<p><strong>Toggle Dev Mode:</strong> Interruptor para cambiar entre el modo Diseño (completo, para diseñadores) y el modo Desarrollador (información técnica para implementación).</p>
+</li>
+</ul>
+<p><strong>El panel izquierdo (Layers, Assets, Pages)</strong></p>
+<p>Es el equivalente al explorador de archivos de VS Code + la paleta de componentes de Angular:</p>
+<ul>
+<li>
+<p><strong>Pestaña Layers (Capas):</strong> Muestra la jerarquía de elementos en el canvas, del más externo al más interno. Cada frame, grupo y elemento es una capa. Pueden renombrarse (doble clic), reordenarse (drag &amp; drop), agruparse (Ctrl+G), bloquearse (candado) y ocultarse (ojo). Una nomenclatura semántica y organizada es fundamental para que el desarrollador entienda el diseño (nada de "Rectangle 47" o "Frame 12").</p>
+</li>
+<li>
+<p><strong>Pestaña Assets (Recursos):</strong> Muestra los componentes locales (creados en este archivo) y los componentes de librerías externas habilitadas. Organizados en carpetas y subcarpetas. Es el equivalente al <code>shared/ui/</code> de Angular y a la galería de Storybook. Arrastrar un componente desde Assets al canvas crea una instancia.</p>
+</li>
+<li>
+<p><strong>Pestaña Pages (Páginas):</strong> Cada archivo Figma puede contener múltiples páginas (como pestañas de un navegador). Una organización típica: 🗂️ Cover (portada del proyecto), 🎨 Design Tokens (variables y fundamentos), 🧩 Components (todos los componentes del sistema de diseño), 📱 Screens (pantallas de la aplicación, prototipo).</p>
+</li>
+</ul>
+<p><strong>El canvas (área de trabajo)</strong></p>
+<p>Es el espacio infinito donde se crean los diseños. No tiene bordes (como un canvas de HTML5 o un mapa mental infinito). La navegación se realiza con scroll (zoom) y arrastrando con la rueda del ratón pulsada (pan). Los frames se organizan en el canvas con espacio entre ellos para mantener la claridad visual.</p>
+<p><strong>El panel derecho (propiedades)</strong></p>
+<p>El panel más importante para el trabajo cotidiano. Dividido en tres secciones principales según el modo:</p>
+<p>En <strong>Modo Diseño</strong>:
+- <strong>Design:</strong> Propiedades del elemento seleccionado. Se subdivide en:
+  - <em>Alignment &amp; Distribution</em>: alinear y distribuir elementos seleccionados (equivalente a justify-content + align-items en Flexbox).
+  - <em>Position &amp; Dimensions</em>: coordenadas X/Y, ancho/alto, rotación, radio de esquina, constraints.
+  - <em>Auto Layout</em>: dirección, gap, padding, alignment, resizing, wrap.
+  - <em>Fill &amp; Stroke</em>: colores de relleno (sólido, gradiente, imagen) y trazo (borde).
+  - <em>Effects</em>: sombras (drop, inner), desenfoques (layer, background), texturas.
+  - <em>Export</em>: configuración de exportación para el elemento seleccionado (formato, resolución, sufijo).
+- <strong>Prototype:</strong> Configuración de interacciones para prototipado (al hacer clic en elemento A, navegar al frame B, con animación de transición).
+- <strong>Inspect (en versiones antiguas, ahora Dev Mode):</strong> Información técnica para desarrollo. En la versión actual, esta información se accede desde el Dev Mode.</p>
+<p>En <strong>Modo Desarrollador (Dev Mode)</strong>:
+- Información optimizada para implementación: medidas respecto al frame padre, código CSS/Tailwind, nombres de variables, assets listos para descargar, comparación de cambios.</p>
+<h3 id="3-auto-layout-flexbox-en-figma">3. Auto Layout: Flexbox en Figma</h3>
+<p>Auto Layout es, sin exageración, la funcionalidad más importante de Figma para un desarrollador de interfaces. Comprender Auto Layout es comprender cómo los diseñadores piensan en layouts flexibles, y establecer un puente mental directo entre el diseño visual y el código CSS (Flexbox) o las clases de Tailwind.</p>
+<p><strong>Concepto fundamental</strong></p>
+<p>Auto Layout es un sistema de layout dinámico aplicado a un frame. Cuando activas Auto Layout en un frame (Shift+A), éste deja de ser un contenedor estático y se comporta como un contenedor flex de CSS: sus hijos se organizan automáticamente según la dirección y las reglas de espaciado y alineación definidas. Si cambias el contenido (añades, eliminas o modificas hijos), el contenedor se redimensiona automáticamente según las reglas de resizing.</p>
+<p><strong>Propiedades y equivalencias con Tailwind/CSS</strong></p>
+<table>
+<thead>
+<tr>
+<th>Propiedad en Figma</th>
+<th>Descripción</th>
+<th>Equivalencia CSS</th>
+<th>Clase Tailwind</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direction: Horizontal</td>
+<td>Hijos en fila</td>
+<td><code>flex-direction: row</code></td>
+<td><code>flex flex-row</code> (por defecto)</td>
+</tr>
+<tr>
+<td>Direction: Vertical</td>
+<td>Hijos en columna</td>
+<td><code>flex-direction: column</code></td>
+<td><code>flex flex-col</code></td>
+</tr>
+<tr>
+<td>Gap (horizontal y vertical)</td>
+<td>Espacio entre hijos</td>
+<td><code>gap: {valor}</code></td>
+<td><code>gap-{n}</code></td>
+</tr>
+<tr>
+<td>Padding (top, right, bottom, left)</td>
+<td>Espacio interior</td>
+<td><code>padding: {valor}</code></td>
+<td><code>p-{n}</code>, <code>px-{n}</code>, <code>py-{n}</code>, <code>pt-{n}</code>, etc.</td>
+</tr>
+<tr>
+<td>Alignment: Horizontal</td>
+<td>Alineación en eje X</td>
+<td><code>justify-content</code></td>
+<td><code>justify-start</code>, <code>justify-center</code>, <code>justify-end</code>, <code>justify-between</code></td>
+</tr>
+<tr>
+<td>Alignment: Vertical</td>
+<td>Alineación en eje Y</td>
+<td><code>align-items</code></td>
+<td><code>items-start</code>, <code>items-center</code>, <code>items-end</code>, <code>items-stretch</code></td>
+</tr>
+<tr>
+<td>Hug contents</td>
+<td>Tamaño se adapta al contenido</td>
+<td><code>width: fit-content</code> / <code>height: fit-content</code></td>
+<td><code>w-fit</code>, <code>h-fit</code> (Tailwind 3.2+)</td>
+</tr>
+<tr>
+<td>Fill container</td>
+<td>Se expande hasta llenar contenedor padre</td>
+<td><code>flex: 1</code></td>
+<td><code>flex-1</code></td>
+</tr>
+<tr>
+<td>Fixed</td>
+<td>Tamaño fijo en píxeles</td>
+<td><code>width: Npx</code> / <code>height: Npx</code></td>
+<td><code>w-[Npx]</code>, <code>h-[Npx]</code></td>
+</tr>
+<tr>
+<td>Wrap</td>
+<td>Ajuste de línea</td>
+<td><code>flex-wrap: wrap</code></td>
+<td><code>flex-wrap</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Auto Layout anidado</strong></p>
+<p>La verdadera potencia aparece cuando anidas frames con Auto Layout. Por ejemplo, para construir una Card de una red social:</p>
+<ol>
+<li>Frame exterior (Card) con Auto Layout vertical:</li>
+<li>Padding: 16px todos lados.</li>
+<li>
+<p>Gap: 12px.</p>
+</li>
+<li>
+<p>Frame hijo 1 (Header) con Auto Layout horizontal:</p>
+</li>
+<li>Gap: 8px.</li>
+<li>Contiene: Avatar (frame fixed 40x40, corner radius 100 = círculo) + Frame vertical (Name + Timestamp).</li>
+<li>
+<p>Alignment: center (para alinear avatar y texto verticalmente).</p>
+</li>
+<li>
+<p>Frame hijo 2 (Content) con Auto Layout vertical:</p>
+</li>
+<li>
+<p>Contiene: Texto del post (fill container, multilínea) + Imagen (fixed width: fill container, height: fija).</p>
+</li>
+<li>
+<p>Frame hijo 3 (Actions) con Auto Layout horizontal:</p>
+</li>
+<li>Gap: 24px.</li>
+<li>Contiene: Like button (icono + texto), Comment button (icono + texto), Share button (icono).</li>
+<li>Alignment: space-between (para distribuir acciones).</li>
+</ol>
+<p>Cada nivel de anidamiento de Auto Layout en Figma se traduce en un <code>&lt;div&gt;</code> con clases flex en Tailwind cuando implementemos el componente en Angular. Este es el patrón mental que debéis desarrollar: <strong>ver Auto Layout en Figma y visualizar inmediatamente el HTML + Tailwind correspondiente</strong>.</p>
+<h3 id="4-variables-en-figma-design-tokens-nativos">4. Variables en Figma: Design Tokens nativos</h3>
+<p>Las variables de Figma, introducidas en 2023, representan la adopción formal de los Design Tokens dentro de la herramienta de diseño. Antes de las variables, los diseñadores usaban "Styles" (estilos de color, texto, efectos) que eran reutilizables pero tenían limitaciones importantes: no soportaban modos (light/dark), no podían referenciarse entre sí, y no se podían exportar fácilmente a código.</p>
+<p><strong>Tipos de variables</strong></p>
+<ol>
+<li>
+<p><strong>Color:</strong> El más común. Define valores de color que pueden usarse como relleno (fill), trazo (stroke) o efecto (sombra). Ejemplos: <code>color-primary-500: #3B82F6</code>, <code>color-neutral-100: #F1F5F9</code>.</p>
+</li>
+<li>
+<p><strong>Number:</strong> Valores numéricos que pueden usarse para dimensiones (width, height), espaciado (padding, gap), border-radius, corner radius, opacidad u otros valores numéricos. Ejemplos: <code>spacing-sm: 8</code>, <code>radius-md: 12</code>, <code>fontSize-lg: 18</code>.</p>
+</li>
+<li>
+<p><strong>String:</strong> Cadenas de texto reutilizables. Útil para nombres de fuentes (<code>fontFamily-sans: 'Inter'</code>) o cualquier metadata textual.</p>
+</li>
+<li>
+<p><strong>Boolean:</strong> Valores verdadero/falso. Útil para propiedades de componentes (mostrar icono sí/no, mostrar borde sí/no).</p>
+</li>
+</ol>
+<p><strong>Colecciones</strong></p>
+<p>Las variables se organizan en colecciones (collections). Una colección agrupa variables relacionadas y, crucialmente, comparte los mismos modos. Una organización profesional típica:</p>
+<ul>
+<li><strong>Colección "Colors":</strong> Todas las variables de color. Modos: Light, Dark, High Contrast.</li>
+<li><strong>Colección "Spacing":</strong> Todas las variables de espaciado. Modos: Desktop, Mobile (móvil puede tener espaciados más compactos).</li>
+<li><strong>Colección "Typography":</strong> Variables de familia tipográfica, tamaños, pesos. Modos: Desktop, Mobile.</li>
+<li><strong>Colección "Radius":</strong> Variables de border-radius. Modos: Default.</li>
+<li><strong>Colección "Effects":</strong> Variables de sombras y desenfoques. Modos: Light, Dark (las sombras se comportan diferente en modo oscuro).</li>
+</ul>
+<p><strong>Modos</strong></p>
+<p>Los modos son la clave para temas (light/dark) y adaptaciones multiplataforma. Una variable <code>color/bg-default</code> puede tener valor <code>#FFFFFF</code> en modo Light y <code>#1E293B</code> en modo Dark. Al cambiar el modo del frame, todos los elementos que usen variables se actualizan automáticamente. Este es exactamente el mismo concepto que las variables CSS con <code>prefers-color-scheme</code> o la estrategia <code>class</code> de Tailwind con el prefijo <code>dark:</code>.</p>
+<p><strong>Vinculación entre variables</strong></p>
+<p>Una variable puede hacer referencia a otra variable (aliasing). Esto permite crear capas de abstracción:</p>
+<ul>
+<li>Nivel 1 - Primitivas: <code>slate-500: #64748B</code></li>
+<li>Nivel 2 - Semánticas: <code>color-text-secondary</code> hace referencia a <code>slate-500</code></li>
+<li>Nivel 3 - Componentes: El color de texto secundario de un componente <code>Input</code> hace referencia a <code>color-text-secondary</code></li>
+</ul>
+<p>Si en el futuro se decide cambiar el gris del texto secundario, solo hay que modificar la variable semántica (o la primitiva que ésta referencia), y todos los componentes se actualizan automáticamente. Esto es exactamente lo mismo que haremos en Tailwind con <code>@theme</code>, donde definimos <code>--color-text-secondary: var(--color-slate-500)</code>.</p>
+<h3 id="5-componentes-en-figma-del-diseno-al-codigo">5. Componentes en Figma: del diseño al código</h3>
+<p>Los componentes en Figma son el equivalente a los componentes en Angular/React/Vue: elementos reutilizables y autocontenidos con propiedades configurables y variantes predefinidas. Dominar los componentes de Figma os permitirá entender cómo piensan los diseñadores, y os facilitará la implementación posterior (cada componente de Figma se convertirá en un componente de Angular).</p>
+<p><strong>Creación de un componente</strong></p>
+<ol>
+<li>Diseña el elemento con todas sus capas (textos, rectángulos, iconos, Auto Layouts).</li>
+<li>Selecciona todo.</li>
+<li>Pulsa Ctrl+Alt+K (Windows/Linux) o Cmd+Option+K (macOS), o haz clic en "Create component" en la toolbar.</li>
+<li>El elemento se convierte en un componente (master), indicado por un icono de rombo púrpura en el panel de capas.</li>
+<li>Nómbralo adecuadamente (ej: <code>Button / Primary / Default</code>).</li>
+</ol>
+<p><strong>Instancias</strong></p>
+<p>Cuando arrastras un componente desde el panel Assets al canvas, creas una instancia (copia vinculada al master). Las instancias tienen un icono de rombo hueco. Puedes modificar ciertas propiedades de la instancia (si el componente las ha definido como propiedades), pero no su estructura interna (a menos que hagas "Detach instance" que la rompe la vinculación, algo que debería evitarse en el flujo normal).</p>
+<p><strong>Propiedades de componente</strong></p>
+<p>Las propiedades permiten configurar las instancias sin romper el vínculo con el master:</p>
+<ul>
+<li>
+<p><strong>Propiedad de texto:</strong> Define capas de texto como editables en las instancias. Por ejemplo, un botón con texto "Label" editable. El diseñador que usa la instancia puede cambiar "Label" por "Guardar cambios" sin desvincular.</p>
+</li>
+<li>
+<p><strong>Propiedad booleana (toggle):</strong> Muestra u oculta capas. Ejemplo: un botón con un icono opcional. La instancia puede mostrar u ocultar el icono mediante un toggle en el panel de propiedades.</p>
+</li>
+<li>
+<p><strong>Propiedad de intercambio de instancia (instance swap):</strong> Permite reemplazar un componente hijo por otro del mismo conjunto. Ejemplo: un botón con icono permite intercambiar el icono (de "check" a "arrow-right" a "plus") siempre que todos los iconos sean parte del mismo component set.</p>
+</li>
+<li>
+<p><strong>Propiedad de variante:</strong> Si el componente pertenece a un component set (ver siguiente sección), la instancia expone la selección de variante.</p>
+</li>
+</ul>
+<p><strong>Buenas prácticas en componentes Figma</strong></p>
+<ol>
+<li>
+<p><strong>Nombre semántico y jerárquico:</strong> Usa la barra <code>/</code> para crear jerarquía: <code>Button / Primary / Default</code>, <code>Input / Text / Default</code>, <code>Card / Vertical / With Image</code>. Esto se refleja en el panel Assets como carpetas anidadas.</p>
+</li>
+<li>
+<p><strong>Añade descripción:</strong> En el panel de propiedades del componente master, hay un campo "Description". Documenta qué hace el componente, cuándo usarlo y cualquier consideración relevante. Esta descripción es visible para cualquiera que seleccione una instancia.</p>
+</li>
+<li>
+<p><strong>Auto Layout desde el principio:</strong> Todos los componentes deben usar Auto Layout para que las instancias se redimensionen correctamente al cambiar contenido.</p>
+</li>
+<li>
+<p><strong>Diseña con contenido realista:</strong> No uses "Lorem ipsum" o textos placeholder irreales. Usa contenido que refleje casos de uso reales (nombres reales, emails realistas, textos de longitud típica). Esto evita sorpresas cuando el componente se use con contenido real (textos que se desbordan, nombres demasiado largos, etc.).</p>
+</li>
+</ol>
+<h3 id="6-variantes-component-sets-todos-los-estados-de-un-componente">6. Variantes (Component Sets): todos los estados de un componente</h3>
+<p>Un component set es una agrupación de componentes relacionados que comparten las mismas propiedades pero con diferentes valores. Es la forma que tiene Figma de modelar lo que en código llamaríamos "variantes" o "estados" de un componente.</p>
+<p><strong>Creación de un component set</strong></p>
+<ol>
+<li>Crea varias variantes de un mismo componente (por ejemplo: Button Primary, Button Secondary, Button Outline).</li>
+<li>Selecciona todas ellas.</li>
+<li>Haz clic en "Combine as variants" en la toolbar (o Ctrl+Alt+K sobre la selección múltiple).</li>
+<li>Figma las agrupa en un component set (indicado por un recuadro púrpura). Cada miembro del set es ahora una variante.</li>
+</ol>
+<p><strong>Propiedades de variante</strong></p>
+<p>Figma crea automáticamente una propiedad de variante basada en las diferencias entre los componentes originales. Si los componentes se llamaban <code>Button/Primary</code>, <code>Button/Secondary</code>, <code>Button/Outline</code>, la propiedad se llamará "Property 1" (puedes renombrarla a "Variant") y tendrá los valores Primary, Secondary, Outline.</p>
+<p>Puedes añadir múltiples propiedades de variante. Por ejemplo, para un Button con Variant × Size × State, crearías las combinaciones necesarias y las nombrarías adecuadamente. Figma detecta los patrones y crea las propiedades correspondientes.</p>
+<p><strong>Ejemplo completo: Component Set de Input</strong></p>
+<p>Propiedades:
+- <strong>Variant:</strong> Default (borde gris), Filled (fondo gris claro), Outline (sin fondo, borde azul).
+- <strong>Size:</strong> Small (height: 32px), Medium (height: 40px), Large (height: 48px).
+- <strong>State:</strong> Default, Hover (borde azul), Focus (borde azul + ring), Disabled (opacity 50%, cursor not-allowed), Error (borde rojo, texto de error debajo), Success (borde verde, check icon).
+- <strong>Element:</strong> None, Leading Icon (icono a la izquierda), Trailing Icon (icono a la derecha), Both Icons.
+- <strong>Type:</strong> Text, Password, Email, Number, Textarea (este es problemático porque cambia la estructura; a veces es mejor separarlo como componente diferente).</p>
+<p>Organizar tantas variantes visualmente en el canvas puede ser complejo. Figma permite reorganizar las variantes en una cuadrícula (arrastrando los divisores de propiedades). Para un set con propiedades A y B, se organiza como una cuadrícula 2D: filas = valores de A, columnas = valores de B.</p>
+<p><strong>Traducción a Angular</strong></p>
+<p>Cada propiedad de variante en Figma se convertirá en un <code>@Input()</code> en Angular. Por ejemplo:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">@Component</span><span class="p">({</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'app-input'</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nx">standalone</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">})</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">InputComponent</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">variant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="o">&lt;</span><span class="s1">'default'</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">'filled'</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">'outline'</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">'default'</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="o">&lt;</span><span class="s1">'sm'</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">'md'</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">'lg'</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">'md'</span><span class="p">);</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="o">&lt;</span><span class="s1">'default'</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">'error'</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">'success'</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">'default'</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">leadingIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="o">&lt;</span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">undefined</span><span class="p">);</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">trailingIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="o">&lt;</span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">undefined</span><span class="p">);</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="o">&lt;</span><span class="s1">'text'</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">'password'</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">'email'</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">'number'</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">'text'</span><span class="p">);</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Y las variantes visuales de Figma (colores, bordes, tamaños) se traducirán a clases condicionales de Tailwind en el template, de forma similar a como hicimos con el componente Button en la Unidad 2.</p>
+<h3 id="7-design-tokens-concretando-los-atomos-del-diseno">7. Design Tokens: concretando los átomos del diseño</h3>
+<p>Los Design Tokens son la capa más fundamental de un sistema de diseño: los valores indivisibles que almacenan todas las decisiones de diseño. Colores, tipografías, espaciados, bordes, sombras... todo se define como tokens y se consume consistentemente a través de componentes y pantallas.</p>
+<p><strong>Jerarquía de tokens</strong></p>
+<p>La especificación W3C Design Tokens Community Group (aún en desarrollo) propone tres niveles de tokens:</p>
+<ol>
+<li>
+<p><strong>Tokens primitivos (global tokens):</strong> Los valores base, sin significado semántico. Ejemplo: <code>blue-500: #3B82F6</code>. Estos tokens definen "qué colores están disponibles en la paleta" pero no "dónde deben usarse".</p>
+</li>
+<li>
+<p><strong>Tokens semánticos (alias tokens):</strong> Apuntan a tokens primitivos pero añaden significado. Ejemplo: <code>color-action-primary-default: {blue-500}</code>. Definen "el color de la acción primaria", no "el azul concreto". Si mañana la marca cambia el azul por un verde, se modifica el token semántico y todo el sistema se actualiza.</p>
+</li>
+<li>
+<p><strong>Tokens de componente:</strong> Apuntan a tokens semánticos para contextos específicos. Ejemplo: <code>button-primary-background-default: {color-action-primary-default}</code>. Añaden una capa extra de abstracción que permite variaciones por componente (el botón primary usa el color action-primary, pero el enlace primary podría usar un color diferente).</p>
+</li>
+</ol>
+<p><strong>Implementación en Figma con variables</strong></p>
+<p>En Figma, esta jerarquía se implementa con variables y vinculación:</p>
+<ul>
+<li>
+<p><strong>Colección "Primitives":</strong> Todas las variables de color base (slate-50 a slate-950, blue-50 a blue-950, green-50 a green-950, red-50 a red-950, etc.). Sin modos (o modos light/dark que cambian los valores hex).</p>
+</li>
+<li>
+<p><strong>Colección "Semantic":</strong> Variables como <code>color-bg-primary</code>, <code>color-bg-secondary</code>, <code>color-text-primary</code>, <code>color-text-secondary</code>, <code>color-border-default</code>, <code>color-action-primary</code>, <code>color-status-success</code>, etc. Cada una referencia a una variable de la colección Primitives. Esta colección sí tiene modos light/dark: en light, <code>color-bg-primary</code> apunta a <code>white</code>; en dark, apunta a <code>slate-900</code>.</p>
+</li>
+<li>
+<p><strong>Colección "Component":</strong> (Opcional para sistemas grandes) Variables como <code>button-primary-bg-default</code>, <code>button-primary-bg-hover</code>, <code>input-border-default</code>, etc. Referencian a la colección Semantic.</p>
+</li>
+</ul>
+<p><strong>Del token de Figma al <code>@theme</code> de Tailwind</strong></p>
+<p>La traducción es directa porque Tailwind 4 soporta la definición de tokens personalizados:</p>
+<div class="language-css highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c">/* styles.css de Angular con Tailwind 4 */</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">"tailwindcss"</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">@</span><span class="k">theme</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="c">/* Tokens primitivos (paleta de colores) */</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">--color-slate-50</span><span class="o">:</span><span class="w"> </span><span class="p">#</span><span class="nn">f8fafc</span><span class="o">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">--color-slate-100</span><span class="o">:</span><span class="w"> </span><span class="p">#</span><span class="nn">f1f5f9</span><span class="o">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="c">/* ... resto de tonos */</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nt">--color-slate-900</span><span class="o">:</span><span class="w"> </span><span class="p">#</span><span class="nn">0f172a</span><span class="o">;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nt">--color-blue-500</span><span class="o">:</span><span class="w"> </span><span class="p">#</span><span class="nn">3b82f6</span><span class="o">;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nt">--color-blue-600</span><span class="o">:</span><span class="w"> </span><span class="p">#</span><span class="nn">2563eb</span><span class="o">;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nt">--color-blue-700</span><span class="o">:</span><span class="w"> </span><span class="p">#</span><span class="nn">1d4ed8</span><span class="o">;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="c">/* Tokens semánticos (significado funcional) */</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="nt">--color-primary</span><span class="o">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-blue-600</span><span class="o">);</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="nt">--color-primary-hover</span><span class="o">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-blue-700</span><span class="o">);</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="nt">--color-primary-light</span><span class="o">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-blue-500</span><span class="o">);</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="nt">--color-bg</span><span class="o">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-white</span><span class="o">);</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="nt">--color-bg-secondary</span><span class="o">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-slate-50</span><span class="o">);</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">  </span><span class="nt">--color-text</span><span class="o">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-slate-900</span><span class="o">);</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">  </span><span class="nt">--color-text-secondary</span><span class="o">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-slate-500</span><span class="o">);</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">  </span><span class="nt">--color-border</span><span class="o">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-slate-200</span><span class="o">);</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">  </span><span class="c">/* Tokens de espaciado */</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">  </span><span class="nt">--spacing-section</span><span class="o">:</span><span class="w"> </span><span class="nt">2rem</span><span class="o">;</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">  </span><span class="nt">--spacing-component</span><span class="o">:</span><span class="w"> </span><span class="nt">1rem</span><span class="o">;</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">  </span><span class="nt">--spacing-element</span><span class="o">:</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">5rem</span><span class="o">;</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">  </span><span class="c">/* Tokens de tipografía */</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">  </span><span class="nt">--text-xs</span><span class="o">:</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">75rem</span><span class="o">;</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">  </span><span class="nt">--text-sm</span><span class="o">:</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">875rem</span><span class="o">;</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">  </span><span class="nt">--text-base</span><span class="o">:</span><span class="w"> </span><span class="nt">1rem</span><span class="o">;</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">  </span><span class="nt">--text-lg</span><span class="o">:</span><span class="w"> </span><span class="nt">1</span><span class="p">.</span><span class="nc">125rem</span><span class="o">;</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">  </span><span class="nt">--text-xl</span><span class="o">:</span><span class="w"> </span><span class="nt">1</span><span class="p">.</span><span class="nc">25rem</span><span class="o">;</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">  </span><span class="nt">--text-2xl</span><span class="o">:</span><span class="w"> </span><span class="nt">1</span><span class="p">.</span><span class="nc">5rem</span><span class="o">;</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">  </span><span class="nt">--text-3xl</span><span class="o">:</span><span class="w"> </span><span class="nt">1</span><span class="p">.</span><span class="nc">875rem</span><span class="o">;</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">  </span><span class="c">/* Tokens de border-radius */</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">  </span><span class="nt">--radius-sm</span><span class="o">:</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">25rem</span><span class="o">;</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">  </span><span class="nt">--radius-md</span><span class="o">:</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">5rem</span><span class="o">;</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">  </span><span class="nt">--radius-lg</span><span class="o">:</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">75rem</span><span class="o">;</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">  </span><span class="nt">--radius-xl</span><span class="o">:</span><span class="w"> </span><span class="nt">1rem</span><span class="o">;</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">  </span><span class="nt">--radius-full</span><span class="o">:</span><span class="w"> </span><span class="nt">9999px</span><span class="o">;</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Una vez definidos, se usan en los componentes con las clases Tailwind personalizadas: <code>bg-primary</code>, <code>text-text-secondary</code>, <code>rounded-lg</code>, <code>gap-element</code>, <code>text-xl</code>. Esto garantiza que cualquier cambio en los tokens se propaga automáticamente a todos los componentes que los utilizan. Un cambio de diseño que en CSS tradicional requeriría buscar y reemplazar en docenas de archivos, aquí se resuelve modificando una línea en el <code>@theme</code>.</p>
+<h3 id="8-sistemas-de-diseno-en-figma-el-blueprint-de-la-interfaz">8. Sistemas de diseño en Figma: el blueprint de la interfaz</h3>
+<p>Un sistema de diseño completo en Figma es la culminación de todo lo aprendido: variables (design tokens), componentes con variantes, Auto Layouts anidados, páginas organizadas y librerías compartidas. Vamos a definir la estructura de un sistema de diseño profesional adaptado a proyectos de Desarrollo de Interfaces.</p>
+<p><strong>Estructura de páginas en el archivo Figma del sistema de diseño</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>📁 Design System - [Nombre del proyecto]
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── 📄 Cover                    (portada, nombre, versión, fecha, autores)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── 📄 Foundations               (cimientos del sistema)
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   ├── 🎨 Colors               (paletas con variables)
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   ├── 🔤 Typography           (escala tipográfica con variables)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│   ├── 📏 Spacing              (escala de espaciado con variables)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│   ├── 🔲 Radius &amp; Shadows     (border-radius y sombras con variables)
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│   └── 🖼️ Iconography          (set de iconos, grid de iconos)
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>├── 📄 Components                (todos los componentes del sistema)
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│   ├── 🔘 Buttons              (component set con variantes)
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│   ├── ✏️ Inputs               (component set con variantes)
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│   ├── ☑️ Checkboxes &amp; Radios  (component set con variantes)
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│   ├── 🔘 Toggles              (component set)
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│   ├── ⬇️ Selects &amp; Dropdowns  (component set)
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│   ├── 🃏 Cards                (component set: horizontal, vertical, con imagen,
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>│   │                            sin imagen, actionable, non-actionable)
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>│   ├── 🧭 Navigation           (navbar, sidebar, tabs, breadcrumbs)
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│   ├── 📊 Data Display         (tables, data grids, lists, avatars, badges,
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>│   │                            chips, tooltips)
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>│   ├── 🪟 Overlays             (modals, dialogs, drawers, popovers)
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>│   └── 📄 Feedback             (alerts, toasts, progress bars, skeletons,
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>│                                empty states)
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>├── 📄 Patterns                  (combinaciones frecuentes de componentes)
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>│   ├── 🔍 Search &amp; Filter      (barra de búsqueda + filtros + resultados)
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>│   ├── 📝 Forms                (formularios complejos con validación)
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>│   ├── 📊 Dashboard Widgets    (widgets con gráficos, KPIs, tablas)
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>│   └── 📧 Inbox / Feed         (listados con búsqueda, filtros, paginación)
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>├── 📄 Screens                   (pantallas completas de la aplicación)
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>│   ├── 🔐 Auth                 (login, registro, recuperación, verificación)
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>│   ├── 🏠 Dashboard            (dashboard principal)
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>│   ├── 📋 List + Detail        (pantalla de listado + detalle)
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>│   └── ⚙️ Settings             (pantalla de configuración)
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>└── 📄 Prototype                 (prototipo interactivo conectando pantallas)
+</span></code></pre></div>
+<p>Esta estructura no es dogmática; cada equipo la adapta a sus necesidades. Pero proporciona una base sólida y profesional que comunica profesionalidad y rigor, tanto al equipo de diseño como al de desarrollo.</p>
+<p><strong>Bibliotecas compartidas (Shared Libraries)</strong></p>
+<p>En equipos con múltiples proyectos, los componentes y estilos se publican como una librería compartida. Cualquier archivo Figma puede "suscribirse" a esa librería, obteniendo acceso a todos sus componentes y estilos. Cuando el equipo de diseño central actualiza un componente en la librería, todos los archivos que la usan reciben una notificación de actualización disponible. El diseñador de cada proyecto puede aceptar la actualización (manteniendo sus archivos sincronizados) o posponerla.</p>
+<p>Esto resuelve el clásico problema de "tenemos componentes inconsistentes en diferentes partes del producto". En código, el equivalente es publicar una librería npm con los componentes Angular y que cada aplicación la importe. De hecho, el sistema de diseño profesional completo une Figma (librerías compartidas de diseño), Angular (librería npm de componentes), Tailwind (tema compartido) y Storybook (catálogo vivo de componentes implementados) en un ecosistema coherente.</p>
+<h3 id="9-plugins-para-el-flujo-de-trabajo-diseno-desarrollo">9. Plugins para el flujo de trabajo diseño-desarrollo</h3>
+<p>Los plugins son extensiones que añaden funcionalidad a Figma. Se instalan desde Figma Community (accesible desde el menú principal → Plugins → Browse plugins). Los más relevantes para desarrolladores de interfaces son:</p>
+<p><strong>Tailwind CSS (plugin de Figma):</strong> Convierte elementos seleccionados a clases Tailwind. Seleccionas un botón, ejecutas el plugin, y genera algo como <code>class="bg-blue-500 text-white px-4 py-2 rounded-lg"</code>. La versión gratuita tiene limitaciones; la versión de pago es más completa. Alternativa: usar el Dev Mode que genera CSS y traducir manualmente (buen ejercicio para aprender las equivalencias).</p>
+<p><strong>Iconify:</strong> Accede a más de 150 sets de iconos (Material Design, Heroicons, Lucide, Phosphor, Tabler, Font Awesome, etc.) y los inserta como SVG vectoriales en Figma. Buscas "search", eliges el estilo, y se inserta en tu diseño. En desarrollo, usarás la versión web/React/Angular de Iconify o directamente Heroicons/Lucide.</p>
+<p><strong>Stark:</strong> Herramientas de accesibilidad integradas en Figma:
+- Contraste: selecciona dos elementos (texto y fondo) y verifica si cumplen WCAG AA (ratio &gt;= 4.5) o AAA (ratio &gt;= 7).
+- Daltonismo: simula cómo ve el diseño una persona con deuteranopia, protanopia, tritanopia.
+- Visión borrosa: simula diferentes niveles de agudeza visual.
+- Recomendaciones: sugiere colores alternativos que sí cumplen contraste.</p>
+<p><strong>Content Reel:</strong> Genera contenido placeholder realista para poblar tus diseños: nombres de persona, emails, direcciones, números de teléfono, avatares, textos. Mucho más profesional que "Lorem ipsum" o "John Doe".</p>
+<p><strong>Unsplash:</strong> Inserta imágenes de stock gratuitas y de alta calidad directamente en Figma. Útil para dar realismo a tarjetas de producto, avatares de usuario, imágenes de fondo, etc.</p>
+<p><strong>Design Tokens (plugin):</strong> Exporta todas las variables de Figma (o los estilos, en su defecto) a un archivo JSON estructurado. Este JSON puede ser utilizado por herramientas como Style Dictionary (de Amazon) para generar archivos de tokens en múltiples formatos (CSS, SCSS, JS, Android XML, iOS Swift, etc.). Es el puente automatizado entre las variables de Figma y el código.</p>
+<p><strong>Tokens Studio for Figma (plugin avanzado):</strong> Gestiona de forma integral los design tokens: múltiples sets de tokens (global, semantic, component), modos (themes), integración con GitHub (versionado de tokens como archivos JSON), exportación a múltiples plataformas (CSS, Tailwind, SCSS, JS, Android, iOS). Es utilizado en sistemas de diseño grandes y profesionales.</p>
+<h3 id="10-dev-mode-y-handoff-entregar-el-diseno-a-desarrollo">10. Dev Mode y Handoff: entregar el diseño a desarrollo</h3>
+<p>El momento del handoff (entrega del diseño al desarrollo) es crítico. Una mala comunicación en este punto genera malentendidos, implementaciones incorrectas, retrabajo, frustración en ambos equipos y, en última instancia, un producto que no coincide con la visión de diseño.</p>
+<p><strong>Figma Dev Mode</strong></p>
+<p>Accesible como toggle en la barra superior (o Shift+D), transforma la interfaz de Figma para mostrar solo la información relevante para implementación:</p>
+<ul>
+<li>
+<p><strong>Medidas:</strong> Al seleccionar un elemento, Dev Mode muestra sus dimensiones (width × height) y las distancias a los bordes del frame padre o a otros elementos. Pasar el cursor entre elementos muestra la distancia entre ellos.</p>
+</li>
+<li>
+<p><strong>Código sugerido:</strong> Basado en tu configuración de lenguaje (CSS, Tailwind, SwiftUI, Compose, etc.), Figma genera fragmentos de código. Para CSS, muestra las propiedades relevantes. Para Tailwind, las clases necesarias. No es perfecto pero acelera significativamente.</p>
+</li>
+<li>
+<p><strong>Variables:</strong> Muestra los nombres de las variables utilizadas y sus valores actuales en el modo activo.</p>
+</li>
+<li>
+<p><strong>Assets:</strong> Panel que lista todos los elementos exportables en la selección actual. Permite descargar en SVG, PNG, JPG, PDF con diferentes resoluciones (@1x, @2x, @3x).</p>
+</li>
+<li>
+<p><strong>Comparación de versiones:</strong> Si un compañero modificó el diseño, Dev Mode resalta qué ha cambiado (nuevos elementos, modificados, eliminados). El desarrollador puede ver exactamente qué debe actualizar en el código.</p>
+</li>
+<li>
+<p><strong>Plugins de sección:</strong> El diseñador puede añadir plugins informativos en secciones específicas del diseño (anotaciones sobre comportamiento, enlaces a documentación, especificaciones de API). Es un "Post-it digital" incrustado en el diseño.</p>
+</li>
+</ul>
+<p><strong>Handoff: mejores prácticas</strong></p>
+<p><strong>Responsabilidades del diseñador:</strong></p>
+<ol>
+<li>Nombrar capas semánticamente. "Rectangle 47" no comunica nada; "ButtonBackground" sí.</li>
+<li>Eliminar capas ocultas antes del handoff. Las capas ocultas confunden al desarrollador (¿esto se usa o no?).</li>
+<li>Proporcionar todas las variantes y estados. El desarrollador necesita ver el componente en default, hover, focus, disabled, error, loading. Si no están en Figma, el desarrollador adivinará (y probablemente se equivocará).</li>
+<li>Añadir anotaciones sobre comportamiento interactivo: "Este tooltip aparece al hacer hover después de 300ms", "Esta tabla ordena al hacer clic en el header", "El modal se cierra con Escape o clic fuera".</li>
+<li>Crear un prototipo navegable que conecte las pantallas principales, para que el desarrollador entienda el flujo de la aplicación.</li>
+<li>Mantener actualizado el diseño. Si se toma una decisión de diseño en una conversación de Slack, debe reflejarse en Figma. Figma es la fuente de verdad única; si no está en Figma, no existe.</li>
+</ol>
+<p><strong>Responsabilidades del desarrollador:</strong></p>
+<ol>
+<li>Revisar el diseño completo ANTES de empezar a programar. Identificar dudas, inconsistencias o elementos faltantes y comunicarlos al diseñador.</li>
+<li>Preguntar, no asumir. "No vi el estado de error del formulario, ¿cómo debe verse?" es mejor que implementar algo inventado.</li>
+<li>Inspeccionar, no adivinar. "A ojo, ese padding parece de 16px" → No. Usa Dev Mode, mide exactamente.</li>
+<li>Informar de limitaciones técnicas. Si un efecto de diseño es extremadamente costoso en rendimiento, comunícalo. Propón alternativas. El diseñador no siempre conoce las implicaciones técnicas de sus decisiones.</li>
+<li>Mantener Storybook sincronizado con Figma. Cuando implementes un componente, sus stories deben reflejar fielmente las variantes diseñadas en Figma. Si el diseñador puede validar el componente en Storybook comparándolo con el diseño en Figma, el ciclo de feedback se cierra de forma eficiente.</li>
+</ol>
+<h2 id="ejemplos-guiados">Ejemplos guiados</h2>
+<h3 id="ejemplo-guiado-1-disenar-un-boton-con-todas-sus-variantes">Ejemplo guiado 1: Diseñar un botón con todas sus variantes</h3>
+<p><strong>Objetivo:</strong> Crear un component set completo de Button en Figma utilizando Auto Layout, variables de color y propiedades de componente. Este es el "Hola Mundo" del diseño de componentes y sienta las bases para todo lo demás.</p>
+<p><strong>Duración estimada:</strong> 50 minutos (guiado paso a paso, el alumnado sigue en sus equipos).</p>
+<p><strong>Desarrollo paso a paso:</strong></p>
+<p><strong>Paso 1 - Configurar las variables de color (si no están creadas):</strong>
+1. Abrir el panel de Variables (o el panel Local variables en el lateral derecho, según la versión de Figma).
+2. Crear colección "Primitives" con modos "Light".
+3. Añadir variables: <code>blue-500 (#3B82F6)</code>, <code>blue-600 (#2563EB)</code>, <code>blue-700 (#1D4ED8)</code>, <code>white (#FFFFFF)</code>, <code>slate-200 (#E2E8F0)</code>, <code>slate-400 (#94A3B8)</code>, <code>transparent</code>.</p>
+<p><strong>Paso 2 - Diseñar la variante Primary / Default:</strong>
+1. Crear un frame (F) de dimensiones arbitrarias (luego se ajustará).
+2. Añadir Auto Layout (Shift+A): horizontal, gap 8px, padding 16px top/bottom, 20px left/right, alineación center.
+3. Fill: usar variable <code>blue-600</code>. Stroke: none.
+4. Añadir capa de texto (T): "Button", font Inter, weight Semibold, size 14px (equivale a <code>text-sm</code>), line height 20px, fill white.
+5. Corner radius: 8px (<code>rounded-lg</code>).
+6. Renombrar el frame a "Button / Primary / Default".</p>
+<p><strong>Paso 3 - Crear variante Secondary / Default:</strong>
+1. Duplicar (Ctrl+D) el frame Primary.
+2. Cambiar fill a <code>slate-200</code> y texto a <code>slate-900</code> (o <code>blue-600</code> según preferencia de diseño).
+3. Renombrar a "Button / Secondary / Default".</p>
+<p><strong>Paso 4 - Crear variante Outline / Default:</strong>
+1. Duplicar Primary.
+2. Quitar fill. Añadir stroke: 1.5px, color <code>blue-600</code>. Texto: <code>blue-600</code>.
+3. Renombrar a "Button / Outline / Default".</p>
+<p><strong>Paso 5 - Crear variante Ghost / Default:</strong>
+1. Duplicar Primary.
+2. Fill: <code>transparent</code>. Texto: <code>blue-600</code>. Stroke none.
+3. Renombrar a "Button / Ghost / Default".</p>
+<p><strong>Paso 6 - Crear variantes de hover para cada una:</strong>
+Para cada variante, duplicar y modificar el estado hover:
+- Primary Hover: fill <code>blue-700</code>.
+- Secondary Hover: fill <code>slate-400</code>.
+- Outline Hover: fill <code>blue-600</code>, texto <code>white</code>.
+- Ghost Hover: fill <code>blue-600</code> con opacidad 10% (o variable específica).</p>
+<p><strong>Paso 7 - Crear variantes de tamaño:</strong>
+Duplicar cada variante Default y ajustar padding:
+- Small (sm): padding 8px top/bottom, 12px left/right, texto 12px.
+- Medium (md): padding 12px top/bottom, 16px left/right, texto 14px (este es el que ya tenemos, renombrar para claridad).
+- Large (lg): padding 16px top/bottom, 24px left/right, texto 16px.</p>
+<p>Nombrar en consecuencia: <code>Button / Primary / Small / Default</code>, <code>Button / Primary / Large / Default</code>, etc.</p>
+<p><strong>Paso 8 - Crear variantes con icono:</strong>
+Duplicar algunas variantes Default, añadir un icono (Insert → Iconify → search icon "arrow-right"), posicionarlo a la izquierda del texto mediante Auto Layout. Añadir propiedad booleana "Has Left Icon" o crear como variante adicional.</p>
+<p><strong>Paso 9 - Crear variante Disabled y Loading:</strong>
+- Disabled: opacity 50%, fill <code>slate-200</code>, texto <code>slate-400</code>.
+- Loading: añadir un spinner SVG junto al texto "Loading...". (Puede insertarse desde Iconify → "spinner").</p>
+<p><strong>Paso 10 - Combinar en Component Set:</strong>
+1. Seleccionar TODAS las variantes creadas.
+2. Click derecho → "Combine as variants" (o desde la toolbar).
+3. Figma crea automáticamente las propiedades de variante. Renombrar las propiedades: "Variant", "Size", "State", "Icon".
+4. Organizar la cuadrícula de variantes arrastrando los divisores de propiedad.</p>
+<p><strong>Resultado:</strong> Un component set profesional con 4 variantes × 3 tamaños × 5 estados × 2 configuraciones de icono = 120 combinaciones, listo para ser usado en cualquier diseño y, posteriormente, implementado como componente Angular.</p>
+<h3 id="ejemplo-guiado-2-crear-un-sistema-de-colores-y-tipografia-con-variables">Ejemplo guiado 2: Crear un sistema de colores y tipografía con variables</h3>
+<p><strong>Objetivo:</strong> Crear las variables de diseño fundamentales (colores y tipografía) que servirán como base para todos los componentes del sistema de diseño.</p>
+<p><strong>Duración:</strong> 30 minutos.</p>
+<p><strong>Desarrollo paso a paso:</strong></p>
+<p><strong>Parte A - Sistema de colores:</strong></p>
+<ol>
+<li>
+<p>Crear colección "Primitives/Colors" con modos: Light, Dark.</p>
+</li>
+<li>
+<p>Rellenar la colección con la paleta Slate (escala de grises/neutros) y la paleta Blue (color primario):</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Light</th>
+<th>Dark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>slate-50</code></td>
+<td><code>#F8FAFC</code></td>
+<td><code>#0F172A</code></td>
+</tr>
+<tr>
+<td><code>slate-100</code></td>
+<td><code>#F1F5F9</code></td>
+<td><code>#1E293B</code></td>
+</tr>
+<tr>
+<td><code>slate-200</code></td>
+<td><code>#E2E8F0</code></td>
+<td><code>#334155</code></td>
+</tr>
+<tr>
+<td><code>slate-300</code></td>
+<td><code>#CBD5E1</code></td>
+<td><code>#475569</code></td>
+</tr>
+<tr>
+<td><code>slate-400</code></td>
+<td><code>#94A3B8</code></td>
+<td><code>#64748B</code></td>
+</tr>
+<tr>
+<td><code>slate-500</code></td>
+<td><code>#64748B</code></td>
+<td><code>#94A3B8</code></td>
+</tr>
+<tr>
+<td><code>slate-600</code></td>
+<td><code>#475569</code></td>
+<td><code>#CBD5E1</code></td>
+</tr>
+<tr>
+<td><code>slate-700</code></td>
+<td><code>#334155</code></td>
+<td><code>#E2E8F0</code></td>
+</tr>
+<tr>
+<td><code>slate-800</code></td>
+<td><code>#1E293B</code></td>
+<td><code>#F1F5F9</code></td>
+</tr>
+<tr>
+<td><code>slate-900</code></td>
+<td><code>#0F172A</code></td>
+<td><code>#F8FAFC</code></td>
+</tr>
+<tr>
+<td><code>blue-50</code></td>
+<td><code>#EFF6FF</code></td>
+<td><code>#172554</code></td>
+</tr>
+<tr>
+<td><code>blue-500</code></td>
+<td><code>#3B82F6</code></td>
+<td><code>#3B82F6</code></td>
+</tr>
+<tr>
+<td><code>blue-600</code></td>
+<td><code>#2563EB</code></td>
+<td><code>#60A5FA</code></td>
+</tr>
+<tr>
+<td><code>blue-700</code></td>
+<td><code>#1D4ED8</code></td>
+<td><code>#93BBFD</code></td>
+</tr>
+<tr>
+<td><code>red-500</code></td>
+<td><code>#EF4444</code></td>
+<td><code>#EF4444</code> (error)</td>
+</tr>
+<tr>
+<td><code>green-500</code></td>
+<td><code>#22C55E</code></td>
+<td><code>#22C55E</code> (success)</td>
+</tr>
+<tr>
+<td><code>white</code></td>
+<td><code>#FFFFFF</code></td>
+<td><code>#0F172A</code></td>
+</tr>
+<tr>
+<td><code>black</code></td>
+<td><code>#000000</code></td>
+<td><code>#FFFFFF</code></td>
+</tr>
+</tbody>
+</table>
+<p>Notar la inversión en modo dark: los slates se invierten, el blue-600 (más oscuro) en light se convierte en blue-400 (más claro) en dark para mantener el contraste.</p>
+<ol>
+<li>Crear colección "Semantic/Colors" con modos: Light, Dark. Esta colección referencia a las primitivas.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Light (alias)</th>
+<th>Dark (alias)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color-bg-primary</code></td>
+<td><code>white</code></td>
+<td><code>slate-900</code></td>
+</tr>
+<tr>
+<td><code>color-bg-secondary</code></td>
+<td><code>slate-50</code></td>
+<td><code>slate-800</code></td>
+</tr>
+<tr>
+<td><code>color-bg-tertiary</code></td>
+<td><code>slate-100</code></td>
+<td><code>slate-700</code></td>
+</tr>
+<tr>
+<td><code>color-text-primary</code></td>
+<td><code>slate-900</code></td>
+<td><code>slate-50</code></td>
+</tr>
+<tr>
+<td><code>color-text-secondary</code></td>
+<td><code>slate-500</code></td>
+<td><code>slate-400</code></td>
+</tr>
+<tr>
+<td><code>color-text-disabled</code></td>
+<td><code>slate-400</code></td>
+<td><code>slate-600</code></td>
+</tr>
+<tr>
+<td><code>color-border-default</code></td>
+<td><code>slate-200</code></td>
+<td><code>slate-700</code></td>
+</tr>
+<tr>
+<td><code>color-action-primary</code></td>
+<td><code>blue-600</code></td>
+<td><code>blue-500</code></td>
+</tr>
+<tr>
+<td><code>color-action-hover</code></td>
+<td><code>blue-700</code></td>
+<td><code>blue-400</code></td>
+</tr>
+<tr>
+<td><code>color-status-error</code></td>
+<td><code>red-500</code></td>
+<td><code>red-400</code></td>
+</tr>
+<tr>
+<td><code>color-status-success</code></td>
+<td><code>green-500</code></td>
+<td><code>green-400</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parte B - Sistema tipográfico:</strong></p>
+<ol>
+<li>
+<p>Crear colección "Typography" con modos: Desktop, Mobile.</p>
+</li>
+<li>
+<p>Variables de familia tipográfica:</p>
+</li>
+<li><code>font-family-sans</code>: 'Inter', sans-serif</li>
+<li><code>font-family-heading</code>: 'Inter', sans-serif (puede ser diferente)</li>
+<li>
+<p><code>font-family-mono</code>: 'JetBrains Mono', monospace</p>
+</li>
+<li>
+<p>Variables de tamaño de fuente (en px, que luego se traducirán a rem en CSS):</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Desktop</th>
+<th>Mobile</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>font-size-xs</code></td>
+<td>12</td>
+<td>11</td>
+<td>Captions, labels pequeños</td>
+</tr>
+<tr>
+<td><code>font-size-sm</code></td>
+<td>14</td>
+<td>13</td>
+<td>Texto secundario, botones pequeños</td>
+</tr>
+<tr>
+<td><code>font-size-base</code></td>
+<td>16</td>
+<td>15</td>
+<td>Texto de cuerpo principal</td>
+</tr>
+<tr>
+<td><code>font-size-lg</code></td>
+<td>18</td>
+<td>17</td>
+<td>Subtítulos</td>
+</tr>
+<tr>
+<td><code>font-size-xl</code></td>
+<td>20</td>
+<td>18</td>
+<td>Títulos de sección</td>
+</tr>
+<tr>
+<td><code>font-size-2xl</code></td>
+<td>24</td>
+<td>20</td>
+<td>Títulos de página</td>
+</tr>
+<tr>
+<td><code>font-size-3xl</code></td>
+<td>30</td>
+<td>24</td>
+<td>Headings principales</td>
+</tr>
+<tr>
+<td><code>font-size-4xl</code></td>
+<td>36</td>
+<td>28</td>
+<td>Hero titles</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Variables de peso de fuente (<code>font-weight</code>):</li>
+<li><code>font-weight-normal</code>: 400</li>
+<li><code>font-weight-medium</code>: 500</li>
+<li><code>font-weight-semibold</code>: 600</li>
+<li>
+<p><code>font-weight-bold</code>: 700</p>
+</li>
+<li>
+<p>Variables de line-height:</p>
+</li>
+<li><code>line-height-tight</code>: 1.25 (headings)</li>
+<li><code>line-height-normal</code>: 1.5 (cuerpo de texto)</li>
+<li><code>line-height-relaxed</code>: 1.625 (texto extenso)</li>
+</ol>
+<p><strong>Parte C - Documentación visual:</strong></p>
+<p>En la página "Foundations → Colors" del archivo Figma:
+1. Crear frames para cada paleta de color (Slate, Blue, Red, Green) mostrando todos los tonos.
+2. Debajo de cada muestra, escribir el nombre de la variable y el valor hex.
+3. En una sección aparte, mostrar los tokens semánticos aplicados a elementos de ejemplo (un texto primary sobre fondo primary, un texto secondary sobre fondo primary, etc.).</p>
+<p>En la página "Foundations → Typography":
+1. Crear frames con muestras de cada nivel tipográfico (desde xs hasta 4xl).
+2. Especificar para cada muestra: nombre de la variable, font-family, font-size, font-weight, line-height.</p>
+<p>Esta documentación es la que el equipo de desarrollo consultará para implementar el <code>@theme</code> de Tailwind. La correspondencia es directa: cada variable de Figma se convierte en una custom property en <code>@theme</code>.</p>
+<h3 id="ejemplo-guiado-3-disenar-una-pantalla-de-login-completa">Ejemplo guiado 3: Diseñar una pantalla de login completa</h3>
+<p><strong>Objetivo:</strong> Integrar todos los conocimientos de Figma (frames, Auto Layout, variables, componentes, texto) en el diseño de una pantalla real de aplicación.</p>
+<p><strong>Duración:</strong> 40 minutos.</p>
+<p><strong>Desarrollo:</strong></p>
+<p><strong>Paso 1 - Configurar el frame de pantalla:</strong>
+- Frame (F) → Desktop → 1440 × 900.
+- Renombrar: "Login Screen".
+- Auto Layout: no en el frame principal (lo usaremos en sub-frames). Layout: centrar elementos con constraints.</p>
+<p><strong>Paso 2 - Diseñar el panel de login:</strong>
+1. Crear frame hijo (F), dimensiones: 400 × auto (hug contents).
+2. Auto Layout (Shift+A): vertical, gap 24px, padding 32px, alineación stretch.
+3. Posicionar en el centro del frame principal (X: 520, Y: 150, aproximadamente).
+4. Corner radius: 16px. Fill: white (usar variable <code>color-bg-primary</code>). Efecto: drop shadow (shadow-lg en Tailwind).</p>
+<p><strong>Paso 3 - Añadir contenido al panel:</strong></p>
+<ol>
+<li><strong>Logo / Nombre de la app:</strong></li>
+<li>Frame con Auto Layout horizontal, gap 8px, alineación center.</li>
+<li>Icono (cuadrado 32×32, color <code>color-action-primary</code>, insertar desde Iconify o crear rectángulo).</li>
+<li>
+<p>Texto "AppName", fuente Inter, weight Bold, size <code>font-size-2xl</code>, color <code>color-text-primary</code>.</p>
+</li>
+<li>
+<p><strong>Texto de bienvenida:</strong></p>
+</li>
+<li>Frame con Auto Layout vertical, gap 4px.</li>
+<li>Texto "Iniciar sesión", weight Semibold, size <code>font-size-2xl</code>.</li>
+<li>
+<p>Texto "Accede a tu cuenta para continuar", weight Regular, size <code>font-size-sm</code>, color <code>color-text-secondary</code>.</p>
+</li>
+<li>
+<p><strong>Campos del formulario:</strong></p>
+</li>
+<li><strong>Email input:</strong><ul>
+<li>Frame con Auto Layout vertical, gap 6px, alineación stretch.</li>
+<li>Label: Texto "Correo electrónico", weight Medium, size <code>font-size-sm</code>.</li>
+<li>Input: Frame con Auto Layout horizontal, gap 8px, padding 12px, corner radius 8px, border 1px (color <code>color-border-default</code>), fill <code>color-bg-primary</code>. Contiene icono mail (18×18) + texto "tu@email.com" (color <code>color-text-secondary</code>, size <code>font-size-sm</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Password input:</strong> Similar pero con icono lock y un icono eye (toggle visibilidad) a la derecha.</p>
+</li>
+<li>
+<p><strong>Opciones:</strong></p>
+</li>
+<li>Frame con Auto Layout horizontal, gap (space-between en distribución).</li>
+<li>Checkbox + label "Recordarme".</li>
+<li>
+<p>Link "¿Olvidaste tu contraseña?" (color <code>color-action-primary</code>, weight Medium, size <code>font-size-sm</code>).</p>
+</li>
+<li>
+<p><strong>Botón de login:</strong></p>
+</li>
+<li>Insertar instancia del componente Button creado en el Ejemplo Guiado 1.</li>
+<li>
+<p>Configurar: Variant = Primary, Size = Large, Width = Fill container, Texto = "Iniciar sesión".</p>
+</li>
+<li>
+<p><strong>Separador "o":</strong></p>
+</li>
+<li>Frame con Auto Layout horizontal, gap 12px, alineación center.</li>
+<li>Línea (rectángulo 1px de alto, fill <code>color-border-default</code>, resize: fill container).</li>
+<li>Texto "o continuar con" (size <code>font-size-sm</code>, color <code>color-text-secondary</code>).</li>
+<li>
+<p>Línea (ídem a la primera).</p>
+</li>
+<li>
+<p><strong>Botones sociales:</strong></p>
+</li>
+<li>Frame con Auto Layout horizontal, gap 12px.</li>
+<li>
+<p>Dos botones (instancias de Button, variante Outline, size Medium, width fill container): "Google" y "GitHub", cada uno con su icono.</p>
+</li>
+<li>
+<p><strong>Link de registro:</strong></p>
+</li>
+<li>Frame con Auto Layout horizontal, gap 4px, alineación center.</li>
+<li>
+<p>Texto "¿No tienes cuenta?" + Link "Regístrate" (weight Semibold, color <code>color-action-primary</code>).</p>
+</li>
+<li>
+<p><strong>Verificar espaciado y alineación:</strong> Todo debe usar las variables de espaciado definidas. Los gaps y paddings deben ser consistentes (múltiplos de 4px: 4, 8, 12, 16, 20, 24, 32).</p>
+</li>
+</ol>
+<p><strong>Paso 4 - Versión con modo oscuro:</strong></p>
+<ol>
+<li>Duplicar el frame de login.</li>
+<li>Cambiar el modo del frame a "Dark" (en el panel de variables o propiedades del frame).</li>
+<li>Todos los elementos que usan variables semánticas se actualizarán automáticamente: fondo blanco → fondo oscuro, texto oscuro → texto claro, bordes claros → bordes oscuros, etc.</li>
+</ol>
+<p><strong>Paso 5 - Preparar para desarrollo:</strong></p>
+<ol>
+<li>Seleccionar todos los elementos y verificar nombres semánticos en el panel Layers.</li>
+<li>Seleccionar cada elemento y verificar en Dev Mode que las medidas, colores y tipografías son correctas.</li>
+<li>Anotar (con el plugin de comentarios o con la herramienta de notas) cualquier comportamiento interactivo no obvio (al hacer clic en "Regístrate", redirigir a la pantalla de registro; al escribir en el campo de contraseña, validar que tenga al menos 8 caracteres).</li>
+</ol>
+<p><strong>Resultado:</strong> Una pantalla de login profesional, completa, con modo claro y oscuro, utilizando componentes reutilizables (Button, Input — si lo creamos como componente), variables semánticas y Auto Layout en toda su jerarquía. Preparada para ser implementada en Angular + Tailwind en la Unidad 4 (layout) y Unidad 5 (handoff a código).</p>
+<h2 id="casos-reales">Casos reales</h2>
+<h3 id="caso-1-el-design-system-de-shopify-polaris">Caso 1: El Design System de Shopify (Polaris)</h3>
+<p>Shopify, plataforma de ecommerce canadiense, mantiene Polaris, uno de los sistemas de diseño más completos y accesibles públicamente. Polaris se gestiona en Figma como fuente de verdad de diseño y se implementa en React como librería de componentes. Es un caso de estudio notable porque Shopify ha compartido públicamente su proceso.</p>
+<p>En Figma, el equipo de Shopify organiza Polaris con múltiples archivos de librería:
+- <strong>Polaris Foundations:</strong> Variables de color, tipografía, espaciado, iconografía.
+- <strong>Polaris Components:</strong> Todos los componentes con todas sus variantes y estados. Cada componente tiene una página dedicada con explicaciones de uso, ejemplos y consideraciones de accesibilidad.
+- <strong>Polaris Patterns:</strong> Combinaciones de componentes para flujos comunes (creación de producto, configuración de envíos, gestión de pedidos).</p>
+<p>El equipo de desarrollo de Polaris utiliza Storybook para documentar los componentes implementados. Mantienen un riguroso alineamiento Figma ↔ Storybook: cada variante en Figma debe tener su story correspondiente. Cualquier discrepancia se considera un bug. El resultado es un sistema de diseño que reduce drásticamente el tiempo de desarrollo de nuevas funcionalidades (los equipos de producto no diseñan ni implementan componentes desde cero, solo los ensamblan).</p>
+<h3 id="caso-2-startup-andaluza-sistema-de-diseno-para-una-app-de-turismo">Caso 2: Startup andaluza: sistema de diseño para una app de turismo</h3>
+<p>Imaginemos una startup malagueña desarrollando una aplicación de turismo sostenible para la Costa del Sol. La app incluye un dashboard para gestores de alojamientos (escritorio) y una app para viajeros (móvil, PWA). El equipo tiene un diseñador UI y dos desarrolladores (frontend Angular y backend).</p>
+<p>Flujo de trabajo con Figma:</p>
+<ol>
+<li>
+<p><strong>El diseñador crea el sistema de diseño en Figma:</strong> define los colores inspirados en la Costa del Sol (ocres, azules mediterráneos, blancos rotos), la tipografía (una serif para headings evocando tradición, una sans-serif para cuerpo para legibilidad en móvil), y diseña los componentes (botones, tarjetas de experiencias, barras de búsqueda, filtros, galerías de fotos, calendarios de disponibilidad).</p>
+</li>
+<li>
+<p><strong>El diseñador comparte la librería</strong> con los desarrolladores, que pueden inspeccionar cada componente en Dev Mode: ver exactamente cuánto padding tiene una tarjeta, qué tipografía usa, cómo se comporta en hover.</p>
+</li>
+<li>
+<p><strong>Los desarrolladores implementan progresivamente</strong> los componentes en Angular + Tailwind y los documentan en Storybook. El diseñador revisa cada componente en Storybook contra su diseño en Figma.</p>
+</li>
+<li>
+<p><strong>Cuando el diseñador actualiza</strong> un componente en Figma (ej: ajusta el espaciado de las tarjetas de 16px a 20px porque los tests con usuarios mostraron que se sentían "apretadas"), los desarrolladores reciben una notificación (Figma comenta automáticamente en el componente actualizado), revisan el cambio en Dev Mode para ver exactamente qué ha cambiado, y actualizan el código correspondiente.</p>
+</li>
+</ol>
+<p>Este flujo, aparentemente simple, es revolucionario respecto a prácticas anteriores (diseñador exporta PNGs → desarrollador mide "a ojo" con una regla en pantalla → implementa aproximadamente → diseñador ve el resultado en el staging → enumera discrepancias → desarrollador ajusta → iterar hasta converger). Figma + Storybook reducen los ciclos de feedback de semanas a horas.</p>
+<h2 id="actividades-guiadas">Actividades guiadas</h2>
+<h3 id="actividad-guiada-1-reproduccion-de-un-componente-existente">Actividad guiada 1: Reproducción de un componente existente</h3>
+<p><strong>Duración:</strong> 30 minutos</p>
+<p><strong>Desarrollo:</strong> El docente proporciona una captura de pantalla de un componente de una interfaz conocida (por ejemplo, una Card de Spotify, un Tweet de Twitter, una tarjeta de producto de Amazon). El alumnado, siguiendo las indicaciones del docente, reproduce ese componente en Figma paso a paso, prestando especial atención a:</p>
+<ol>
+<li>Jerarquía de frames y Auto Layouts.</li>
+<li>Dimensiones exactas (medir desde la captura o usar valores razonables).</li>
+<li>Tipografías (identificar pesos, tamaños, interlineados aproximados).</li>
+<li>Colores (usar el cuentagotas sobre la captura o valores aproximados).</li>
+<li>Espaciados y alineación.</li>
+</ol>
+<p>El docente guía enfatizando la importancia de la nomenclatura de capas y el uso de Auto Layout incluso en componentes simples ("parece que este texto y este icono van en horizontal con un gap de 8px... ¿cómo lo haríamos en Figma?" → "Frame con Auto Layout horizontal, gap 8px").</p>
+<p><strong>Objetivos:</strong> Familiarizarse con la mecánica de Figma, practicar la observación analítica de interfaces y comenzar a desarrollar el "ojo" para traducir interfaces visuales a estructuras de diseño.</p>
+<h3 id="actividad-guiada-2-creacion-de-un-mini-sistema-de-diseno">Actividad guiada 2: Creación de un mini sistema de diseño</h3>
+<p><strong>Duración:</strong> 40 minutos</p>
+<p><strong>Desarrollo:</strong> El alumnado crea, guiado por el docente, las bases de un sistema de diseño en Figma. El docente va dando instrucciones progresivas:</p>
+<ol>
+<li>"Creamos una página 'Foundations' y dentro un frame para colores."</li>
+<li>"Ahora creamos las variables de color primitivas (Slate 50-900, Blue 50-900). Usad la colección 'Primitives'."</li>
+<li>"Ahora creamos la colección 'Semantic' y vinculamos a las primitivas. Necesitamos bg-primary, bg-secondary, text-primary, text-secondary, border-default, action-primary, action-hover."</li>
+<li>"Añadimos modo Dark a las colecciones. Invertimos los slates. Verificamos que al cambiar el modo de un frame, los colores se actualizan."</li>
+<li>"Creamos variables de espaciado (4, 8, 12, 16, 20, 24, 32, 40, 48, 64). ¿Usamos múltiplos de 4, de 8? Debate breve sobre sistemas de espaciado."</li>
+<li>"Creamos una página 'Components' y creamos nuestro primer componente: Badge. Usamos Auto Layout, variables de color y texto."</li>
+</ol>
+<p>El docente circula entre el alumnado resolviendo dudas y verificando que las vinculaciones de variables funcionan correctamente.</p>
+<h3 id="actividad-guiada-3-inspeccion-de-diseno-en-dev-mode">Actividad guiada 3: Inspección de diseño en Dev Mode</h3>
+<p><strong>Duración:</strong> 20 minutos</p>
+<p><strong>Desarrollo:</strong> El docente comparte un enlace a un archivo Figma con varios diseños de interfaces (pueden ser los ejemplos de Figma Community o diseños propios). El alumnado abre el archivo, activa el Dev Mode (Shift+D) y debe extraer la siguiente información para un componente asignado:</p>
+<ol>
+<li>Dimensiones exactas (width × height).</li>
+<li>Distancias a los bordes del frame padre (top, right, bottom, left).</li>
+<li>Colores (fills, strokes) con sus valores hex.</li>
+<li>Tipografía (font family, weight, size, line height, letter spacing).</li>
+<li>Bordes (corner radius) y sombras (drop shadow, inner shadow).</li>
+<li>Variables utilizadas (nombres y valores actuales).</li>
+<li>Código CSS generado por Figma.</li>
+</ol>
+<p>A continuación, deben traducir el CSS generado a clases Tailwind: <code>padding: 16px</code> → <code>p-4</code>, <code>border-radius: 8px</code> → <code>rounded-lg</code>, <code>display: flex; flex-direction: column; gap: 12px</code> → <code>flex flex-col gap-3</code>.</p>
+<p>Puesta en común: ¿Es precisa la traducción automática de Figma a CSS? ¿Y a Tailwind? ¿Hay propiedades que Figma no captura correctamente? ¿Es mejor confiar en el código generado o inspeccionar manualmente?</p>
+<h2 id="actividades-propuestas">Actividades propuestas</h2>
+<h3 id="actividad-1">Actividad 1</h3>
+<p><strong>Nivel:</strong> Básico
+<strong>Objetivo:</strong> Familiarizarse con la interfaz de Figma y el concepto de Auto Layout.
+<strong>Enunciado:</strong> Crea un archivo Figma llamado <code>apellido1-apellido2-practica-figma</code>. Dentro de él, crea una página llamada "Ejercicio 1 - Auto Layout". En esa página, reproduce los siguientes elementos usando EXCLUSIVAMENTE frames con Auto Layout:</p>
+<ol>
+<li>
+<p><strong>Una barra de navegación horizontal</strong> con: logo (icono + texto a la izquierda), 4 enlaces de navegación (Inicio, Productos, Servicios, Contacto) en el centro, y un botón "Login" a la derecha. Usa Auto Layout horizontal con space-between.</p>
+</li>
+<li>
+<p><strong>Una tarjeta de red social (tipo Tweet/Card)</strong> con: avatar + nombre + @usuario + timestamp en la cabecera (Auto Layout horizontal, gap 8px), texto del post (multilínea, fill container), una imagen (fill container, altura fija 200px), y barra de acciones (me gusta, comentar, compartir, guardar) con Auto Layout horizontal y space-between. Todos los sub-elementos deben usar Auto Layout anidados.</p>
+</li>
+<li>
+<p><strong>Una lista de ítems</strong> (tipo lista de tareas) con 5 ítems. Cada ítem es un frame con Auto Layout horizontal (gap 12px, padding 12px, border-bottom 1px gris claro) que contiene: checkbox (cuadrado 20×20 con borde), texto de la tarea (fill container), badge de prioridad (Auto Layout, padding 4px 8px, background de color según prioridad, texto pequeño).</p>
+</li>
+</ol>
+<p><strong>Requisitos:</strong> Todos los elementos deben usar Auto Layout sin excepción. Las capas deben tener nombres semánticos (nada de "Rectangle 7" o "Frame 23"). Usa variables de color (crea algunas básicas en la colección local si quieres practicar; si no, usa valores directos pero sé consistente).
+<strong>Pistas:</strong> Para space-between en Auto Layout horizontal, usa la opción de distribución "Space between" en el panel de Auto Layout. Para que un elemento ocupe todo el ancho, configura su resizing a "Fill container".
+<strong>Criterios de evaluación:</strong> (1) Uso correcto y generalizado de Auto Layout. (2) Nomenclatura semántica de capas. (3) Estructura jerárquica clara y lógica. (4) Fidelidad visual razonable (no se evalúa "belleza" sino corrección técnica).</p>
+<h3 id="actividad-2">Actividad 2</h3>
+<p><strong>Nivel:</strong> Medio
+<strong>Objetivo:</strong> Crear un component set completo con variantes y propiedades.
+<strong>Enunciado:</strong> En una página llamada "Ejercicio 2 - Componentes", crea los siguientes component sets con TODAS sus variantes. Para cada uno, extrae también la información necesaria para implementarlo en Angular + Tailwind (documenta en texto: nombre de los inputs, tipos TypeScript, clases Tailwind correspondientes a cada variante).</p>
+<ol>
+<li>
+<p><strong>Tabs:</strong> Component set con propiedades: Variant (underline, pills, enclosed), Size (sm, md, lg). Cada tab individual debe ser un componente (con propiedad active: boolean, texto: string, badge opcional: number). El component set representa la barra de tabs completa (3-4 tabs). Implementa los estados active e inactive para cada combinación.</p>
+</li>
+<li>
+<p><strong>Toggle / Switch:</strong> Component set con propiedades: Size (sm, md, lg), State (off, on, disabled-off, disabled-on). Diseña el track (fondo) y el thumb (círculo que se desplaza). Para el estado "on", el thumb debe estar a la derecha del track y el track debe tener color primario.</p>
+</li>
+<li>
+<p><strong>Select / Dropdown:</strong> Component set con propiedades: Size (sm, md, lg), State (default, open, disabled, error). El componente debe mostrar: label (texto superior), input (con texto seleccionado y chevron abajo), y en el estado "open", una lista desplegable con opciones (3-4 ítems, uno con estado hover).</p>
+</li>
+</ol>
+<p>Para cada component set: (a) Crea las variables de diseño necesarias (colores, tamaños) en una colección. (b) Usa Auto Layout en todos los frames. (c) Añade descripción en el componente explicando su uso. (d) Crea instancias de prueba en una página aparte para verificar que las propiedades funcionan correctamente.
+<strong>Requisitos:</strong> Mínimo 15 variantes por component set (todas las combinaciones de propiedades). Documenta la traducción Angular/Tailwind de cada componente como comentario en Figma o como nota en la página.
+<strong>Pistas:</strong> Para Tabs, recuerda que los tabs individuales también pueden ser componentes independientes que luego se instancian dentro del componente "Tabs bar". Para evitar complejidad excesiva, puedes hacer que Tab sea un componente y TabsBar sea un frame que contiene instancias de Tab.
+<strong>Criterios de evaluación:</strong> (1) Completitud de las variantes. (2) Correcto uso de propiedades de componente. (3) Calidad de la documentación de traducción a código. (4) Nomenclatura y organización.</p>
+<h3 id="actividad-3">Actividad 3</h3>
+<p><strong>Nivel:</strong> Medio
+<strong>Objetivo:</strong> Crear un sistema de Design Tokens completo con variables, colecciones y modos.
+<strong>Enunciado:</strong> En una página llamada "Ejercicio 3 - Design Tokens", implementa un sistema completo de design tokens como se describió en el Ejemplo Guiado 2, pero ampliado:</p>
+<ol>
+<li>
+<p><strong>Colección Primitives/Colors:</strong> Paleta completa de 5 colores con 10 tonos cada uno (Slate, Blue, Emerald, Amber, Red). Incluye modos Light y Dark.</p>
+</li>
+<li>
+<p><strong>Colección Semantic/Colors:</strong> Al menos 20 tokens semánticos vinculando a las primitivas, con modos Light y Dark. No copies exactamente los del ejemplo; piensa qué tokens semánticos necesitaría una aplicación real (incluye tokens para estados: success, warning, error, info, además de los de superficie, texto, borde, acción).</p>
+</li>
+<li>
+<p><strong>Colección Typography:</strong> Variables de font-family, font-size (escala completa xs a 4xl), font-weight, line-height, letter-spacing. Con modos Desktop y Mobile.</p>
+</li>
+<li>
+<p><strong>Colección Spacing:</strong> Variables de espaciado (escala 0-64, múltiplos de 4px). Opcional: modos Desktop y Mobile si crees que los espaciados deben variar.</p>
+</li>
+<li>
+<p><strong>Colección Radius:</strong> Variables de border-radius (none: 0, sm: 4, md: 8, lg: 12, xl: 16, 2xl: 20, full: 9999).</p>
+</li>
+<li>
+<p><strong>Colección Effects:</strong> Variables de sombra (sm, md, lg, xl, 2xl) con modos Light y Dark (las sombras en dark mode suelen ser más sutiles o con color en lugar de negro).</p>
+</li>
+</ol>
+<p>Además, crea una página "Foundations" donde documentes visualmente todos los tokens: muestras de color con nombres y valores hex, muestras tipográficas, escala de espaciado, etc. Esta página debe ser comprensible para un desarrollador que no ha participado en el diseño.
+<strong>Requisitos:</strong> Todas las variables de las colecciones Semantic deben referenciar variables de Primitives (vinculación real, no copia de valores). Los modos Light/Dark deben ser funcionales (al cambiar el modo de un frame, los colores cambian correctamente).
+<strong>Pistas:</strong> Para verificar la vinculación correcta, cambia el valor de una primitiva en modo Light y verifica que los frames que usan variables semánticas vinculadas también cambian. Si no cambian, es que hiciste copia de valor en lugar de vinculación.
+<strong>Criterios de evaluación:</strong> (1) Correcta vinculación entre variables primitivas y semánticas. (2) Funcionalidad de los modos Light/Dark. (3) Completitud y pertinencia de los tokens definidos. (4) Calidad de la documentación visual.</p>
+<h3 id="actividad-4">Actividad 4</h3>
+<p><strong>Nivel:</strong> Avanzado
+<strong>Objetivo:</strong> Diseñar 3 pantallas completas de una aplicación aplicando el sistema de diseño.
+<strong>Enunciado:</strong> Siguiendo con tu sistema de diseño de la Actividad 3 y los componentes de la Actividad 2, diseña en una página llamada "Ejercicio 4 - Pantallas" las siguientes pantallas completas para una aplicación de gestión de tareas (tipo Todoist/TickTick):</p>
+<ol>
+<li>
+<p><strong>Dashboard principal (1440×900):</strong> Sidebar izquierdo con navegación (menú de proyectos, etiquetas, filtros), área de contenido principal con un resumen (tarjetas de estadísticas: tareas pendientes, completadas hoy, productividad semanal) y lista de tareas del día (lista de ítems con checkbox, texto, proyecto, prioridad, fecha). Barra superior con búsqueda, notificaciones y avatar de usuario.</p>
+</li>
+<li>
+<p><strong>Pantalla de detalle de tarea (1440×900):</strong> Panel central con el detalle de una tarea: título editable, descripción (multilínea), propiedades (fecha de vencimiento con date picker, prioridad con select, proyecto con select, etiquetas con multi-select), lista de subtareas (con checkboxes y barra de progreso), sección de comentarios (lista de comentarios con avatar, nombre, timestamp, texto).</p>
+</li>
+<li>
+<p><strong>Pantalla de login (responsive: 1440×900 y 375×812):</strong> Diseña la pantalla de login para escritorio y para móvil. Aplica el diseño del Ejemplo Guiado 3 pero con TU sistema de diseño (tus colores, tu tipografía, tus componentes). La adaptación móvil debe hacerse usando Auto Layout y las variables de tamaño responsive (typography y spacing con modos Desktop/Mobile si las definiste).</p>
+</li>
+</ol>
+<p>Para cada pantalla: (a) Usa exclusivamente instancias de componentes (no diseñes nada "ad-hoc", todo debe venir del sistema de diseño). (b) Si algún elemento necesario no está en tu sistema de diseño, créalo como componente primero. (c) Nombra todos los frames y capas semánticamente. (d) Crea un prototipo que conecte las pantallas: clic en una tarea del dashboard → navega al detalle.
+<strong>Requisitos:</strong> Mínimo 80% de los elementos deben ser instancias de componentes. El prototipo debe ser interactivo (navegable en modo presentación).
+<strong>Pistas:</strong> Crea componentes auxiliares según los necesites: DatePicker (aunque sea simplificado), ProgressBar, CommentItem, SubtaskItem, etc. No necesitas que sean funcionales, solo visualmente correctos.
+<strong>Criterios de evaluación:</strong> (1) Consistencia visual (todo parece parte del mismo sistema). (2) Porcentaje de uso de componentes del sistema de diseño vs elementos ad-hoc. (3) Organización y nomenclatura de capas. (4) Funcionalidad del prototipo interactivo.</p>
+<h3 id="actividad-5">Actividad 5</h3>
+<p><strong>Nivel:</strong> Avanzado
+<strong>Objetivo:</strong> Realizar un handoff completo de diseño a "desarrollo" (simulación documentada).
+<strong>Enunciado:</strong> Elige UNA de las pantallas que diseñaste en la Actividad 4 (recomendada: el Dashboard principal). Vas a realizar un handoff simulado como si fueras a entregar el diseño al equipo de desarrollo. Prepara un documento de handoff (PDF o página Figma con anotaciones) que incluya:</p>
+<ol>
+<li>
+<p><strong>Resumen visual:</strong> Captura de la pantalla completa con anotaciones numéricas que referencien a las especificaciones detalladas.</p>
+</li>
+<li>
+<p><strong>Jerarquía de componentes:</strong> Diagrama de árbol (hecho con Auto Layout en Figma o con cualquier herramienta) que muestre la estructura de componentes de la pantalla, desde el frame raíz hasta los átomos. Usa nombres de componentes Angular (app-sidebar, app-task-list, app-task-item, etc.).</p>
+</li>
+<li>
+<p><strong>Especificaciones por componente:</strong> Para cada componente personalizado de la pantalla, captura de pantalla del componente en Figma + especificaciones: dimensiones, paddings, gaps, colores (nombres de variables y valores), tipografía (nombres de variables y valores), bordes y sombras.</p>
+</li>
+<li>
+<p><strong>Tokens utilizados:</strong> Tabla de todos los design tokens utilizados en la pantalla, con sus valores actuales en modo Light.</p>
+</li>
+<li>
+<p><strong>Código Tailwind sugerido:</strong> Para los 3 componentes más complejos de la pantalla, escribe el código HTML + clases Tailwind que implementarían ese componente. Puedes ayudarte del código CSS generado por Figma en Dev Mode y traducirlo manualmente a Tailwind.</p>
+</li>
+<li>
+<p><strong>Assets a exportar:</strong> Lista de iconos, imágenes e ilustraciones necesarias, con indicación de formato de exportación recomendado (SVG para iconos e ilustraciones, PNG para imágenes raster, WebP como alternativa optimizada).</p>
+</li>
+<li>
+<p><strong>Consideraciones de implementación:</strong> Notas sobre comportamientos interactivos, animaciones, estados (loading, empty, error, edge cases), accesibilidad (roles ARIA, navegación por teclado, contraste).</p>
+</li>
+</ol>
+<p><strong>Requisitos:</strong> El documento debe ser usable sin necesidad de abrir Figma (un desarrollador debería poder implementar la pantalla solo con este documento + los componentes de Storybook equivalentes). Incluye capturas reales de tu Figma.
+<strong>Pistas:</strong> Usa el plugin "Annotations" o simplemente frames con texto para las anotaciones en Figma. Para exportar a PDF, Figma permite File → Export frames to PDF.
+<strong>Criterios de evaluación:</strong> (1) Exhaustividad (¿está TODO lo que un desarrollador necesita?). (2) Organización y claridad. (3) Precisión de las traducciones a Tailwind. (4) Calidad de las consideraciones de implementación (no solo describir lo obvio, sino anticipar dificultades).</p>
+<h2 id="actividades-de-ampliacion">Actividades de ampliación</h2>
+<h3 id="actividad-de-ampliacion-1-design-system-completo-listo-para-produccion">Actividad de ampliación 1: Design system completo listo para producción</h3>
+<p>Desarrolla un sistema de diseño completo en Figma que cubra TODOS los componentes necesarios para una aplicación CRUD empresarial típica. Requisitos mínimos:</p>
+<ol>
+<li>
+<p><strong>Foundations:</strong> Paleta de colores completa (primitivas + semánticas), tipografía, espaciado, radius, sombras, iconografía (mínimo 20 iconos) — todo con variables y modos Light/Dark.</p>
+</li>
+<li>
+<p><strong>Componentes (18 mínimo):</strong> Button, Input, Textarea, Select, Checkbox, Radio, Toggle, Badge, Chip/Tag, Avatar, Card, Modal/Dialog, Tooltip, Dropdown/Menu, Table, Tabs, Breadcrumbs, Pagination, Alert/Toast, Skeleton loader, Empty state, Progress bar.</p>
+</li>
+<li>
+<p><strong>Patrones (5 mínimo):</strong> Formulario de creación/edición, Tabla con búsqueda y filtros, Dashboard con widgets, Wizard multi-paso, Layout de aplicación (sidebar + header + contenido).</p>
+</li>
+<li>
+<p><strong>Pantallas de ejemplo (3 mínimo):</strong> Listado CRUD, detalle de elemento, formulario de creación, pantalla de login.</p>
+</li>
+<li>
+<p><strong>Documentación:</strong> Página de "Getting Started" en Figma explicando cómo usar el sistema de diseño. Página de "Changelog" para versionado. Anotaciones de accesibilidad en al menos los 5 componentes más críticos.</p>
+</li>
+<li>
+<p><strong>Prototipo interactivo:</strong> Conecta las pantallas de ejemplo para simular flujos de usuario reales.</p>
+</li>
+</ol>
+<p>Entrega: enlace al archivo Figma (acceso público como view-only) + breve informe (500 palabras) sobre las decisiones de diseño más importantes que tomaste (¿por qué elegiste esos colores? ¿qué escala de espaciado usaste y por qué? ¿cómo organizaste las variables?).</p>
+<h3 id="actividad-de-ampliacion-2-plugin-de-figma-para-auditoria-de-accesibilidad-visual">Actividad de ampliación 2: Plugin de Figma para auditoría de accesibilidad visual</h3>
+<p>Desarrolla un plugin de Figma que, al ejecutarse sobre un frame seleccionado, audite los siguientes aspectos de accesibilidad visual y muestre un informe en el panel del plugin:</p>
+<ol>
+<li>
+<p><strong>Contraste de color:</strong> Para cada elemento de texto, detecta el color del texto y del fondo (inmediato y fondos intermedios con opacidad) y verifica si cumple WCAG AA (ratio ≥ 4.5:1 para texto normal, ≥ 3:1 para texto grande &gt; 18px o bold &gt; 14px).</p>
+</li>
+<li>
+<p><strong>Tamaño de texto:</strong> Identifica todos los textos menores de 12px (difíciles de leer) y los marca como warning.</p>
+</li>
+<li>
+<p><strong>Tamaño de target táctil:</strong> Identifica todos los elementos interactivos (botones, inputs, checkboxes, links) cuyas dimensiones sean menores a 44×44px (mínimo recomendado por Apple y Google para targets táctiles).</p>
+</li>
+<li>
+<p><strong>Espaciado entre targets táctiles:</strong> Identifica targets táctiles que estén a menos de 8px de distancia entre sí (riesgo de pulsación errónea).</p>
+</li>
+</ol>
+<p>El plugin debe usar la API de plugins de Figma (https://www.figma.com/plugin-docs/) y mostrar los resultados en el panel de UI del plugin (iframe HTML). Entrega: código del plugin en GitHub + README con instrucciones de instalación y uso.</p>
+<h3 id="actividad-de-ampliacion-3-automatizacion-de-design-tokens-con-style-dictionary">Actividad de ampliación 3: Automatización de Design Tokens con Style Dictionary</h3>
+<p>Utiliza Style Dictionary (de Amazon, https://amzn.github.io/style-dictionary/) para crear un pipeline automatizado que:</p>
+<ol>
+<li>
+<p>Toma como entrada un archivo JSON con design tokens (puedes exportar tus variables de Figma con un plugin como "Design Tokens" y convertirlo a JSON, o escribir el JSON manualmente).</p>
+</li>
+<li>
+<p>Genera como salida:</p>
+</li>
+<li>Archivo CSS con custom properties (listo para copiar en <code>styles.css</code> de Angular).</li>
+<li>Archivo de configuración <code>@theme</code> para Tailwind CSS 4 (con la sintaxis correcta de <code>@theme { ... }</code>).</li>
+<li>Archivo TypeScript con las variables como objetos tipados (para usar en Angular si se necesita acceso programático a los tokens).</li>
+<li>Archivo SCSS (opcional, para compatibilidad con proyectos legacy).</li>
+<li>
+<p>Documentación Markdown con tabla de tokens y muestras de color.</p>
+</li>
+<li>
+<p>Configura un script npm que ejecute Style Dictionary como parte del build, de modo que una modificación del JSON de entrada regenere automáticamente todos los archivos de salida.</p>
+</li>
+<li>
+<p>Documenta todo el proceso en un README: estructura del JSON de entrada, comandos, archivos de salida, cómo integrarlo en el flujo de trabajo Angular + Tailwind.</p>
+</li>
+</ol>
+<p>Entrega: repositorio GitHub con el JSON de entrada, la configuración de Style Dictionary, los archivos de salida generados (como demostración) y el README.</p>
+<h2 id="buenas-practicas">Buenas prácticas</h2>
+<ol>
+<li>
+<p><strong>Diseña con Auto Layout desde el primer frame.</strong> El Auto Layout no debe ser un añadido posterior ("voy a diseñar y luego le pongo Auto Layout"). Es la forma natural de construir layouts en Figma, equivalente a usar <code>display: flex</code> en CSS mental. Todo frame que contenga otros elementos debe tener Auto Layout.</p>
+</li>
+<li>
+<p><strong>Usa variables desde el principio, no valores hardcodeados.</strong> Antes de diseñar el primer componente, define las variables de color, tipografía y espaciado. Conforme avances, añadir variables se vuelve exponencialmente más difícil. Si empiezas con valores hardcodeados, la migración a variables es tediosa y propensa a errores.</p>
+</li>
+<li>
+<p><strong>Nombra las capas con significado.</strong> "Frame 47" no dice nada. "Card / Header / Avatar" es comprensible para cualquier persona que abra el archivo. En sistemas grandes con cientos de frames, la nomenclatura semántica es la diferencia entre un archivo navegable y uno incomprensible.</p>
+</li>
+<li>
+<p><strong>Mantén las librerías de componentes al día.</strong> Los componentes no deben ser estáticos. A medida que el producto evoluciona, el sistema de diseño debe evolucionar con él. Dedica tiempo a revisar, actualizar y refinar los componentes. Un sistema de diseño desactualizado es contraproducente (los diseñadores dejan de usarlo porque "los componentes no se parecen a lo que necesitamos").</p>
+</li>
+<li>
+<p><strong>Diseña para el peor caso, no solo para el caso ideal.</strong> ¿Qué pasa si el nombre del usuario es "María del Carmen Fernández de la Torre y Rodríguez de la Fuente"? ¿Qué pasa si no hay datos y hay que mostrar un empty state? ¿Qué pasa si hay un error de red? Diseñar todos los estados (ideal, vacío, error, carga, borde) evita que el desarrollador tenga que improvisar.</p>
+</li>
+<li>
+<p><strong>Comunica el comportamiento, no solo la apariencia.</strong> Una interfaz no es una imagen estática. ¿Qué animación ocurre al cambiar de pantalla? ¿Aparece un tooltip con delay o instantáneamente? ¿El modal se cierra con Escape? Estas decisiones impactan la implementación y deben ser comunicadas explícitamente, no inferidas.</p>
+</li>
+<li>
+<p><strong>Establece un solo source of truth.</strong> Figma debe ser el lugar donde se responde a la pregunta "¿cómo debe verse este componente?". Si las decisiones de diseño se toman en Slack, en emails o en conversaciones de pasillo, pero no se reflejan en Figma, el archivo deja de ser la fuente de verdad y pierde su valor. Todo cambio de diseño debe pasar por Figma.</p>
+</li>
+<li>
+<p><strong>Valida la accesibilidad en Figma, no solo en código.</strong> Plugins como Stark permiten verificar contraste y simular daltonismo en tiempo de diseño. Corregir un problema de contraste en Figma cuesta 30 segundos (cambiar un color). Hacerlo en código después de implementar 20 componentes cuesta horas. Adelanta la validación de accesibilidad al diseño.</p>
+</li>
+</ol>
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+<ol>
+<li>
+<p><strong>No usar Auto Layout y posicionar elementos manualmente con coordenadas X/Y absolutas.</strong> Es el equivalente a maquetar una web con <code>position: absolute</code> para todo. Funciona para diseños estáticos, pero se rompe en cuanto el contenido cambia. Cualquier desarrollador que intente implementar un diseño sin Auto Layout tendrá que adivinar cómo debe comportarse cuando el texto es más largo o cuando se añaden más elementos.</p>
+</li>
+<li>
+<p><strong>No usar variables o usar variables incorrectamente.</strong> Usar colores hardcodeados (#3B82F6 repetido 50 veces en lugar de usar la variable <code>blue-600</code>) crea una pesadilla de mantenimiento. Si el color primario cambia, hay que editar 50 elementos manualmente. Peor aún: definir una variable <code>blue-600</code> y luego usar otra variable <code>blue-600-duplicated</code> porque "no me acordaba de que ya existía". Mantén una única fuente de verdad para cada valor.</p>
+</li>
+<li>
+<p><strong>Crear componentes demasiado específicos que no son reutilizables.</strong> "CardProductWithDiscountBadgeAndFreeShippingBanner" no es un componente, es una instancia configurada de un componente Card genérico. Los componentes base deben ser genéricos y configurables; las instancias se configuran para casos específicos. Si cada pantalla necesita su propio componente, has fallado en la abstracción.</p>
+</li>
+<li>
+<p><strong>No diseñar estados (hover, focus, disabled, error, loading, empty).</strong> El desarrollador recibe el diseño del estado "ideal" de la pantalla y nada más. Cuando implementa los estados de error y loading, los inventa sobre la marcha. El resultado: inconsistencia visual entre pantallas (cada una tiene su propio estilo de loading spinner, su propio color de error, su propio mensaje de empty state).</p>
+</li>
+<li>
+<p><strong>No nombrar capas y luego pretender que el desarrollador entienda el diseño.</strong> Abrir un Figma y ver "Rectangle 1, Rectangle 2, Group 3, Frame 4" es desmoralizador. El desarrollador tiene que hacer ingeniería inversa del diseño para entender qué es cada cosa. Invertir 30 segundos en nombrar cada capa ahorra horas de confusión.</p>
+</li>
+<li>
+<p><strong>No alinear diseño y código en cuanto a sistema de espaciado.</strong> El diseñador usa espaciados de 3px, 7px, 11px, 13px... valores que no están en la escala de Tailwind ni en su propio sistema de diseño. El desarrollador tiene que decidir entre usar valores arbitrarios (w-[13px]) rompiendo la consistencia, o redondear a 12px o 16px y tener una discrepancia con el diseño. Define y usa una escala de espaciado clara, y que sea compatible con Tailwind (múltiplos de 4px = 0.25rem).</p>
+</li>
+<li>
+<p><strong>Exportar PNG de todo en lugar de usar SVG para gráficos vectoriales.</strong> Iconos, logos, ilustraciones simples deben exportarse como SVG (infinitamente escalables, tamaño mínimo, editables). Exportarlos como PNG los pixeliza en pantallas de alta densidad y aumenta el peso de la aplicación. La regla: si es vectorial, SVG; si es fotográfico, PNG/WebP.</p>
+</li>
+<li>
+<p><strong>Olvidar que Figma NO es un navegador web.</strong> Figma renderiza texto de forma diferente a los navegadores (especialmente en cuanto a line-height y espaciado). Un diseño que se ve perfecto en Figma puede tener diferencias sutiles al implementarlo en HTML/CSS. No te obsesiones con la precisión al píxel; el objetivo es la consistencia visual general, no la réplica exacta (que es técnicamente imposible). Las diferencias de 1-2px son aceptables.</p>
+</li>
+</ol>
+<h2 id="resumen">Resumen</h2>
+<p>Esta unidad ha sido un viaje completo por Figma, desde los fundamentos del espacio de trabajo hasta la construcción de sistemas de diseño profesionales listos para handoff a desarrollo. Hemos establecido el puente conceptual y práctico entre el mundo del diseño visual y el mundo del desarrollo frontend, un puente que transitaremos constantemente durante todo el módulo.</p>
+<p>Comenzamos con los fundamentos: el canvas, las capas, los frames, las herramientas de creación. Conceptualmente simples, pero la base sobre la que se construye todo lo demás. Aprendimos a crear y organizar diseños como jerarquías de frames, entendiendo que cada frame de Figma es un futuro <code>&lt;div&gt;</code> en HTML y que cada grupo es un futuro componente.</p>
+<p>Auto Layout se reveló como la funcionalidad estrella: el equivalente en Figma a Flexbox en CSS y a las clases <code>flex</code> de Tailwind. Dominar Auto Layout significa pensar en layouts flexibles y dinámicos, no en composiciones estáticas. Cada propiedad de Auto Layout (dirección, gap, padding, alineación, resizing) tiene una traducción directa a código, y ejercitar esta traducción mental es una de las competencias más valiosas de esta unidad.</p>
+<p>Las variables llevaron el diseño al siguiente nivel de profesionalización. Definir paletas de colores, escalas tipográficas y sistemas de espaciado como variables reutilizables, vinculables y con soporte para modos (light/dark) transforma un archivo de diseño en un verdadero sistema. La equivalencia con los Design Tokens y con las custom properties de CSS (y por extensión con <code>@theme</code> de Tailwind) hace que la transición del diseño al código sea fluida y predecible.</p>
+<p>Los componentes y variantes de Figma son el corazón del sistema de diseño. Aprendimos a crearlos, configurarlos con propiedades (texto, boolean, instance swap), agruparlos en component sets con múltiples dimensiones de variación (variant × size × state × icon), y a pensar en ellos como los futuros componentes Angular con sus inputs y sus clases condicionales de Tailwind.</p>
+<p>El Dev Mode y las estrategias de handoff cierran el círculo: el diseño no es un fin en sí mismo, sino el plano de construcción para el desarrollo. Aprendimos a inspeccionar diseños, extraer especificaciones precisas, exportar assets y comunicar decisiones de diseño de forma que el equipo de desarrollo pueda implementarlas fielmente sin ambigüedades.</p>
+<p>En la Unidad 4, nos centraremos en los layouts modernos con Flexbox y CSS Grid implementados con Tailwind CSS, construyendo las estructuras sobre las que se asentarán los componentes diseñados en esta unidad. En la Unidad 5, recorreremos el camino completo: desde un diseño en Figma hasta una aplicación Angular completa, pasando por la extracción de tokens, la configuración de Tailwind y la implementación de componentes documentados en Storybook.</p>
+<h2 id="recursos-complementarios">Recursos complementarios</h2>
+<h3 id="documentacion-oficial">Documentación oficial</h3>
+<ul>
+<li><strong>Figma Learn (oficial):</strong> https://help.figma.com/hc/en-us — Documentación oficial con guías, tutoriales y referencia completa de funcionalidades.</li>
+<li><strong>Figma YouTube Channel:</strong> https://www.youtube.com/c/Figmadesign — Webinars oficiales, tutoriales de funcionalidades, charlas de la conferencia Config.</li>
+<li><strong>Figma Developer Docs:</strong> https://www.figma.com/developers — Documentación de la API de plugins, REST API y guías para desarrolladores.</li>
+<li><strong>Figma Best Practices (guía oficial):</strong> https://www.figma.com/best-practices/ — Artículos sobre Auto Layout, componentes, sistemas de diseño y handoff.</li>
+</ul>
+<h3 id="tutoriales-y-cursos">Tutoriales y cursos</h3>
+<ul>
+<li><strong>Figma for Beginners (Figma, gratuito):</strong> Curso interactivo dentro de la propia herramienta. Accesible desde Help → Learn.</li>
+<li><strong>Figma 101 (Figma, gratuito):</strong> Curso de 7 lecciones en la web de Figma Learn.</li>
+<li><strong>Design Systems with Figma (Figma, gratuito):</strong> Curso específico sobre sistemas de diseño en Figma.</li>
+<li><strong>Auto Layout Playground (Figma Community):</strong> Archivo Figma interactivo para practicar Auto Layout.</li>
+</ul>
+<h3 id="figma-community-archivos-de-ejemplo">Figma Community (archivos de ejemplo)</h3>
+<ul>
+<li><strong>Material Design 3 (Google):</strong> Design system oficial de Google en Figma. Excelente ejemplo de organización profesional.</li>
+<li><strong>iOS 18 UI Kit (Apple, no oficial):</strong> Componentes de iOS para estudiar patrones de diseño móvil.</li>
+<li><strong>Tailwind CSS UI Kit:</strong> Kits de componentes diseñados específicamente para traducir a Tailwind.</li>
+<li><strong>Accessibility Annotation Kit:</strong> Herramientas para anotar consideraciones de accesibilidad en diseños.</li>
+</ul>
+<h3 id="plugins-recomendados">Plugins recomendados</h3>
+<ul>
+<li><strong>Tailwind CSS</strong> — Generación de clases Tailwind desde diseños.</li>
+<li><strong>Iconify</strong> — Más de 150,000 iconos SVG de sets como Material Design, Heroicons, Lucide, Phosphor.</li>
+<li><strong>Stark</strong> — Herramientas de accesibilidad (contraste, daltonismo, visión borrosa).</li>
+<li><strong>Design Tokens</strong> — Exportar tokens de diseño a JSON.</li>
+<li><strong>Tokens Studio for Figma</strong> — Gestión avanzada de design tokens con Git sync.</li>
+<li><strong>Unsplash</strong> — Imágenes de stock gratuitas.</li>
+<li><strong>Content Reel</strong> — Contenido placeholder realista.</li>
+<li><strong>html.to.design</strong> — Convertir páginas web en diseños Figma editables.</li>
+<li><strong>Autoflow</strong> — Dibujar flechas de flujo entre frames (para diagramas de navegación).</li>
+<li><strong>Remove BG</strong> — Eliminar fondos de imágenes.</li>
+</ul>
+<h3 id="libros-recomendados">Libros recomendados</h3>
+<ul>
+<li>Vesselov, S. y Davis, T. (2022). <em>Building Design Systems: Unify User Experiences through a Shared Design Language</em>. Apress.</li>
+<li>Kholmatova, A. (2017). <em>Design Systems: A practical guide to creating design languages for digital products</em>. Smashing Magazine.</li>
+<li>Pérez, D. y Maldonado, S. (2023). <em>Diseño de interfaces web</em>. Editorial Síntesis. (En español, adaptado al currículo de ciclos formativos).</li>
+</ul>
+<h3 id="comunidades">Comunidades</h3>
+<ul>
+<li><strong>Figma Community (oficial):</strong> https://www.figma.com/@community — Foros, archivos de ejemplo, grupos de usuarios.</li>
+<li><strong>r/Figma (Reddit):</strong> https://reddit.com/r/Figma — Comunidad activa de usuarios.</li>
+<li><strong>Friends of Figma (grupos locales):</strong> Encuentros y comunidades locales en varias ciudades españolas.</li>
+<li><strong>Design Systems (GitHub):</strong> https://github.com/alexpate/awesome-design-systems — Colección curada de sistemas de diseño públicos.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>
