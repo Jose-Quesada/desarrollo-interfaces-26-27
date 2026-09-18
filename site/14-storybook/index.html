@@ -1,0 +1,2265 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes básicos de Angular para Martos y alrededores.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Documentación de Componentes con Storybook - Curso de Angular</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentacion-de-componentes-con-storybook" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="./.." title="Curso de Angular" class="md-header__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Angular
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documentación de Componentes con Storybook
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Curso de Angular" class="md-nav__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Curso de Angular
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  00.Introduccion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  01.UX
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  02.Accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objetivos de aprendizaje
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-asociado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resultado de aprendizaje asociado
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conocimientos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conocimientos previos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Contenidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo-teorico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo teórico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo teórico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#seccion-a-que-es-storybook" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN A — QUÉ ES STORYBOOK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-b-instalacion-y-configuracion-en-proyecto-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN B — INSTALACIÓN Y CONFIGURACIÓN EN PROYECTO ANGULAR
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN B — INSTALACIÓN Y CONFIGURACIÓN EN PROYECTO ANGULAR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-automatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Instalación automática
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archivos-de-configuracion-generados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Archivos de configuración generados
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integracion-con-tailwind-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Integración con Tailwind 4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Scripts NPM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-c-escritura-de-stories-con-csf3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN C — ESCRITURA DE STORIES CON CSF3
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN C — ESCRITURA DE STORIES CON CSF3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estructura-de-un-archivo-de-stories" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estructura de un archivo de stories
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creando-stories-para-cada-variante" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Creando stories para cada variante
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stories-para-componentes-con-proyeccion-de-contenido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Stories para componentes con proyección de contenido
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stories-para-componentes-con-estado-smart-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Stories para componentes con estado (Smart Components)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-d-documentacion-con-mdx" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN D — DOCUMENTACIÓN CON MDX
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN D — DOCUMENTACIÓN CON MDX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pagina-de-introduccion-del-design-system-con-mdx" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Página de introducción del Design System con MDX
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-de-componente-con-mdx-stories-incrustadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentación de componente con MDX + Stories incrustadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-e-addons-esenciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN E — ADDONS ESENCIALES
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN E — ADDONS ESENCIALES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storybookaddon-essentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        @storybook/addon-essentials
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storybookaddon-a11y" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        @storybook/addon-a11y
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storybookaddon-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        @storybook/addon-interactions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storybookaddon-designs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        @storybook/addon-designs
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storybookaddon-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        @storybook/addon-links
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-f-testing-con-storybook" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN F — TESTING CON STORYBOOK
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN F — TESTING CON STORYBOOK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-de-interacciones-interaction-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing de interacciones (Interaction Testing)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-de-accesibilidad-accessibility-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing de accesibilidad (Accessibility Testing)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-visual-visual-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing visual (Visual Testing)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Snapshot testing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-g-integracion-con-figma" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN G — INTEGRACIÓN CON FIGMA
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN G — INTEGRACIÓN CON FIGMA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plugin-storybook-connect-para-figma" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Plugin Storybook Connect para Figma
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incrustar-figma-en-storybook" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Incrustar Figma en Storybook
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-h-publicacion-y-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN H — PUBLICACIÓN Y DESPLIEGUE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN H — PUBLICACIÓN Y DESPLIEGUE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-estatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Build estático
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#despliegue-en-chromatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Despliegue en Chromatic
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#despliegue-en-github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Despliegue en GitHub Pages
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#despliegue-en-netlify-o-vercel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Despliegue en Netlify o Vercel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-guiados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplos guiados
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos guiados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-1-crear-stories-para-todos-los-estados-de-un-componente-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 1: Crear stories para todos los estados de un componente Button
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-2-storybook-completo-de-un-componente-card-con-mdx-play-functions-a11y" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 2: Storybook completo de un componente Card con MDX + play functions + a11y
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-3-configurar-chromatic-para-visual-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 3: Configurar Chromatic para visual testing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-guiadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades guiadas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades guiadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-1-instalar-y-configurar-storybook-en-el-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 1: Instalar y configurar Storybook en el proyecto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-2-crear-stories-para-el-catalogo-de-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 2: Crear stories para el catálogo de componentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-3-escribir-documentacion-mdx-para-3-componentes-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 3: Escribir documentación MDX para 3 componentes clave
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-propuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades propuestas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades propuestas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-1-stories-exhaustivas-para-el-componente-formfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 1: Stories exhaustivas para el componente FormField
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-2-documentacion-mdx-del-design-system-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 2: Documentación MDX del Design System completo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-3-implementar-testing-de-interacciones-para-el-componente-datatable" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 3: Implementar testing de interacciones para el componente DataTable
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-4-configurar-cicd-con-chromatic-y-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 4: Configurar CI/CD con Chromatic y GitHub Actions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-5-crear-una-galeria-de-componentes-con-storybook" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 5: Crear una galería de componentes con Storybook
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades de ampliación
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades de ampliación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-1-crear-un-addon-personalizado-para-storybook" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliación 1: Crear un addon personalizado para Storybook
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-2-configurar-un-portal-de-design-system-con-storybook-y-zeroheight" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliación 2: Configurar un portal de Design System con Storybook y Zeroheight
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-3-implementar-visual-testing-con-multiples-navegadores-y-temas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliación 3: Implementar visual testing con múltiples navegadores y temas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Buenas prácticas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errores-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Errores frecuentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-complementarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recursos complementarios
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursos complementarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentación oficial
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Herramientas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursos-y-tutoriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cursos y tutoriales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libros" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libros
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comunidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Comunidad
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="documentacion-de-componentes-con-storybook">Documentación de Componentes con Storybook</h1>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p>Al finalizar esta unidad, el alumnado será capaz de:
+- Instalar y configurar Storybook en un proyecto Angular con Standalone Components, TypeScript y Tailwind CSS 4.
+- Escribir stories completas utilizando el formato CSF3 (Component Story Format 3) para documentar todas las variantes y estados de un componente.
+- Utilizar los addons esenciales de Storybook: Controls, Actions, Viewport, Backgrounds, Accessibility, Interactions y Design (Figma).
+- Crear documentación narrativa con MDX que combine texto explicativo, ejemplos de código y stories interactivas.
+- Implementar testing de interacciones (play functions) y testing de accesibilidad automatizado en Storybook.
+- Integrar Storybook con Figma para mantener sincronizados el diseño visual y los componentes desarrollados.
+- Publicar un Storybook estático para compartir con el equipo de diseño y stakeholders.
+- Configurar Chromatic para visual testing y detección de regresiones visuales.</p>
+<h2 id="resultado-de-aprendizaje-asociado">Resultado de aprendizaje asociado</h2>
+<p>Esta unidad contribuye al <strong>RA 3</strong> del módulo profesional 0488 <em>Desarrollo de interfaces</em> (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):</p>
+<blockquote>
+<p><strong>RA 3.</strong> Crea componentes visuales valorando y empleando herramientas específicas.</p>
+</blockquote>
+<p>Criterios de evaluación oficiales que se trabajan en esta unidad:</p>
+<ul>
+<li>CE a) Se han identificado las herramientas para diseño y prueba de componentes.</li>
+<li>CE e) Se han realizado pruebas unitarias sobre los componentes desarrollados.</li>
+<li>CE f) Se han documentado los componentes creados.</li>
+</ul>
+<blockquote>
+<p>Nota: la documentación de componentes con Storybook es también el vehículo técnico del <strong>RA 6</strong> («Documenta aplicaciones seleccionando y utilizando herramientas específicas»), en particular su CE e) «Se ha confeccionado el manual de usuario y la guía de referencia».</p>
+</blockquote>
+<h2 id="conocimientos-previos">Conocimientos previos</h2>
+<p>El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
+- Angular: Standalone Components, Signals, @Input/@Output, proyección de contenido, ciclo de vida (Unidades 10, 11 y 12).
+- TypeScript: tipos avanzados, genéricos, const assertions, satisfies operator.
+- Tailwind CSS 4: clases utilitarias, personalización con @theme, variantes (Unidad 6).
+- Control de versiones con Git: commits, ramas, Pull Requests.
+- Nociones básicas de testing: unit tests con Jest o Karma, concepto de snapshot testing.
+- Markdown: sintaxis básica y avanzada (tablas, bloques de código, enlaces).</p>
+<h2 id="contenidos">Contenidos</h2>
+<ol>
+<li>Fundamentos de Storybook</li>
+<li>Instalación y configuración en proyecto Angular</li>
+<li>Escritura de Stories con CSF3</li>
+<li>Documentación con MDX</li>
+<li>Addons esenciales</li>
+<li>Testing con Storybook</li>
+<li>Integración con Figma</li>
+<li>Publicación y despliegue</li>
+</ol>
+<h2 id="desarrollo-teorico">Desarrollo teórico</h2>
+<h3 id="seccion-a-que-es-storybook">SECCIÓN A — QUÉ ES STORYBOOK</h3>
+<p>Storybook es una herramienta de desarrollo frontend que permite construir, documentar y testear componentes de interfaz de usuario de forma aislada, fuera del contexto de la aplicación completa. Funciona como un "taller" o "laboratorio" donde cada componente se presenta en un entorno controlado, con la capacidad de manipular sus propiedades (inputs) en tiempo real y observar su comportamiento en diferentes estados, tamaños de pantalla y condiciones visuales.</p>
+<p>En el ecosistema profesional de desarrollo de interfaces, Storybook ocupa un lugar central por varias razones fundamentales:</p>
+<p><strong>Desarrollo aislado (Component-Driven Development):</strong> Con Storybook, un desarrollador puede trabajar en un componente (por ejemplo, un Button) sin necesidad de arrancar la aplicación completa ni navegar hasta la página donde se utiliza ese componente. El componente se renderiza en un iframe aislado, con todas sus dependencias resueltas y sin interferencias del resto de la aplicación. Esto acelera el ciclo de desarrollo (cambiar código → ver resultado → iterar) y reduce la carga cognitiva al centrarse en una sola pieza.</p>
+<p><strong>Documentación viva:</strong> A diferencia de la documentación estática (wikis, PDFs, READMEs) que inevitablemente queda desactualizada, las stories de Storybook son código que se ejecuta. Si un componente cambia su API (se añade un input, se elimina un output), la story asociada fallará al compilar, forzando su actualización. Esto garantiza que la documentación siempre refleja el estado real de los componentes. La documentación vive y respira junto al código.</p>
+<p><strong>Catálogo de componentes para todo el equipo:</strong> Storybook sirve como un catálogo centralizado donde diseñadores, product managers, QA y otros stakeholders pueden explorar todos los componentes disponibles, ver sus variantes y estados, copiar ejemplos de código y comprender cómo usarlos. Esto reduce la dependencia de los desarrolladores para responder preguntas como "¿tenemos un componente de tabla con ordenación?" o "¿cómo se ve el botón en estado disabled?".</p>
+<p><strong>Testing visual automatizado:</strong> Storybook se integra con servicios como Chromatic o Percy que capturan una screenshot de cada story y la comparan píxel a píxel con versiones anteriores. Si un cambio en el código altera accidentalmente la apariencia de un componente (por ejemplo, un cambio en un token de color que afecta a 37 componentes), el testing visual lo detecta inmediatamente y muestra un diff visual. Esto es imposible de lograr con tests unitarios tradicionales, que verifican lógica pero no apariencia.</p>
+<p><strong>Colaboración diseño-desarrollo:</strong> Storybook cierra la brecha entre diseño y desarrollo de múltiples maneras: permite incrustar diseños de Figma junto a los componentes desarrollados (addon-designs), facilita que los diseñadores revisen la implementación y comparen con el diseño original, y establece un lenguaje común donde "Button/primary" significa lo mismo en Figma y en Storybook.</p>
+<h3 id="seccion-b-instalacion-y-configuracion-en-proyecto-angular">SECCIÓN B — INSTALACIÓN Y CONFIGURACIÓN EN PROYECTO ANGULAR</h3>
+<h4 id="instalacion-automatica">Instalación automática</h4>
+<p>La forma más sencilla de añadir Storybook a un proyecto Angular existente es mediante el comando de inicialización automática, que detecta el framework y configura todo lo necesario:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npx storybook@latest init
+</span></code></pre></div>
+<p>Este comando realiza las siguientes acciones:
+1. Detecta automáticamente que el proyecto es Angular (por la presencia de <code>angular.json</code>).
+2. Instala las dependencias necesarias: <code>@storybook/angular</code>, <code>@storybook/addon-essentials</code>, <code>@storybook/addon-interactions</code> y sus peer dependencies.
+3. Crea la carpeta <code>.storybook/</code> en la raíz del proyecto con dos archivos de configuración.
+4. Añade scripts a <code>package.json</code>: <code>storybook</code> (para desarrollo) y <code>build-storybook</code> (para build estático).
+5. Crea ejemplos de stories en <code>src/stories/</code> para que el desarrollador vea cómo funciona.</p>
+<h4 id="archivos-de-configuracion-generados">Archivos de configuración generados</h4>
+<p><strong>.storybook/main.ts</strong> — Configuración principal de Storybook:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>import type { StorybookConfig } from '@storybook/angular';
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>const config: StorybookConfig = {
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  addons: [
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    '@storybook/addon-essentials',
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    '@storybook/addon-interactions',
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    '@storybook/addon-a11y',
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    '@storybook/addon-links',
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    '@storybook/addon-designs',
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  ],
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  framework: {
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    name: '@storybook/angular',
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    options: {},
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  },
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>  docs: {
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    autodocs: 'tag',
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>  },
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>  staticDirs: ['../public'],
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>};
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>export default config;
+</span></code></pre></div>
+<ul>
+<li><strong>stories:</strong> Patrón glob que indica dónde se encuentran los archivos de stories. La configuración por defecto busca cualquier archivo <code>.stories.ts</code> o <code>.stories.tsx</code> en <code>src/</code>.</li>
+<li><strong>addons:</strong> Lista de addons que se cargan. <code>@storybook/addon-essentials</code> incluye Controls, Actions, Viewport, Backgrounds, Toolbars y Docs. <code>@storybook/addon-interactions</code> permite testing de interacciones con play functions. <code>@storybook/addon-a11y</code> añade auditoría de accesibilidad. <code>@storybook/addon-designs</code> permite incrustar Figma.</li>
+<li><strong>framework:</strong> Especifica el framework (Angular) y sus opciones.</li>
+<li><strong>docs:</strong> Configuración de documentación automática. <code>autodocs: 'tag'</code> genera documentación automática para los componentes que tengan el tag <code>'autodocs'</code> en sus metadatos.</li>
+</ul>
+<p><strong>.storybook/preview.ts</strong> — Configuración global de cómo se renderizan las stories:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>import type { Preview } from '@storybook/angular';
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>import { setProjectAnnotations } from '@storybook/angular';
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>import { applicationConfig } from '@storybook/angular';
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>import { provideZoneChangeDetection } from '@angular/core';
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>import { provideRouter } from '@angular/router';
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>import { provideHttpClient } from '@angular/common/http';
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>// Importar Tailwind global
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>import '!style-loader!css-loader!postcss-loader!../src/styles.css';
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>const preview: Preview = {
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  parameters: {
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    controls: {
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>      matchers: {
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        color: /(background|color)$/i,
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        date: /Date$/i,
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>      },
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    },
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    backgrounds: {
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>      default: 'light',
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>      values: [
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        { name: 'light', value: '#ffffff' },
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>        { name: 'dark', value: '#1f2937' },
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>        { name: 'gray', value: '#f3f4f6' },
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>      ],
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    },
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>    viewport: {
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>      viewports: {
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>        mobile: { name: 'Mobile', styles: { width: '375px', height: '812px' } },
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>        tablet: { name: 'Tablet', styles: { width: '768px', height: '1024px' } },
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>        desktop: { name: 'Desktop', styles: { width: '1280px', height: '800px' } },
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>        wide: { name: 'Wide', styles: { width: '1920px', height: '1080px' } },
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>      },
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>    },
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>  },
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>  decorators: [
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>    applicationConfig({
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>      providers: [
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>        provideZoneChangeDetection({ eventCoalescing: true }),
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>        provideHttpClient(),
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>        provideRouter([]),
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>      ],
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>    }),
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>  ],
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>  tags: ['autodocs'],
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>};
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>export default preview;
+</span></code></pre></div>
+<p>La línea <code>import '!style-loader!css-loader!postcss-loader!../src/styles.css'</code> es crucial: le dice a Storybook que cargue los estilos globales de la aplicación incluyendo el CSS de Tailwind. Sin esta línea, los componentes aparecerían sin estilos en Storybook. En Tailwind 4, el archivo <code>styles.css</code> contiene la directiva <code>@import "tailwindcss"</code> que carga todo el framework.</p>
+<h4 id="integracion-con-tailwind-4">Integración con Tailwind 4</h4>
+<p>Para que Storybook procese correctamente Tailwind 4, es necesario asegurarse de que:
+1. El archivo <code>styles.css</code> importado en <code>preview.ts</code> contiene <code>@import "tailwindcss"</code>.
+2. El archivo de configuración de Storybook usa PostCSS (que ya viene configurado por defecto en proyectos Angular con Tailwind).
+3. Si se usan tokens personalizados con <code>@theme</code>, el archivo que los define debe estar importado en <code>styles.css</code> para que Storybook los tenga disponibles.</p>
+<h4 id="scripts-npm">Scripts NPM</h4>
+<p>El comando <code>npx storybook@latest init</code> añade estos scripts a <code>package.json</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  "scripts": {
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    "storybook": "storybook dev -p 6006",
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    "build-storybook": "storybook build"
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  }
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>}
+</span></code></pre></div>
+<ul>
+<li><code>npm run storybook</code> arranca el servidor de desarrollo en <code>http://localhost:6006</code> con hot reload.</li>
+<li><code>npm run build-storybook</code> genera una versión estática lista para desplegar en cualquier hosting (GitHub Pages, Netlify, Vercel, Chromatic).</li>
+</ul>
+<h3 id="seccion-c-escritura-de-stories-con-csf3">SECCIÓN C — ESCRITURA DE STORIES CON CSF3</h3>
+<p>CSF3 (Component Story Format 3) es el formato más reciente para escribir stories en Storybook. Introduce mejoras significativas respecto a CSF2: menos boilerplate, mejor inferencia de tipos, soporte para <code>satisfies</code> de TypeScript, y una API más limpia.</p>
+<h4 id="estructura-de-un-archivo-de-stories">Estructura de un archivo de stories</h4>
+<p>Un archivo de stories típico para un componente Angular con CSF3 tiene la siguiente estructura:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>import type { Meta, StoryObj } from '@storybook/angular';
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>import { ButtonComponent } from './button.component';
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>const meta: Meta&lt;ButtonComponent&gt; = {
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  title: 'UI/Button',
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  component: ButtonComponent,
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  tags: ['autodocs'],
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  argTypes: {
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    variant: {
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>      control: 'select',
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>      options: ['primary', 'secondary', 'outline', 'ghost', 'danger'],
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>      description: 'Variante visual del botón',
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    },
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    size: {
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>      control: 'radio',
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>      options: ['sm', 'md', 'lg'],
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>      description: 'Tamaño del botón',
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    },
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    disabled: {
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>      control: 'boolean',
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>      description: 'Deshabilita el botón',
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    },
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    loading: {
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>      control: 'boolean',
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>      description: 'Muestra un spinner y deshabilita la interacción',
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    },
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    label: {
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>      control: 'text',
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>      description: 'Texto del botón',
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    },
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    clicked: {
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>      action: 'clicked',
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>      description: 'Se emite cuando el usuario hace click',
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    },
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>  },
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>  args: {
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>    variant: 'primary',
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    size: 'md',
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    disabled: false,
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>    loading: false,
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>    label: 'Botón',
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>  },
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>  render: (args) =&gt; ({
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>    props: args,
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>  }),
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>};
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>export default meta;
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>type Story = StoryObj&lt;ButtonComponent&gt;;
+</span></code></pre></div>
+<p>Desglose de cada parte:</p>
+<ul>
+<li>
+<p><strong><code>meta: Meta&lt;ButtonComponent&gt;</code>:</strong> Objeto de metadatos que describe el componente. Incluye el título (jerarquía en la barra lateral con <code>/</code>), el componente en sí, tags para configurar autodocs, y la configuración de argTypes y args.</p>
+</li>
+<li>
+<p><strong><code>title: 'UI/Button'</code>:</strong> Define la posición del componente en la barra lateral de navegación de Storybook. La barra <code>/</code> crea una jerarquía de carpetas: <code>UI</code> es la carpeta contenedora y <code>Button</code> es el componente. Otras convenciones comunes son <code>Atoms/Button</code>, <code>Molecules/SearchBar</code>, <code>Organisms/Header</code>.</p>
+</li>
+<li>
+<p><strong><code>tags: ['autodocs']</code>:</strong> Habilita la generación automática de documentación para este componente. Storybook analizará el componente (sus inputs, outputs, tipos) y generará automáticamente una tabla de argumentos y documentación básica.</p>
+</li>
+<li>
+<p><strong><code>argTypes</code>:</strong> Define los controles que aparecerán en el panel de Controls de Storybook. Cada propiedad del componente puede tener un control específico: <code>select</code> para opciones enumeradas, <code>radio</code> para pocas opciones, <code>boolean</code> para true/false, <code>text</code> para strings, <code>number</code> para números, <code>color</code> para colores, <code>date</code> para fechas. La propiedad <code>action</code> en un argType configura el panel de Actions para que muestre cada vez que el evento se emite.</p>
+</li>
+<li>
+<p><strong><code>args</code>:</strong> Valores por defecto que se aplican a todas las stories del componente. Pueden ser sobrescritos por stories individuales.</p>
+</li>
+</ul>
+<h4 id="creando-stories-para-cada-variante">Creando stories para cada variante</h4>
+<p>Una vez definidos los metadatos, se crean las stories individuales, cada una representando una variante o estado del componente:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// Primary (usando los args por defecto)
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>export const Primary: Story = {};
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>// Secondary
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>export const Secondary: Story = {
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  args: {
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    variant: 'secondary',
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    label: 'Cancelar',
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  },
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>};
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>// Outline
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>export const Outline: Story = {
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>  args: {
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    variant: 'outline',
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    label: 'Ver más',
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>  },
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>};
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>// Ghost
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>export const Ghost: Story = {
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>  args: {
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    variant: 'ghost',
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    label: 'Editar',
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>  },
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>};
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>// Danger
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>export const Danger: Story = {
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>  args: {
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>    variant: 'danger',
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>    label: 'Eliminar cuenta',
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>  },
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>};
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>// Estados
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>export const Disabled: Story = {
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>  args: {
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>    disabled: true,
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>    label: 'Deshabilitado',
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>  },
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>};
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>export const Loading: Story = {
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>  args: {
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>    loading: true,
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>    label: 'Guardando...',
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>  },
+</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>};
+</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>
+</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>// Con icono
+</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>export const WithIcon: Story = {
+</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>  args: {
+</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>    label: 'Descargar',
+</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>    icon: `&lt;svg class="h-4 w-4" ...&gt;&lt;!-- icono download --&gt;&lt;/svg&gt;`,
+</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a>  },
+</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a>};
+</span><span id="__span-5-58"><a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a>
+</span><span id="__span-5-59"><a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a>// Agrupación de variantes por tamaño
+</span><span id="__span-5-60"><a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a>export const Small: Story = {
+</span><span id="__span-5-61"><a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>  args: {
+</span><span id="__span-5-62"><a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a>    size: 'sm',
+</span><span id="__span-5-63"><a id="__codelineno-5-63" name="__codelineno-5-63" href="#__codelineno-5-63"></a>    label: 'Pequeño',
+</span><span id="__span-5-64"><a id="__codelineno-5-64" name="__codelineno-5-64" href="#__codelineno-5-64"></a>  },
+</span><span id="__span-5-65"><a id="__codelineno-5-65" name="__codelineno-5-65" href="#__codelineno-5-65"></a>};
+</span><span id="__span-5-66"><a id="__codelineno-5-66" name="__codelineno-5-66" href="#__codelineno-5-66"></a>
+</span><span id="__span-5-67"><a id="__codelineno-5-67" name="__codelineno-5-67" href="#__codelineno-5-67"></a>export const Large: Story = {
+</span><span id="__span-5-68"><a id="__codelineno-5-68" name="__codelineno-5-68" href="#__codelineno-5-68"></a>  args: {
+</span><span id="__span-5-69"><a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a>    size: 'lg',
+</span><span id="__span-5-70"><a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a>    label: 'Grande',
+</span><span id="__span-5-71"><a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a>  },
+</span><span id="__span-5-72"><a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a>};
+</span></code></pre></div>
+<h4 id="stories-para-componentes-con-proyeccion-de-contenido">Stories para componentes con proyección de contenido</h4>
+<p>Para componentes que usan <code>&lt;ng-content&gt;</code> (como Card, Modal, Tabs), las stories deben proporcionar el contenido proyectado mediante la propiedad <code>render</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>const meta: Meta&lt;CardComponent&gt; = {
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  title: 'UI/Card',
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  component: CardComponent,
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  tags: ['autodocs'],
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  args: {
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    variant: 'default',
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    padding: 'md',
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  },
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>};
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>export default meta;
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>type Story = StoryObj&lt;CardComponent&gt;;
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>export const Default: Story = {
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  render: (args) =&gt; ({
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    props: args,
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    template: `
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>      &lt;ui-card [variant]="variant" [padding]="padding"&gt;
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>        &lt;h3 class="text-lg font-semibold"&gt;Título de la tarjeta&lt;/h3&gt;
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>        &lt;p class="text-gray-600"&gt;Contenido de ejemplo de la tarjeta con información relevante.&lt;/p&gt;
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>      &lt;/ui-card&gt;
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    `,
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>  }),
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>};
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>export const WithHeaderAndFooter: Story = {
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>  render: (args) =&gt; ({
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>    props: args,
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>    template: `
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>      &lt;ui-card&gt;
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>        &lt;div card-header&gt;
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>          &lt;h3 class="text-lg font-semibold"&gt;Tarjeta con header y footer&lt;/h3&gt;
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>        &lt;/div&gt;
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>        &lt;p class="text-gray-600"&gt;Contenido principal de la tarjeta.&lt;/p&gt;
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>        &lt;div card-footer&gt;
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>          &lt;div class="flex justify-end gap-2"&gt;
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>            &lt;ui-button variant="ghost" size="sm"&gt;Cancelar&lt;/ui-button&gt;
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>            &lt;ui-button variant="primary" size="sm"&gt;Aceptar&lt;/ui-button&gt;
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>          &lt;/div&gt;
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>        &lt;/div&gt;
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>      &lt;/ui-card&gt;
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>    `,
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>  }),
+</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>};
+</span></code></pre></div>
+<h4 id="stories-para-componentes-con-estado-smart-components">Stories para componentes con estado (Smart Components)</h4>
+<p>Para Smart Components que inyectan servicios y obtienen datos, se pueden crear stories mockeando los servicios mediante Angular providers en los decoradores:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>const meta: Meta&lt;DashboardPageComponent&gt; = {
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  title: 'Pages/Dashboard',
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  component: DashboardPageComponent,
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  decorators: [
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    applicationConfig({
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>      providers: [
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        {
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>          provide: DashboardService,
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>          useValue: {
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>            getStats: () =&gt; of(MOCK_STATS),
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>            getChartData: () =&gt; of(MOCK_CHART_DATA),
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>            getRecentTransactions: () =&gt; of(MOCK_TRANSACTIONS),
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>          },
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        },
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>      ],
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    }),
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>  ],
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>};
+</span></code></pre></div>
+<h3 id="seccion-d-documentacion-con-mdx">SECCIÓN D — DOCUMENTACIÓN CON MDX</h3>
+<p>MDX es un formato de archivo que combina Markdown (para texto narrativo y documentación) con JSX (para insertar componentes React/Storybook interactivos). En Storybook, los archivos <code>.mdx</code> permiten crear páginas de documentación ricas que mezclan explicaciones, ejemplos de código, tablas de propiedades y stories interactivas.</p>
+<h4 id="pagina-de-introduccion-del-design-system-con-mdx">Página de introducción del Design System con MDX</h4>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>// src/stories/Introduction.mdx
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>import { Meta, Story, Canvas, Controls, Description } from '@storybook/blocks';
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>&lt;Meta title="Introducción" /&gt;
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a># Bienvenido al Design System de MiApp
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>Este Design System contiene todos los componentes de interfaz de usuario utilizados en MiApp. Aquí encontrarás:
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>- **Componentes atómicos** como botones, inputs, badges y avatares.
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>- **Componentes moleculares** como campos de formulario, barras de búsqueda y elementos de navegación.
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>- **Organismos** como tablas de datos, modales y cabeceras.
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>## Principios de diseño
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>El Design System se rige por los siguientes principios:
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>1. **Consistencia:** Elementos similares deben verse y comportarse de forma similar.
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>2. **Accesibilidad:** Todo componente cumple WCAG 2.1 AA como mínimo.
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>3. **Simplicidad:** La API de cada componente debe ser intuitiva y predecible.
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>4. **Flexibilidad:** Los componentes se adaptan a diferentes contextos sin perder coherencia.
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>## Cómo usar este Storybook
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>- Navega por los componentes en la barra lateral izquierda.
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>- Usa el panel **Controls** para modificar propiedades en tiempo real.
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>- Cambia el **Viewport** para ver cómo se adaptan los componentes a distintos dispositivos.
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>- Consulta la pestaña **Docs** para ver la documentación completa de cada componente.
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>- Revisa la pestaña **Accessibility** para verificar el cumplimiento de estándares ARIA.
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>## Design Tokens
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>| Token | Valor | Uso |
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>|-------|-------|-----|
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>| `--color-primary` | `#2563eb` | Acciones principales, enlaces |
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>| `--color-success` | `#059669` | Estados positivos, confirmaciones |
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>| `--color-warning` | `#d97706` | Advertencias |
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>| `--color-error` | `#dc2626` | Errores, acciones destructivas |
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>| `--font-size-base` | `1rem` | Texto de cuerpo |
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>| `--spacing-4` | `1rem` | Padding estándar de componentes |
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>## Instalación y uso
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>Para usar un componente en tu feature, impórtalo desde `shared/components`:
+</span></code></pre></div>
+import { ButtonComponent } from '@shared/components/button';</p>
+<p>@Component({
+  standalone: true,
+  imports: [ButtonComponent],
+  template: <code>&lt;ui-button variant="primary" (clicked)="handleSave()"&gt;
+      Guardar cambios
+    &lt;/ui-button&gt;</code>,
+})
+export class MyFeatureComponent {}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>
+</span></code></pre></div></p>
+<h4 id="documentacion-de-componente-con-mdx-stories-incrustadas">Documentación de componente con MDX + Stories incrustadas</h4>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>// button.stories.mdx
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>import { Meta, Story, Canvas, Controls, Primary, Source } from '@storybook/blocks';
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>import * as ButtonStories from './button.stories';
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>&lt;Meta of={ButtonStories} /&gt;
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a># Button
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>El componente `Button` es el bloque de construcción fundamental para las acciones del usuario. Soporta múltiples variantes, tamaños, estados y configuraciones de icono.
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>## Cuándo usar este componente
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>- Para **acciones principales** en formularios, modales y páginas.
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>- Para **acciones secundarias** que complementan una acción principal.
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>- Para **acciones de navegación** que llevan al usuario a otra página.
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>- Para **acciones destructivas** como eliminar o cancelar.
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>## Cuándo NO usar este componente
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>- Para **navegación entre páginas**: usa `routerLink` en un elemento `&lt;a&gt;` estilizado.
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>- Para **enlaces externos**: usa un `&lt;a&gt;` nativo con estilos de botón.
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>## Variantes
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>&lt;Canvas of={ButtonStories.Primary} /&gt;
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>&lt;Canvas of={ButtonStories.Secondary} /&gt;
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>&lt;Canvas of={ButtonStories.Outline} /&gt;
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>&lt;Canvas of={ButtonStories.Ghost} /&gt;
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>&lt;Canvas of={ButtonStories.Danger} /&gt;
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>## Estados
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>&lt;Canvas of={ButtonStories.Disabled} /&gt;
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>&lt;Canvas of={ButtonStories.Loading} /&gt;
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>## Tamaños
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>&lt;Canvas of={ButtonStories.Small} /&gt;
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>&lt;Canvas of={ButtonStories.Primary} /&gt;
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a>&lt;Canvas of={ButtonStories.Large} /&gt;
+</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>
+</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>## Con icono
+</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>
+</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a>&lt;Canvas of={ButtonStories.WithIcon} /&gt;
+</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>
+</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>## API del componente
+</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>
+</span><span id="__span-10-48"><a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a>&lt;Controls /&gt;
+</span><span id="__span-10-49"><a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a>
+</span><span id="__span-10-50"><a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a>## Accesibilidad
+</span><span id="__span-10-51"><a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a>
+</span><span id="__span-10-52"><a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a>- El botón tiene `role="button"` implícito (es un `&lt;button&gt;` nativo).
+</span><span id="__span-10-53"><a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a>- `aria-disabled` se usa en lugar de `disabled` para mantener el foco.
+</span><span id="__span-10-54"><a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a>- `aria-busy="true"` cuando está en estado `loading`.
+</span><span id="__span-10-55"><a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a>- Texto visible para lectores de pantalla durante la carga.
+</span><span id="__span-10-56"><a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a>- Contraste de color verificado (WCAG AA).
+</span><span id="__span-10-57"><a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a>
+</span><span id="__span-10-58"><a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a>## Código de ejemplo
+</span></code></pre></div>
+<ui-button variant="primary" size="md" (clicked)="handleClick()">
+  Guardar
+</ui-button>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>
+</span></code></pre></div></p>
+<h3 id="seccion-e-addons-esenciales">SECCIÓN E — ADDONS ESENCIALES</h3>
+<h4 id="storybookaddon-essentials">@storybook/addon-essentials</h4>
+<p>Este addon es un paquete que incluye múltiples addons fundamentales preconfigurados:</p>
+<ul>
+<li>
+<p><strong>Controls:</strong> Panel que permite modificar los inputs (args) del componente en tiempo real mediante controles de formulario (selects, checkboxes, inputs de texto, color pickers). Es la funcionalidad más utilizada de Storybook.</p>
+</li>
+<li>
+<p><strong>Actions:</strong> Panel que muestra en tiempo real los eventos emitidos por el componente (outputs en Angular). Cuando un componente emite un <code>@Output()</code>, el panel de Actions lo registra con los argumentos correspondientes, permitiendo verificar que los eventos se emiten correctamente y con los datos esperados.</p>
+</li>
+<li>
+<p><strong>Viewport:</strong> Toolbar que permite cambiar el tamaño del viewport para simular diferentes dispositivos (móvil, tablet, desktop, pantalla ancha). Esencial para verificar la responsividad de los componentes.</p>
+</li>
+<li>
+<p><strong>Backgrounds:</strong> Toolbar para cambiar el color de fondo del canvas, permitiendo probar cómo se ve el componente sobre fondos claros, oscuros y de colores.</p>
+</li>
+<li>
+<p><strong>Docs:</strong> Generación automática de documentación a partir de los metadatos y las stories.</p>
+</li>
+<li>
+<p><strong>Toolbars:</strong> Barras de herramientas contextuales configurables.</p>
+</li>
+</ul>
+<h4 id="storybookaddon-a11y">@storybook/addon-a11y</h4>
+<p>Este addon integra axe-core en Storybook y ejecuta automáticamente una auditoría de accesibilidad sobre cada story. Los resultados se muestran en un panel que lista las violaciones (violations), las buenas prácticas cumplidas (passes) y las revisiones manuales necesarias (incomplete).</p>
+<p>Configuración básica en <code>main.ts</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>addons: ['@storybook/addon-a11y'],
+</span></code></pre></div>
+<p>En <code>preview.ts</code>, se puede configurar para que se ejecute automáticamente en todas las stories:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>parameters: {
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  a11y: {
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    config: {
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>      rules: [
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        { id: 'color-contrast', enabled: true },
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        { id: 'button-name', enabled: true },
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>      ],
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    },
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    element: '#storybook-root',
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>  },
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>},
+</span></code></pre></div>
+<h4 id="storybookaddon-interactions">@storybook/addon-interactions</h4>
+<p>Permite escribir tests de interacción directamente en las stories mediante <code>play</code> functions. Una <code>play</code> function es una función async que simula interacciones del usuario (clicks, escritura, hover, navegación por teclado) y verifica el comportamiento resultante:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>import { within, userEvent, expect } from '@storybook/test';
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>import type { Meta, StoryObj } from '@storybook/angular';
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>import { ButtonComponent } from './button.component';
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>const meta: Meta&lt;ButtonComponent&gt; = {
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>  title: 'UI/Button',
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>  component: ButtonComponent,
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>};
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>export default meta;
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>type Story = StoryObj&lt;ButtonComponent&gt;;
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>export const ClickInteraction: Story = {
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>  args: {
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    label: 'Haz clic',
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>    variant: 'primary',
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>  },
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>  play: async ({ canvasElement, args }) =&gt; {
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>    const canvas = within(canvasElement);
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>    const button = canvas.getByRole('button', { name: /haz clic/i });
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>    // Verificar estado inicial
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>    await expect(button).toBeEnabled();
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>    await expect(button).toHaveTextContent('Haz clic');
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>    // Simular click
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>    await userEvent.click(button);
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>  },
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>};
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>export const KeyboardNavigation: Story = {
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>  args: {
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>    label: 'Teclado',
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>  },
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>  play: async ({ canvasElement }) =&gt; {
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>    const canvas = within(canvasElement);
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>    const button = canvas.getByRole('button');
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>    await userEvent.tab();
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>    await expect(button).toHaveFocus();
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>    await userEvent.keyboard('{Enter}');
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a>  },
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>};
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a>export const DisabledNoInteraction: Story = {
+</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a>  args: {
+</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a>    label: 'Deshabilitado',
+</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a>    disabled: true,
+</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a>  },
+</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a>  play: async ({ canvasElement }) =&gt; {
+</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a>    const canvas = within(canvasElement);
+</span><span id="__span-14-53"><a id="__codelineno-14-53" name="__codelineno-14-53" href="#__codelineno-14-53"></a>    const button = canvas.getByRole('button');
+</span><span id="__span-14-54"><a id="__codelineno-14-54" name="__codelineno-14-54" href="#__codelineno-14-54"></a>
+</span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55" href="#__codelineno-14-55"></a>    await expect(button).toBeDisabled();
+</span><span id="__span-14-56"><a id="__codelineno-14-56" name="__codelineno-14-56" href="#__codelineno-14-56"></a>
+</span><span id="__span-14-57"><a id="__codelineno-14-57" name="__codelineno-14-57" href="#__codelineno-14-57"></a>    // Verificar que no se puede hacer click
+</span><span id="__span-14-58"><a id="__codelineno-14-58" name="__codelineno-14-58" href="#__codelineno-14-58"></a>    await userEvent.click(button, { skipPointerEventsCheck: true });
+</span><span id="__span-14-59"><a id="__codelineno-14-59" name="__codelineno-14-59" href="#__codelineno-14-59"></a>    await expect(button).toBeDisabled();
+</span><span id="__span-14-60"><a id="__codelineno-14-60" name="__codelineno-14-60" href="#__codelineno-14-60"></a>  },
+</span><span id="__span-14-61"><a id="__codelineno-14-61" name="__codelineno-14-61" href="#__codelineno-14-61"></a>};
+</span></code></pre></div>
+<h4 id="storybookaddon-designs">@storybook/addon-designs</h4>
+<p>Permite incrustar diseños de Figma (o URLs de imágenes) junto a los componentes en Storybook. El diseño aparece en una pestaña "Design" en el panel de addons:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>const meta: Meta&lt;ButtonComponent&gt; = {
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  title: 'UI/Button',
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  component: ButtonComponent,
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  parameters: {
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    design: {
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>      type: 'figma',
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>      url: 'https://www.figma.com/file/xxxxx/Design-System?node-id=42-123',
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    },
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>  },
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>};
+</span></code></pre></div>
+<p>También se puede usar directamente en el archivo MDX:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>import { Figma } from '@storybook/addon-designs/blocks';
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>&lt;Figma url="https://www.figma.com/file/xxxxx/Design-System?node-id=42-123" /&gt;
+</span></code></pre></div>
+<h4 id="storybookaddon-links">@storybook/addon-links</h4>
+<p>Permite crear enlaces entre stories, facilitando la navegación entre componentes relacionados. Por ejemplo, desde la story de un FormField se puede enlazar a la story del Button que se usa como submit:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>import { linkTo } from '@storybook/addon-links';
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>export const WithSubmitLink: Story = {
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  args: { ... },
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>  play: async ({ canvasElement }) =&gt; {
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    // Después de interactuar con el formulario, navegar a la story del botón
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    await linkTo('UI/Button', 'Primary')();
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>  },
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>};
+</span></code></pre></div>
+<h3 id="seccion-f-testing-con-storybook">SECCIÓN F — TESTING CON STORYBOOK</h3>
+<p>Storybook habilita tres niveles de testing que se complementan entre sí para garantizar la calidad de los componentes:</p>
+<h4 id="testing-de-interacciones-interaction-testing">Testing de interacciones (Interaction Testing)</h4>
+<p>Las <code>play</code> functions ejecutan secuencias de interacciones del usuario y verifican el estado resultante. Se ejecutan en el navegador real (no en JSDOM), lo que significa que renderizan CSS, ejecutan animaciones y responden a eventos reales del DOM. Las <code>play</code> functions se ejecutan automáticamente como parte del proceso de build de Storybook y pueden integrarse en CI/CD.</p>
+<h4 id="testing-de-accesibilidad-accessibility-testing">Testing de accesibilidad (Accessibility Testing)</h4>
+<p>El addon <code>@storybook/addon-a11y</code> ejecuta axe-core automáticamente en cada story y reporta violaciones de accesibilidad. Puede configurarse para que falle el build si se detectan violaciones críticas. Ejemplo de configuración estricta:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>// .storybook/test-runner.ts
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>import { getStoryContext } from '@storybook/test-runner';
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>import { injectAxe, checkA11y, configureAxe } from 'axe-playwright';
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>module.exports = {
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>  async preVisit(page, context) {
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>    await injectAxe(page);
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>  },
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>  async postVisit(page, context) {
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    const storyContext = await getStoryContext(page, context);
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    // Solo auditar componentes (no páginas de documentación)
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>    if (storyContext.component) {
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>      await configureAxe(page, {
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>        rules: [
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>          { id: 'color-contrast', enabled: true },
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>          { id: 'html-has-lang', enabled: true },
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>        ],
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>      });
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>      const violations = await checkA11y(page, '#storybook-root', {
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>        detailedReport: true,
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>        detailedReportOptions: { html: true },
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>      });
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>      expect(violations).toHaveLength(0);
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>    }
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>  },
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>};
+</span></code></pre></div>
+<h4 id="testing-visual-visual-testing">Testing visual (Visual Testing)</h4>
+<p>Chromatic es el servicio de testing visual de Storybook (creado por los mismos desarrolladores). Funciona de la siguiente manera:</p>
+<ol>
+<li>Por cada story, Chromatic captura una screenshot del componente renderizado.</li>
+<li>Cuando se hace un Pull Request, Chromatic vuelve a capturar screenshots de todas las stories y las compara píxel a píxel con la versión base (main branch).</li>
+<li>Si detecta diferencias, las muestra en una interfaz de revisión donde se puede aceptar el cambio (era intencionado) o rechazarlo (es una regresión).</li>
+<li>Los revisores (diseñadores y desarrolladores) aprueban o rechazan los cambios visuales.</li>
+</ol>
+<p>Configuración de Chromatic:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>npm install --save-dev chromatic
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>npx chromatic --project-token=&lt;token&gt;
+</span></code></pre></div>
+<p>La ejecución se integra fácilmente en GitHub Actions u otras plataformas de CI/CD:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a># .github/workflows/chromatic.yml
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>name: Chromatic
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>on: push
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>jobs:
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>  chromatic:
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    runs-on: ubuntu-latest
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    steps:
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>      - uses: actions/checkout@v4
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>        with:
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>          fetch-depth: 0
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>      - uses: actions/setup-node@v4
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>        with:
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>          node-version: 20
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>      - run: npm ci
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>      - run: npx chromatic --project-token=${{ secrets.CHROMATIC_TOKEN }}
+</span></code></pre></div>
+<h4 id="snapshot-testing">Snapshot testing</h4>
+<p>El test runner de Storybook también puede generar snapshot tests comparando el HTML renderizado de cada story:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>// .storybook/test-runner.ts
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>import { expect } from '@storybook/jest';
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>module.exports = {
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>  async postVisit(page, context) {
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    const elementHandler = await page.$('#storybook-root');
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    const innerHTML = await elementHandler.innerHTML();
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    expect(innerHTML).toMatchSnapshot();
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>  },
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>};
+</span></code></pre></div>
+<h3 id="seccion-g-integracion-con-figma">SECCIÓN G — INTEGRACIÓN CON FIGMA</h3>
+<p>La integración entre Storybook y Figma cierra la brecha entre diseño y desarrollo, permitiendo la trazabilidad bidireccional:</p>
+<h4 id="plugin-storybook-connect-para-figma">Plugin Storybook Connect para Figma</h4>
+<p>Este plugin de Figma permite:
+1. Vincular componentes de Figma con stories de Storybook.
+2. Ver en Figma si un componente de diseño tiene una implementación correspondiente en Storybook.
+3. Navegar directamente desde Figma a la story de Storybook del componente.</p>
+<p>Flujo de trabajo: el diseñador selecciona un componente en Figma y lo vincula a la URL de su story en Storybook. A partir de ese momento, cualquiera que vea ese componente en Figma sabrá que está implementado y podrá verlo en acción.</p>
+<h4 id="incrustar-figma-en-storybook">Incrustar Figma en Storybook</h4>
+<p>En sentido inverso, el addon <code>@storybook/addon-designs</code> permite incrustar diseños de Figma en Storybook, para que los desarrolladores y revisores puedan comparar directamente el componente desarrollado con el diseño original:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>const meta: Meta&lt;ButtonComponent&gt; = {
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>  title: 'UI/Button',
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>  component: ButtonComponent,
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>  parameters: {
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    design: {
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>      type: 'figma',
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>      url: 'https://www.figma.com/design/team-file/Design-System?node-id=42-123&amp;t=abc',
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>    },
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>  },
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>};
+</span></code></pre></div>
+<p>El diseño incrustado de Figma es interactivo: se puede hacer zoom, paneo y selección de capas.</p>
+<h3 id="seccion-h-publicacion-y-despliegue">SECCIÓN H — PUBLICACIÓN Y DESPLIEGUE</h3>
+<h4 id="build-estatico">Build estático</h4>
+<p>Storybook puede generar un build estático (HTML + CSS + JS) que se puede servir desde cualquier hosting sin necesidad de un servidor Node.js:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>npm run build-storybook
+</span></code></pre></div>
+<p>Este comando genera una carpeta <code>storybook-static/</code> con la documentación completa lista para desplegar.</p>
+<h4 id="despliegue-en-chromatic">Despliegue en Chromatic</h4>
+<p>Chromatic no solo hace testing visual, sino que también ofrece hosting gratuito para proyectos open-source y de equipos pequeños. Cada PR despliega automáticamente una versión de Storybook en una URL única y efímera que se puede compartir con stakeholders para revisión.</p>
+<h4 id="despliegue-en-github-pages">Despliegue en GitHub Pages</h4>
+<p>Integración con GitHub Actions para desplegar automáticamente Storybook en GitHub Pages al hacer push a main:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a># .github/workflows/storybook.yml
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>name: Deploy Storybook
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>on:
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>  push:
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    branches: [main]
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>jobs:
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>  deploy:
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>    runs-on: ubuntu-latest
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    steps:
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>      - uses: actions/checkout@v4
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>      - uses: actions/setup-node@v4
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>        with:
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>          node-version: 20
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>      - run: npm ci
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>      - run: npm run build-storybook
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>      - uses: peaceiris/actions-gh-pages@v3
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>        with:
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>          github_token: ${{ secrets.GITHUB_TOKEN }}
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>          publish_dir: ./storybook-static
+</span></code></pre></div>
+<h4 id="despliegue-en-netlify-o-vercel">Despliegue en Netlify o Vercel</h4>
+<p>Tanto Netlify como Vercel pueden desplegar automáticamente la carpeta <code>storybook-static/</code> a partir de un repositorio de GitHub, ofreciendo URL pública, SSL automático y preview deployments para cada PR.</p>
+<hr />
+<h2 id="ejemplos-guiados">Ejemplos guiados</h2>
+<h3 id="ejemplo-guiado-1-crear-stories-para-todos-los-estados-de-un-componente-button">Ejemplo guiado 1: Crear stories para todos los estados de un componente Button</h3>
+<p><strong>Objetivo:</strong> Escribir un archivo de stories exhaustivo para el componente Button que cubra todas las variantes, tamaños, estados y configuraciones.</p>
+<p><strong>Pasos:</strong></p>
+<ol>
+<li><strong>Crear el archivo <code>button.stories.ts</code></strong> con los metadatos y argTypes completos (5 variantes, 3 tamaños, 5 propiedades booleanas).</li>
+<li><strong>Crear la story Primary</strong> (usa los args por defecto).</li>
+<li><strong>Crear las stories de variantes:</strong> Secondary, Outline, Ghost, Danger — cada una sobrescribiendo solo el arg <code>variant</code>.</li>
+<li><strong>Crear las stories de tamaño:</strong> Small (size=sm), Medium (size=md, por defecto), Large (size=lg).</li>
+<li><strong>Crear las stories de estado:</strong> Disabled, Loading.</li>
+<li><strong>Crear las stories con icono:</strong> IconLeft, IconRight, IconOnly (sin texto, solo icono).</li>
+<li><strong>Añadir una play function</strong> a la story Primary que verifique: el botón se renderiza, se puede hacer click, emite el evento clicked.</li>
+<li><strong>Añadir la incrustación de Figma</strong> con el parámetro <code>design</code>.</li>
+</ol>
+<p>Resultado: una documentación completa del Button con 12+ stories que cubren todas las combinaciones relevantes.</p>
+<h3 id="ejemplo-guiado-2-storybook-completo-de-un-componente-card-con-mdx-play-functions-a11y">Ejemplo guiado 2: Storybook completo de un componente Card con MDX + play functions + a11y</h3>
+<p><strong>Objetivo:</strong> Documentar exhaustivamente el componente Card usando todos los recursos: CSF3, MDX, play functions y auditoría de accesibilidad.</p>
+<p><strong>Pasos:</strong></p>
+<ol>
+<li><strong>Crear <code>card.stories.ts</code></strong> con stories para: Default, WithHeader, WithFooter, WithImage, Clickable, Elevated, Bordered, SmallPadding.</li>
+<li><strong>Crear <code>card.stories.mdx</code></strong> con documentación narrativa: introducción, cuándo usar, cuándo no usar, variantes, ejemplos de código, notas de accesibilidad.</li>
+<li><strong>Añadir play function</strong> a la story Clickable que verifique: al hacer click, se emite el evento <code>cardClick</code>.</li>
+<li><strong>Verificar la auditoría de accesibilidad:</strong> ejecutar el addon a11y y comprobar que no hay violaciones.</li>
+</ol>
+<h3 id="ejemplo-guiado-3-configurar-chromatic-para-visual-testing">Ejemplo guiado 3: Configurar Chromatic para visual testing</h3>
+<p><strong>Objetivo:</strong> Integrar Chromatic en el flujo de CI/CD para detectar regresiones visuales automáticamente.</p>
+<p><strong>Pasos:</strong></p>
+<ol>
+<li><strong>Crear cuenta en Chromatic</strong> y obtener el project token.</li>
+<li><strong>Instalar chromatic</strong> como dependencia de desarrollo: <code>npm install --save-dev chromatic</code>.</li>
+<li><strong>Añadir el script</strong> a <code>package.json</code>: <code>"chromatic": "chromatic"</code>.</li>
+<li><strong>Ejecutar localmente</strong> para verificar que funciona: <code>npx chromatic --project-token=&lt;token&gt;</code>.</li>
+<li><strong>Crear el workflow de GitHub Actions</strong> (<code>.github/workflows/chromatic.yml</code>) que ejecute Chromatic en cada push a cualquier rama.</li>
+<li><strong>Crear un PR de prueba</strong> con un cambio visual (cambiar un color) y verificar que Chromatic detecta la diferencia y la muestra en la UI de revisión.</li>
+</ol>
+<hr />
+<h2 id="actividades-guiadas">Actividades guiadas</h2>
+<h3 id="actividad-guiada-1-instalar-y-configurar-storybook-en-el-proyecto">Actividad guiada 1: Instalar y configurar Storybook en el proyecto</h3>
+<p><strong>Duración:</strong> 60 minutos.</p>
+<p><strong>Objetivo:</strong> Realizar la instalación y configuración completa de Storybook en el proyecto Angular del curso.</p>
+<p><strong>Desarrollo:</strong>
+1. El alumnado ejecuta <code>npx storybook@latest init</code> en el proyecto Angular donde tiene los componentes de unidades anteriores.
+2. Verifica que Storybook arranca correctamente (<code>npm run storybook</code>) y muestra las stories de ejemplo.
+3. Configura <code>preview.ts</code> para importar Tailwind (estilos globales) y añadir viewports personalizados.
+4. Configura <code>main.ts</code> para añadir los addons de a11y, designs e interactions.
+5. Crea al menos una story de prueba para un componente existente (Button).
+6. Ejecuta el addon a11y sobre la story y comprueba los resultados.</p>
+<p><strong>Entregable:</strong> Storybook funcionando con la configuración completa y al menos una story.</p>
+<h3 id="actividad-guiada-2-crear-stories-para-el-catalogo-de-componentes">Actividad guiada 2: Crear stories para el catálogo de componentes</h3>
+<p><strong>Duración:</strong> 120 minutos.</p>
+<p><strong>Objetivo:</strong> Escribir stories para los 14 componentes del catálogo de la Unidad 11.</p>
+<p><strong>Desarrollo:</strong>
+1. El alumnado crea un archivo <code>.stories.ts</code> para cada componente del catálogo.
+2. Para cada componente, escribe al menos: una story por variante (3-5), una story por cada estado especial (disabled, loading, empty y error), y una story con caso de uso real.
+3. Configura los argTypes con controles apropiados y descripciones JSDoc.
+4. Añade <code>tags: ['autodocs']</code> a los metadatos de cada componente.
+5. Organiza los componentes en la jerarquía de Storybook según Atomic Design: <code>Atoms/Button</code>, <code>Atoms/Badge</code>, <code>Molecules/FormField</code>, <code>Molecules/SearchBar</code>, <code>Organisms/DataTable</code>, <code>Organisms/Modal</code>.</p>
+<p><strong>Entregable:</strong> 14 archivos <code>.stories.ts</code> con cobertura exhaustiva.</p>
+<h3 id="actividad-guiada-3-escribir-documentacion-mdx-para-3-componentes-clave">Actividad guiada 3: Escribir documentación MDX para 3 componentes clave</h3>
+<p><strong>Duración:</strong> 90 minutos.</p>
+<p><strong>Objetivo:</strong> Crear documentación narrativa en MDX para los componentes Button, DataTable y Modal.</p>
+<p><strong>Desarrollo:</strong>
+1. Crear archivos <code>.stories.mdx</code> (o <code>.mdx</code>) para los 3 componentes.
+2. Incluir: introducción, cuándo usar/no usar, variantes visuales (con Canvas embebidos), tabla de API (Controls), consideraciones de accesibilidad, ejemplos de código y enlaces a componentes relacionados.
+3. Añadir incrustación de Figma (usar URLs de ejemplo si no hay diseños reales).
+4. Verificar que la documentación se renderiza correctamente en la pestaña Docs de Storybook.</p>
+<p><strong>Entregable:</strong> 3 archivos MDX con documentación completa y profesional.</p>
+<hr />
+<h2 id="actividades-propuestas">Actividades propuestas</h2>
+<h3 id="actividad-propuesta-1-stories-exhaustivas-para-el-componente-formfield">Actividad propuesta 1: Stories exhaustivas para el componente FormField</h3>
+<p><strong>Duración:</strong> 120 minutos.</p>
+<p><strong>Descripción:</strong> Escribir un archivo de stories para el componente FormField (de la Unidad 11) que cubra todos los estados y variantes.</p>
+<p><strong>Requisitos:</strong>
+- Stories para cada tipo de input: text, email, password, number, search.
+- Stories para cada estado: default, focus, filled, error, disabled.
+- Stories con y sin: label, placeholder, hint, icono, indicador de requerido.
+- Story con validación asíncrona (estado pending con spinner).
+- Play functions que verifiquen: escribir texto actualiza el valor, al hacer blur se marca como touched, el mensaje de error aparece cuando el control es inválido y touched.
+- Auditoría de accesibilidad limpia (sin violaciones).</p>
+<p><strong>Entregable:</strong> Archivo <code>form-field.stories.ts</code> con al menos 15 stories y play functions.</p>
+<h3 id="actividad-propuesta-2-documentacion-mdx-del-design-system-completo">Actividad propuesta 2: Documentación MDX del Design System completo</h3>
+<p><strong>Duración:</strong> 180 minutos.</p>
+<p><strong>Descripción:</strong> Crear la página de introducción y las páginas de documentación para las categorías principales del Design System usando MDX.</p>
+<p><strong>Requisitos:</strong>
+- Página de introducción (<code>Introduction.mdx</code>): bienvenida, principios, cómo usar, tokens.
+- Página de átomos (<code>Atoms.mdx</code>): resumen de todos los componentes atómicos con ejemplos.
+- Página de moléculas (<code>Molecules.mdx</code>): resumen de todos los componentes moleculares con ejemplos.
+- Página de organismos (<code>Organisms.mdx</code>): resumen de todos los organismos con ejemplos.
+- Cada página debe tener: descripción, lista de componentes con enlaces a sus stories, ejemplos de código y buenas prácticas.</p>
+<p><strong>Entregable:</strong> 4 archivos MDX de documentación.</p>
+<h3 id="actividad-propuesta-3-implementar-testing-de-interacciones-para-el-componente-datatable">Actividad propuesta 3: Implementar testing de interacciones para el componente DataTable</h3>
+<p><strong>Duración:</strong> 150 minutos.</p>
+<p><strong>Descripción:</strong> Escribir play functions exhaustivas para el componente DataTable que prueben todas las interacciones del usuario.</p>
+<p><strong>Requisitos:</strong>
+- Play function para ordenación: hacer click en la cabecera de una columna, verificar que cambia la dirección del icono de ordenación.
+- Play function para paginación: hacer click en "Siguiente", verificar que cambia la página mostrada.
+- Play function para selección: hacer click en un checkbox de fila, verificar que la fila se selecciona.
+- Play function para "Seleccionar todas": hacer click en el checkbox de la cabecera, verificar que todas las filas se seleccionan.
+- Play function para estado vacío: pasar datos vacíos, verificar que se muestra el mensaje de empty state.
+- Play function para estado de error: pasar un mensaje de error, verificar que se muestra y que el botón "Reintentar" funciona.
+- Play function para estado de carga: verificar que se muestran los skeletons correctamente.</p>
+<p><strong>Entregable:</strong> Archivo <code>data-table.stories.ts</code> con al menos 8 play functions.</p>
+<h3 id="actividad-propuesta-4-configurar-cicd-con-chromatic-y-github-actions">Actividad propuesta 4: Configurar CI/CD con Chromatic y GitHub Actions</h3>
+<p><strong>Duración:</strong> 120 minutos.</p>
+<p><strong>Descripción:</strong> Configurar un pipeline completo de integración continua que ejecute los tests de Storybook y Chromatic en cada Pull Request.</p>
+<p><strong>Requisitos:</strong>
+- Workflow que ejecute <code>npm run build-storybook</code> para verificar que el build no tiene errores.
+- Workflow que ejecute Chromatic para detectar cambios visuales.
+- Workflow que ejecute el test runner de Storybook para verificar play functions y a11y.
+- Configurar el job para que falle si hay violaciones de accesibilidad o play functions rotas.
+- Añadir el badge de Chromatic al README del proyecto.
+- Documentar el proceso para que otros desarrolladores puedan replicarlo.</p>
+<p><strong>Entregable:</strong> Archivos de workflow (<code>.github/workflows/</code>) y documentación del pipeline.</p>
+<h3 id="actividad-propuesta-5-crear-una-galeria-de-componentes-con-storybook">Actividad propuesta 5: Crear una galería de componentes con Storybook</h3>
+<p><strong>Duración:</strong> 120 minutos.</p>
+<p><strong>Descripción:</strong> Construir una story compuesta (Composite Story) que muestre todos los componentes del Design System juntos en una sola página, a modo de galería o "showcase".</p>
+<p><strong>Requisitos:</strong>
+- Crear una página "Showcase" que renderice una grid con todos los componentes.
+- Incluir: una barra de navegación (Header), tarjetas de estadísticas (StatCard), una tabla de datos (DataTable), un formulario (con varios FormField + Button), modales, toasts, badges, avatares.
+- La galería debe ser interactiva: los botones deben funcionar, los modales deben abrirse, las notificaciones deben aparecer.
+- Utilizar datos mock realistas para que la galería parezca una aplicación real en miniatura.</p>
+<p><strong>Entregable:</strong> Story "Showcase" con la galería de componentes interactiva.</p>
+<hr />
+<h2 id="actividades-de-ampliacion">Actividades de ampliación</h2>
+<h3 id="actividad-de-ampliacion-1-crear-un-addon-personalizado-para-storybook">Actividad de ampliación 1: Crear un addon personalizado para Storybook</h3>
+<p><strong>Duración:</strong> 240 minutos.</p>
+<p><strong>Descripción:</strong> Desarrollar un addon de Storybook personalizado que añada una pestaña con información específica del Design System (por ejemplo, un panel que muestre los Design Tokens aplicados al componente seleccionado).</p>
+<p><strong>Requisitos:</strong>
+- El addon debe aparecer como una pestaña adicional en el panel de addons.
+- Debe mostrar los tokens de diseño (colores, tipografía, espaciado) que el componente está utilizando.
+- Debe estar empaquetado como un paquete npm instalable.
+- Documentar el proceso de creación, instalación y uso del addon.</p>
+<p><strong>Entregable:</strong> Addon funcional + documentación.</p>
+<h3 id="actividad-de-ampliacion-2-configurar-un-portal-de-design-system-con-storybook-y-zeroheight">Actividad de ampliación 2: Configurar un portal de Design System con Storybook y Zeroheight</h3>
+<p><strong>Duración:</strong> 180 minutos.</p>
+<p><strong>Descripción:</strong> Integrar Storybook con Zeroheight (plataforma de documentación de Design Systems) para crear un portal unificado que combine documentación de diseño (Figma) y desarrollo (Storybook).</p>
+<p><strong>Requisitos:</strong>
+- Crear una cuenta en Zeroheight (plan gratuito).
+- Integrar las stories de Storybook mediante embeds.
+- Sincronizar los design tokens y componentes entre Figma, Storybook y Zeroheight.
+- Crear páginas para cada categoría de componentes con diseño de Figma y código de Storybook lado a lado.
+- Compartir el enlace del portal para revisión.</p>
+<p><strong>Entregable:</strong> Portal de Design System en Zeroheight con integraciones funcionales.</p>
+<h3 id="actividad-de-ampliacion-3-implementar-visual-testing-con-multiples-navegadores-y-temas">Actividad de ampliación 3: Implementar visual testing con múltiples navegadores y temas</h3>
+<p><strong>Duración:</strong> 150 minutos.</p>
+<p><strong>Descripción:</strong> Configurar Chromatic u otra herramienta de visual testing para que capture screenshots de cada story en diferentes temas (claro, oscuro) y diferentes navegadores (Chrome, Firefox, Safari).</p>
+<p><strong>Requisitos:</strong>
+- Configurar Chromatic para capturar screenshots en los temas claro y oscuro (usando el background addon o el ThemeService).
+- Configurar Chromatic para ejecutarse en al menos dos navegadores.
+- Crear stories específicas para tema oscuro que activen la clase <code>.dark</code> en el contenedor.
+- Analizar los resultados y documentar las diferencias encontradas entre navegadores.</p>
+<p><strong>Entregable:</strong> Configuración multi-tema y multi-navegador + informe de diferencias.</p>
+<hr />
+<h2 id="buenas-practicas">Buenas prácticas</h2>
+<ol>
+<li>
+<p><strong>Una story por estado, no una story monolítica.</strong> Cada variante y estado significativo de un componente merece su propia story. "Primary", "Secondary", "Disabled", "Loading" como stories separadas es mucho más útil que una sola story "Button" con todos los controles.</p>
+</li>
+<li>
+<p><strong>Usar <code>tags: ['autodocs']</code> en todos los componentes.</strong> Esto habilita la generación automática de documentación, incluyendo la tabla de argumentos inferida de los tipos TypeScript de los inputs y outputs.</p>
+</li>
+<li>
+<p><strong>Nombres de stories descriptivos y en CamelCase.</strong> Los nombres de las stories exportadas deben ser descriptivos para que aparezcan correctamente en la barra lateral: <code>Primary</code>, <code>WithIcon</code>, <code>DisabledState</code>, <code>EmptyState</code>.</p>
+</li>
+<li>
+<p><strong>Jerarquía de títulos consistente.</strong> Usar una convención de nomenclatura para los títulos de los metadatos: <code>Atoms/Button</code>, <code>Molecules/SearchBar</code>, <code>Organisms/Header</code>, <code>Pages/Dashboard</code>. Esto agrupa los componentes por nivel de Atomic Design en la barra lateral.</p>
+</li>
+<li>
+<p><strong>Añadir play functions para interacciones críticas.</strong> Las play functions son tests de integración que se ejecutan en un navegador real. Priorizar escribir play functions para las interacciones más importantes: clicks que emiten outputs, navegación por teclado, cambios de estado.</p>
+</li>
+<li>
+<p><strong>Ejecutar el addon a11y en cada story y corregir todas las violaciones.</strong> Un componente no está "done" hasta que pasa la auditoría de accesibilidad sin violaciones. Las violaciones de a11y deben tratarse con la misma seriedad que los bugs funcionales.</p>
+</li>
+<li>
+<p><strong>Documentar con MDX el "por qué" y el "cuándo", no solo el "qué".</strong> La documentación generada automáticamente (Docs) cubre el "qué" (API del componente). El MDX debe cubrir el "por qué" (decisiones de diseño) y el "cuándo" (casos de uso apropiados e inapropiados).</p>
+</li>
+<li>
+<p><strong>Mantener las stories cerca de los componentes.</strong> Los archivos <code>.stories.ts</code> deben residir en la misma carpeta que el componente que documentan (<code>button.component.ts</code> y <code>button.stories.ts</code> juntos), no en una carpeta centralizada de stories. Esto facilita encontrar y mantener la documentación.</p>
+</li>
+<li>
+<p><strong>Usar datos mock realistas.</strong> Las stories deben mostrar datos que parezcan reales, no "Lorem ipsum" y "John Doe" genérico. Datos realistas ayudan a diseñadores y stakeholders a evaluar mejor los componentes.</p>
+</li>
+<li>
+<p><strong>Versionar las stories junto con los componentes.</strong> Si un componente cambia su API, sus stories deben actualizarse en el mismo commit. Esto mantiene la documentación siempre sincronizada con el código.</p>
+</li>
+<li>
+<p><strong>No mockear servicios en stories de componentes presentacionales.</strong> Los componentes presentacionales no deben inyectar servicios. Si una story necesita mockear un servicio, es una señal de que el componente es Smart y probablemente debería dividirse.</p>
+</li>
+<li>
+<p><strong>Publicar Storybook regularmente.</strong> Un Storybook desplegado y accesible vía URL es infinitamente más valioso que uno que solo existe en local. Automatizar el despliegue para que siempre refleje la última versión de main.</p>
+</li>
+</ol>
+<hr />
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+<ol>
+<li>
+<p><strong>No importar Tailwind en <code>preview.ts</code>.</strong> El error más común al configurar Storybook con Angular y Tailwind es olvidar importar los estilos globales en <code>preview.ts</code>. El resultado: todos los componentes aparecen sin estilos. La línea <code>import '!style-loader!css-loader!postcss-loader!../src/styles.css'</code> es obligatoria.</p>
+</li>
+<li>
+<p><strong>Stories que no reflejan el estado real del componente.</strong> Si un componente añade un nuevo input requerido, las stories existentes deben actualizarse. No hacerlo resulta en stories que fallan al renderizar o, peor, que muestran un estado incorrecto (por ejemplo, un botón sin texto).</p>
+</li>
+<li>
+<p><strong>No configurar los viewports.</strong> Sin viewports configurados, Storybook solo muestra los componentes en el tamaño por defecto. Muchos bugs de diseño solo son visibles en móvil o tablet.</p>
+</li>
+<li>
+<p><strong>Ignorar las violaciones de a11y.</strong> Acumular violaciones de accesibilidad en las stories es una mala práctica. Cada violación debe corregirse o, si es un falso positivo, configurarse como excepción justificada.</p>
+</li>
+<li>
+<p><strong>Usar <code>any</code> en los argTypes.</strong> Si un argType no está correctamente tipado, el panel de Controls no ofrecerá los controles adecuados (por ejemplo, un campo de texto en lugar de un select para una variante).</p>
+</li>
+<li>
+<p><strong>Crear stories demasiado complejas.</strong> Una story con 15 argumentos modificables es difícil de entender. Es preferible tener 10 stories con 2-3 args cada una que una sola story con todos los args.</p>
+</li>
+<li>
+<p><strong>No añadir <code>autodocs</code> tag.</strong> Sin este tag, Storybook no genera la documentación automática del componente, y los usuarios no pueden ver la tabla de argumentos ni la descripción.</p>
+</li>
+<li>
+<p><strong>Olvidar limpiar el estado entre play functions.</strong> Si una play function modifica el estado del componente (por ejemplo, abre un modal) y no lo restaura, puede afectar a las play functions siguientes que se ejecuten en la misma story.</p>
+</li>
+<li>
+<p><strong>No incluir el build de Storybook en CI.</strong> Si Storybook no se construye en CI, los errores de compilación en las stories pueden pasar desapercibidos hasta que alguien intenta ejecutarlo localmente.</p>
+</li>
+<li>
+<p><strong>Documentación desactualizada en MDX.</strong> El MDX no se regenera automáticamente como las stories. Si un componente cambia, el texto explicativo en el MDX debe revisarse manualmente para asegurar que sigue siendo preciso.</p>
+</li>
+</ol>
+<hr />
+<h2 id="resumen">Resumen</h2>
+<p>Esta unidad ha abordado la documentación de componentes con Storybook en el contexto de Angular profesional:</p>
+<ul>
+<li><strong>Storybook</strong> es una herramienta de desarrollo aislado que funciona como taller, documentación viva, catálogo de componentes y plataforma de testing visual.</li>
+<li>La <strong>instalación</strong> se realiza con <code>npx storybook@latest init</code>, que configura automáticamente el proyecto Angular. La integración con Tailwind requiere importar los estilos globales en <code>preview.ts</code>.</li>
+<li>El formato <strong>CSF3</strong> simplifica la escritura de stories con menos boilerplate y mejor inferencia de tipos, usando <code>Meta&lt;&gt;</code> y <code>StoryObj&lt;&gt;</code>.</li>
+<li><strong>MDX</strong> permite crear documentación narrativa que combina texto, código y stories interactivas en un solo archivo.</li>
+<li>Los <strong>addons esenciales</strong> incluyen Controls (modificar inputs), Actions (ver outputs), Viewport (responsive), Backgrounds, a11y (auditoría de accesibilidad), Interactions (play functions) y Designs (incrustar Figma).</li>
+<li>El <strong>testing</strong> en Storybook abarca tres niveles: interacciones (simular clicks/teclado), accesibilidad (axe-core) y visual (comparación píxel a píxel con Chromatic).</li>
+<li>La <strong>integración con Figma</strong> permite vincular bidireccionalmente componentes de diseño con sus implementaciones en código.</li>
+<li>La <strong>publicación</strong> del build estático puede realizarse en Chromatic, GitHub Pages, Netlify o Vercel, idealmente automatizada mediante CI/CD.</li>
+</ul>
+<hr />
+<h2 id="recursos-complementarios">Recursos complementarios</h2>
+<h3 id="documentacion-oficial">Documentación oficial</h3>
+<ul>
+<li>Storybook para Angular: https://storybook.js.org/docs/get-started/frameworks/angular</li>
+<li>CSF3 (Component Story Format 3): https://storybook.js.org/docs/api/csf</li>
+<li>Storybook MDX: https://storybook.js.org/docs/writing-docs/mdx</li>
+<li>Addon Interactions: https://storybook.js.org/docs/writing-tests/interaction-testing</li>
+<li>Addon a11y: https://storybook.js.org/docs/writing-tests/accessibility-testing</li>
+</ul>
+<h3 id="herramientas">Herramientas</h3>
+<ul>
+<li>Chromatic: https://www.chromatic.com (testing visual y hosting)</li>
+<li>Figma Tokens: https://www.figmatokens.com (sincronización Figma ↔ código)</li>
+<li>Zeroheight: https://zeroheight.com (portal de Design System)</li>
+<li>Percy (BrowserStack): https://percy.io (testing visual alternativo)</li>
+</ul>
+<h3 id="cursos-y-tutoriales">Cursos y tutoriales</h3>
+<ul>
+<li>"Storybook for Angular Developers" — Storybook Team (YouTube)</li>
+<li>"Component-Driven Development with Angular and Storybook" — Angular Addicts</li>
+<li>"Visual Testing with Storybook and Chromatic" — Chromatic Academy</li>
+</ul>
+<h3 id="libros">Libros</h3>
+<ul>
+<li>"Storybook in Action" — Varun Vachhar</li>
+<li>"Design Systems" — Alla Kholmatova (capítulos sobre documentación)</li>
+</ul>
+<h3 id="comunidad">Comunidad</h3>
+<ul>
+<li>Storybook Discord: https://discord.gg/storybook</li>
+<li>Storybook Blog: https://storybook.js.org/blog</li>
+<li>Chromatic Blog: https://www.chromatic.com/blog</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

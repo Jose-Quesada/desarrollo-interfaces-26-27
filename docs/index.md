@@ -1,4 +1,4 @@
-# Unidad 1: Introducción al Desarrollo de Interfaces
+# Introducción al Desarrollo de Interfaces
 
 ## Objetivos de aprendizaje
 
@@ -13,18 +13,33 @@ Al finalizar esta unidad, el alumnado será capaz de:
 7. Explicar el proceso de Diseño Centrado en el Usuario (UCD), describiendo cada una de sus fases y las técnicas empleadas en cada una de ellas.
 8. Describir el rol del desarrollador de interfaces en equipos de desarrollo modernos, identificando los perfiles con los que colabora y las responsabilidades que asume.
 
-## Resultado de aprendizaje asociado
+## Resultados de aprendizaje asociados
 
-**RA 1. Diseña interfaces de usuario, analizando los requisitos y las tecnologías involucradas.**
+Este módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE) se organiza en torno a ocho resultados de aprendizaje oficiales:
 
-Este resultado de aprendizaje se desglosa en los siguientes criterios de evaluación del currículo oficial del ciclo formativo de Desarrollo de Aplicaciones Multiplataforma (DAM) en Andalucía:
+- **RA 1.** Genera interfaces gráficos de usuario mediante editores visuales utilizando las funcionalidades del editor y adaptando el código generado.
+- **RA 2.** Genera interfaces naturales de usuario utilizando herramientas visuales.
+- **RA 3.** Crea componentes visuales valorando y empleando herramientas específicas.
+- **RA 4.** Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad.
+- **RA 5.** Crea informes evaluando y utilizando herramientas gráficas.
+- **RA 6.** Documenta aplicaciones seleccionando y utilizando herramientas específicas.
+- **RA 7.** Prepara aplicaciones para su distribución evaluando y utilizando herramientas específicas.
+- **RA 8.** Evalúa el funcionamiento de aplicaciones diseñando y ejecutando pruebas.
 
-- CE a. Se han identificado los tipos de interfaces de usuario existentes.
-- CE b. Se han descrito las características y tecnologías de los diferentes tipos de interfaces.
-- CE c. Se ha analizado la evolución de las interfaces de usuario.
-- CE d. Se han identificado las herramientas de desarrollo de interfaces de usuario.
-- CE e. Se han valorado las tendencias actuales en el diseño de interfaces.
-- CE f. Se han reconocido los principios del diseño centrado en el usuario.
+**Cobertura por unidades del módulo:**
+
+| RA | Unidad(es) principal(es) |
+|----|--------------------------|
+| RA 1 | U4 (Figma), U9 (ecosistema), U10 (Angular), U12 (formularios), U20 (Electron) |
+| RA 2 | U3 (interfaces naturales de usuario) |
+| RA 3 | U7, U10, U11, U13, U14, U15 (componentes visuales) |
+| RA 4 | U1 (UX), U2 (accesibilidad), U4, U5, U6, U8, U17 (usabilidad y accesibilidad) |
+| RA 5 | U16 (informes), U17 (dashboards) |
+| RA 6 | U14 (documentación de componentes), U18 (documentación de aplicaciones) |
+| RA 7 | U20 (Electron), U21 (empaquetado y distribución) |
+| RA 8 | U19 (pruebas de software) |
+
+> Nota: los contenidos sobre interfaces por voz, gestos, cuerpo e IA conversacional (VUI/NUI) que se presentan en esta introducción corresponden al **RA 2** y se desarrollan en profundidad en la Unidad 3.
 
 ## Conocimientos previos
 
@@ -97,7 +112,7 @@ Estos conocimientos previos se consideran prerrequisitos fundamentales. Se recom
 - Competencias técnicas requeridas: HTML, CSS, JavaScript/TypeScript, frameworks, control de versiones, testing.
 - Competencias transversales: comunicación, trabajo en equipo, resolución de problemas.
 - Colaboración multidisciplinar: relación con diseñadores UX/UI, product managers, desarrolladores backend, DevOps.
-- El módulo de Desarrollo de Interfaces en el currículo DAM: relación con DIW (Diseño de Interfaces Web), Programación, Acceso a Datos, PMDM.
+- El módulo de Desarrollo de Interfaces en el currículo DAM: relación con Lenguajes de marcas y sistemas de gestión de información, Entornos de desarrollo, Programación, Acceso a datos y Programación multimedia y dispositivos móviles (PMDM).
 
 ## Desarrollo teórico
 
@@ -111,13 +126,25 @@ Existen diversos tipos de interfaces de usuario, cada una con sus característic
 
 - **GUI (Graphical User Interface):** Es la interfaz gráfica tradicional basada en ventanas, iconos, menús y puntero (WIMP). Los usuarios interactúan mediante dispositivos como el ratón, el teclado o pantallas táctiles, manipulando representaciones visuales de objetos y acciones. Es el tipo predominante en ordenadores personales, aplicaciones web y aplicaciones móviles.
 
+![Graphical User Interface](./img/00/GUI.webp)
+
 - **CLI (Command Line Interface):** Interfaz basada en texto donde el usuario introduce comandos mediante el teclado y recibe respuestas textuales del sistema. Aunque aparentemente arcaica, sigue siendo fundamental en entornos de desarrollo, administración de sistemas y operaciones DevOps por su eficiencia, automatización y precisión.
+
+![Command Line Interface](./img/00/CLI.png)
 
 - **VUI (Voice User Interface):** Interfaz basada en voz que permite la interacción mediante comandos hablados y respuestas sonoras. Tecnologías como el procesamiento de lenguaje natural (NLP) y el reconocimiento automático del habla (ASR) la hacen posible. Asistentes como Alexa, Siri o Google Assistant son ejemplos paradigmáticos.
 
+![Voice User Interface](./img/00/VUI.png)
+
 - **NUI (Natural User Interface):** Interfaces que buscan una interacción "natural" e intuitiva mediante gestos, movimientos corporales o incluso pensamientos. Las pantallas táctiles multitáctiles, los controladores de movimiento (Kinect) y los dispositivos de seguimiento ocular son ejemplos de NUI.
 
+![Natural User Interface](./img/00/NUI.avif)
+
 - **TUI (Tangible User Interface):** Interfaces que permiten la interacción con información digital a través de objetos físicos manipulables. Por ejemplo, un mando MIDI con diales físicos que modifica parámetros de un sintetizador digital, o Reactable, el instrumento musical electrónico que combina objetos físicos con una superficie interactiva.
+
+![Tangible User Interface](./img/00/TUI.jpg)
+
+- **Conversacional:** Lo que define a una interfaz conversacional es la capacidad de mantener un diálogo fluido, con memoria y contexto. No importa si el usuario usa la voz, un teclado o botones; lo importante es la inteligencia de la charla. Se basan en IA avanzada y lenguaje natural puro. Estas interfaces entienden instrucciones ambiguas, recuerdan lo que se ha dicho hace un rato y adaptan sus respuestas dinámicamente sin depender de comandos exactos.
 
 En el contexto de este módulo, nos centraremos fundamentalmente en las interfaces gráficas de usuario (GUI), y más concretamente en las interfaces gráficas desarrolladas con tecnologías web, que constituyen la plataforma más extendida para aplicaciones de escritorio, web y, cada vez más, aplicaciones móviles.
 
@@ -172,6 +199,8 @@ La confusión entre UX (User Experience) y UI (User Interface) es una de las má
 - **Prototipado:** Creación de versiones simuladas del producto, desde bocetos en papel (baja fidelidad) hasta prototipos interactivos en herramientas como Figma (alta fidelidad), para validar hipótesis sin necesidad de desarrollar completamente.
 
 - **Evaluación de usabilidad:** Test con usuarios reales realizando tareas concretas, medición del tiempo de realización, tasa de errores y satisfacción subjetiva. La evaluación heurística (inspección por expertos) complementa los tests con usuarios.
+
+![UX - UI](./img/00/UX-UI.jpg)
 
 **User Interface (UI)** responde a las preguntas: ¿Cómo se ve? ¿Es visualmente atractivo? ¿Comunica correctamente la jerarquía de la información? ¿Es consistente? ¿Guía al usuario adecuadamente? La UI se ocupa de la capa visual de la interfaz. Incluye disciplinas como:
 
@@ -251,29 +280,48 @@ El diseño de interfaces no es estático: evoluciona influenciado por las capaci
 
 Es una evolución del skeuomorfismo (imitación de texturas reales) que combina elementos del diseño plano con sombras suaves para crear la ilusión de que los elementos emergen o se hunden en el fondo. Se consigue mediante dos sombras: una clara en la parte superior izquierda y una oscura en la parte inferior derecha, sobre un fondo del mismo color. El efecto es plástico, táctil y suave. Sin embargo, presenta serios problemas de accesibilidad debido al bajo contraste, por lo que debe usarse con moderación y siempre complementado con indicadores visuales adicionales. Es adecuado para interfaces simples (calculadoras, reproductores de música), nunca para formularios complejos o dashboards con mucha información.
 
-**Glassmorphism**
+![Neumorfismo](./img/00/Neumorfismo.png)
+
+**Glassmorfismo**
 
 Efecto de vidrio esmerilado que difumina y tiñe el fondo detrás de un elemento, creando profundidad y jerarquía visual. Implementado en CSS mediante `backdrop-filter: blur()` y fondos semitransparentes, se popularizó con Windows Vista, desapareció con el diseño plano y ha resurgido con Windows 11 y macOS. Funciona bien para tarjetas, modales, barras de navegación y paneles superpuestos. En Tailwind CSS 4, se implementa mediante clases como `backdrop-blur-lg`, `bg-white/70` y `border border-white/20`.
 
-**Minimalismo y brutalismo**
+![Glassmorfismo](./img/00/Glassmorfismo.jpeg)
 
-El minimalismo busca reducir la interfaz a sus elementos esenciales: amplio espacio en blanco, pocos colores, tipografía clara y eliminación de todo adorno superfluo. Es la tendencia dominante en productos de productividad (Notion, Linear, Things, Craft). El brutalismo, por contraste, abraza una estética intencionadamente cruda: tipografía grande y sin adornos, colores planos y vibrantes, bordes duros y falta de sutileza. Ambas corrientes representan reacciones frente al exceso visual.
+**Minimalismo**
+
+El minimalismo busca reducir la interfaz a sus elementos esenciales: amplio espacio en blanco, pocos colores, tipografía clara y eliminación de todo adorno superfluo. Es la tendencia dominante en productos de productividad (Notion, Linear, Things, Craft). 
+
+![Minimalismo](./img/00/Minimalismo.avif)
+
+**Brutalismo**
+El brutalismo, por contraste, abraza una estética intencionadamente cruda: tipografía grande y sin adornos, colores planos y vibrantes, bordes duros y falta de sutileza. Ambas corrientes representan reacciones frente al exceso visual.
+
+![Brutalismo](./img/00/Brutalismo.jpg)
 
 **Dark Mode**
 
 El modo oscuro invierte la paleta tradicional (texto oscuro sobre fondo claro) presentando texto claro sobre fondo oscuro. Sus ventajas incluyen: reducción de la fatiga visual en entornos de poca luz, ahorro de batería en pantallas OLED (los píxeles negros están apagados) y preferencia estética de muchos usuarios. La implementación técnica moderna se basa en variables CSS y la media query `prefers-color-scheme`, combinadas con un toggle manual. Un sistema de diseño profesional debe contemplar ambos modos desde el inicio, no como un añadido posterior.
 
+![Drak Mode](./img/00/DarkMode.jpg)
+
 **Microinteracciones**
 
 Son momentos de interacción pequeños pero significativos que realizan tres funciones: comunicar estado (un switch que se desliza), proporcionar feedback (un botón que cambia de color al ser presionado) y ayudar a visualizar acciones (un elemento que se desvanece al ser eliminado). No son meramente decorativas: las microinteracciones mejoran la usabilidad reduciendo la incertidumbre del usuario y haciendo la interfaz más predecible y satisfactoria. El libro "Microinteractions" de Dan Saffer es la referencia canónica en este ámbito.
+
+![Microinteracciones](./img/00/Microinteracciones.png)
 
 **Motion Design**
 
 El movimiento en las interfaces debe tener propósito: guiar la atención, comunicar relaciones espaciales, proporcionar feedback y añadir personalidad. Los principios de Disney adaptados a interfaces (squash and stretch, anticipation, staging, follow-through) ayudan a crear animaciones naturales y fluidas. A nivel técnico, CSS ofrece `transition` para cambios entre estados, `animation` con `@keyframes` para secuencias más complejas, y las modernas `view-timeline` y `scroll-driven-animations` para animaciones vinculadas al scroll. En Angular, las animaciones se definen en los metadatos del componente mediante las funciones del paquete `@angular/animations`.
 
+![Motion Design](./img/00/MotionDesign.gif)
+
 **Diseño inclusivo**
 
 Va más allá de la accesibilidad técnica (WCAG). El diseño inclusivo busca crear productos que funcionen para la mayor diversidad posible de personas, independientemente de su edad, género, cultura, capacidad, idioma o contexto. Implica considerar situaciones como: uso con una sola mano, visión reducida por luz solar, daltonismo, dislexia, conexiones lentas, dispositivos antiguos, bajo alfabetismo digital, diferencias culturales en el significado de colores e iconos, etc. Microsoft ha sido pionera en esta filosofía con su Inclusive Design Toolkit.
+
+![Diseño Inclusivo](./img/00/DiseñoInclusivo.png)
 
 **IA en interfaces**
 
@@ -296,6 +344,25 @@ Un componente en Angular es una clase TypeScript decorada con `@Component` que e
 - Metadatos (selector CSS, animaciones, proveedores de servicios).
 
 Los componentes se organizan en módulos (NgModules) o, desde Angular 14, pueden ser Standalone Components (componentes autónomos que no requieren un módulo padre). Esta última opción, que utilizaremos en este módulo, simplifica la estructura del proyecto y lo acerca a la experiencia de React o Vue.
+
+
+```typescript
+@Component({
+  selector: 'app-card',
+  standalone: true,
+  template: `
+    <div class="rounded-lg bg-white p-6 shadow-md">
+      <h3 class="text-lg font-bold">{{ title }}</h3>
+      <p class="text-gray-600">{{ description }}</p>
+    </div>
+  `,
+  styles: [],
+})
+export class CardComponent {
+  @Input({ required: true }) title!: string;
+  @Input() description = '';
+}
+```
 
 **Enrutamiento**
 
@@ -374,13 +441,33 @@ El desarrollador de interfaces (o frontend developer) ocupa una posición estrat
 
 **El módulo en el contexto del ciclo DAM**
 
-El módulo de Desarrollo de Interfaces (código 0488) se imparte en el segundo curso del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma. Tiene una carga horaria de 96 horas, distribuidas típicamente en 3 horas semanales. Se relaciona estrechamente con otros módulos:
+El módulo de Desarrollo de Interfaces se imparte en el segundo curso del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma. Tiene una carga distribuidas en 6 horas semanales. Se relaciona estrechamente con otros módulos:
 
-- **Diseño de Interfaces Web (DIW):** Mientras DIW se centra en el diseño (UX/UI, HTML, CSS), Desarrollo de Interfaces se centra en la implementación con frameworks (Angular) y en la integración con herramientas profesionales como Figma, Tailwind y Storybook.
+- **Lenguajes de marcas y sistemas de gestión de información:** Proporciona los fundamentos de HTML, CSS y maquetación web sobre los que este módulo construye interfaces. Mientras ese módulo se centra en el marcado y el estilo, Desarrollo de Interfaces se centra en la implementación con Angular y en la integración con herramientas profesionales como Figma, Tailwind y Storybook.
 - **Programación:** Proporciona las bases de TypeScript y patrones de diseño.
 - **Programación Multimedia y Dispositivos Móviles (PMDM):** Comparte el interés por las interfaces de usuario, pero desde la perspectiva de aplicaciones móviles nativas o híbridas.
 - **Acceso a Datos:** Proporciona las APIs REST y GraphQL que consumiremos desde nuestras interfaces Angular.
 - **Sistemas de Gestión Empresarial (SGE):** Las interfaces que desarrollemos deben integrarse en sistemas empresariales completos.
+
+## Casos reales
+
+### Caso 1: La transformación digital de Genially
+
+Genially, empresa cordobesa fundada en 2015, desarrolla una plataforma web para crear contenidos interactivos y presentaciones. Con más de 30 millones de usuarios en 190 países, es uno de los casos de éxito más notables del ecosistema tecnológico andaluz. Su stack tecnológico ha evolucionado desde una aplicación PHP + jQuery hasta una arquitectura moderna basada en React + TypeScript, con un sistema de diseño propio documentado en Storybook y diseños gestionados en Figma.
+
+Para un desarrollador de interfaces, Genially ejemplifica los desafíos de escalar una interfaz web: miles de plantillas con editores drag-and-drop, renderizado en tiempo real de animaciones complejas, exportación a múltiples formatos (HTML, PDF, SCORM), colaboración en tiempo real entre múltiples usuarios (similar a Figma o Google Docs). Su equipo de frontend aplica rigurosos principios de accesibilidad WCAG 2.1 AA y performance (LCP < 2.5s, TBT < 300ms en dispositivos de gama media).
+
+### Caso 2: La interfaz de administración de una cooperativa agrícola
+
+Imaginemos una cooperativa de aceite de oliva en Jaén que necesita digitalizar su gestión. Requieren una interfaz para control de producción (entrada de aceituna, rendimiento, trazabilidad), gestión de almacén, facturación y relaciones con agricultores. Los usuarios tienen entre 40 y 65 años, con baja alfabetización digital, y trabajarán con tablets en entornos con polvo, poca luz y conexión intermitente (zonas rurales de sierra).
+
+Este caso ilustra la aplicación de los principios vistos en la unidad:
+
+- **UCD:** Realizamos entrevistas con los agricultores en sus almazaras, observamos su jornada laboral para entender sus flujos reales.
+
+- **Diseño inclusivo:** Tipografía legible a 1.5-2 metros, targets táctiles de mínimo 48x48px, alto contraste, modo offline (PWA con service workers), interfaces simplificadas con solo las opciones esenciales, lenguaje en español llano sin tecnicismos.
+
+- **Elección tecnológica:** Aplicación web (accesible desde cualquier dispositivo sin instalación) pero con funcionalidad PWA para offline. Angular proporciona la estructura robusta que una aplicación de gestión necesita. Tailwind garantiza consistencia visual. Electron permite distribuir una versión de escritorio para los ordenadores de oficina.
 
 ## Ejemplos guiados
 
@@ -391,6 +478,8 @@ El módulo de Desarrollo de Interfaces (código 0488) se imparte en el segundo c
 **Desarrollo en el aula:**
 
 1. Abrimos Spotify (versión de escritorio) y navegamos por sus secciones principales: Inicio, Buscar, Tu Biblioteca.
+
+![Spotify](./img/00/spotify.png)
 
 2. **Análisis UX:**
    - **Navegación principal:** Menú lateral siempre visible con las secciones principales. Patrón de navegación persistente que reduce la carga cognitiva: el usuario siempre sabe dónde está y cómo ir a otra sección.
@@ -414,15 +503,20 @@ El módulo de Desarrollo de Interfaces (código 0488) se imparte en el segundo c
 
 ### Ejemplo guiado 2: Descomposición de una pantalla con Atomic Design
 
-**Objetivo:** Aprender a descomponer visualmente una interfaz en componentes siguiendo la metodología Atomic Design (Brad Frost).
+<!-- **Objetivo:** Aprender a descomponer visualmente una interfaz en componentes siguiendo la metodología Atomic Design (Brad Frost).
 
 **Metodología:** Tomamos una captura de pantalla de la interfaz de Linear (herramienta de gestión de proyectos) y la descomponemos en átomos, moléculas y organismos.
 
 **Paso 1 - Definición de niveles de Atomic Design:**
+
 - **Átomos:** Elementos más pequeños irreductibles (botones, inputs, labels, iconos, avatars, badges, checkboxes individuales).
+
 - **Moléculas:** Combinaciones simples de átomos que funcionan juntos (un campo de búsqueda = input + icono + botón; un elemento de menú = icono + label + badge; un filter chip = label + icono de cierre).
+
 - **Organismos:** Grupos de moléculas y átomos que forman secciones distintas de la interfaz (un sidebar completo, una cabecera, una tabla con filtros, un panel de comentarios).
+
 - **Templates:** Composición de organismos que forma la estructura de una página (aún con contenido placeholder).
+
 - **Pages:** Templates con contenido real.
 
 **Paso 2 - Descomposición práctica:**
@@ -431,16 +525,16 @@ En la pantalla de Linear identificamos:
 
 - **Átomos:** Button, IconButton, Avatar, Badge (indicador de prioridad: alta/urgente/media/baja), Label, Input, Select, Checkbox, Divider.
 
-- **Moléculas:** 
-  - `IssueRow`: combina checkbox + badge de prioridad + ID de issue + título + labels (múltiples) + assignee avatar + fecha relativa.
-  - `FilterBar`: combina múltiples FilterChips + botón Add Filter + SearchInput.
-  - `StatusColumn`: combina título de columna + contador de issues + botón Add + lista de IssueRow.
+- **Moléculas:**
+    - `IssueRow`: combina checkbox + badge de prioridad + ID de issue + título + labels (múltiples) + assignee avatar + fecha relativa.
+    - `FilterBar`: combina múltiples FilterChips + botón Add Filter + SearchInput.
+    - `StatusColumn`: combina título de columna + contador de issues + botón Add + lista de IssueRow.
 
 - **Organismos:**
-  - `BoardView`: combina StatusColumn × N, con scroll horizontal y botón Add Column.
-  - `Sidebar`: combina Logo + NavigationMenu + workspace switcher + UserMenu.
-  - `TopBar`: combina breadcrumb + actions (Share, Filter toggle, View options).
-  - `IssueDetail`: panel lateral que combina título editable, descripción (editor), propiedades (status, priority, assignee, labels, due date), actividad (timeline de comentarios y cambios).
+    - `BoardView`: combina StatusColumn × N, con scroll horizontal y botón Add Column.
+    - `Sidebar`: combina Logo + NavigationMenu + workspace switcher + UserMenu.
+    - `TopBar`: combina breadcrumb + actions (Share, Filter toggle, View options).
+    - `IssueDetail`: panel lateral que combina título editable, descripción (editor), propiedades (status, priority, assignee, labels, due date), actividad (timeline de comentarios y cambios).
 
 - **Template:** `ProjectBoard` = TopBar + Sidebar + BoardView.
 
@@ -454,55 +548,66 @@ Para cada nivel, identificamos qué será un componente Angular:
 
 Cada componente utilizará Tailwind CSS para los estilos, manteniendo consistencia con variables de diseño (design tokens) extraídas del sistema de diseño.
 
-**Discusión:** Este ejercicio conecta directamente con la unidad 3 (Figma, donde diseñaremos componentes) y la unidad 5 (del diseño a la implementación, donde convertiremos estos componentes de Figma a Angular).
+**Discusión:** Este ejercicio conecta directamente con la Unidad 4 (Figma, donde diseñamos componentes) y la Unidad 15 (del diseño a la implementación, donde convertimos estos componentes de Figma a Angular). -->
 
-## Casos reales
-
-### Caso 1: La transformación digital de Genially
-
-Genially, empresa cordobesa fundada en 2015, desarrolla una plataforma web para crear contenidos interactivos y presentaciones. Con más de 30 millones de usuarios en 190 países, es uno de los casos de éxito más notables del ecosistema tecnológico andaluz. Su stack tecnológico ha evolucionado desde una aplicación PHP + jQuery hasta una arquitectura moderna basada en React + TypeScript, con un sistema de diseño propio documentado en Storybook y diseños gestionados en Figma.
-
-Para un desarrollador de interfaces, Genially ejemplifica los desafíos de escalar una interfaz web: miles de plantillas con editores drag-and-drop, renderizado en tiempo real de animaciones complejas, exportación a múltiples formatos (HTML, PDF, SCORM), colaboración en tiempo real entre múltiples usuarios (similar a Figma o Google Docs). Su equipo de frontend aplica rigurosos principios de accesibilidad WCAG 2.1 AA y performance (LCP < 2.5s, TBT < 300ms en dispositivos de gama media).
-
-### Caso 2: La interfaz de administración de una cooperativa agrícola
-
-Imaginemos una cooperativa de aceite de oliva en Jaén que necesita digitalizar su gestión. Requieren una interfaz para control de producción (entrada de aceituna, rendimiento, trazabilidad), gestión de almacén, facturación y relaciones con agricultores. Los usuarios tienen entre 40 y 65 años, con baja alfabetización digital, y trabajarán con tablets en entornos con polvo, poca luz y conexión intermitente (zonas rurales de sierra).
-
-Este caso ilustra la aplicación de los principios vistos en la unidad:
-- **UCD:** Realizamos entrevistas con los agricultores en sus almazaras, observamos su jornada laboral para entender sus flujos reales.
-- **Diseño inclusivo:** Tipografía legible a 1.5-2 metros, targets táctiles de mínimo 48x48px, alto contraste, modo offline (PWA con service workers), interfaces simplificadas con solo las opciones esenciales, lenguaje en español llano sin tecnicismos.
-- **Elección tecnológica:** Aplicación web (accesible desde cualquier dispositivo sin instalación) pero con funcionalidad PWA para offline. Angular proporciona la estructura robusta que una aplicación de gestión necesita. Tailwind garantiza consistencia visual. Electron permite distribuir una versión de escritorio para los ordenadores de oficina.
 
 ## Actividades guiadas
 
 ### Actividad guiada 1: Análisis de tipos de interfaces
 
-**Duración:** 30 minutos
+**Desarrollo:** Analiza las 6 imágenes/situaciones diferentes de interfaces:
 
-**Desarrollo:** El docente proyecta 6 imágenes/situaciones diferentes de interfaces:
-1. Una terminal de Linux con comandos `grep`, `awk` y `|` (CLI).
+<!-- 1. Una terminal de Linux con comandos `grep`, `awk` y `|` (CLI).
+
 2. La pantalla de inicio de Windows 11 (GUI).
+
 3. Un usuario dando órdenes a Alexa: "Alexa, añade leche a la lista de la compra" (VUI).
+
 4. Una persona usando gestos en un Microsoft HoloLens para manipular un holograma 3D (NUI).
+
 5. Un DJ manipulando un controlador MIDI físico (TUI).
-6. ChatGPT respondiendo preguntas en lenguaje natural (interfaz conversacional).
+
+6. ChatGPT respondiendo preguntas en lenguaje natural (interfaz conversacional). -->
+
+### Interfaz 1
+![Imagen 1](./img/00/terminal.jpg)
+
+### Interfaz 2
+![Imagen 2](./img/00/windows11.jpg)
+
+### Interfaz 3
+![Imagen 3](./img/00/alexa.webp)
+
+### Interfaz 4
+![Imagen 4](./img/00/hololens.jpeg)
+
+### Interfaz 5
+![Imagen 5](./img/00/DjMidi.jpeg)
+
+### Interfaz 6
+![Imagen 6](./img/00/chatgpt.webp)
+
+
+
+
+
+
+
 
 El alumnado, organizado en parejas, debe para cada imagen: identificar el tipo de interfaz, enumerar las tecnologías involucradas (dispositivos de entrada/salida, software), describir un contexto donde ese tipo de interfaz es preferible a las demás y argumentar por qué.
 
 Puesta en común y debate sobre la convivencia de múltiples tipos de interfaces.
 
 ### Actividad guiada 2: Línea del tiempo de la evolución de interfaces
-
-**Duración:** 20 minutos
+<!-- 
 
 **Desarrollo:** El docente proporciona 10 tarjetas desordenadas con hitos de la evolución de interfaces (Xerox Alto 1973, Macintosh 1984, Windows 95, Gmail AJAX 2004, iPhone 2007, Diseño Responsive 2010, Google Material Design 2014, Oculus Rift CV1 2016, Figma 2016, ChatGPT 2022). En grupos de 3-4 personas, deben ordenarlas cronológicamente y para cada hito explicar por qué fue relevante: ¿qué novedad introdujo? ¿Qué problema resolvió?
 
-Corrección colaborativa: cada grupo expone su cronología. El docente corrige errores y profundiza en los hitos clave.
+Corrección colaborativa: cada grupo expone su cronología. El docente corrige errores y profundiza en los hitos clave. -->
 
 ### Actividad guiada 3: Persona y escenario
 
-**Duración:** 25 minutos
-
+<!-- 
 **Desarrollo:** Cada grupo de 3-4 alumnos recibe datos de investigación sobre usuarios de una aplicación de gestión de tareas (datos demográficos, respuestas a encuestas, citas literales de entrevistas). A partir de esos datos, deben construir una persona siguiendo la plantilla proporcionada:
 
 ```
@@ -517,68 +622,89 @@ Cita representativa: "_____"
 
 A continuación, deben escribir un escenario de 150 palabras describiendo cómo esa persona utilizaría la app en una situación concreta: ¿Dónde está? ¿Qué hora es? ¿Qué dispositivo usa? ¿Qué quiere conseguir? ¿Qué emociones experimenta durante el proceso?
 
-Cada grupo presenta su persona y escenario. El resto valora si los datos de investigación justifican realmente ese perfil o si se han proyectado sesgos.
+Cada grupo presenta su persona y escenario. El resto valora si los datos de investigación justifican realmente ese perfil o si se han proyectado sesgos. -->
 
 ## Actividades propuestas
 
 ### Actividad 1
 
-**Nivel:** Básico
 **Objetivo:** Identificar y clasificar interfaces de usuario en el entorno cotidiano.
+<!-- 
+
 **Enunciado:** Durante una semana, documenta cada interfaz con la que interactúes (despertador, microondas, cajero automático, app del banco, redes sociales, GPS del coche, etc.). Crea una tabla con las siguientes columnas: Dispositivo, Tipo de interfaz (GUI/CLI/VUI/NUI/TUI/Otro), Dispositivo de entrada, Dispositivo de salida, Tecnología subyacente (si la conoces), Valoración personal (1-5). Debes documentar al menos 15 interfaces diferentes.
+
 **Requisitos:** Incluir al menos un ejemplo de cada tipo de interfaz (GUI, CLI, VUI, NUI, TUI). Justificar la clasificación elegida.
+
 **Pistas:** Fíjate en interfaces no obvias: el lector de huellas dactilares del móvil (¿qué tipo es?), el asistente de aparcamiento del coche, el panel táctil de una impresora, la pulsera de actividad.
-**Criterios de evaluación:** (1) Correcta identificación de los tipos de interfaz. (2) Diversidad y originalidad de los ejemplos. (3) Calidad de las justificaciones.
+
+**Criterios de evaluación:** (1) Correcta identificación de los tipos de interfaz. (2) Diversidad y originalidad de los ejemplos. (3) Calidad de las justificaciones. -->
 
 ### Actividad 2
 
-**Nivel:** Medio
+
 **Objetivo:** Analizar la UX y UI de dos aplicaciones competidoras.
-**Enunciado:** Elige dos aplicaciones que compitan directamente (por ejemplo, Spotify vs Apple Music, Notion vs Obsidian, Todoist vs TickTick, Netflix vs HBO Max). Realiza un análisis comparativo estructurado que incluya: comparación de la navegación principal, arquitectura de la información, paleta de colores y tipografía, jerarquía visual de la pantalla principal, tiempos para completar 3 tareas comunes (cronometrados), 3 puntos fuertes y 3 puntos débiles de UX de cada una, 3 puntos fuertes y 3 puntos débiles de UI de cada una. Concluye con tu recomendación personal justificada.
+
+<!-- **Enunciado:** Elige dos aplicaciones que compitan directamente (por ejemplo, Spotify vs Apple Music, Notion vs Obsidian, Todoist vs TickTick, Netflix vs HBO Max). Realiza un análisis comparativo estructurado que incluya: comparación de la navegación principal, arquitectura de la información, paleta de colores y tipografía, jerarquía visual de la pantalla principal, tiempos para completar 3 tareas comunes (cronometrados), 3 puntos fuertes y 3 puntos débiles de UX de cada una, 3 puntos fuertes y 3 puntos débiles de UI de cada una. Concluye con tu recomendación personal justificada.
+
 **Requisitos:** Incluir capturas de pantalla anotadas con flechas y comentarios señalando los elementos analizados. Documentar las 3 tareas cronometradas con capturas de cada paso.
+
 **Pistas:** Las DevTools del navegador (F12) son tus aliadas para inspeccionar tipografías, colores exactos, espaciados y estructura del DOM. Usa la herramienta de captura de pantalla completa para documentar.
-**Criterios de evaluación:** (1) Profundidad del análisis UX (no solo descripción superficial). (2) Precisión del análisis UI (identificación de colores, tipografías, espaciado). (3) Objetividad en la comparación (argumentos, no gustos personales).
+
+**Criterios de evaluación:** (1) Profundidad del análisis UX (no solo descripción superficial). (2) Precisión del análisis UI (identificación de colores, tipografías, espaciado). (3) Objetividad en la comparación (argumentos, no gustos personales). -->
 
 ### Actividad 3
 
-**Nivel:** Medio
+
 **Objetivo:** Realizar un análisis de accesibilidad básico.
+<!-- 
 **Enunciado:** Selecciona una página web de un servicio público andaluz (Junta de Andalucía, Salud Responde, cita previa de salud, etc.). Realiza una auditoría de accesibilidad básica utilizando: (1) La extensión WAVE o axe DevTools, (2) Navegación completa solo con teclado (Tab, Shift+Tab, Enter, Escape), (3) Simulación de daltonismo usando las DevTools de Chrome (Rendering > Emulate vision deficiencies), (4) Aumento de zoom al 200% para comprobar que no se rompe el layout. Documenta todos los problemas encontrados con capturas y sugiere soluciones concretas para cada uno.
+
 **Requisitos:** Documentar al menos 5 problemas de accesibilidad. Para cada uno: descripción, criterio WCAG vulnerado (investiga la numeración correcta), gravedad (crítica/seria/moderada/leve), captura y solución propuesta en lenguaje técnico (código HTML/CSS específico).
+
 **Pistas:** Foco visible al navegar con teclado, contraste de color suficiente (ratio mínimo 4.5:1 para texto normal, 3:1 para texto grande), etiquetas en formularios, textos alternativos en imágenes, landmarks ARIA.
-**Criterios de evaluación:** (1) Uso correcto de las herramientas de auditoría. (2) Precisión en la identificación de criterios WCAG. (3) Viabilidad técnica de las soluciones propuestas.
+
+**Criterios de evaluación:** (1) Uso correcto de las herramientas de auditoría. (2) Precisión en la identificación de criterios WCAG. (3) Viabilidad técnica de las soluciones propuestas. -->
 
 ### Actividad 4
 
-**Nivel:** Avanzado
+
 **Objetivo:** Investigar el ecosistema Angular y preparar una presentación técnica breve.
+<!-- 
 **Enunciado:** Investiga y prepara una presentación de 7-8 diapositivas sobre una de las siguientes características de Angular: (a) Signals y su impacto en la detección de cambios, (b) Standalone Components y la evolución desde NgModules, (c) Angular Material 3 y Material Design 3, (d) RxJS y la programación reactiva en Angular, (e) Angular Universal y el Server-Side Rendering. La presentación debe explicar el concepto, mostrar código de ejemplo (con comentarios explicativos), comparar con la alternativa anterior (si aplica), y exponer ventajas y casos de uso recomendados.
+
 **Requisitos:** Incluir fragmentos de código funcionales en la presentación. Citar fuentes oficiales (angular.dev). La presentación debe ser comprensible para compañeros sin conocimiento previo de Angular.
+
 **Pistas:** La documentación oficial de Angular (angular.dev) es la mejor fuente. Usa el playground de StackBlitz para crear ejemplos interactivos que puedas mostrar.
-**Criterios de evaluación:** (1) Corrección técnica de los conceptos explicados. (2) Claridad didáctica (¿lo entenderían tus compañeros?). (3) Calidad de los ejemplos de código.
+
+**Criterios de evaluación:** (1) Corrección técnica de los conceptos explicados. (2) Claridad didáctica (¿lo entenderían tus compañeros?). (3) Calidad de los ejemplos de código. -->
 
 ### Actividad 5
 
-**Nivel:** Avanzado
+
+
 **Objetivo:** Aplicar el proceso UCD a un problema real del instituto.
+<!-- 
 **Enunciado:** Aplica el proceso de Diseño Centrado en el Usuario para proponer una mejora a un sistema o proceso del instituto que involucre una interfaz digital (por ejemplo: la plataforma Moodle del centro, el sistema de reserva de aulas, el proceso de matrícula online, la app del instituto si existe, etc.). Realiza las siguientes fases documentadas: (1) Entrevista a 3 usuarios reales (compañeros, profesores, personal administrativo) con un guion de al menos 10 preguntas, (2) Crea 2 personas basadas en los datos recogidos, (3) Dibuja un mapa de empatía para una de ellas, (4) Identifica 3 problemas principales y propón soluciones de diseño (wireframes a mano o en Figma). Entrega un informe de 4-6 páginas documentando todo el proceso.
+
 **Requisitos:** Adjuntar evidencias de las entrevistas (fotos de las notas, grabaciones de audio con consentimiento, o transcripciones). Los wireframes deben ser comprensibles.
+
 **Pistas:** Prepara un consentimiento informado simple para los entrevistados explicando que es para un trabajo de clase. Empieza con preguntas abiertas ("cuéntame tu experiencia con...") y luego profundiza en los puntos concretos.
-**Criterios de evaluación:** (1) Rigor en la aplicación de las técnicas UCD. (2) Calidad de las personas (basadas en datos, no en suposiciones). (3) Pertinencia y creatividad de las soluciones propuestas.
+
+**Criterios de evaluación:** (1) Rigor en la aplicación de las técnicas UCD. (2) Calidad de las personas (basadas en datos, no en suposiciones). (3) Pertinencia y creatividad de las soluciones propuestas. -->
 
 ## Actividades de ampliación
 
 ### Actividad de ampliación 1: Análisis de interfaces de videojuegos
 
-Los videojuegos representan un laboratorio de interfaces de usuario extremadamente rico y diverso. Elige un videojuego que conozcas bien y analiza su interfaz siguiendo este esquema: (1) Tipos de interfaz que combina (GUI para el HUD, NUI para los controles, posiblemente VUI en juegos con comandos de voz). (2) Elementos del HUD: analiza cada elemento (barra de vida, minimapa, inventario, indicadores de misión) explicando qué información comunica y por qué es necesaria para la experiencia de juego. (3) Diegética vs no diegética: clasifica los elementos de interfaz según estén dentro del mundo del juego (diegéticos, como la interfaz del traje en Dead Space) o fuera de él (no diegéticos, como la barra de vida en pantalla). (4) Microinteracciones y feedback: analiza cómo el juego comunica acciones al jugador (animaciones de daño, sonidos de recogida de objetos, vibración del mando). (5) Accesibilidad: investiga las opciones de accesibilidad del juego y relaciónalas con los principios WCAG adaptados a videojuegos. Entrega un informe en formato presentación (PDF) de 10-15 diapositivas con abundantes capturas.
+<!-- Los videojuegos representan un laboratorio de interfaces de usuario extremadamente rico y diverso. Elige un videojuego que conozcas bien y analiza su interfaz siguiendo este esquema: (1) Tipos de interfaz que combina (GUI para el HUD, NUI para los controles, posiblemente VUI en juegos con comandos de voz). (2) Elementos del HUD: analiza cada elemento (barra de vida, minimapa, inventario, indicadores de misión) explicando qué información comunica y por qué es necesaria para la experiencia de juego. (3) Diegética vs no diegética: clasifica los elementos de interfaz según estén dentro del mundo del juego (diegéticos, como la interfaz del traje en Dead Space) o fuera de él (no diegéticos, como la barra de vida en pantalla). (4) Microinteracciones y feedback: analiza cómo el juego comunica acciones al jugador (animaciones de daño, sonidos de recogida de objetos, vibración del mando). (5) Accesibilidad: investiga las opciones de accesibilidad del juego y relaciónalas con los principios WCAG adaptados a videojuegos. Entrega un informe en formato presentación (PDF) de 10-15 diapositivas con abundantes capturas. -->
 
 ### Actividad de ampliación 2: Mini-investigación sobre TUI en el Internet of Things
 
-El Internet of Things (IoT) y las interfaces tangibles (TUI) están transformando la forma de interactuar con objetos cotidianos. Realiza una investigación documental sobre aplicaciones reales de TUI en IoT. Identifica y describe en detalle 3 productos o prototipos que utilicen TUI en contextos de IoT (por ejemplo: termostatos inteligentes con diales físicos que modifican parámetros digitales, lámparas inteligentes que cambian de color al girarlas físicamente, altavoces inteligentes con paneles táctiles, etc.). Para cada uno: describe la interacción, explica qué tecnologías la hacen posible (sensores, actuadores, protocolos de comunicación), e identifica ventajas de la TUI frente a una GUI tradicional para ese contexto. Concluye reflexionando sobre el futuro de las TUI en el hogar inteligente. Formato: artículo de blog de 1200-1500 palabras con imágenes y referencias.
+<!-- El Internet of Things (IoT) y las interfaces tangibles (TUI) están transformando la forma de interactuar con objetos cotidianos. Realiza una investigación documental sobre aplicaciones reales de TUI en IoT. Identifica y describe en detalle 3 productos o prototipos que utilicen TUI en contextos de IoT (por ejemplo: termostatos inteligentes con diales físicos que modifican parámetros digitales, lámparas inteligentes que cambian de color al girarlas físicamente, altavoces inteligentes con paneles táctiles, etc.). Para cada uno: describe la interacción, explica qué tecnologías la hacen posible (sensores, actuadores, protocolos de comunicación), e identifica ventajas de la TUI frente a una GUI tradicional para ese contexto. Concluye reflexionando sobre el futuro de las TUI en el hogar inteligente. Formato: artículo de blog de 1200-1500 palabras con imágenes y referencias. -->
 
 ### Actividad de ampliación 3: Debate sobre el impacto de la IA en el desarrollo de interfaces
 
-La inteligencia artificial generativa (ChatGPT, GitHub Copilot, v0.dev, Midjourney) está transformando el desarrollo de software y el diseño de interfaces. Algunos expertos predicen que los desarrolladores frontend y diseñadores UI serán reemplazados por IA en los próximos 5-10 años. Otros argumentan que la IA será una herramienta que aumentará la productividad pero no reemplazará a los profesionales humanos. Investiga argumentos de ambos lados (al menos 5 fuentes contrastadas, incluyendo artículos académicos, informes de la industria y opiniones de expertos reconocidos) y escribe un ensayo argumentativo de 1500-2000 palabras donde expongas el estado de la cuestión, los argumentos a favor y en contra, y finalmente tu posición personal razonada sobre cómo crees que evolucionará la profesión de desarrollador de interfaces en los próximos 10 años. Incluye una sección específica sobre las competencias que consideras que serán más valiosas en ese futuro escenario y cómo te estás preparando (o deberías prepararte) para ello.
+<!-- La inteligencia artificial generativa (ChatGPT, GitHub Copilot, v0.dev, Midjourney) está transformando el desarrollo de software y el diseño de interfaces. Algunos expertos predicen que los desarrolladores frontend y diseñadores UI serán reemplazados por IA en los próximos 5-10 años. Otros argumentan que la IA será una herramienta que aumentará la productividad pero no reemplazará a los profesionales humanos. Investiga argumentos de ambos lados (al menos 5 fuentes contrastadas, incluyendo artículos académicos, informes de la industria y opiniones de expertos reconocidos) y escribe un ensayo argumentativo de 1500-2000 palabras donde expongas el estado de la cuestión, los argumentos a favor y en contra, y finalmente tu posición personal razonada sobre cómo crees que evolucionará la profesión de desarrollador de interfaces en los próximos 10 años. Incluye una sección específica sobre las competencias que consideras que serán más valiosas en ese futuro escenario y cómo te estás preparando (o deberías prepararte) para ello. -->
 
 ## Buenas prácticas
 

@@ -1,0 +1,2263 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes básicos de Angular para Martos y alrededores.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Formularios e Interacción - Curso de Angular</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#formularios-e-interaccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Curso de Angular" class="md-header__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Angular
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Formularios e Interacción
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Curso de Angular" class="md-nav__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Curso de Angular
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  00.Introduccion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  01.UX
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  02.Accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objetivos de aprendizaje
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-asociado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resultado de aprendizaje asociado
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conocimientos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conocimientos previos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Contenidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo-teorico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo teórico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo teórico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#seccion-a-reactive-forms-en-profundidad-orientado-a-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN A — REACTIVE FORMS EN PROFUNDIDAD ORIENTADO A INTERFACES
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN A — REACTIVE FORMS EN PROFUNDIDAD ORIENTADO A INTERFACES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formcontrol-formgroup-y-formarray-con-enfoque-en-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FormControl, FormGroup y FormArray con enfoque en UI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estados-del-control-y-su-traduccion-a-feedback-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estados del control y su traducción a feedback visual
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patron-de-clases-css-condicionales-segun-estado-del-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Patron de clases CSS condicionales segun estado del control
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-b-validaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCION B — VALIDACIONES
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCION B — VALIDACIONES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validadores-integrados-y-su-aplicacion-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validadores integrados y su aplicacion practica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validadores-personalizados-validatorfn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validadores personalizados (ValidatorFn)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validacion-cross-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validacion cross-field
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validacion-asincrona-asyncvalidator" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validacion asincrona (AsyncValidator)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcion-updateon-cuando-validar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Opcion updateOn: cuando validar
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-c-mensajes-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN C — MENSAJES DE ERROR
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN C — MENSAJES DE ERROR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sistema-de-mensajes-de-error-personalizados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sistema de mensajes de error personalizados
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ux-de-validacion-reglas-de-oro" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        UX de validacion: reglas de oro
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-d-ux-en-formularios-temas-avanzados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN D — UX EN FORMULARIOS: TEMAS AVANZADOS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN D — UX EN FORMULARIOS: TEMAS AVANZADOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formularios-multi-paso-wizardstepper" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Formularios multi-paso (Wizard/Stepper)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formularios-dinamicos-con-formarray" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Formularios dinamicos con FormArray
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-guardado-de-formularios-draft" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Auto-guardado de formularios (draft)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacion-al-salir-sin-guardar-candeactivate" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Confirmacion al salir sin guardar (CanDeactivate)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mascaras-de-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Mascaras de input
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-e-feedback-visual-y-micro-interacciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCION E — FEEDBACK VISUAL Y MICRO-INTERACCIONES
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCION E — FEEDBACK VISUAL Y MICRO-INTERACCIONES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estados-de-boton-y-transiciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Estados de boton y transiciones
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#micro-interacciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Micro-interacciones
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skeleton-loading-para-formularios-que-cargan-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Skeleton loading para formularios que cargan datos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toast-de-confirmacion-tras-envio-exitoso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Toast de confirmacion tras envio exitoso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transiciones-suaves-en-cambios-de-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Transiciones suaves en cambios de estado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-guiados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplos guiados
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos guiados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-1-formulario-de-registro-completo-con-todos-los-estados-de-validacion-y-ux" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 1: Formulario de registro completo con todos los estados de validacion y UX
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-2-formulario-multi-paso-wizard-con-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 2: Formulario multi-paso (wizard) con Signals
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-3-formulario-de-factura-con-formarray-dinamico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 3: Formulario de factura con FormArray dinamico
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-guiadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades guiadas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades guiadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-1-implementar-validadores-personalizados-para-un-formulario-de-alta-de-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 1: Implementar validadores personalizados para un formulario de alta de cliente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-2-construir-un-sistema-de-mensajes-de-error-internacionalizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 2: Construir un sistema de mensajes de error internacionalizado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-3-construir-un-formulario-de-busqueda-con-filtros-avanzados-y-auto-guardado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 3: Construir un formulario de busqueda con filtros avanzados y auto-guardado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-propuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades propuestas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades propuestas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-1-formulario-de-creacion-de-producto-con-validacion-asincrona-de-sku" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 1: Formulario de creacion de producto con validacion asincrona de SKU
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-2-wizard-de-configuracion-de-cuenta-en-4-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 2: Wizard de configuracion de cuenta en 4 pasos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-3-formulario-dinamico-de-encuesta-con-formarray" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 3: Formulario dinamico de encuesta con FormArray
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-4-componente-de-busqueda-avanzada-con-filtros-y-autocompletado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 4: Componente de busqueda avanzada con filtros y autocompletado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-5-formulario-de-checkout-multi-paso-para-e-commerce" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 5: Formulario de checkout multi-paso para e-commerce
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades de ampliacion
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades de ampliacion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-1-sistema-de-formularios-generados-por-esquema-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliacion 1: Sistema de formularios generados por esquema JSON
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-2-comparativa-de-librerias-de-formularios-para-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliacion 2: Comparativa de librerias de formularios para Angular
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-3-implementar-un-editor-de-formularios-visual-drag-and-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliacion 3: Implementar un editor de formularios visual (drag and drop)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Buenas practicas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errores-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Errores frecuentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-complementarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recursos complementarios
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursos complementarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentacion oficial
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-y-librerias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Herramientas y librerias
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#articulos-y-guias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Articulos y guias
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libros" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libros
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="formularios-e-interaccion">Formularios e Interacción</h1>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p>Al finalizar esta unidad, el alumnado será capaz de:
+- Diseñar e implementar formularios reactivos avanzados con Angular Reactive Forms, integrando feedback visual inmediato mediante Tailwind CSS.
+- Crear validadores personalizados síncronos y asíncronos, incluyendo validación cross-field y validación contra APIs externas.
+- Construir sistemas de mensajes de error contextualizados, internacionalizados y accesibles que mejoren la experiencia de usuario.
+- Implementar patrones avanzados de UX en formularios: wizards multi-paso, formularios dinámicos con FormArray, auto-guardado de borradores y confirmación de salida.
+- Gestionar el feedback visual en todos los estados de interacción: loading, éxito, error y transiciones entre estados.
+- Aplicar técnicas de micro-interacciones (animaciones sutiles) para mejorar la percepción de respuesta y calidad de la interfaz.
+- Integrar máscaras de entrada, autocompletado y sugerencias para reducir errores del usuario en la entrada de datos.</p>
+<h2 id="resultado-de-aprendizaje-asociado">Resultado de aprendizaje asociado</h2>
+<p>RA4 del currículo de Desarrollo de Aplicaciones Multiplataforma (DAM): "Desarrolla interfaces de usuario, aplicando técnicas de programación visual y gestionando la interacción con el usuario."</p>
+<p>Criterios de evaluación relacionados:
+- Se han gestionado eventos de usuario para controlar la interacción con la interfaz.
+- Se han implementado validaciones de datos de entrada en formularios.
+- Se ha proporcionado realimentación visual al usuario ante acciones y errores.
+- Se han utilizado técnicas de animación para mejorar la experiencia de usuario.</p>
+<h2 id="conocimientos-previos">Conocimientos previos</h2>
+<p>El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
+- Angular Reactive Forms: FormControl, FormGroup, FormBuilder, valueChanges, statusChanges.
+- TypeScript: tipos avanzados, funciones como parámetros y retorno, genéricos, utility types.
+- Tailwind CSS 4: clases utilitarias, animaciones, transiciones, personalización con @theme.
+- RxJS básico: Observables, operadores (debounceTime, distinctUntilChanged, filter, switchMap, catchError).
+- Angular Signals: signal, computed, effect, toObservable.
+- HTML5: validación nativa de formularios, atributos de accesibilidad web (aria-required, aria-invalid, aria-describedby).
+- UX: principios de diseño de formularios, ley de Fitts, carga cognitiva, jerarquía visual.</p>
+<h2 id="contenidos">Contenidos</h2>
+<ol>
+<li>Reactive Forms en profundidad orientado a interfaces</li>
+<li>Validaciones síncronas y asíncronas</li>
+<li>Mensajes de error y feedback visual</li>
+<li>UX avanzada en formularios</li>
+<li>Feedback visual y micro-interacciones</li>
+</ol>
+<h2 id="desarrollo-teorico">Desarrollo teórico</h2>
+<h3 id="seccion-a-reactive-forms-en-profundidad-orientado-a-interfaces">SECCIÓN A — REACTIVE FORMS EN PROFUNDIDAD ORIENTADO A INTERFACES</h3>
+<h4 id="formcontrol-formgroup-y-formarray-con-enfoque-en-ui">FormControl, FormGroup y FormArray con enfoque en UI</h4>
+<p>Angular Reactive Forms proporciona un modelo de programación reactivo para gestionar formularios. A diferencia de Template-Driven Forms, donde la lógica reside en el template HTML, Reactive Forms sitúan el control y la validación en la clase del componente TypeScript, ofreciendo mayor control, testabilidad y previsibilidad. En el contexto del desarrollo de interfaces, esta separación es crucial porque permite que la lógica de validación y el estado del formulario estén disponibles programáticamente para generar feedback visual rico y contextual.</p>
+<p>El <code>FormControl</code> es la unidad atómica de un formulario reactivo: representa un único campo de entrada y encapsula su valor, estado de validación, si ha sido tocado (touched), si está sucio (dirty) y si está pendiente de validación asíncrona (pending). Cada uno de estos estados se traduce en feedback visual para el usuario.</p>
+<p>El <code>FormGroup</code> agrupa un conjunto de FormControls, representando una sección coherente de un formulario o el formulario completo. Proporciona acceso a los valores agregados, al estado de validación global y permite la validación cross-field (entre campos del grupo).</p>
+<p>El <code>FormArray</code> gestiona una colección dinámica de FormControls, FormGroups o incluso otros FormArrays, permitiendo al usuario añadir y eliminar elementos repetibles como líneas de factura, direcciones o miembros de un equipo.</p>
+<p>Ejemplo de estructura de formulario complejo usando FormBuilder:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>this.invoiceForm = this.fb.group({
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  header: this.fb.group({
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    number: ['', [Validators.required, Validators.pattern(/^FAC-\d{4}-\d{4}$/)]],
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    date: [new Date().toISOString().split('T')[0], Validators.required],
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    dueDate: ['', Validators.required],
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  }),
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  client: this.fb.group({
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    name: ['', Validators.required],
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    cif: ['', [Validators.required, cifValidator()]],
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    email: ['', [Validators.required, Validators.email]],
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  }),
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  lines: this.fb.array([this.createLine()]),
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  totals: this.fb.group({
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    subtotal: [{ value: 0, disabled: true }],
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    tax: [{ value: 0, disabled: true }],
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    total: [{ value: 0, disabled: true }],
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  }),
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>});
+</span></code></pre></div>
+<h4 id="estados-del-control-y-su-traduccion-a-feedback-visual">Estados del control y su traducción a feedback visual</h4>
+<p>Cada <code>FormControl</code> y <code>FormGroup</code> expone propiedades que describen su estado actual y que son fundamentales para proporcionar feedback visual al usuario. La correcta interpretación de estos estados es lo que distingue un formulario profesional de uno amateur.</p>
+<p><strong>touched / untouched:</strong> Un control se considera <code>touched</code> cuando el usuario ha interactuado con él y luego ha salido (ha perdido el foco). La propiedad <code>untouched</code> es el estado inicial. Esta distinción es crucial para la UX: no debemos mostrar errores de validación en campos que el usuario ni siquiera ha visto aún. Mostrar un formulario lleno de mensajes de error rojos antes de que el usuario haya escrito nada es una experiencia pésima.</p>
+<p>Regla de oro para mostrar errores:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// Mal: mostrar error siempre
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>if (control.invalid) { ... }
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>// Bien: mostrar error solo después de tocar
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>if (control.invalid &amp;&amp; control.touched) { ... }
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>// Bien: mostrar error si se intentó enviar
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>if (control.invalid &amp;&amp; (control.touched || formSubmitted)) { ... }
+</span></code></pre></div></p>
+<p><strong>dirty / pristine:</strong> Un control es <code>dirty</code> si el usuario ha modificado su valor desde que se cargó, y <code>pristine</code> si no lo ha hecho. Este estado es útil para detectar cambios sin guardar, activar avisos de "estas seguro de que quieres salir" y habilitar/deshabilitar botones de guardar.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>isDirty = computed(() =&gt; this.form.dirty);
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>canSave = computed(() =&gt; this.form.valid &amp;&amp; this.form.dirty);
+</span></code></pre></div>
+<p><strong>valid / invalid:</strong> La propiedad <code>valid</code> indica que todos los validadores del control (sincronos y asincronos) han pasado satisfactoriamente. <code>invalid</code> indica que al menos un validador ha fallado. Desde Angular 12, estas propiedades solo se actualizan despues de que el estado <code>pending</code> se haya resuelto.</p>
+<p><strong>pending:</strong> Este estado indica que hay al menos un validador asincrono en curso. Es una senal para mostrar un indicador de carga (spinner) junto al campo, informando al usuario de que se esta verificando algo (por ejemplo, "Comprobando disponibilidad del email...").</p>
+<h4 id="patron-de-clases-css-condicionales-segun-estado-del-control">Patron de clases CSS condicionales segun estado del control</h4>
+<p>La integracion de los estados del FormControl con las clases de Tailwind produce formularios visualmente ricos que guian al usuario de forma intuitiva:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>@Component({
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  template: `
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    &lt;input
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>      [formControl]="emailControl"
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      class="block w-full rounded-lg border px-3 py-2 text-sm transition-colors duration-200"
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      [ngClass]="emailClasses()"
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>      placeholder="correo@ejemplo.com" /&gt;
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    @if (showEmailError()) {
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      &lt;p class="mt-1 text-xs text-red-500 animate-fadeIn"&gt;{{ emailErrorMessage() }}&lt;/p&gt;
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    }
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    @if (emailControl.pending) {
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>      &lt;p class="mt-1 text-xs text-gray-400 flex items-center gap-1"&gt;
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        &lt;span class="animate-spin"&gt;&amp;#8635;&lt;/span&gt; Verificando email...
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>      &lt;/p&gt;
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    }
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  `,
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>})
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>export class LoginFormComponent {
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>  emailControl = new FormControl('', {
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    validators: [Validators.required, Validators.email],
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    asyncValidators: [this.emailExistsValidator()],
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    updateOn: 'blur',
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>  });
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>  emailClasses = computed(() =&gt; {
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    const c = this.emailControl;
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    return {
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>      'border-gray-300 focus:ring-blue-500 focus:border-blue-500': c.pristine,
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>      'border-green-400 focus:ring-green-500 focus:border-green-500': c.valid &amp;&amp; c.touched,
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>      'border-red-400 focus:ring-red-500 focus:border-red-500': c.invalid &amp;&amp; c.touched,
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>      'border-yellow-400 bg-yellow-50': c.pending,
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    };
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>  });
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>  showEmailError = computed(() =&gt;
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    this.emailControl.invalid &amp;&amp; this.emailControl.touched
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>  );
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>}
+</span></code></pre></div>
+<p>La clave del patron es el mapeo de estados:
+- <strong>Pristine</strong>: borde gris neutro, sin indicacion de correccion o error.
+- <strong>Valid + touched</strong>: borde verde, senal silenciosa de "esto esta bien".
+- <strong>Invalid + touched</strong>: borde rojo, mensaje de error descriptivo.
+- <strong>Pending</strong>: borde amarillo y spinner, comunicando "estoy trabajando en ello".</p>
+<hr />
+<h3 id="seccion-b-validaciones">SECCION B — VALIDACIONES</h3>
+<h4 id="validadores-integrados-y-su-aplicacion-practica">Validadores integrados y su aplicacion practica</h4>
+<p>Angular proporciona un conjunto de validadores sincronos en la clase <code>Validators</code> que cubren los casos mas comunes:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>import { Validators } from '@angular/forms';
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>const nameControl = new FormControl('', [
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  Validators.required,
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  Validators.minLength(2),
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  Validators.maxLength(50),
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>]);
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>const emailControl = new FormControl('', [
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  Validators.required,
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  Validators.email,
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>]);
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>const ageControl = new FormControl(null, [
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  Validators.min(0),
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  Validators.max(150),
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>]);
+</span></code></pre></div>
+<p>Cada validador devuelve un objeto de error especifico cuando falla. Por ejemplo, <code>Validators.required</code> devuelve <code>{ required: true }</code>, <code>Validators.minLength(3)</code> devuelve <code>{ minlength: { requiredLength: 3, actualLength: 1 } }</code>. Estos objetos de error son la base para construir mensajes de error personalizados y contextualizados.</p>
+<h4 id="validadores-personalizados-validatorfn">Validadores personalizados (ValidatorFn)</h4>
+<p>Cuando los validadores integrados no son suficientes, Angular permite crear validadores personalizados mediante funciones que implementan la interfaz <code>ValidatorFn</code>. Un validador personalizado recibe un <code>AbstractControl</code> y devuelve <code>null</code> si el valor es valido, o un objeto de error si no lo es.</p>
+<p><strong>Validador de DNI espanol:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>export function dniValidator(): ValidatorFn {
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  return (control: AbstractControl): ValidationErrors | null =&gt; {
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    const value = control.value;
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    if (!value) return null;
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    const dniRegex = /^(\d{8})([A-Z])$/;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    const match = value.toUpperCase().match(dniRegex);
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    if (!match) {
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>      return { dni: { message: 'El formato del DNI no es valido (8 digitos + letra)' } };
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    }
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    const number = parseInt(match[1], 10);
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    const letter = match[2];
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    const validLetters = 'TRWAGMYFPDXBNJZSQVHLCKE';
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    const calculatedLetter = validLetters[number % 23];
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    if (letter !== calculatedLetter) {
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>      return { dni: { message: 'La letra del DNI no coincide con el numero' } };
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    }
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>    return null;
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>  };
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>}
+</span></code></pre></div>
+<p><strong>Validador de IBAN espanol:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export function ibanValidator(): ValidatorFn {
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  return (control: AbstractControl): ValidationErrors | null =&gt; {
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    const value = control.value?.replace(/\s/g, '').toUpperCase();
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    if (!value) return null;
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    if (!/^ES\d{22}$/.test(value)) {
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>      return { iban: { message: 'Formato IBAN invalido. Debe ser ES seguido de 22 digitos' } };
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    }
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    const rearranged = value.substring(4) + value.substring(0, 4);
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    const numeric = rearranged.replace(/[A-Z]/g, (char: string) =&gt;
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>      (char.charCodeAt(0) - 55).toString()
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    );
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    const remainder = BigInt(numeric) % 97n;
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    if (remainder !== 1n) {
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>      return { iban: { message: 'El IBAN no es valido (digito de control incorrecto)' } };
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    }
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    return null;
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>  };
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>}
+</span></code></pre></div>
+<p><strong>Validador de codigo postal espanol:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>export function postalCodeValidator(): ValidatorFn {
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  return (control: AbstractControl): ValidationErrors | null =&gt; {
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    const value = control.value;
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    if (!value) return null;
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    if (!/^(0[1-9]|[1-4]\d|5[0-2])\d{3}$/.test(value)) {
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>      return { postalCode: { message: 'Codigo postal no valido. Debe ser un CP espanol valido (5 digitos)' } };
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    }
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    return null;
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  };
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>}
+</span></code></pre></div>
+<h4 id="validacion-cross-field">Validacion cross-field</h4>
+<p>La validacion cross-field verifica la coherencia entre dos o mas campos del formulario. El caso mas comun es la confirmacion de contrasena. Los validadores cross-field se aplican al <code>FormGroup</code> que contiene los campos a comparar, no a los FormControls individuales:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>export function passwordMatchValidator(
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  passwordKey: string,
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  confirmKey: string
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>): ValidatorFn {
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  return (group: AbstractControl): ValidationErrors | null =&gt; {
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    const password = group.get(passwordKey);
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    const confirm = group.get(confirmKey);
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    if (!password || !confirm) return null;
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    if (password.value !== confirm.value) {
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>      const error = { passwordMismatch: true };
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>      confirm.setErrors({ ...confirm.errors, ...error });
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>      return error;
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    }
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    if (confirm.hasError('passwordMismatch')) {
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>      const { passwordMismatch, ...otherErrors } = confirm.errors || {};
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>      confirm.setErrors(Object.keys(otherErrors).length ? otherErrors : null);
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>    }
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>    return null;
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>  };
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>}
+</span></code></pre></div>
+<p>Otro ejemplo comun es la verificacion de rangos de fecha:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>export function dateRangeValidator(startKey: string, endKey: string): ValidatorFn {
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  return (group: AbstractControl): ValidationErrors | null =&gt; {
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    const start = group.get(startKey)?.value;
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    const end = group.get(endKey)?.value;
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    if (!start || !end) return null;
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    if (new Date(end) &lt;= new Date(start)) {
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>      return { dateRange: { message: 'La fecha de fin debe ser posterior a la de inicio' } };
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    }
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    return null;
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>  };
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>}
+</span></code></pre></div>
+<h4 id="validacion-asincrona-asyncvalidator">Validacion asincrona (AsyncValidator)</h4>
+<p>La validacion asincrona es necesaria cuando la validez de un campo depende de una comprobacion externa, tipicamente una llamada a una API. El caso de uso mas frecuente es verificar la unicidad de un nombre de usuario o correo electronico contra la base de datos:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>private emailExistsValidator(): AsyncValidatorFn {
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  return (control: AbstractControl): Observable&lt;ValidationErrors | null&gt; =&gt; {
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    if (!control.value) return of(null);
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    return this.userService.checkEmailExists(control.value).pipe(
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>      debounceTime(500),
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>      distinctUntilChanged(),
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>      map(exists =&gt; exists ? { emailExists: true } : null),
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>      catchError(() =&gt; of(null)),
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>      first(),
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    );
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  };
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>}
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>// Uso
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>this.emailControl = new FormControl('', {
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>  validators: [Validators.required, Validators.email],
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>  asyncValidators: [this.emailExistsValidator()],
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>  updateOn: 'blur',
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>});
+</span></code></pre></div>
+<p>El uso de <code>debounceTime(500)</code> es esencial para no saturar el servidor con una petición por cada pulsación de tecla. <code>distinctUntilChanged()</code> evita peticiones duplicadas para el mismo valor. El estado <code>pending</code> del control se activa automaticamente mientras el validador asincrono esta en curso, permitiendo mostrar feedback visual.</p>
+<h4 id="opcion-updateon-cuando-validar">Opcion updateOn: cuando validar</h4>
+<p>La opcion <code>updateOn</code> controla en que momento se ejecutan los validadores y se actualizan los valores del control:
+- <code>'change'</code> (por defecto): en cada pulsacion de tecla o cambio.
+- <code>'blur'</code>: cuando el control pierde el foco.
+- <code>'submit'</code>: solo cuando el formulario se envia.</p>
+<p>La eleccion tiene un impacto directo en la UX. <code>'change'</code> proporciona el feedback mas inmediato pero puede generar demasiadas peticiones en validaciones asincronas. <code>'blur'</code> retrasa la validacion hasta que el usuario termina con el campo y pasa al siguiente, siendo mas respetuoso con el usuario y mas eficiente. <code>'submit'</code> concentra toda la validacion en el momento del envio; puede ser frustrante para formularios largos pero apropiado para formularios cortos. La opcion recomendada para la mayoria de formularios es <code>'blur'</code>.</p>
+<hr />
+<h3 id="seccion-c-mensajes-de-error">SECCIÓN C — MENSAJES DE ERROR</h3>
+<h4 id="sistema-de-mensajes-de-error-personalizados">Sistema de mensajes de error personalizados</h4>
+<p>Un sistema profesional de mensajes de error debe ser capaz de mostrar el mensaje adecuado para cada tipo de error de validacion, en el idioma del usuario, y en el momento oportuno. La implementacion tipica consiste en una funcion que mapea los errores de validacion a mensajes de texto:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>getErrorMessage(control: AbstractControl, fieldName: string): string | null {
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  if (!control.errors || (!control.touched &amp;&amp; !this.formSubmitted)) return null;
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  const errors = control.errors;
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>  if (errors['required']) return `El campo "${fieldName}" es obligatorio`;
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  if (errors['email']) return 'Introduce una direccion de correo electronico valida';
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  if (errors['minlength']) return `${fieldName} debe tener al menos ${errors['minlength'].requiredLength} caracteres`;
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  if (errors['maxlength']) return `${fieldName} no puede superar los ${errors['maxlength'].requiredLength} caracteres`;
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>  if (errors['min']) return `El valor minimo es ${errors['min'].min}`;
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>  if (errors['max']) return `El valor maximo es ${errors['max'].max}`;
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>  if (errors['pattern']) return `El formato de "${fieldName}" no es valido`;
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>  if (errors['emailExists']) return 'Este email ya esta registrado';
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>  if (errors['dni']) return errors['dni'].message;
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>  if (errors['iban']) return errors['iban'].message;
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>  if (errors['dateRange']) return errors['dateRange'].message;
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>  if (errors['passwordMismatch']) return 'Las contrasenas no coinciden';
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>  return 'Campo invalido';
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>}
+</span></code></pre></div>
+<p><strong>Componente FormErrorComponent reutilizable:</strong></p>
+<p>Este componente encapsula toda la logica de presentacion de errores, recibiendo el control y el nombre del campo como inputs:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>@Component({
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  selector: 'ui-form-error',
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  standalone: true,
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  imports: [NgClass],
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  template: `
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    @if (errorMessage()) {
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>      &lt;p class="mt-1.5 text-xs text-red-600 animate-slideIn flex items-start gap-1" role="alert"&gt;
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>        &lt;svg class="h-3.5 w-3.5 mt-0.5 shrink-0" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"&gt;
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>          &lt;path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" /&gt;
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        &lt;/svg&gt;
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>        &lt;span&gt;{{ errorMessage() }}&lt;/span&gt;
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>      &lt;/p&gt;
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>    }
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>  `,
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>  changeDetection: ChangeDetectionStrategy.OnPush,
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>})
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>export class FormErrorComponent implements OnInit, OnDestroy {
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>  control = input.required&lt;AbstractControl&gt;();
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>  fieldName = input('Este campo');
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>  showOnSubmit = input(false);
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>  errorMessage = signal&lt;string | null&gt;(null);
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>  private statusSub?: Subscription;
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>  ngOnInit(): void {
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>    this.statusSub = this.control().statusChanges.subscribe(() =&gt; {
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>      this.updateErrorMessage();
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>    });
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>  }
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>  private updateErrorMessage(): void {
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a>    const ctrl = this.control();
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a>    if (!ctrl.errors || (!ctrl.touched &amp;&amp; !this.showOnSubmit())) {
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>      this.errorMessage.set(null);
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a>      return;
+</span><span id="__span-12-36"><a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a>    }
+</span><span id="__span-12-37"><a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a>    this.errorMessage.set(this.resolveMessage(ctrl.errors, this.fieldName()));
+</span><span id="__span-12-38"><a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a>  }
+</span><span id="__span-12-39"><a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a>
+</span><span id="__span-12-40"><a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a>  private resolveMessage(errors: ValidationErrors, field: string): string {
+</span><span id="__span-12-41"><a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a>    if (errors['required']) return `"${field}" es obligatorio`;
+</span><span id="__span-12-42"><a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a>    if (errors['email']) return 'Introduce un email valido';
+</span><span id="__span-12-43"><a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a>    if (errors['minlength']) return `Minimo ${errors['minlength'].requiredLength} caracteres`;
+</span><span id="__span-12-44"><a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a>    if (errors['maxlength']) return `Maximo ${errors['maxlength'].requiredLength} caracteres`;
+</span><span id="__span-12-45"><a id="__codelineno-12-45" name="__codelineno-12-45" href="#__codelineno-12-45"></a>    if (errors['passwordMismatch']) return 'Las contrasenas no coinciden';
+</span><span id="__span-12-46"><a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a>    return 'Valor invalido';
+</span><span id="__span-12-47"><a id="__codelineno-12-47" name="__codelineno-12-47" href="#__codelineno-12-47"></a>  }
+</span><span id="__span-12-48"><a id="__codelineno-12-48" name="__codelineno-12-48" href="#__codelineno-12-48"></a>
+</span><span id="__span-12-49"><a id="__codelineno-12-49" name="__codelineno-12-49" href="#__codelineno-12-49"></a>  ngOnDestroy(): void {
+</span><span id="__span-12-50"><a id="__codelineno-12-50" name="__codelineno-12-50" href="#__codelineno-12-50"></a>    this.statusSub?.unsubscribe();
+</span><span id="__span-12-51"><a id="__codelineno-12-51" name="__codelineno-12-51" href="#__codelineno-12-51"></a>  }
+</span><span id="__span-12-52"><a id="__codelineno-12-52" name="__codelineno-12-52" href="#__codelineno-12-52"></a>}
+</span></code></pre></div>
+<h4 id="ux-de-validacion-reglas-de-oro">UX de validacion: reglas de oro</h4>
+<ol>
+<li>
+<p><strong>No mostrar errores antes de la interaccion.</strong> Un formulario recien cargado debe verse limpio, sin campos en rojo ni mensajes de error. Los errores solo deben aparecer despues de que el usuario haya tocado el campo (touched &amp;&amp; invalid) o tras un intento de envio.</p>
+</li>
+<li>
+<p><strong>Validar en el momento adecuado.</strong> Para campos con restricciones de formato (email, telefono, DNI), validar en <code>blur</code> es generalmente la mejor opcion.</p>
+</li>
+<li>
+<p><strong>Limpieza de errores al corregir.</strong> Tan pronto como el usuario corrige un campo y este se vuelve valido, el mensaje de error debe desaparecer y el borde del campo debe cambiar a un color neutro o de confirmacion (verde).</p>
+</li>
+<li>
+<p><strong>Resumen de errores en el envio.</strong> Si el usuario intenta enviar un formulario con multiples campos invalidos, es buena practica mostrar un resumen en la parte superior, marcar todos los campos invalidos como <code>touched</code> y hacer scroll automatico al primer error:</p>
+</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>submitForm(): void {
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  this.formSubmitted = true;
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  if (this.form.invalid) {
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    this.markFormGroupTouched(this.form);
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    setTimeout(() =&gt; {
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>      const firstError = document.querySelector('.ng-invalid');
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>      firstError?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    });
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    return;
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>  }
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>  this.processForm();
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>}
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>private markFormGroupTouched(formGroup: FormGroup): void {
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>  Object.values(formGroup.controls).forEach(control =&gt; {
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>    control.markAsTouched();
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>    if (control instanceof FormGroup) {
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>      this.markFormGroupTouched(control);
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>    }
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>  });
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>}
+</span></code></pre></div>
+<hr />
+<h3 id="seccion-d-ux-en-formularios-temas-avanzados">SECCIÓN D — UX EN FORMULARIOS: TEMAS AVANZADOS</h3>
+<h4 id="formularios-multi-paso-wizardstepper">Formularios multi-paso (Wizard/Stepper)</h4>
+<p>Los formularios multi-paso dividen un formulario largo en pasos secuenciales, reduciendo la carga cognitiva y la tasa de abandono. Cada paso es un <code>FormGroup</code> independiente, y un <code>FormGroup</code> principal los agrupa a todos.</p>
+<p>La implementacion con Signals para el paso actual proporciona una experiencia fluida. El componente Wizard incluye: barra de progreso visual con pasos numerados, lineas conectoras entre pasos que cambian de color al completarse, contenido del paso actual renderizado con <code>@switch</code>, y botones de navegacion "Anterior" y "Siguiente" (el ultimo paso muestra "Completar").</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>@Component({
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  standalone: true,
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  template: `
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    &lt;nav class="mb-8" aria-label="Progreso"&gt;
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>      &lt;ol class="flex items-center"&gt;
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        @for (step of steps; track step.id; let i = $index) {
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>          &lt;li class="flex items-center" [class.flex-1]="i &lt; steps.length - 1"&gt;
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>            &lt;button type="button" class="flex items-center gap-2"
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>                    [disabled]="!canGoToStep(i)" (click)="goToStep(i)"&gt;
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>              &lt;span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-medium"
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>                    [ngClass]="isStepComplete(i) ? 'bg-blue-600 text-white' : 'border-2 border-gray-300 text-gray-500'"&gt;
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>                @if (isStepComplete(i)) { &amp;#10003; } @else { {{ i + 1 }} }
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>              &lt;/span&gt;
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>              &lt;span class="hidden sm:block text-sm font-medium"&gt;{{ step.label }}&lt;/span&gt;
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>            &lt;/button&gt;
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>            @if (i &lt; steps.length - 1) {
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>              &lt;div class="mx-2 h-0.5 flex-1 rounded"
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>                   [ngClass]="isStepComplete(i) ? 'bg-blue-500' : 'bg-gray-200'"&gt;&lt;/div&gt;
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>            }
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>          &lt;/li&gt;
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>        }
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>      &lt;/ol&gt;
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>    &lt;/nav&gt;
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>    &lt;form [formGroup]="form"&gt;
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>      @switch (currentStep()) {
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>        @case (0) { &lt;ng-container [formGroup]="personalInfo"&gt; ... &lt;/ng-container&gt; }
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>        @case (1) { &lt;ng-container [formGroup]="accountInfo"&gt; ... &lt;/ng-container&gt; }
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>        @case (2) { &lt;ng-container [formGroup]="review"&gt; ... &lt;/ng-container&gt; }
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>      }
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>    &lt;/form&gt;
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>    &lt;div class="mt-8 flex justify-between"&gt;
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>      @if (currentStep() &gt; 0) {
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>        &lt;ui-button variant="secondary" (clicked)="previousStep()"&gt;Anterior&lt;/ui-button&gt;
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>      } @else { &lt;div&gt;&lt;/div&gt; }
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>      @if (currentStep() &lt; steps.length - 1) {
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>        &lt;ui-button variant="primary" (clicked)="nextStep()"&gt;Siguiente&lt;/ui-button&gt;
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>      } @else {
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>        &lt;ui-button variant="primary" (clicked)="submit()" [loading]="submitting()"&gt;Completar&lt;/ui-button&gt;
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>      }
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>    &lt;/div&gt;
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a>  `,
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>})
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>export class WizardFormComponent {
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a>  currentStep = signal(0);
+</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a>  completedSteps = signal&lt;Set&lt;number&gt;&gt;(new Set());
+</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a>
+</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a>  steps = [
+</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a>    { id: 'personal', label: 'Datos personales', group: 'personalInfo' },
+</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a>    { id: 'account', label: 'Cuenta', group: 'accountInfo' },
+</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a>    { id: 'review', label: 'Revision', group: 'review' },
+</span><span id="__span-14-53"><a id="__codelineno-14-53" name="__codelineno-14-53" href="#__codelineno-14-53"></a>  ];
+</span><span id="__span-14-54"><a id="__codelineno-14-54" name="__codelineno-14-54" href="#__codelineno-14-54"></a>
+</span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55" href="#__codelineno-14-55"></a>  form = this.fb.group({
+</span><span id="__span-14-56"><a id="__codelineno-14-56" name="__codelineno-14-56" href="#__codelineno-14-56"></a>    personalInfo: this.fb.group({
+</span><span id="__span-14-57"><a id="__codelineno-14-57" name="__codelineno-14-57" href="#__codelineno-14-57"></a>      firstName: ['', Validators.required],
+</span><span id="__span-14-58"><a id="__codelineno-14-58" name="__codelineno-14-58" href="#__codelineno-14-58"></a>      lastName: ['', Validators.required],
+</span><span id="__span-14-59"><a id="__codelineno-14-59" name="__codelineno-14-59" href="#__codelineno-14-59"></a>      dni: ['', [Validators.required, dniValidator()]],
+</span><span id="__span-14-60"><a id="__codelineno-14-60" name="__codelineno-14-60" href="#__codelineno-14-60"></a>    }),
+</span><span id="__span-14-61"><a id="__codelineno-14-61" name="__codelineno-14-61" href="#__codelineno-14-61"></a>    accountInfo: this.fb.group({
+</span><span id="__span-14-62"><a id="__codelineno-14-62" name="__codelineno-14-62" href="#__codelineno-14-62"></a>      email: ['', [Validators.required, Validators.email]],
+</span><span id="__span-14-63"><a id="__codelineno-14-63" name="__codelineno-14-63" href="#__codelineno-14-63"></a>      passwords: this.fb.group({
+</span><span id="__span-14-64"><a id="__codelineno-14-64" name="__codelineno-14-64" href="#__codelineno-14-64"></a>        password: ['', [Validators.required, Validators.minLength(8)]],
+</span><span id="__span-14-65"><a id="__codelineno-14-65" name="__codelineno-14-65" href="#__codelineno-14-65"></a>        confirm: ['', Validators.required],
+</span><span id="__span-14-66"><a id="__codelineno-14-66" name="__codelineno-14-66" href="#__codelineno-14-66"></a>      }, { validators: passwordMatchValidator('password', 'confirm') }),
+</span><span id="__span-14-67"><a id="__codelineno-14-67" name="__codelineno-14-67" href="#__codelineno-14-67"></a>    }),
+</span><span id="__span-14-68"><a id="__codelineno-14-68" name="__codelineno-14-68" href="#__codelineno-14-68"></a>    review: this.fb.group({
+</span><span id="__span-14-69"><a id="__codelineno-14-69" name="__codelineno-14-69" href="#__codelineno-14-69"></a>      acceptTerms: [false, Validators.requiredTrue],
+</span><span id="__span-14-70"><a id="__codelineno-14-70" name="__codelineno-14-70" href="#__codelineno-14-70"></a>    }),
+</span><span id="__span-14-71"><a id="__codelineno-14-71" name="__codelineno-14-71" href="#__codelineno-14-71"></a>  });
+</span><span id="__span-14-72"><a id="__codelineno-14-72" name="__codelineno-14-72" href="#__codelineno-14-72"></a>
+</span><span id="__span-14-73"><a id="__codelineno-14-73" name="__codelineno-14-73" href="#__codelineno-14-73"></a>  currentGroup = computed(() =&gt;
+</span><span id="__span-14-74"><a id="__codelineno-14-74" name="__codelineno-14-74" href="#__codelineno-14-74"></a>    this.form.get(this.steps[this.currentStep()].group) as FormGroup
+</span><span id="__span-14-75"><a id="__codelineno-14-75" name="__codelineno-14-75" href="#__codelineno-14-75"></a>  );
+</span><span id="__span-14-76"><a id="__codelineno-14-76" name="__codelineno-14-76" href="#__codelineno-14-76"></a>
+</span><span id="__span-14-77"><a id="__codelineno-14-77" name="__codelineno-14-77" href="#__codelineno-14-77"></a>  nextStep(): void {
+</span><span id="__span-14-78"><a id="__codelineno-14-78" name="__codelineno-14-78" href="#__codelineno-14-78"></a>    if (this.currentGroup().invalid) {
+</span><span id="__span-14-79"><a id="__codelineno-14-79" name="__codelineno-14-79" href="#__codelineno-14-79"></a>      this.markGroupTouched(this.currentGroup());
+</span><span id="__span-14-80"><a id="__codelineno-14-80" name="__codelineno-14-80" href="#__codelineno-14-80"></a>      return;
+</span><span id="__span-14-81"><a id="__codelineno-14-81" name="__codelineno-14-81" href="#__codelineno-14-81"></a>    }
+</span><span id="__span-14-82"><a id="__codelineno-14-82" name="__codelineno-14-82" href="#__codelineno-14-82"></a>    this.completedSteps.update(s =&gt; new Set(s).add(this.currentStep()));
+</span><span id="__span-14-83"><a id="__codelineno-14-83" name="__codelineno-14-83" href="#__codelineno-14-83"></a>    this.currentStep.update(s =&gt; Math.min(s + 1, this.steps.length - 1));
+</span><span id="__span-14-84"><a id="__codelineno-14-84" name="__codelineno-14-84" href="#__codelineno-14-84"></a>  }
+</span><span id="__span-14-85"><a id="__codelineno-14-85" name="__codelineno-14-85" href="#__codelineno-14-85"></a>
+</span><span id="__span-14-86"><a id="__codelineno-14-86" name="__codelineno-14-86" href="#__codelineno-14-86"></a>  previousStep(): void {
+</span><span id="__span-14-87"><a id="__codelineno-14-87" name="__codelineno-14-87" href="#__codelineno-14-87"></a>    this.currentStep.update(s =&gt; Math.max(s - 1, 0));
+</span><span id="__span-14-88"><a id="__codelineno-14-88" name="__codelineno-14-88" href="#__codelineno-14-88"></a>  }
+</span><span id="__span-14-89"><a id="__codelineno-14-89" name="__codelineno-14-89" href="#__codelineno-14-89"></a>}
+</span></code></pre></div>
+<h4 id="formularios-dinamicos-con-formarray">Formularios dinamicos con FormArray</h4>
+<p>Los <code>FormArray</code> permiten crear formularios donde el usuario puede anadir y eliminar dinamicamente grupos de campos. Este patron es esencial para interfaces como facturas (anadir/quitar lineas), formularios de direcciones (multiples direcciones de envio), o gestion de equipos (anadir/quitar miembros).</p>
+<p>La implementacion con Signals para calcular totales derivados en tiempo real hace que el formulario sea reactivo y eficiente:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>@Component({
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  standalone: true,
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  template: `
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    &lt;div formArrayName="lines"&gt;
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>      &lt;div class="space-y-4"&gt;
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>        @for (line of lines.controls; track line; let i = $index) {
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>          &lt;div [formGroupName]="i"
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>               class="rounded-lg border border-gray-200 p-4 transition-all duration-300"&gt;
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>            &lt;div class="grid grid-cols-12 gap-3"&gt;
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>              &lt;div class="col-span-5"&gt;
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>                &lt;ui-form-field label="Descripcion" [control]="getControl(line, 'description')" /&gt;
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>              &lt;/div&gt;
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>              &lt;div class="col-span-2"&gt;
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>                &lt;ui-form-field label="Cantidad" type="number" [control]="getControl(line, 'quantity')" /&gt;
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>              &lt;/div&gt;
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>              &lt;div class="col-span-2"&gt;
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>                &lt;ui-form-field label="Precio" type="number" [control]="getControl(line, 'unitPrice')" /&gt;
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>              &lt;/div&gt;
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>              &lt;div class="col-span-2"&gt;
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>                &lt;label class="block text-sm font-medium text-gray-700"&gt;Total&lt;/label&gt;
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>                &lt;p class="mt-2 text-sm font-semibold text-gray-900"&gt;
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>                  {{ lineTotals()[i] | currency:'EUR' }}
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>                &lt;/p&gt;
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>              &lt;/div&gt;
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>              &lt;div class="col-span-1 flex items-end justify-center pb-2"&gt;
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>                &lt;button type="button"
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>                        class="rounded-lg p-2 text-gray-400 hover:bg-red-50 hover:text-red-600"
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>                        [disabled]="lines.length === 1"
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>                        (click)="removeLine(i)"
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a>                        aria-label="Eliminar linea {{ i + 1 }}"&gt;&amp;#10005;&lt;/button&gt;
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>              &lt;/div&gt;
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a>            &lt;/div&gt;
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>          &lt;/div&gt;
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>        }
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>      &lt;/div&gt;
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>    &lt;/div&gt;
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a>    &lt;button type="button"
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a>            class="mt-4 flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700"
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a>            (click)="addLine()"&gt;
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a>      + Anadir linea
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a>    &lt;/button&gt;
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a>
+</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a>    &lt;div class="mt-6 border-t border-gray-200 pt-4"&gt;
+</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a>      &lt;div class="flex justify-end"&gt;
+</span><span id="__span-15-46"><a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a>        &lt;dl class="w-64 space-y-2 text-sm"&gt;
+</span><span id="__span-15-47"><a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a>          &lt;div class="flex justify-between"&gt;
+</span><span id="__span-15-48"><a id="__codelineno-15-48" name="__codelineno-15-48" href="#__codelineno-15-48"></a>            &lt;dt class="text-gray-500"&gt;Subtotal&lt;/dt&gt;
+</span><span id="__span-15-49"><a id="__codelineno-15-49" name="__codelineno-15-49" href="#__codelineno-15-49"></a>            &lt;dd class="font-medium"&gt;{{ subtotal() | currency:'EUR' }}&lt;/dd&gt;
+</span><span id="__span-15-50"><a id="__codelineno-15-50" name="__codelineno-15-50" href="#__codelineno-15-50"></a>          &lt;/div&gt;
+</span><span id="__span-15-51"><a id="__codelineno-15-51" name="__codelineno-15-51" href="#__codelineno-15-51"></a>          &lt;div class="flex justify-between"&gt;
+</span><span id="__span-15-52"><a id="__codelineno-15-52" name="__codelineno-15-52" href="#__codelineno-15-52"></a>            &lt;dt class="text-gray-500"&gt;IVA (21%)&lt;/dt&gt;
+</span><span id="__span-15-53"><a id="__codelineno-15-53" name="__codelineno-15-53" href="#__codelineno-15-53"></a>            &lt;dd class="font-medium"&gt;{{ tax() | currency:'EUR' }}&lt;/dd&gt;
+</span><span id="__span-15-54"><a id="__codelineno-15-54" name="__codelineno-15-54" href="#__codelineno-15-54"></a>          &lt;/div&gt;
+</span><span id="__span-15-55"><a id="__codelineno-15-55" name="__codelineno-15-55" href="#__codelineno-15-55"></a>          &lt;div class="flex justify-between border-t pt-2 text-base"&gt;
+</span><span id="__span-15-56"><a id="__codelineno-15-56" name="__codelineno-15-56" href="#__codelineno-15-56"></a>            &lt;dt class="font-semibold"&gt;Total&lt;/dt&gt;
+</span><span id="__span-15-57"><a id="__codelineno-15-57" name="__codelineno-15-57" href="#__codelineno-15-57"></a>            &lt;dd class="font-bold"&gt;{{ total() | currency:'EUR' }}&lt;/dd&gt;
+</span><span id="__span-15-58"><a id="__codelineno-15-58" name="__codelineno-15-58" href="#__codelineno-15-58"></a>          &lt;/div&gt;
+</span><span id="__span-15-59"><a id="__codelineno-15-59" name="__codelineno-15-59" href="#__codelineno-15-59"></a>        &lt;/dl&gt;
+</span><span id="__span-15-60"><a id="__codelineno-15-60" name="__codelineno-15-60" href="#__codelineno-15-60"></a>      &lt;/div&gt;
+</span><span id="__span-15-61"><a id="__codelineno-15-61" name="__codelineno-15-61" href="#__codelineno-15-61"></a>    &lt;/div&gt;
+</span><span id="__span-15-62"><a id="__codelineno-15-62" name="__codelineno-15-62" href="#__codelineno-15-62"></a>  `,
+</span><span id="__span-15-63"><a id="__codelineno-15-63" name="__codelineno-15-63" href="#__codelineno-15-63"></a>})
+</span><span id="__span-15-64"><a id="__codelineno-15-64" name="__codelineno-15-64" href="#__codelineno-15-64"></a>export class InvoiceFormComponent {
+</span><span id="__span-15-65"><a id="__codelineno-15-65" name="__codelineno-15-65" href="#__codelineno-15-65"></a>  private fb = inject(FormBuilder);
+</span><span id="__span-15-66"><a id="__codelineno-15-66" name="__codelineno-15-66" href="#__codelineno-15-66"></a>  invoiceForm = this.fb.group({ lines: this.fb.array([this.createLine()]) });
+</span><span id="__span-15-67"><a id="__codelineno-15-67" name="__codelineno-15-67" href="#__codelineno-15-67"></a>
+</span><span id="__span-15-68"><a id="__codelineno-15-68" name="__codelineno-15-68" href="#__codelineno-15-68"></a>  get lines(): FormArray { return this.invoiceForm.get('lines') as FormArray; }
+</span><span id="__span-15-69"><a id="__codelineno-15-69" name="__codelineno-15-69" href="#__codelineno-15-69"></a>
+</span><span id="__span-15-70"><a id="__codelineno-15-70" name="__codelineno-15-70" href="#__codelineno-15-70"></a>  lineTotals = computed(() =&gt;
+</span><span id="__span-15-71"><a id="__codelineno-15-71" name="__codelineno-15-71" href="#__codelineno-15-71"></a>    this.lines.controls.map((_, i) =&gt; {
+</span><span id="__span-15-72"><a id="__codelineno-15-72" name="__codelineno-15-72" href="#__codelineno-15-72"></a>      const line = this.lines.at(i);
+</span><span id="__span-15-73"><a id="__codelineno-15-73" name="__codelineno-15-73" href="#__codelineno-15-73"></a>      return (line.get('quantity')?.value || 0) * (line.get('unitPrice')?.value || 0);
+</span><span id="__span-15-74"><a id="__codelineno-15-74" name="__codelineno-15-74" href="#__codelineno-15-74"></a>    })
+</span><span id="__span-15-75"><a id="__codelineno-15-75" name="__codelineno-15-75" href="#__codelineno-15-75"></a>  );
+</span><span id="__span-15-76"><a id="__codelineno-15-76" name="__codelineno-15-76" href="#__codelineno-15-76"></a>
+</span><span id="__span-15-77"><a id="__codelineno-15-77" name="__codelineno-15-77" href="#__codelineno-15-77"></a>  subtotal = computed(() =&gt; this.lineTotals().reduce((s, t) =&gt; s + t, 0));
+</span><span id="__span-15-78"><a id="__codelineno-15-78" name="__codelineno-15-78" href="#__codelineno-15-78"></a>  tax = computed(() =&gt; this.subtotal() * 0.21);
+</span><span id="__span-15-79"><a id="__codelineno-15-79" name="__codelineno-15-79" href="#__codelineno-15-79"></a>  total = computed(() =&gt; this.subtotal() + this.tax());
+</span><span id="__span-15-80"><a id="__codelineno-15-80" name="__codelineno-15-80" href="#__codelineno-15-80"></a>
+</span><span id="__span-15-81"><a id="__codelineno-15-81" name="__codelineno-15-81" href="#__codelineno-15-81"></a>  createLine(): FormGroup {
+</span><span id="__span-15-82"><a id="__codelineno-15-82" name="__codelineno-15-82" href="#__codelineno-15-82"></a>    return this.fb.group({
+</span><span id="__span-15-83"><a id="__codelineno-15-83" name="__codelineno-15-83" href="#__codelineno-15-83"></a>      description: ['', Validators.required],
+</span><span id="__span-15-84"><a id="__codelineno-15-84" name="__codelineno-15-84" href="#__codelineno-15-84"></a>      quantity: [1, [Validators.required, Validators.min(1)]],
+</span><span id="__span-15-85"><a id="__codelineno-15-85" name="__codelineno-15-85" href="#__codelineno-15-85"></a>      unitPrice: [0, [Validators.required, Validators.min(0)]],
+</span><span id="__span-15-86"><a id="__codelineno-15-86" name="__codelineno-15-86" href="#__codelineno-15-86"></a>    });
+</span><span id="__span-15-87"><a id="__codelineno-15-87" name="__codelineno-15-87" href="#__codelineno-15-87"></a>  }
+</span><span id="__span-15-88"><a id="__codelineno-15-88" name="__codelineno-15-88" href="#__codelineno-15-88"></a>
+</span><span id="__span-15-89"><a id="__codelineno-15-89" name="__codelineno-15-89" href="#__codelineno-15-89"></a>  addLine(): void {
+</span><span id="__span-15-90"><a id="__codelineno-15-90" name="__codelineno-15-90" href="#__codelineno-15-90"></a>    this.lines.push(this.createLine());
+</span><span id="__span-15-91"><a id="__codelineno-15-91" name="__codelineno-15-91" href="#__codelineno-15-91"></a>    setTimeout(() =&gt; {
+</span><span id="__span-15-92"><a id="__codelineno-15-92" name="__codelineno-15-92" href="#__codelineno-15-92"></a>      const last = document.querySelector('[formarrayname="lines"] &gt; div:last-child');
+</span><span id="__span-15-93"><a id="__codelineno-15-93" name="__codelineno-15-93" href="#__codelineno-15-93"></a>      last?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+</span><span id="__span-15-94"><a id="__codelineno-15-94" name="__codelineno-15-94" href="#__codelineno-15-94"></a>    });
+</span><span id="__span-15-95"><a id="__codelineno-15-95" name="__codelineno-15-95" href="#__codelineno-15-95"></a>  }
+</span><span id="__span-15-96"><a id="__codelineno-15-96" name="__codelineno-15-96" href="#__codelineno-15-96"></a>
+</span><span id="__span-15-97"><a id="__codelineno-15-97" name="__codelineno-15-97" href="#__codelineno-15-97"></a>  removeLine(index: number): void { this.lines.removeAt(index); }
+</span><span id="__span-15-98"><a id="__codelineno-15-98" name="__codelineno-15-98" href="#__codelineno-15-98"></a>}
+</span></code></pre></div>
+<h4 id="auto-guardado-de-formularios-draft">Auto-guardado de formularios (draft)</h4>
+<p>El auto-guardado de borradores mejora drasticamente la experiencia de usuario en formularios largos. Consiste en guardar automaticamente el estado del formulario en localStorage a medida que el usuario rellena los campos:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>@Injectable({ providedIn: 'root' })
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>export class FormDraftService {
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>  private readonly PREFIX = 'form_draft_';
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>  save(formId: string, data: any): void {
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>    localStorage.setItem(this.PREFIX + formId, JSON.stringify({ data, timestamp: Date.now() }));
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>  }
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>  load(formId: string): any | null {
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>    const stored = localStorage.getItem(this.PREFIX + formId);
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    if (!stored) return null;
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>    const draft = JSON.parse(stored);
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    if (Date.now() - draft.timestamp &gt; 24 * 60 * 60 * 1000) {
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>      this.clear(formId);
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>      return null;
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>    }
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>    return draft.data;
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>  }
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>  clear(formId: string): void { localStorage.removeItem(this.PREFIX + formId); }
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>  hasDraft(formId: string): boolean { return !!localStorage.getItem(this.PREFIX + formId); }
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>  getDraftAge(formId: string): string | null {
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>    const stored = localStorage.getItem(this.PREFIX + formId);
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>    if (!stored) return null;
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>    const minutes = Math.floor((Date.now() - JSON.parse(stored).timestamp) / 60000);
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>    if (minutes &lt; 1) return 'hace unos segundos';
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>    if (minutes &lt; 60) return `hace ${minutes} minutos`;
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>    return `hace ${Math.floor(minutes / 60)} horas`;
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a>  }
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>}
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>// Uso en el componente
+</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>@Component({ ... })
+</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a>export class ProductFormComponent implements OnInit, OnDestroy {
+</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a>  private draftService = inject(FormDraftService);
+</span><span id="__span-16-37"><a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a>  private readonly FORM_ID = 'product_create';
+</span><span id="__span-16-38"><a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a>  productForm = this.fb.group({ ... });
+</span><span id="__span-16-39"><a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a>  private draftSub?: Subscription;
+</span><span id="__span-16-40"><a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a>
+</span><span id="__span-16-41"><a id="__codelineno-16-41" name="__codelineno-16-41" href="#__codelineno-16-41"></a>  ngOnInit(): void {
+</span><span id="__span-16-42"><a id="__codelineno-16-42" name="__codelineno-16-42" href="#__codelineno-16-42"></a>    const draft = this.draftService.load(this.FORM_ID);
+</span><span id="__span-16-43"><a id="__codelineno-16-43" name="__codelineno-16-43" href="#__codelineno-16-43"></a>    if (draft &amp;&amp; confirm('Tienes un borrador. ¿Recuperarlo?')) {
+</span><span id="__span-16-44"><a id="__codelineno-16-44" name="__codelineno-16-44" href="#__codelineno-16-44"></a>      this.productForm.patchValue(draft);
+</span><span id="__span-16-45"><a id="__codelineno-16-45" name="__codelineno-16-45" href="#__codelineno-16-45"></a>    }
+</span><span id="__span-16-46"><a id="__codelineno-16-46" name="__codelineno-16-46" href="#__codelineno-16-46"></a>    this.draftSub = this.productForm.valueChanges.pipe(
+</span><span id="__span-16-47"><a id="__codelineno-16-47" name="__codelineno-16-47" href="#__codelineno-16-47"></a>      debounceTime(2000),
+</span><span id="__span-16-48"><a id="__codelineno-16-48" name="__codelineno-16-48" href="#__codelineno-16-48"></a>      filter(() =&gt; this.productForm.dirty),
+</span><span id="__span-16-49"><a id="__codelineno-16-49" name="__codelineno-16-49" href="#__codelineno-16-49"></a>    ).subscribe(value =&gt; this.draftService.save(this.FORM_ID, value));
+</span><span id="__span-16-50"><a id="__codelineno-16-50" name="__codelineno-16-50" href="#__codelineno-16-50"></a>  }
+</span><span id="__span-16-51"><a id="__codelineno-16-51" name="__codelineno-16-51" href="#__codelineno-16-51"></a>
+</span><span id="__span-16-52"><a id="__codelineno-16-52" name="__codelineno-16-52" href="#__codelineno-16-52"></a>  submitForm(): void {
+</span><span id="__span-16-53"><a id="__codelineno-16-53" name="__codelineno-16-53" href="#__codelineno-16-53"></a>    if (this.productForm.valid) {
+</span><span id="__span-16-54"><a id="__codelineno-16-54" name="__codelineno-16-54" href="#__codelineno-16-54"></a>      // enviar al servidor...
+</span><span id="__span-16-55"><a id="__codelineno-16-55" name="__codelineno-16-55" href="#__codelineno-16-55"></a>      this.draftService.clear(this.FORM_ID);
+</span><span id="__span-16-56"><a id="__codelineno-16-56" name="__codelineno-16-56" href="#__codelineno-16-56"></a>    }
+</span><span id="__span-16-57"><a id="__codelineno-16-57" name="__codelineno-16-57" href="#__codelineno-16-57"></a>  }
+</span><span id="__span-16-58"><a id="__codelineno-16-58" name="__codelineno-16-58" href="#__codelineno-16-58"></a>
+</span><span id="__span-16-59"><a id="__codelineno-16-59" name="__codelineno-16-59" href="#__codelineno-16-59"></a>  ngOnDestroy(): void { this.draftSub?.unsubscribe(); }
+</span><span id="__span-16-60"><a id="__codelineno-16-60" name="__codelineno-16-60" href="#__codelineno-16-60"></a>}
+</span></code></pre></div>
+<h4 id="confirmacion-al-salir-sin-guardar-candeactivate">Confirmacion al salir sin guardar (CanDeactivate)</h4>
+<p>El guard <code>CanDeactivate</code> de Angular Router protege al usuario de perder cambios no guardados al navegar a otra pagina:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>export interface CanComponentDeactivate {
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  canDeactivate: () =&gt; boolean | Observable&lt;boolean&gt; | Promise&lt;boolean&gt;;
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>}
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>@Injectable({ providedIn: 'root' })
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>export class PendingChangesGuard implements CanDeactivate&lt;CanComponentDeactivate&gt; {
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>  canDeactivate(component: CanComponentDeactivate): boolean | Observable&lt;boolean&gt; | Promise&lt;boolean&gt; {
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    return component.canDeactivate ? component.canDeactivate() : true;
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>  }
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>}
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>// En el componente
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>@Component({ ... })
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>export class ProductEditComponent implements CanComponentDeactivate {
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>  productForm = this.fb.group({ ... });
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>  submitted = false;
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>  canDeactivate(): boolean {
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>    if (this.submitted || this.productForm.pristine) return true;
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>    return confirm('Tienes cambios sin guardar. ¿Estas seguro de que quieres salir?');
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>  }
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>  submitForm(): void {
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>    // guardar datos...
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>    this.submitted = true;
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>  }
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>}
+</span></code></pre></div>
+<h4 id="mascaras-de-input">Mascaras de input</h4>
+<p>Las mascaras de entrada guian al usuario en la introduccion de datos con formato especifico, reduciendo errores y mejorando la velocidad de entrada:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>@Directive({
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  selector: '[uiPhoneMask]',
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>  standalone: true,
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>  host: { '(input)': 'onInput($event)', '(keydown)': 'onKeydown($event)' },
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>})
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>export class PhoneMaskDirective implements ControlValueAccessor {
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>  private onChange: (value: string) =&gt; void = () =&gt; {};
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>  private onTouched: () =&gt; void = () =&gt; {};
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>  onInput(event: Event): void {
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>    const input = event.target as HTMLInputElement;
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    let value = input.value.replace(/\D/g, '');
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>    if (value.startsWith('34')) value = value.substring(2);
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>    if (value.length &gt; 3) value = value.substring(0, 3) + ' ' + value.substring(3);
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>    if (value.length &gt; 7) value = value.substring(0, 7) + ' ' + value.substring(7);
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>    value = value.substring(0, 11);
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>    input.value = value;
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>    this.onChange(value.replace(/\s/g, ''));
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>  }
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>  onKeydown(event: KeyboardEvent): void {
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>    const allowed = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'];
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>    if (allowed.includes(event.key)) return;
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>    if (!/^\d$/.test(event.key)) event.preventDefault();
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>  }
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>  writeValue(value: string): void { ... }
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>  registerOnChange(fn: any): void { this.onChange = fn; }
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>  registerOnTouched(fn: any): void { this.onTouched = fn; }
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>}
+</span></code></pre></div>
+<hr />
+<h3 id="seccion-e-feedback-visual-y-micro-interacciones">SECCION E — FEEDBACK VISUAL Y MICRO-INTERACCIONES</h3>
+<h4 id="estados-de-boton-y-transiciones">Estados de boton y transiciones</h4>
+<p>Los botones deben comunicar claramente su estado en cada momento mediante representacion visual distinta y transiciones suaves:
+- <strong>Default:</strong> Color de fondo correspondiente a la variante.
+- <strong>Hover:</strong> Oscurecimiento ligero o cambio de elevacion.
+- <strong>Active/Pressed:</strong> Oscurecimiento adicional o reduccion de escala (0.98).
+- <strong>Focus visible:</strong> Anillo de foco (solo con navegacion por teclado).
+- <strong>Disabled:</strong> Atenuacion (menor opacidad) y cursor <code>not-allowed</code>.
+- <strong>Loading:</strong> Spinner animado, el texto se oculta visualmente pero permanece para lectores de pantalla. El boton mantiene el mismo tamano.</p>
+<p>Estas transiciones se implementan con <code>transition-all duration-150</code> y las variantes <code>hover:</code>, <code>active:</code>, <code>focus-visible:</code>, <code>disabled:</code> de Tailwind.</p>
+<h4 id="micro-interacciones">Micro-interacciones</h4>
+<p>Las micro-interacciones son animaciones pequenas y sutiles que mejoran la percepcion de respuesta y calidad de la interfaz. Cada micro-interaccion debe tener un proposito funcional, no meramente decorativo.</p>
+<p><strong>Shake en error:</strong> Comunicacion instintiva de error mediante sacudida horizontal:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>@keyframes shake {
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  0%, 100% { transform: translateX(0); }
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  20% { transform: translateX(-4px); }
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  40% { transform: translateX(4px); }
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>  60% { transform: translateX(-4px); }
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>  80% { transform: translateX(4px); }
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>}
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>.animate-shake { animation: shake 0.4s ease-in-out; }
+</span></code></pre></div>
+<p>Esta clase se aplica condicionalmente al intentar enviar un formulario con errores:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>// Template
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>&lt;input [class.animate-shake]="shouldShake()" ... /&gt;
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>// Componente
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>shouldShake = computed(() =&gt; this.formSubmitted &amp;&amp; this.emailControl.invalid);
+</span></code></pre></div></p>
+<p><strong>Check de confirmacion:</strong> Cuando un campo se vuelve valido despues de haber sido invalido, una breve animacion confirma al usuario que la correccion fue aceptada:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>@keyframes checkmark {
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  50% { transform: scale(1.3) rotate(0deg); }
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>}
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>.animate-checkmark { animation: checkmark 0.3s ease-out; }
+</span></code></pre></div>
+<p><strong>Slide in para mensajes de error:</strong> Los mensajes de error deben aparecer con una animacion suave, no abruptamente:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>@keyframes slideIn {
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>  from { transform: translateY(-4px); opacity: 0; }
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>  to { transform: translateY(0); opacity: 1; }
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>}
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>.animate-slideIn { animation: slideIn 0.2s ease-out; }
+</span></code></pre></div>
+<p><strong>Pulse en campos requeridos vacios:</strong> Si el usuario intenta enviar sin rellenar un campo requerido, una animacion de pulso sutil dirige la atencion:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>@keyframes errorPulse {
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>  50% { box-shadow: 0 0 0 4px rgba(239, 68, 68, 0); }
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>}
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>.animate-errorPulse { animation: errorPulse 1.5s ease-in-out; }
+</span></code></pre></div>
+<h4 id="skeleton-loading-para-formularios-que-cargan-datos">Skeleton loading para formularios que cargan datos</h4>
+<p>Cuando un formulario de edicion carga datos desde el servidor, mostrar campos vacios durante la carga causa desconcierto. En su lugar, se deben mostrar skeleton loaders:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>@if (loading()) {
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>  &lt;div class="space-y-4 animate-pulse"&gt;
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    &lt;div class="h-4 bg-gray-200 rounded w-1/4"&gt;&lt;/div&gt;
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    &lt;div class="h-10 bg-gray-200 rounded w-full"&gt;&lt;/div&gt;
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    &lt;div class="h-4 bg-gray-200 rounded w-1/4 mt-6"&gt;&lt;/div&gt;
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    &lt;div class="h-10 bg-gray-200 rounded w-full"&gt;&lt;/div&gt;
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>  &lt;/div&gt;
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>} @else {
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>  &lt;form [formGroup]="productForm"&gt; ... &lt;/form&gt;
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>}
+</span></code></pre></div>
+<h4 id="toast-de-confirmacion-tras-envio-exitoso">Toast de confirmacion tras envio exitoso</h4>
+<p>Tras un envio exitoso, un toast de confirmacion es el cierre perfecto para la interaccion. Debe mostrarse en una ubicacion consistente (esquina superior derecha) y desaparecer automaticamente tras unos segundos. Utilizando el <code>ToastService</code> y <code>ToastComponent</code> definidos en la Unidad 7, el patron de uso es:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>submitForm(): void {
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>  if (this.form.invalid) {
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    this.markFormGroupTouched(this.form);
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    return;
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>  }
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>  this.submitting.set(true);
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>  this.productService.create(this.form.value).subscribe({
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>    next: (result) =&gt; {
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>      this.toastService.success('Producto creado', 'El producto se ha guardado correctamente');
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>      this.router.navigate(['/products', result.id]);
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>    },
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>    error: (err) =&gt; {
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>      this.toastService.error('Error al guardar', 'No se pudo crear el producto. Intentalo de nuevo');
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>      this.submitting.set(false);
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>    },
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>  });
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>}
+</span></code></pre></div>
+<h4 id="transiciones-suaves-en-cambios-de-estado">Transiciones suaves en cambios de estado</h4>
+<p>Cada cambio de estado en la interfaz debe estar acompanado de una transicion CSS suave. Tailwind proporciona las clases <code>transition-colors</code>, <code>transition-opacity</code>, <code>transition-all</code> con duraciones configurables:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>// Input con transicion de borde y sombra
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>&lt;input class="... transition-all duration-200" /&gt;
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>// Contenedor con transicion de altura (wizard steps)
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>&lt;div class="transition-all duration-300 ease-in-out" ...&gt;
+</span></code></pre></div>
+<hr />
+<h2 id="ejemplos-guiados">Ejemplos guiados</h2>
+<h3 id="ejemplo-guiado-1-formulario-de-registro-completo-con-todos-los-estados-de-validacion-y-ux">Ejemplo guiado 1: Formulario de registro completo con todos los estados de validacion y UX</h3>
+<p><strong>Objetivo:</strong> Construir un formulario de registro de usuario profesional que ilustre la gestion completa de estados de validacion y feedback visual.</p>
+<p><strong>Paso 1 — Definir la estructura del formulario:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>@Component({
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>  selector: 'app-register-form',
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>  standalone: true,
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>  imports: [ReactiveFormsModule, NgClass, FormErrorComponent, ButtonComponent],
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>  template: `...`,
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>})
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>export class RegisterFormComponent {
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>  private fb = inject(FormBuilder);
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>  private userService = inject(UserService);
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>  private router = inject(Router);
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>  private toastService = inject(ToastService);
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>  registerForm = this.fb.group({
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>    personalInfo: this.fb.group({
+</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>      fullName: ['', [Validators.required, Validators.minLength(3)]],
+</span><span id="__span-27-16"><a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>      email: ['', {
+</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>        validators: [Validators.required, Validators.email],
+</span><span id="__span-27-18"><a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>        asyncValidators: [this.emailExistsValidator()],
+</span><span id="__span-27-19"><a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>        updateOn: 'blur',
+</span><span id="__span-27-20"><a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>      }],
+</span><span id="__span-27-21"><a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a>      phone: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
+</span><span id="__span-27-22"><a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>    }),
+</span><span id="__span-27-23"><a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a>    passwords: this.fb.group({
+</span><span id="__span-27-24"><a id="__codelineno-27-24" name="__codelineno-27-24" href="#__codelineno-27-24"></a>      password: ['', [Validators.required, Validators.minLength(8), this.passwordStrengthValidator()]],
+</span><span id="__span-27-25"><a id="__codelineno-27-25" name="__codelineno-27-25" href="#__codelineno-27-25"></a>      confirm: ['', Validators.required],
+</span><span id="__span-27-26"><a id="__codelineno-27-26" name="__codelineno-27-26" href="#__codelineno-27-26"></a>    }, { validators: this.passwordMatchValidator() }),
+</span><span id="__span-27-27"><a id="__codelineno-27-27" name="__codelineno-27-27" href="#__codelineno-27-27"></a>    terms: [false, Validators.requiredTrue],
+</span><span id="__span-27-28"><a id="__codelineno-27-28" name="__codelineno-27-28" href="#__codelineno-27-28"></a>  });
+</span><span id="__span-27-29"><a id="__codelineno-27-29" name="__codelineno-27-29" href="#__codelineno-27-29"></a>
+</span><span id="__span-27-30"><a id="__codelineno-27-30" name="__codelineno-27-30" href="#__codelineno-27-30"></a>  formSubmitted = signal(false);
+</span><span id="__span-27-31"><a id="__codelineno-27-31" name="__codelineno-27-31" href="#__codelineno-27-31"></a>  submitting = signal(false);
+</span><span id="__span-27-32"><a id="__codelineno-27-32" name="__codelineno-27-32" href="#__codelineno-27-32"></a>}
+</span></code></pre></div>
+<p><strong>Paso 2 — Implementar el template con feedback visual completo para cada campo:</strong></p>
+<p>El template incluye: labels con indicador de obligatoriedad, inputs con bordes dinamicos segun estado (pristine, valid, invalid, pending), mensajes de error contextuales mediante <code>ui-form-error</code>, indicador de fortaleza de contrasena (barra de progreso con colores), y checkbox de aceptacion de terminos con estilo personalizado.</p>
+<p><strong>Paso 3 — Implementar la logica de envio con feedback completo:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>submitForm(): void {
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>  this.formSubmitted.set(true);
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>  if (this.registerForm.invalid) {
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>    this.markFormGroupTouched(this.registerForm);
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>    setTimeout(() =&gt; {
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>      document.querySelector('.ng-invalid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>    });
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>    return;
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>  }
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>  this.submitting.set(true);
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>  const formData = {
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>    ...this.registerForm.value.personalInfo,
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>    password: this.registerForm.value.passwords?.password,
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>  };
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a>  this.userService.register(formData).subscribe({
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>    next: () =&gt; {
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a>      this.toastService.success('Registro exitoso', 'Tu cuenta ha sido creada. Ya puedes iniciar sesion.');
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>      this.router.navigate(['/login']);
+</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a>    },
+</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a>    error: () =&gt; {
+</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a>      this.toastService.error('Error en el registro', 'No se pudo completar el registro. Intentalo de nuevo.');
+</span><span id="__span-28-25"><a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a>      this.submitting.set(false);
+</span><span id="__span-28-26"><a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a>    },
+</span><span id="__span-28-27"><a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a>  });
+</span><span id="__span-28-28"><a id="__codelineno-28-28" name="__codelineno-28-28" href="#__codelineno-28-28"></a>}
+</span></code></pre></div>
+<h3 id="ejemplo-guiado-2-formulario-multi-paso-wizard-con-signals">Ejemplo guiado 2: Formulario multi-paso (wizard) con Signals</h3>
+<p><strong>Objetivo:</strong> Construir un wizard de 3 pasos usando la implementacion detallada en la Seccion D, integrando Signals para el paso actual, validacion por paso, barra de progreso visual y navegacion entre pasos.</p>
+<p><strong>Desarrollo:</strong> El alumnado parte del codigo base de <code>WizardFormComponent</code> mostrado anteriormente y lo extiende con: resumen de datos introducidos en el paso final, boton "Guardar borrador" que persiste el progreso en <code>localStorage</code>, y confirmacion al abandonar el wizard con pasos incompletos.</p>
+<h3 id="ejemplo-guiado-3-formulario-de-factura-con-formarray-dinamico">Ejemplo guiado 3: Formulario de factura con FormArray dinamico</h3>
+<p><strong>Objetivo:</strong> Construir un formulario de factura con lineas de producto dinamicas usando FormArray y Signals para calculos en tiempo real.</p>
+<p><strong>Desarrollo:</strong> Siguiendo la implementacion de <code>InvoiceFormComponent</code>, el alumnado anade: validacion de que al menos una linea tenga cantidad &gt; 0 y precio &gt; 0, calculo de IVA variable por linea (21%, 10% o 4% segun tipo de producto), y guardado automatico del borrador de factura en localStorage.</p>
+<hr />
+<h2 id="actividades-guiadas">Actividades guiadas</h2>
+<h3 id="actividad-guiada-1-implementar-validadores-personalizados-para-un-formulario-de-alta-de-cliente">Actividad guiada 1: Implementar validadores personalizados para un formulario de alta de cliente</h3>
+<p><strong>Duracion:</strong> 60 minutos.</p>
+<p><strong>Objetivo:</strong> Crear validadores personalizados para CIF/NIF espanol e IBAN en un formulario de alta de cliente.</p>
+<p><strong>Desarrollo:</strong>
+1. El docente explica el formato real del CIF espanol (letra + 7 digitos + digito de control) y del IBAN espanol.
+2. El alumnado implementa <code>cifValidator()</code> y <code>ibanValidator()</code> como funciones que devuelven <code>ValidatorFn</code>.
+3. Integrar los validadores en un <code>FormGroup</code> de cliente y crear el template con feedback visual usando Tailwind.
+4. Testear los validadores con valores reales y erroneos.</p>
+<p><strong>Entregable:</strong> Validadores funcionales y componente de formulario de alta de cliente.</p>
+<h3 id="actividad-guiada-2-construir-un-sistema-de-mensajes-de-error-internacionalizado">Actividad guiada 2: Construir un sistema de mensajes de error internacionalizado</h3>
+<p><strong>Duracion:</strong> 45 minutos.</p>
+<p><strong>Objetivo:</strong> Crear un mapa de mensajes de error que soporte multiples idiomas (espanol e ingles) y un componente <code>FormErrorComponent</code> que los utilice.</p>
+<p><strong>Desarrollo:</strong>
+1. Implementar un <code>ErrorMessageService</code> que contenga un diccionario de mensajes por idioma.
+2. Permitir cambiar el idioma dinamicamente mediante un Signal.
+3. Integrar el servicio en <code>FormErrorComponent</code>.
+4. Probar mostrando errores en espanol e ingles.</p>
+<p><strong>Entregable:</strong> <code>ErrorMessageService</code> y <code>FormErrorComponent</code> internacionalizados.</p>
+<h3 id="actividad-guiada-3-construir-un-formulario-de-busqueda-con-filtros-avanzados-y-auto-guardado">Actividad guiada 3: Construir un formulario de busqueda con filtros avanzados y auto-guardado</h3>
+<p><strong>Duracion:</strong> 90 minutos.</p>
+<p><strong>Objetivo:</strong> Crear un formulario de busqueda que recuerde los filtros aplicados entre sesiones.</p>
+<p><strong>Desarrollo:</strong>
+1. Crear un formulario de busqueda con campos: termino, categoria (dropdown), rango de precio (min/max), ordenacion (select), y fecha (rango de fechas).
+2. Implementar auto-guardado de filtros en <code>localStorage</code> usando <code>FormDraftService</code>.
+3. Al cargar la pagina, recuperar los filtros guardados y aplicarlos.
+4. Anadir un boton "Limpiar filtros" que resetea el formulario y elimina el borrador.
+5. Mostrar un indicador visual de que hay filtros activos (badge en el boton de filtros).</p>
+<p><strong>Entregable:</strong> Componente de busqueda con auto-guardado de filtros.</p>
+<hr />
+<h2 id="actividades-propuestas">Actividades propuestas</h2>
+<h3 id="actividad-propuesta-1-formulario-de-creacion-de-producto-con-validacion-asincrona-de-sku">Actividad propuesta 1: Formulario de creacion de producto con validacion asincrona de SKU</h3>
+<p><strong>Duracion:</strong> 120 minutos.</p>
+<p><strong>Descripcion:</strong> Construir un formulario completo de creacion de producto en una tienda online que incluya validacion asincrona para verificar que el SKU (codigo de producto) no esta duplicado en la base de datos.</p>
+<p><strong>Requisitos:</strong>
+- Campos: nombre, SKU, descripcion, precio, categoria (dropdown cargado de API), imagen (URL con previsualizacion), y stock.
+- Validacion asincrona del SKU con debounce de 500ms y estado pending visual (spinner + texto "Verificando codigo...").
+- Todos los campos requeridos deben mostrar feedback visual segun estado (touched, valid, invalid).
+- Boton de guardar deshabilitado hasta que el formulario sea valido y no este pending.
+- Barra de progreso de completitud del formulario (porcentaje de campos rellenos).
+- Al enviar exitosamente, toast de confirmacion y redireccion a la lista de productos.</p>
+<p><strong>Entregable:</strong> Componente <code>ProductCreateFormComponent</code> completo.</p>
+<h3 id="actividad-propuesta-2-wizard-de-configuracion-de-cuenta-en-4-pasos">Actividad propuesta 2: Wizard de configuracion de cuenta en 4 pasos</h3>
+<p><strong>Duracion:</strong> 180 minutos.</p>
+<p><strong>Descripcion:</strong> Construir un wizard de configuracion de cuenta de usuario con 4 pasos secuenciales.</p>
+<p><strong>Requisitos:</strong>
+- Paso 1 — Perfil: nombre, apellidos, fecha de nacimiento, genero.
+- Paso 2 — Contacto: email, telefono, direccion, codigo postal.
+- Paso 3 — Preferencias: idioma, zona horaria, notificaciones (checkboxes), tema (toggle claro/oscuro).
+- Paso 4 — Confirmacion: resumen de todos los datos introducidos con posibilidad de editar cada paso.
+- Barra de progreso con 4 pasos: completados (check verde), actual (azul), pendientes (gris).
+- Validacion individual de cada paso; no se puede avanzar hasta que el paso actual sea valido.
+- Boton "Guardar y continuar despues" que persiste el progreso en localStorage.
+- Al completar el ultimo paso, se envia todo el formulario.</p>
+<p><strong>Entregable:</strong> Componente <code>AccountSetupWizardComponent</code> y sus subcomponentes.</p>
+<h3 id="actividad-propuesta-3-formulario-dinamico-de-encuesta-con-formarray">Actividad propuesta 3: Formulario dinamico de encuesta con FormArray</h3>
+<p><strong>Duracion:</strong> 150 minutos.</p>
+<p><strong>Descripcion:</strong> Construir un formulario de creacion de encuestas donde el usuario pueda anadir y quitar preguntas dinamicamente, y cada pregunta pueda ser de distinto tipo.</p>
+<p><strong>Requisitos:</strong>
+- El formulario tiene un titulo y una descripcion (campos fijos).
+- Cada pregunta es un FormGroup dentro de un FormArray, con campos: enunciado, tipo (select: texto corto, texto largo, opcion multiple, escala numerica), requerido (checkbox).
+- Si el tipo es "opcion multiple", se muestra un FormArray anidado para las opciones de respuesta.
+- Animacion de entrada al anadir preguntas (slideIn + fade).
+- Boton de eliminar pregunta con confirmacion.
+- Calculo en tiempo real del numero total de preguntas y del tiempo estimado de respuesta (5 segundos por pregunta).
+- Boton "Previsualizar" que muestra la encuesta tal como la veria el usuario final.</p>
+<p><strong>Entregable:</strong> Componente <code>SurveyFormComponent</code> completo.</p>
+<h3 id="actividad-propuesta-4-componente-de-busqueda-avanzada-con-filtros-y-autocompletado">Actividad propuesta 4: Componente de busqueda avanzada con filtros y autocompletado</h3>
+<p><strong>Duracion:</strong> 150 minutos.</p>
+<p><strong>Descripcion:</strong> Implementar un sistema de busqueda avanzada que combine el componente <code>Autocomplete</code> con filtros adicionales.</p>
+<p><strong>Requisitos:</strong>
+- Campo de busqueda principal con autocompletado (sugerencias de la API).
+- Panel de filtros avanzados que se despliega al hacer click en "Filtros avanzados".
+- Filtros: rango de precio, categoria, valoracion minima (estrellas), en stock (toggle), ordenar por (select).
+- Los filtros activos se muestran como chips/badges bajo la barra de busqueda, con boton X para eliminar cada uno.
+- Debounce de 400ms en la busqueda principal y en los cambios de filtros.
+- Contador de resultados visibles y totales.
+- Estado de carga (skeleton de resultados) mientras se buscan datos.
+- Estado vacio con ilustracion y sugerencias de busqueda alternativa.
+- Persistencia de la ultima busqueda y filtros en la URL (query params).</p>
+<p><strong>Entregable:</strong> Componente <code>SearchInterfaceComponent</code> completo.</p>
+<h3 id="actividad-propuesta-5-formulario-de-checkout-multi-paso-para-e-commerce">Actividad propuesta 5: Formulario de checkout multi-paso para e-commerce</h3>
+<p><strong>Duracion:</strong> 180 minutos.</p>
+<p><strong>Descripcion:</strong> Implementar el flujo de checkout de un comercio electronico con 3 pasos.</p>
+<p><strong>Requisitos:</strong>
+- Paso 1 — Direccion de envio: formulario de direccion con validacion de codigo postal y posibilidad de usar la misma direccion para facturacion (checkbox que copia los datos).
+- Paso 2 — Metodo de pago: seleccion de tarjeta (formulario con mascara para numero de tarjeta, fecha de caducidad y CVV) o PayPal.
+- Paso 3 — Revision: resumen del pedido con productos, direccion, metodo de pago y total.
+- Validacion por paso con imposibilidad de avanzar sin completar el paso actual.
+- Temporizador de sesion de 15 minutos con aviso visual cuando quedan 2 minutos.
+- Boton "Pagar" que muestra estado de carga durante el procesamiento y toast de exito/error al finalizar.
+- Accesibilidad: todos los campos con labels asociados, navegacion por teclado, mensajes de error anunciados por lectores de pantalla.</p>
+<p><strong>Entregable:</strong> Componente <code>CheckoutWizardComponent</code> completo.</p>
+<hr />
+<h2 id="actividades-de-ampliacion">Actividades de ampliacion</h2>
+<h3 id="actividad-de-ampliacion-1-sistema-de-formularios-generados-por-esquema-json">Actividad de ampliacion 1: Sistema de formularios generados por esquema JSON</h3>
+<p><strong>Duracion:</strong> 240 minutos.</p>
+<p><strong>Descripcion:</strong> Disenar un sistema que genere formularios Angular dinamicamente a partir de un esquema JSON, similar a JSON Schema Forms.</p>
+<p><strong>Requisitos:</strong>
+- Definir un formato de esquema JSON que describa: campos, tipos, validaciones, orden, dependencias entre campos.
+- Crear un componente <code>DynamicFormComponent</code> que reciba un esquema y renderice los campos correspondientes.
+- Soportar tipos: text, number, email, select, checkbox, radio, date, textarea, file.
+- Implementar logica de visibilidad condicional: un campo se muestra solo si otro campo tiene cierto valor.
+- Generar el <code>FormGroup</code> dinamicamente con todas las validaciones especificadas en el esquema.</p>
+<p><strong>Entregable:</strong> Sistema de formularios dinamicos con al menos 3 esquemas de ejemplo.</p>
+<h3 id="actividad-de-ampliacion-2-comparativa-de-librerias-de-formularios-para-angular">Actividad de ampliacion 2: Comparativa de librerias de formularios para Angular</h3>
+<p><strong>Duracion:</strong> 120 minutos.</p>
+<p><strong>Descripcion:</strong> Investigar, probar y comparar tres librerias de formularios para Angular, documentando ventajas, desventajas y casos de uso.</p>
+<p><strong>Librerias a comparar:</strong>
+- Angular Reactive Forms (nativo).
+- Formly (formularios dinamicos por configuracion JSON).
+- @rxweb/reactive-form-validators (validadores extendidos).</p>
+<p><strong>Entregable:</strong> Informe comparativo (~1500 palabras) con tabla de caracteristicas, ejemplos de codigo equivalentes en cada libreria, curva de aprendizaje, tamano del bundle y recomendacion final.</p>
+<h3 id="actividad-de-ampliacion-3-implementar-un-editor-de-formularios-visual-drag-and-drop">Actividad de ampliacion 3: Implementar un editor de formularios visual (drag and drop)</h3>
+<p><strong>Duracion:</strong> 300 minutos.</p>
+<p><strong>Descripcion:</strong> Construir un editor visual de formularios donde el usuario pueda arrastrar campos desde una paleta a un lienzo, configurar sus propiedades y generar el formulario resultante.</p>
+<p><strong>Requisitos:</strong>
+- Paleta de campos disponibles: texto, numero, email, select, checkbox, radio, fecha, area de texto, encabezado, parrafo informativo, separador.
+- Lienzo donde se sueltan los campos (drag and drop con Angular CDK Drag and Drop).
+- Panel de propiedades que se muestra al seleccionar un campo en el lienzo: label, placeholder, requerido, validaciones, opciones (para select/radio).
+- Los campos en el lienzo se pueden reordenar arrastrando y eliminar con un boton X.
+- Boton "Previsualizar" que renderiza el formulario como lo veria el usuario final.
+- Boton "Exportar JSON" que genera el esquema del formulario en formato compatible con el sistema de la Actividad de Ampliacion 1.</p>
+<p><strong>Entregable:</strong> Editor visual de formularios completamente funcional.</p>
+<hr />
+<h2 id="buenas-practicas">Buenas practicas</h2>
+<ol>
+<li>
+<p><strong>Usar FormBuilder para formularios complejos.</strong> <code>FormBuilder</code> reduce significativamente el codigo repetitivo al crear FormControls y FormGroups, especialmente en formularios con multiples niveles de anidamiento.</p>
+</li>
+<li>
+<p><strong>Validar en <code>blur</code> por defecto para formularios con validacion asincrona.</strong> La opcion <code>updateOn: 'blur'</code> ofrece el mejor equilibrio entre feedback inmediato y eficiencia, evitando peticiones excesivas al servidor.</p>
+</li>
+<li>
+<p><strong>No mostrar errores hasta que el campo haya sido tocado.</strong> Mostrar errores en campos <code>untouched</code> es una mala practica de UX que abruma al usuario antes de que haya comenzado a interactuar. La formula <code>control.invalid &amp;&amp; (control.touched || formSubmitted)</code> es la regla de oro.</p>
+</li>
+<li>
+<p><strong>Extraer los validadores personalizados a funciones reutilizables.</strong> Un validador de DNI o IBAN debe ser una funcion exportable e independiente del componente, no un metodo privado, para facilitar su reutilizacion en multiples formularios.</p>
+</li>
+<li>
+<p><strong>Usar <code>computed</code> para derivar estado visual de formulario.</strong> En lugar de comprobar <code>form.valid &amp;&amp; form.dirty</code> repetidamente en el template, crear computed signals: <code>canSave = computed(() =&gt; this.form.valid &amp;&amp; this.form.dirty)</code>.</p>
+</li>
+<li>
+<p><strong>Proporcionar mensajes de error utiles, no tecnicos.</strong> El mensaje "Campo requerido" es mejor que "Error: required validator failed". Los mensajes deben guiar al usuario hacia la correccion, no simplemente anunciar que algo esta mal.</p>
+</li>
+<li>
+<p><strong>Implementar auto-guardado en formularios largos.</strong> Para formularios que requieren mas de 2 minutos para completarse, el auto-guardado de borradores en localStorage es una funcionalidad que el usuario agradecera enormemente.</p>
+</li>
+<li>
+<p><strong>Hacer scroll al primer error en formularios largos tras el envio.</strong> El usuario no deberia tener que buscar manualmente cual campo fallo la validacion. <code>scrollIntoView({ behavior: 'smooth' })</code> es la implementacion estandar.</p>
+</li>
+<li>
+<p><strong>Usar skeleton en lugar de spinner para carga inicial de formularios.</strong> Un spinner giratorio no da informacion sobre la estructura del formulario; un skeleton que imita la disposicion de los campos reduce la ansiedad del usuario durante la carga.</p>
+</li>
+<li>
+<p><strong>Limpiar suscripciones y timers en <code>ngOnDestroy</code>.</strong> Las suscripciones a <code>valueChanges</code>, <code>statusChanges</code> y los timers de auto-guardado deben cancelarse cuando el componente se destruye. Usar <code>takeUntilDestroyed()</code> o gestion manual con <code>Subscription.unsubscribe()</code>.</p>
+</li>
+<li>
+<p><strong>Testear validadores personalizados de forma aislada.</strong> Un validador como <code>dniValidator()</code> debe tener tests unitarios independientes que verifiquen DNI validos, formatos incorrectos y letras erroneas, sin necesidad de montar un componente completo.</p>
+</li>
+<li>
+<p><strong>No abusar de la validacion asincrona.</strong> La validacion asincrona introduce latencia y complejidad. Debe reservarse para casos donde sea estrictamente necesaria (unicidad en BD). Si una validacion se puede realizar en el frontend, debe hacerse en el frontend.</p>
+</li>
+</ol>
+<hr />
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+<ol>
+<li>
+<p><strong>Mostrar errores en campos untouched.</strong> Un formulario con todos los campos en rojo al cargar es uno de los errores de UX mas graves y comunes. Siempre proteger la visualizacion de errores con la comprobacion <code>touched || formSubmitted</code>.</p>
+</li>
+<li>
+<p><strong>Olvidar el estado <code>pending</code> en la UI.</strong> Si un campo tiene validacion asincrona, su estado <code>pending</code> debe reflejarse visualmente (borde amarillo, spinner). Ignorarlo hace que el formulario parezca congelado mientras el validador espera respuesta del servidor.</p>
+</li>
+<li>
+<p><strong>No limpiar validadores asincronos obsoletos.</strong> Si un usuario escribe "a", luego "ab", luego "abc" rapidamente, las tres peticiones asincronas se lanzaran. Sin <code>switchMap</code> o <code>debounceTime</code>, la respuesta de "a" podria llegar despues de la de "abc" y sobrescribir el estado correcto con un error obsoleto.</p>
+</li>
+<li>
+<p><strong>Usar <code>form.value</code> sin comprobar que es valido.</strong> <code>form.value</code> contiene los valores de todos los controles incluso si el formulario es invalido. Siempre comprobar <code>form.valid</code> antes de procesar los datos.</p>
+</li>
+<li>
+<p><strong>Anidar FormArrays incorrectamente.</strong> Al anadir controles a un FormArray, es facil olvidar que cada elemento debe ser un <code>FormControl</code> o <code>FormGroup</code>. Intentar anadir valores crudos directamente causa errores en tiempo de ejecucion.</p>
+</li>
+<li>
+<p><strong>No recalcular totals al eliminar lineas en FormArray.</strong> Al usar <code>removeAt(index)</code> en un FormArray, los computed signals que dependen del array se actualizan automaticamente, pero cualquier logica imperativa que mantenga un estado separado debe actualizarse manualmente. Usar siempre <code>computed</code> para valores derivados.</p>
+</li>
+<li>
+<p><strong>Ignorar la accesibilidad en mensajes de error.</strong> Los mensajes de error deben usar <code>role="alert"</code> para que los lectores de pantalla los anuncien inmediatamente. El input debe tener <code>aria-describedby</code> apuntando al ID del mensaje de error.</p>
+</li>
+<li>
+<p><strong>No deshabilitar el boton de envio durante el procesamiento.</strong> Mientras se procesa un formulario (estado <code>submitting</code>), el boton de envio debe estar deshabilitado y mostrar un spinner para evitar dobles envios accidentales.</p>
+</li>
+<li>
+<p><strong>Escribir validadores cross-field que mutan los controles hijos directamente.</strong> Un validador de FormGroup debe devolver un objeto de error, no modificar directamente los controles. Para anadir errores a controles especificos, usar <code>setErrors</code> en el control concreto.</p>
+</li>
+<li>
+<p><strong>Usar <code>setValue</code> en lugar de <code>patchValue</code> al restaurar borradores.</strong> <code>setValue</code> requiere proporcionar valores para TODOS los controles del formulario, mientras que <code>patchValue</code> permite valores parciales. Para restaurar borradores, <code>patchValue</code> es casi siempre la opcion correcta.</p>
+</li>
+</ol>
+<hr />
+<h2 id="resumen">Resumen</h2>
+<p>Esta unidad ha abordado en profundidad los formularios y la interaccion de usuario en Angular, cubriendo:</p>
+<ul>
+<li>
+<p>El uso de <strong>Reactive Forms</strong> con un enfoque especifico en la interfaz de usuario: cada estado del control (touched, dirty, valid, pending) se traduce en feedback visual mediante clases de Tailwind condicionales, creando formularios que guian al usuario sin abrumarlo.</p>
+</li>
+<li>
+<p>La implementacion de <strong>validaciones completas</strong>: validadores integrados, validadores personalizados para documentos espanoles (DNI, CIF, IBAN), validacion cross-field para confirmacion de contrasenas y rangos de fecha, y validacion asincrona contra APIs con gestion del estado <code>pending</code> en la interfaz.</p>
+</li>
+<li>
+<p>La construccion de un <strong>sistema profesional de mensajes de error</strong> mediante el componente <code>FormErrorComponent</code>, que encapsula la logica de presentacion de errores y la mantiene consistente en toda la aplicacion.</p>
+</li>
+<li>
+<p>Las <strong>tecnicas avanzadas de UX en formularios</strong>: wizards multi-paso con Signals, formularios dinamicos con FormArray y calculos reactivos, auto-guardado de borradores en localStorage, y proteccion contra perdida de datos con CanDeactivate.</p>
+</li>
+<li>
+<p>El <strong>feedback visual y las micro-interacciones</strong>: animaciones de shake en error, check en validacion correcta, slide in para mensajes, skeleton para carga de formularios, y toasts de confirmacion.</p>
+</li>
+</ul>
+<hr />
+<h2 id="recursos-complementarios">Recursos complementarios</h2>
+<h3 id="documentacion-oficial">Documentacion oficial</h3>
+<ul>
+<li>Angular — Reactive Forms: https://angular.dev/guide/forms/reactive-forms</li>
+<li>Angular — Form Validation: https://angular.dev/guide/forms/form-validation</li>
+<li>Angular — Signals: https://angular.dev/guide/signals</li>
+<li>RxJS — Operators: https://rxjs.dev/guide/operators</li>
+<li>Tailwind CSS — Transitions and Animation: https://tailwindcss.com/docs/transition-property</li>
+</ul>
+<h3 id="herramientas-y-librerias">Herramientas y librerias</h3>
+<ul>
+<li>ngx-mask: libreria de mascaras de input para Angular.</li>
+<li>@ngneat/error-tailor: gestion avanzada de errores de validacion en Angular.</li>
+<li>Angular CDK — Stepper: componente accesible para wizards multi-paso.</li>
+<li>TanStack Query (antes React Query): alternativa para gestionar estado de servidor en Angular.</li>
+</ul>
+<h3 id="articulos-y-guias">Articulos y guias</h3>
+<ul>
+<li>"Best Practices for Form Design" — NN/g (Nielsen Norman Group)</li>
+<li>"Angular Reactive Forms: The Complete Guide" — Angular University</li>
+<li>"Building Multi-Step Forms in Angular" — Tim Deschryver</li>
+<li>"Async Validation in Angular Forms" — Netanel Basal</li>
+<li>"Micro-interactions in Form UX" — Smashing Magazine</li>
+</ul>
+<h3 id="libros">Libros</h3>
+<ul>
+<li>"Web Form Design: Filling in the Blanks" — Luke Wroblewski</li>
+<li>"Don't Make Me Think" — Steve Krug (capitulos sobre formularios)</li>
+<li>"Designing with Data" — Rochelle King y Elizabeth Churchill</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

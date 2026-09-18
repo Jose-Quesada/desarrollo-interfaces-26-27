@@ -1,0 +1,812 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes básicos de Angular para Martos y alrededores.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Pruebas de Software - Curso de Angular</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pruebas-de-software" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="./.." title="Curso de Angular" class="md-header__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Angular
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pruebas de Software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Curso de Angular" class="md-nav__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Curso de Angular
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  00.Introduccion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  01.UX
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  02.Accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objetivos de aprendizaje
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-asociado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resultado de aprendizaje asociado
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conocimientos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conocimientos previos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Contenidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo-teorico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo teórico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo teórico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-la-piramide-de-pruebas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. La pirámide de pruebas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pruebas-de-integracion-y-e2e" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Pruebas de integración y E2E
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-regresion-volumen-estres-seguridad-y-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Regresión, volumen, estrés, seguridad y recursos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-documentar-la-estrategia-y-los-resultados-ce-g" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Documentar la estrategia y los resultados (CE g)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-guiados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplos guiados
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos guiados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-suite-unitaria-de-un-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 1: Suite unitaria de un componente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-flujo-e2e-con-playwright" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 2: Flujo E2E con Playwright
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casos-reales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Casos reales
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-guiadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades guiadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-propuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades propuestas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades de ampliación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Buenas prácticas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errores-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Errores frecuentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-complementarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recursos complementarios
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pruebas-de-software">Pruebas de Software</h1>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p>Al finalizar esta unidad, el alumnado será capaz de:</p>
+<ol>
+<li>Establecer una estrategia de pruebas para una aplicación del módulo, seleccionando tipos de prueba y herramientas adecuados a cada nivel (unidad, integración, end-to-end).</li>
+<li>Ejecutar pruebas de integración, regresión, volumen y estrés, así como pruebas básicas de seguridad y de uso de recursos.</li>
+<li>Aplicar técnicas de prueba específicas de interfaces: pruebas de componentes, pruebas E2E del flujo completo y verificación en distintos navegadores y dispositivos.</li>
+<li>Documentar la estrategia de pruebas y los resultados obtenidos, produciendo informes accionables para el equipo.</li>
+</ol>
+<h2 id="resultado-de-aprendizaje-asociado">Resultado de aprendizaje asociado</h2>
+<p>Esta unidad contribuye al <strong>RA 8</strong> del módulo profesional 0488 <em>Desarrollo de interfaces</em> (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):</p>
+<blockquote>
+<p><strong>RA 8.</strong> Evalúa el funcionamiento de aplicaciones diseñando y ejecutando pruebas.</p>
+</blockquote>
+<p>Criterios de evaluación oficiales que se trabajan en esta unidad:</p>
+<ul>
+<li>CE a) Se ha establecido una estrategia de pruebas.</li>
+<li>CE b) Se han realizado pruebas de integración de los distintos elementos.</li>
+<li>CE c) Se han realizado pruebas de regresión.</li>
+<li>CE d) Se han realizado pruebas de volumen y estrés.</li>
+<li>CE e) Se han realizado pruebas de seguridad.</li>
+<li>CE f) Se han realizado pruebas de uso de recursos por parte de la aplicación.</li>
+<li>CE g) Se ha documentado la estrategia de pruebas y los resultados obtenidos.</li>
+</ul>
+<h2 id="conocimientos-previos">Conocimientos previos</h2>
+<p>Para abordar esta unidad con garantías, el alumnado debe:</p>
+<ul>
+<li>Dominar las unidades anteriores de componentes Angular (Unidades 10–15), para saber qué y cómo probar.</li>
+<li>Conocer Jest y Testing Library (o Karma) como frameworks de prueba unitaria en Angular.</li>
+<li>Tener nociones de control de versiones (Git) para entender el concepto de regresión entre versiones.</li>
+<li>Conocer el flujo completo de la aplicación (formularios, navegación, informes) para diseñar pruebas end-to-end.</li>
+</ul>
+<h2 id="contenidos">Contenidos</h2>
+<p><strong>Bloque 1: Estrategia de pruebas</strong>
+- Objetivos, alcance y limitaciones del proceso de prueba; pirámide de pruebas (unidad → integración → E2E).
+- Selección de herramientas por nivel: Jest + Testing Library (unidad), pruebas de servicios/integración, Playwright/Cypress (E2E).
+- Criterios de entrada/salida y definición de «prueba aceptable».</p>
+<p><strong>Bloque 2: Pruebas de componentes y servicios</strong>
+- Pruebas unitarias de componentes Angular (renderizado, <code>inputs</code>, eventos <code>outputs</code>).
+- Pruebas de servicios con inyección de dependencias y mocks (HttpClient, servicios del módulo).
+- Cobertura de código e interpretación de umbrales.</p>
+<p><strong>Bloque 3: Pruebas de integración y end-to-end</strong>
+- Integración de componentes entre sí y con el enrutador.
+- Flujos completos E2E: registro, creación de un elemento, generación de un informe, exportación.
+- Ejecución en distintos navegadores y tamaños de pantalla (responsive).</p>
+<p><strong>Bloque 4: Regresión, volumen, estrés, seguridad y recursos</strong>
+- Pruebas de regresión: reejecutar la suite tras cada cambio; detección de roturas.
+- Volumen y estrés: comportamiento con grandes volúmenes de datos y carga sostenida.
+- Seguridad básica: validación de entradas, inyección, gestión de errores que no filtren información sensible.
+- Uso de recursos: memoria (fugas), rendimiento (Core Web Vitals) y consumo en la versión de escritorio (Electron).</p>
+<p><strong>Bloque 5: Documentación de resultados</strong>
+- Informes de pruebas: casos, entorno, resultados, defectos y severidad.
+- Trazabilidad requisito → caso de prueba → resultado.
+- Integración en el pipeline (CI que ejecuta la suite y publica el informe).</p>
+<h2 id="desarrollo-teorico">Desarrollo teórico</h2>
+<h3 id="1-la-piramide-de-pruebas">1. La pirámide de pruebas</h3>
+<p>La estrategia se organiza como una pirámide: muchas pruebas unitarias baratas y rápidas en la base, menos de integración en el medio y pocas end-to-end caras y lentas arriba. Invertirla (muchas E2E) hace la suite frágil y lenta. En el contexto del módulo:</p>
+<ul>
+<li><strong>Unidad:</strong> componentes y servicios con Jest + Testing Library.</li>
+<li><strong>Integración:</strong> composición de componentes, enrutador y servicios reales o mockeados.</li>
+<li><strong>E2E:</strong> flujos completos con Playwright/Cypress en un navegador real.</li>
+</ul>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// button.spec.ts (Jest + Testing Library)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">render</span><span class="p">,</span><span class="w"> </span><span class="nx">screen</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@testing-library/angular'</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ButtonComponent</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./button.component'</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nx">describe</span><span class="p">(</span><span class="s1">'ButtonComponent'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'emite el evento click al pulsarse'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">clicks</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">ButtonComponent</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nx">declarations</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nx">componentProperties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="nx">click</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">}</span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s1">'button'</span><span class="p">)).</span><span class="nx">toBeTruthy</span><span class="p">();</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">});</span>
+</span></code></pre></div>
+<h3 id="2-pruebas-de-integracion-y-e2e">2. Pruebas de integración y E2E</h3>
+<p>Las pruebas de integración verifican que los elementos funcionan <strong>juntos</strong> (CE b): un formulario (Unidad 12) que valida, guarda mediante el servicio y actualiza la vista. Las pruebas E2E recorren el flujo completo en un navegador real:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// e2e/nota.spec.ts (Playwright)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nx">test</span><span class="p">(</span><span class="s1">'crea una nota y la exporta'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="kr">goto</span><span class="p">(</span><span class="s1">'/'</span><span class="p">);</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'Nueva nota'</span><span class="w"> </span><span class="p">}).</span><span class="nx">click</span><span class="p">();</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">getByLabel</span><span class="p">(</span><span class="s1">'Título'</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="s1">'Prueba'</span><span class="p">);</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'Guardar'</span><span class="w"> </span><span class="p">}).</span><span class="nx">click</span><span class="p">();</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">expect</span><span class="p">(</span><span class="nx">page</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="s1">'Prueba'</span><span class="p">)).</span><span class="nx">toBeVisible</span><span class="p">();</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>Se ejecutan en varios navegadores y tamaños de pantalla para cubrir el diseño responsive (Unidad 8).</p>
+<h3 id="3-regresion-volumen-estres-seguridad-y-recursos">3. Regresión, volumen, estrés, seguridad y recursos</h3>
+<ul>
+<li><strong>Regresión (CE c):</strong> tras cada cambio se reejecuta la suite completa; lo que antes funcionaba no debe romperse. Se automatiza en el CI para que corra en cada pull request.</li>
+<li><strong>Volumen y estrés (CE d):</strong> se alimenta la aplicación con grandes volúmenes de datos (p. ej., miles de filas en una tabla) y carga sostenida para observar degradación, tiempos y estabilidad.</li>
+<li><strong>Seguridad (CE e):</strong> validación robusta de entradas, ausencia de inyección por concatenar datos en HTML (<code>[innerHTML]</code> sin sanitizar), manejo de errores que no revele información sensible y control de acceso a recursos.</li>
+<li><strong>Uso de recursos (CE f):</strong> detección de fugas de memoria (suscripciones de RxJS no dadas de baja, <code>ngOnDestroy</code>), medición de Core Web Vitals y, en la versión Electron, consumo de RAM frente a una aplicación nativa equivalente.</li>
+</ul>
+<h3 id="4-documentar-la-estrategia-y-los-resultados-ce-g">4. Documentar la estrategia y los resultados (CE g)</h3>
+<p>Se produce un informe que recoge: alcance, herramientas, casos de prueba, entorno, resultados (paso/fallo), defectos detectados con su severidad y trazabilidad hacia los requisitos. La suite y el informe se integran en el pipeline para que cada build genere evidencia reproducible.</p>
+<h2 id="ejemplos-guiados">Ejemplos guiados</h2>
+<h3 id="ejemplo-1-suite-unitaria-de-un-componente">Ejemplo 1: Suite unitaria de un componente</h3>
+<p>Escribimos pruebas para el componente de tabla de la unidad de componentes Tailwind: renderiza filas, emite selección al pulsar y muestra el estado vacío. Medimos cobertura y fijamos umbral.</p>
+<h3 id="ejemplo-2-flujo-e2e-con-playwright">Ejemplo 2: Flujo E2E con Playwright</h3>
+<p>Automatizamos el flujo «crear informe → exportar a PDF» (Unidad 16) en Chromium y Firefox, verificando que el descarga se produce y que la interfaz queda en estado coherente.</p>
+<h2 id="casos-reales">Casos reales</h2>
+<ul>
+<li><strong>CI con calidad como puerta:</strong> equipos que bloquean el merge si la suite de pruebas o los umbrales de cobertura fallan; la regresión se detecta antes de llegar a producción.</li>
+<li><strong>Pruebas de rendimiento como métrica:</strong> seguimiento de Core Web Vitals en cada versión para evitar regresiones de rendimiento imperceptibles hasta en producción.</li>
+</ul>
+<h2 id="actividades-guiadas">Actividades guiadas</h2>
+<ol>
+<li>Define la estrategia de pruebas (pirámide) de la aplicación del módulo y justifica las herramientas por nivel.</li>
+<li>Escribe pruebas unitarias para tres componentes y un servicio, con mocks de dependencias.</li>
+<li>Crea una prueba E2E que cubra el flujo principal completo y ejecútala en dos navegadores.</li>
+</ol>
+<h2 id="actividades-propuestas">Actividades propuestas</h2>
+<ul>
+<li>Implementa una prueba de regresión automatizada en el CI que se ejecute en cada pull request.</li>
+<li>Realiza una prueba de estrés alimentando la tabla con 10.000 filas y documenta tiempos y consumo de memoria.</li>
+<li>Revisa la aplicación buscando al menos dos riesgos de seguridad básicos y propón su mitigación.</li>
+</ul>
+<h2 id="actividades-de-ampliacion">Actividades de ampliación</h2>
+<ul>
+<li>Mide Core Web Vitals antes y después de un cambio y documenta el impacto.</li>
+<li>Detecta una fuga de memoria por suscripciones no dadas de baja y corrígela, verificando con el perfilador.</li>
+<li>Genera un informe de pruebas automatizado desde el pipeline con cobertura y resultados.</li>
+</ul>
+<h2 id="buenas-practicas">Buenas prácticas</h2>
+<ul>
+<li>Prioriza la pirámide: muchas pruebas unitarias, pocas E2E.</li>
+<li>Prueba comportamientos observables (roles, texto), no detalles de implementación frágiles.</li>
+<li>Automatiza la regresión en el CI; que corra en cada cambio.</li>
+<li>Mide rendimiento y recursos como métricas, no solo «pasa/falla».</li>
+<li>Documenta defectos con severidad y trazabilidad hacia requisitos.</li>
+</ul>
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+<ul>
+<li>Depender casi solo de pruebas E2E (suite lenta y frágil).</li>
+<li>No dar de baja suscripciones en <code>ngOnDestroy</code>, provocando fugas de memoria.</li>
+<li>Probar implementaciones internas en lugar del comportamiento, rompiendo pruebas con refactorizaciones inocuas.</li>
+<li>Omitir pruebas de seguridad básicas (HTML no sanitizado, errores que filtran datos).</li>
+<li>No documentar resultados ni trazabilidad, dejando la prueba sin valor accionable.</li>
+</ul>
+<h2 id="resumen">Resumen</h2>
+<p>Evaluar el funcionamiento de una aplicación (RA 8) exige una estrategia estructurada en pirámide: pruebas unitarias (Jest + Testing Library), de integración y end-to-end (Playwright/Cypress). Se completan con pruebas de regresión, volumen y estrés, seguridad básica y uso de recursos (memoria, Core Web Vitals, consumo en Electron). Todo se automatiza en el pipeline y se documenta con trazabilidad requisito → caso → resultado, produciendo informes accionables.</p>
+<h2 id="recursos-complementarios">Recursos complementarios</h2>
+<ul>
+<li>Jest y Testing Library — documentación oficial; guía de pruebas en Angular.</li>
+<li>Playwright y Cypress — frameworks end-to-end multi-navegador.</li>
+<li>Core Web Vitals (web.dev) — métricas de experiencia de usuario.</li>
+<li>OWASP Top 10 — riesgos de seguridad básicos a considerar en la interfaz.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

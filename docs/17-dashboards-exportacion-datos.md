@@ -15,17 +15,22 @@ Al finalizar esta unidad, el alumnado será capaz de:
 
 ## Resultado de aprendizaje asociado
 
-**RA 5. Desarrolla interfaces interactivas y dashboards**, en relación con el currículo oficial del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) en Andalucía, para el módulo profesional 0488 Desarrollo de Interfaces.
+Esta unidad contribuye, como RA principal, al **RA 5** del módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):
 
-Criterios de evaluación oficiales asociados:
+> **RA 5.** Crea informes evaluando y utilizando herramientas gráficas.
 
-- **CE 5.a)** Se han identificado los principios de diseño de interfaces interactivas y dashboards.
-- **CE 5.b)** Se han utilizado librerías de visualización de datos y gráficos (Chart.js, ApexCharts, D3.js).
-- **CE 5.c)** Se han diseñado paneles de control (dashboards) con indicadores clave de rendimiento (KPIs).
-- **CE 5.d)** Se han integrado gráficos interactivos en la interfaz de usuario.
-- **CE 5.e)** Se han aplicado técnicas de actualización reactiva de los datos visualizados.
-- **CE 5.f)** Se ha facilitado la exportación de los datos y gráficos generados.
-- **CE 5.g)** Se han aplicado criterios de accesibilidad y usabilidad en los paneles de control.
+Criterios de evaluación oficiales que se trabajan en esta unidad:
+
+- CE b) Se han generado informes básicos a partir de diferentes fuentes de datos mediante asistentes.
+- CE d) Se han incluido valores calculados, recuentos y totales.
+- CE e) Se han incluidos gráficos generados a partir de los datos.
+
+Como RA secundario, se vincula al **RA 4** («Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad»):
+
+- CE g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
+- CE i) Se han realizado pruebas para evaluar la usabilidad y accesibilidad de la aplicación.
+
+> Nota: los dashboards y paneles de KPI son una forma de informe gráfico interactivo. Las librerías de visualización (Chart.js, ApexCharts, D3.js), la actualización reactiva de datos y la exportación (CSV/Excel/PDF) son las herramientas con las que se materializan estos criterios.
 
 ## Conocimientos previos
 

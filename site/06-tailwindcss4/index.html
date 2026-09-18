@@ -1,0 +1,1158 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes básicos de Angular para Martos y alrededores.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Tailwind CSS 4 en Desarrollo de Interfaces - Curso de Angular</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tailwind-css-4-en-desarrollo-de-interfaces" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="./.." title="Curso de Angular" class="md-header__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Angular
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tailwind CSS 4 en Desarrollo de Interfaces
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Curso de Angular" class="md-nav__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Curso de Angular
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  00.Introduccion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  01.UX
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  02.Accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objetivos de aprendizaje
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-asociado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resultado de aprendizaje asociado
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conocimientos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conocimientos previos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Contenidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo-teorico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo teórico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo teórico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-filosofia-utility-first-en-el-contexto-empresarial" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Filosofía Utility-First en el Contexto Empresarial
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuracion-de-tailwind-4-en-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Configuración de Tailwind 4 en Angular
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-organizacion-del-css-en-un-proyecto-angular-con-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Organización del CSS en un Proyecto Angular con Tailwind
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-clases-clave-para-interfaces-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Clases Clave para Interfaces de Aplicación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tecnicas-avanzadas-con-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Técnicas Avanzadas con Tailwind
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-tailwind-css-intellisense-para-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Tailwind CSS IntelliSense para VS Code
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-estrategia-de-migracion-a-tailwind-en-proyectos-existentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Estrategia de Migración a Tailwind en Proyectos Existentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-guiados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplos guiados
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos guiados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-1-configurar-tailwind-4-en-un-proyecto-angular-desde-cero" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo Guiado 1: Configurar Tailwind 4 en un Proyecto Angular desde Cero
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-2-construir-un-dashboard-widget-con-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo Guiado 2: Construir un Dashboard Widget con Tailwind
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-3-sistema-de-temas-clarooscuro-con-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo Guiado 3: Sistema de Temas Claro/Oscuro con Tailwind
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-guiadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades guiadas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades guiadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-1-configuracion-de-tailwind-4-en-un-proyecto-angular-existente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad Guiada 1: Configuración de Tailwind 4 en un Proyecto Angular Existente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-2-construccion-de-un-dashboard-completo-con-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad Guiada 2: Construcción de un Dashboard Completo con Tailwind
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-3-migracion-de-un-componente-de-css-tradicional-a-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad Guiada 3: Migración de un Componente de CSS Tradicional a Tailwind
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-propuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades propuestas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades propuestas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-1-sistema-de-diseno-personalizado-con-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad Propuesta 1: Sistema de Diseño Personalizado con @theme
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-2-analisis-comparativo-del-css-generado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad Propuesta 2: Análisis Comparativo del CSS Generado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-3-componentes-de-formulario-con-estados-complejos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad Propuesta 3: Componentes de Formulario con Estados Complejos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-4-tema-oscuro-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad Propuesta 4: Tema Oscuro Completo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-5-guia-de-estilo-interactiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad Propuesta 5: Guía de Estilo Interactiva
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades de ampliación
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades de ampliación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-1-plugin-de-tailwind-personalizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de Ampliación 1: Plugin de Tailwind Personalizado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-2-migracion-completa-de-un-proyecto-grande" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de Ampliación 2: Migración Completa de un Proyecto Grande
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-3-evaluacion-de-rendimiento-entre-tailwind-3-y-tailwind-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de Ampliación 3: Evaluación de Rendimiento entre Tailwind 3 y Tailwind 4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Buenas prácticas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errores-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Errores frecuentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-complementarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recursos complementarios
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursos complementarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentación oficial
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tutoriales-y-cursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tutoriales y cursos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-complementarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Herramientas complementarias
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comunidad-y-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Comunidad y referencias
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="tailwind-css-4-en-desarrollo-de-interfaces">Tailwind CSS 4 en Desarrollo de Interfaces</h1>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p>Al finalizar esta unidad, el alumnado será capaz de:</p>
+<ol>
+<li>Comprender y aplicar la filosofía utility-first en el contexto del desarrollo de interfaces empresariales con Angular, diferenciando claramente los casos donde Tailwind aporta ventajas competitivas sobre el CSS tradicional y aquellos donde el CSS puro puede ser más apropiado, siempre desde la premisa fundamental de que Tailwind es CSS con otro nombre y requiere un dominio sólido de los fundamentos de CSS para ser utilizado correctamente.</li>
+<li>Configurar e integrar Tailwind CSS 4 en un proyecto Angular desde cero, utilizando el enfoque moderno basado en Vite con el plugin <code>@tailwindcss/vite</code>, y personalizar el sistema de diseño mediante la directiva <code>@theme</code> en CSS, definiendo tokens de color (usando espacios de color modernos como oklch), familias tipográficas, escalas de espaciado, breakpoints y otras variables del sistema de diseño.</li>
+<li>Organizar eficazmente el código CSS en un proyecto Angular con Tailwind, estableciendo la estrategia adecuada de estilos globales, estilos por componente y uso (limitado y justificado) de la directiva <code>@apply</code>, evitando los antipatrones más comunes que degradan la mantenibilidad del código.</li>
+<li>Dominar el vocabulario completo de clases utility de Tailwind para construir interfaces de aplicación completas, cubriendo layout (flex, grid, container), espaciado, colores, tipografía, estados interactivos (hover, focus, active, disabled), modo oscuro, diseño responsive, formularios y accesibilidad.</li>
+<li>Aplicar técnicas avanzadas de Tailwind como valores arbitrarios, variantes personalizadas, las directivas <code>peer</code> y <code>group</code> para estilización contextual, y el selector <code>has-*</code> para estilos basados en el estado de elementos descendientes, comprendiendo el funcionamiento del motor JIT que genera solo el CSS utilizado.</li>
+<li>Utilizar la extensión Tailwind CSS IntelliSense para VS Code como herramienta de productividad, aprovechando el autocompletado de clases, la previsualización de colores, el linting de clases inválidas y la documentación inline de los valores de cada clase.</li>
+<li>Planificar y ejecutar una estrategia de adopción progresiva de Tailwind en un proyecto Angular existente, minimizando la fricción con el código CSS heredado y gestionando la coexistencia hasta la migración completa.</li>
+</ol>
+<h2 id="resultado-de-aprendizaje-asociado">Resultado de aprendizaje asociado</h2>
+<p>Esta unidad contribuye al <strong>RA 4</strong> del módulo profesional 0488 <em>Desarrollo de interfaces</em> (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):</p>
+<blockquote>
+<p><strong>RA 4.</strong> Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad.</p>
+</blockquote>
+<p>Criterios de evaluación oficiales que se trabajan en esta unidad:</p>
+<ul>
+<li>CE g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.</li>
+</ul>
+<blockquote>
+<p>Nota: Tailwind CSS 4 es el framework de estilos con el que se materializa este criterio. A lo largo de la unidad se configura el tema mediante <code>@theme</code>, se aplican utilidades de layout, tipografía, color, estados interactivos y diseño responsive, y se emplean técnicas avanzadas (valores arbitrarios, variantes <code>peer</code>/<code>group</code>, selector <code>has-*</code>) para resolver necesidades de diseño sin CSS personalizado.</p>
+</blockquote>
+<h2 id="conocimientos-previos">Conocimientos previos</h2>
+<p>Para afrontar esta unidad con garantías, el alumnado debe dominar los siguientes conceptos y habilidades:</p>
+<ul>
+<li>Conocimientos sólidos de CSS3: modelo de caja, especificidad, herencia y cascada, posicionamiento (static, relative, absolute, fixed, sticky), display (block, inline, inline-block, flex, grid, none), flexbox y CSS grid en profundidad, responsive design con media queries, pseudoclases y pseudoelementos, transiciones y animaciones, variables CSS (custom properties), unidades de medida (px, rem, em, %, vw, vh, dvh, ch) y funciones CSS modernas (calc, min, max, clamp). Tailwind no sustituye la necesidad de saber CSS; al contrario, cada clase de Tailwind se corresponde con una o varias propiedades CSS y quien no entienda CSS no podrá usar Tailwind eficazmente.</li>
+<li>Experiencia previa en maquetación web con CSS tradicional aplicado a proyectos de cierta envergadura, habiendo experimentado los problemas que Tailwind resuelve: colisiones de nombres de clases, especificidad descontrolada, CSS muerto que nunca se elimina, inconsistencias de diseño entre páginas.</li>
+<li>Conocimientos de Angular: estructura de un proyecto Angular, componentes standalone y basados en módulos, sistema de plantillas, estilos encapsulados (ViewEncapsulation.Emulated y None), archivo angular.json y su configuración de estilos globales.</li>
+<li>Conocimientos de npm y del ecosistema de herramientas de construcción: instalación de paquetes, scripts npm, conceptos de bundling y tree-shaking.</li>
+<li>Conocimientos previos de diseño responsive (Unidad 8) y principios de UX (Unidad 1), ya que Tailwind incluye utilidades específicas para accesibilidad y diseño responsive que se apoyan en esos fundamentos.</li>
+</ul>
+<h2 id="contenidos">Contenidos</h2>
+<ol>
+<li>Filosofía Utility-First en el contexto empresarial</li>
+<li>Configuración de Tailwind 4 en Angular</li>
+<li>Organización del CSS en un proyecto Angular con Tailwind</li>
+<li>Clases clave para interfaces de aplicación</li>
+<li>Técnicas avanzadas con Tailwind</li>
+<li>Tailwind CSS IntelliSense para VS Code</li>
+<li>Estrategia de migración a Tailwind en proyectos existentes</li>
+</ol>
+<h2 id="desarrollo-teorico">Desarrollo teórico</h2>
+<h3 id="1-filosofia-utility-first-en-el-contexto-empresarial">1. Filosofía Utility-First en el Contexto Empresarial</h3>
+<p>La irrupción de Tailwind CSS en el ecosistema del desarrollo frontend ha generado un debate intenso que, a menudo, parte de un malentendido fundamental: la comparación entre "CSS tradicional" y "Tailwind" como si fueran lenguajes diferentes. La realidad es que Tailwind es CSS. Cada clase de Tailwind como <code>flex</code>, <code>p-4</code>, <code>text-lg</code> o <code>bg-blue-500</code> se compila directamente a una o varias propiedades CSS estándar. No hay magia, no hay runtime en el navegador, no hay una capa de abstracción que se interponga entre el desarrollador y el navegador. Tailwind es un generador de CSS en tiempo de compilación que produce exactamente el CSS que necesitas, ni más ni menos.</p>
+<p>Para el alumnado de Formación Profesional que ya ha cursado un módulo de CSS y ha sufrido en carne propia los problemas de mantener hojas de estilo en proyectos que crecen, la filosofía utility-first de Tailwind cobra sentido al enmarcarla en el contexto de equipos profesionales y aplicaciones empresariales. En un equipo de desarrollo con cinco personas trabajando en el mismo proyecto Angular, el CSS tradicional tiende a degenerar hacia el caos por varias razones. Cada desarrollador nombra las clases según su propio criterio: <code>.btn-primary</code>, <code>.button-main</code>, <code>.primary-action</code>. La especificidad se descontrola cuando para sobrescribir un estilo se recurre a selectores cada vez más largos: <code>.main-content .card .header .title</code>. Aparece CSS muerto: clases que se escribieron para una funcionalidad que ya no existe pero que nadie se atreve a eliminar porque no se sabe si algo en alguna página remota las sigue usando. Surgen guerras de naming (BEM, SMACSS, OOCSS, CSS Modules, CSS-in-JS) que consumen tiempo de debate sin aportar valor al producto final.</p>
+<p>Tailwind corta de raíz estos problemas mediante un mecanismo simple y radical: no nombras tus estilos, los aplicas directamente en el HTML. Esto puede resultar chocante al principio. Ver un botón definido como <code>&lt;button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"&gt;Guardar&lt;/button&gt;</code> produce una reacción instintiva de rechazo en quien está acostumbrado a una única clase semántica como <code>class="btn-primary"</code>. Pero esta reacción se disipa cuando se comprende el valor de la transparencia y la inmediatez: en el propio HTML puedes ver exactamente qué estilos tiene cada elemento, sin necesidad de abrir el DevTools, navegar por las reglas CSS aplicadas, identificar qué archivo define cada regla y calcular la especificidad para entender por qué un estilo no se aplica.</p>
+<p>La consistencia es otra ventaja decisiva en proyectos empresariales. Tailwind viene con un sistema de diseño embebido: escalas de espaciado, colores, tamaños de tipografía, breakpoints, sombras y bordes predefinidos y coherentes entre sí. Cuando un equipo de desarrollo usa Tailwind, no necesita acordar manualmente qué tono de azul usar: <code>blue-500</code> es siempre el mismo tono. No necesita decidir si el padding es de 15px o 16px: <code>p-4</code> son siempre 16px (1rem). Esta consistencia forzada, que algunos críticos tachan de limitante, es en realidad una ventaja de productividad y calidad: el diseño resultante es coherente sin requerir disciplina manual.</p>
+<p>La premisa fundamental que debe quedar clara desde el principio de esta unidad es que Tailwind no reemplaza saber CSS; todo lo contrario, necesitas dominar CSS para usar Tailwind bien. Cuando escribes <code>flex items-center justify-between gap-4</code>, estás aplicando <code>display: flex</code>, <code>align-items: center</code>, <code>justify-content: space-between</code> y <code>gap: 1rem</code>. Si no sabes qué hacen estas propiedades CSS, no sabrás qué clases de Tailwind utilizar. Tailwind es simplemente "CSS con otro nombre", una traducción directa de propiedades y valores CSS a nombres de clases memorizables y componibles.</p>
+<h3 id="2-configuracion-de-tailwind-4-en-angular">2. Configuración de Tailwind 4 en Angular</h3>
+<p>Tailwind CSS 4 representa un salto cualitativo respecto a la versión 3. La versión 4, lanzada a principios de 2025, abandona el archivo <code>tailwind.config.js</code> basado en JavaScript y adopta un enfoque nativo de CSS para la configuración. El sistema de diseño se define directamente en el archivo CSS de estilos globales mediante la directiva <code>@theme</code>, que utiliza la sintaxis de custom properties CSS. Esta decisión simplifica la integración con cualquier herramienta de construcción, elimina la dependencia de Node.js para interpretar la configuración, y hace que la personalización de Tailwind sea tan sencilla como declarar variables CSS.</p>
+<p>La instalación de Tailwind 4 en un proyecto Angular 17 o superior (que utiliza Vite o esbuild para las builds de desarrollo) es notablemente simple. El primer paso es instalar el paquete correspondiente desde npm. Angular 17+ usa esbuild, y el equipo de Tailwind proporciona un plugin específico para Vite que garantiza una integración óptima. En la terminal del proyecto Angular, se ejecuta: <code>npm install tailwindcss @tailwindcss/vite</code>. Si el proyecto Angular utiliza PostCSS (configuración más tradicional aún soportada por Angular 17+ con builders de Webpack o esbuild), la alternativa es instalar <code>npm install tailwindcss @tailwindcss/postcss</code> y crear un archivo <code>postcss.config.js</code> que referencie el plugin.</p>
+<p>Una vez instalados los paquetes, el segundo paso es configurar el plugin de Vite. En proyectos Angular con builder <code>@angular/build:application</code> (el builder moderno basado en esbuild/Vite), se debe modificar el <code>angular.json</code> o, en Angular 17+, crear o editar el archivo <code>vite.config.ts</code> en la raíz del proyecto para registrar el plugin de Tailwind. La configuración típica incluye la importación del plugin y su adición al array de plugins: <code>import tailwindcss from '@tailwindcss/vite'</code> seguido de <code>plugins: [tailwindcss()]</code>. Este plugin se encarga de escanear las plantillas de los componentes Angular en busca de clases de Tailwind y generar únicamente el CSS correspondiente.</p>
+<p>El tercer paso, y el más importante conceptualmente, es la configuración del archivo de estilos globales. En el archivo <code>src/styles.css</code> (o <code>src/styles.scss</code> si se usa Sass), se añade una única línea al inicio: <code>@import "tailwindcss";</code>. Esta directiva CSS, procesada por Tailwind en tiempo de compilación, inyecta todo el CSS utility generado. A diferencia de versiones anteriores donde se usaban las directivas <code>@tailwind base;</code>, <code>@tailwind components;</code> y <code>@tailwind utilities;</code>, la versión 4 las unifica en una simple importación CSS estándar que cualquier herramienta de construcción entiende.</p>
+<p>A partir de aquí, la personalización del sistema de diseño se realiza directamente en el mismo archivo CSS global, debajo de la importación de Tailwind, mediante la directiva <code>@theme</code>. Esta directiva define los tokens de diseño que Tailwind utilizará para generar sus clases utility. La sintaxis es idéntica a la definición de custom properties CSS, pero dentro de un bloque <code>@theme</code> que Tailwind procesa especialmente. Un ejemplo completo de personalización para una aplicación de gestión empresarial se vería así:</p>
+<div class="language-css highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">"tailwindcss"</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">@</span><span class="k">theme</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">--color-primary-50</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">97</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">01</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">--color-primary-100</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">93</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">03</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">--color-primary-200</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">85</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">07</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">--color-primary-300</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">75</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">11</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">--color-primary-400</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">68</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">15</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">--color-primary-500</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">62</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">19</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">--color-primary-600</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">55</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">19</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="nt">--color-primary-700</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">47</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">17</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="nt">--color-primary-800</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">38</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">14</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="nt">--color-primary-900</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">28</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">10</span><span class="w"> </span><span class="nt">255</span><span class="o">);</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nt">--color-secondary-50</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">97</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">02</span><span class="w"> </span><span class="nt">155</span><span class="o">);</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">--color-secondary-100</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">93</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">05</span><span class="w"> </span><span class="nt">155</span><span class="o">);</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="nt">--color-secondary-500</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">65</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">18</span><span class="w"> </span><span class="nt">155</span><span class="o">);</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="nt">--color-secondary-900</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">30</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">09</span><span class="w"> </span><span class="nt">155</span><span class="o">);</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">--color-success-500</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">62</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">19</span><span class="w"> </span><span class="nt">145</span><span class="o">);</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="nt">--color-warning-500</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">75</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">15</span><span class="w"> </span><span class="nt">85</span><span class="o">);</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="nt">--color-danger-500</span><span class="o">:</span><span class="w"> </span><span class="nt">oklch</span><span class="o">(</span><span class="nt">0</span><span class="p">.</span><span class="nc">55</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">22</span><span class="w"> </span><span class="nt">25</span><span class="o">);</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="nt">--font-family-sans</span><span class="o">:</span><span class="w"> </span><span class="s1">'Inter'</span><span class="o">,</span><span class="w"> </span><span class="s1">'Segoe UI'</span><span class="o">,</span><span class="w"> </span><span class="nt">system-ui</span><span class="o">,</span><span class="w"> </span><span class="nt">sans-serif</span><span class="o">;</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="nt">--font-family-mono</span><span class="o">:</span><span class="w"> </span><span class="s1">'JetBrains Mono'</span><span class="o">,</span><span class="w"> </span><span class="s1">'Fira Code'</span><span class="o">,</span><span class="w"> </span><span class="nt">monospace</span><span class="o">;</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">  </span><span class="nt">--spacing-section</span><span class="o">:</span><span class="w"> </span><span class="nt">5rem</span><span class="o">;</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">  </span><span class="nt">--spacing-component</span><span class="o">:</span><span class="w"> </span><span class="nt">2</span><span class="p">.</span><span class="nc">5rem</span><span class="o">;</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">  </span><span class="nt">--radius-button</span><span class="o">:</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">5rem</span><span class="o">;</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">  </span><span class="nt">--radius-card</span><span class="o">:</span><span class="w"> </span><span class="nt">0</span><span class="p">.</span><span class="nc">75rem</span><span class="o">;</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>La elección de oklch como espacio de color merece una breve explicación. Tradicionalmente, los colores en Tailwind se definían en hexadecimal o RGB. El espacio de color oklch, soportado por los navegadores modernos, es perceptualmente uniforme: cambios iguales en sus coordenadas producen cambios visuales iguales. Esto facilita muchísimo la creación de escalas de color: una vez definido el tono matiz (el cuarto parámetro en oklch, que va de 0 a 360 grados en el círculo cromático), variar la luminosidad (el primer parámetro, de 0 a 1) produce automáticamente tonos más claros y más oscuros del mismo color sin los artefactos que aparecen al manipular RGB. Para una aplicación empresarial andaluza, podríamos definir el azul corporativo de la Junta de Andalucía, el verde de sus consejerías, o los colores de marca de una empresa privada, y generar escalas completas y armoniosas con facilidad.</p>
+<p>El cuarto paso es la integración con Angular CLI. El archivo <code>angular.json</code> debe referenciar correctamente el archivo de estilos globales. En la sección <code>projects &gt; nombre-del-proyecto &gt; architect &gt; build &gt; options &gt; styles</code>, debe aparecer <code>"src/styles.css"</code> o la ruta correspondiente. En proyectos Angular 17+ con configuración standalone y Vite, esta configuración suele ser correcta por defecto y no requiere ajustes adicionales.</p>
+<p>Un aspecto crucial que cambia en Tailwind 4 es que la detección de contenido (content scanning) ya no requiere configurar manualmente las rutas de los archivos donde Tailwind debe buscar clases. Tailwind 4 utiliza el plugin de Vite o PostCSS para detectar automáticamente todos los archivos que son procesados por la herramienta de construcción (HTML, TypeScript, plantillas Angular), eliminando la necesidad del array <code>content</code> del antiguo <code>tailwind.config.js</code>.</p>
+<h3 id="3-organizacion-del-css-en-un-proyecto-angular-con-tailwind">3. Organización del CSS en un Proyecto Angular con Tailwind</h3>
+<p>La organización del CSS en un proyecto Angular con Tailwind es notablemente más sencilla que con CSS tradicional, pero requiere disciplina para no caer en un antipatrón igualmente dañino: el abuso de <code>@apply</code>. La estrategia recomendada se articula en tres niveles.</p>
+<p>El primer nivel son los estilos globales en <code>src/styles.css</code> (o <code>.scss</code>). Este archivo contiene exclusivamente la importación de Tailwind (<code>@import "tailwindcss"</code>) y la configuración de <code>@theme</code> con los tokens de diseño. Adicionalmente, puede contener estilos base globales que afectan a toda la aplicación y que no son specificables mediante clases Tailwind. Por ejemplo, un reset CSS adicional, la definición de animaciones globales con <code>@keyframes</code>, variables CSS que no forman parte del sistema de diseño de Tailwind, o estilos para elementos que Angular no controla directamente (como el body, el scrollbar del navegador, o la tipografía base). Lo ideal es que este archivo sea mínimo: en un proyecto bien estructurado con Tailwind, el archivo de estilos globales rara vez supera las 50 líneas.</p>
+<p>El segundo nivel, y el más importante, son las clases de Tailwind directamente en las plantillas de los componentes Angular. Esta es la práctica estándar y recomendada. Cada componente Angular define su apariencia visual mediante las clases Tailwind en su plantilla HTML. Para el desarrollador, esto significa que abriendo un único archivo (la plantilla del componente) se ve todo lo necesario para entender la estructura y el aspecto del componente, sin tener que alternar entre el HTML y un archivo CSS separado. La legibilidad de un botón con 10 clases de Tailwind mejora con la práctica: en pocas semanas, el desarrollador lee <code>px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600</code> tan fluidamente como leía <code>class="btn-primary"</code>, pero con la ventaja de saber exactamente qué hace cada clase sin tener que buscar la definición de <code>.btn-primary</code>.</p>
+<p>El tercer nivel, que debe usarse con moderación extrema, es la directiva <code>@apply</code> en la hoja de estilos del componente (el archivo <code>.css</code> o <code>.scss</code> asociado). <code>@apply</code> permite agrupar varias clases de Tailwind dentro de una regla CSS personalizada. El caso de uso legítimo es cuando un componente Angular reutilizable necesita aplicar exactamente los mismos estilos a muchos elementos, y la repetición de las mismas clases en múltiples lugares de la plantilla se vuelve difícil de mantener. Por ejemplo, si un componente de tabla tiene 20 <code>&lt;td&gt;</code> que requieren las mismas 8 clases, tiene sentido definir <code>.td-base { @apply px-4 py-3 text-sm text-gray-700 border-b border-gray-200; }</code> y aplicar <code>class="td-base"</code> a cada <code>&lt;td&gt;</code>. Pero este caso es raro en la práctica, porque Angular ya ofrece un mecanismo superior para la reutilización de estilos: crear un componente. Si tienes que repetir las mismas clases en muchos elementos, probablemente deberías extraer un componente hijo, no usar <code>@apply</code>.</p>
+<p>El antipatrón que debe evitarse es usar <code>@apply</code> para recrear clases semánticas como <code>.btn-primary</code> o <code>.card-header</code> en una hoja de estilos global. Esto destruye la principal ventaja de Tailwind (la transparencia y la inmediatez en el HTML) y recrea los problemas del CSS tradicional (tener que ir a otro archivo a buscar la definición de una clase). La regla práctica es: Tailwind en el HTML para todo, <code>@apply</code> como excepción muy justificada, y si necesitas <code>@apply</code> constantemente, probablemente necesitas crear un componente Angular, no luchar contra Tailwind.</p>
+<h3 id="4-clases-clave-para-interfaces-de-aplicacion">4. Clases Clave para Interfaces de Aplicación</h3>
+<p>Tailwind CSS proporciona miles de clases predefinidas, pero en el desarrollo de interfaces de aplicación (no de páginas web de marketing), hay un subconjunto de clases que cubren el 90% de las necesidades diarias. Organizamos estas clases por categoría funcional.</p>
+<p>Para layout, las clases esenciales giran en torno a flexbox y CSS grid. <code>flex</code>, <code>inline-flex</code>, <code>flex-col</code>, <code>flex-row</code>, <code>flex-wrap</code>, <code>flex-1</code>, <code>flex-auto</code>, <code>flex-none</code> controlan el comportamiento flexible. <code>items-start</code>, <code>items-center</code>, <code>items-end</code>, <code>items-stretch</code> alinean los hijos en el eje transversal. <code>justify-start</code>, <code>justify-center</code>, <code>justify-end</code>, <code>justify-between</code>, <code>justify-around</code>, <code>justify-evenly</code> distribuyen el espacio en el eje principal. <code>gap-*</code> establece el espaciado entre hijos de un contenedor flex o grid, reemplazando los antiguos <code>margin</code> que requerían limpiar el último elemento. Para grid, <code>grid</code>, <code>grid-cols-*</code> (de 1 a 12), <code>col-span-*</code>, <code>grid-rows-*</code> definen la estructura de cuadrícula. <code>container</code> centra el contenido y lo limita a los anchos de breakpoint. <code>mx-auto</code> centra horizontalmente un bloque con margen automático. <code>min-h-screen</code> asegura que una sección ocupe al menos el alto de la ventana, útil para layouts de dashboard que llenan la pantalla.</p>
+<p>Para espaciado, las clases de padding (<code>p-*</code>, <code>px-*</code>, <code>py-*</code>, <code>pt-*</code>, <code>pr-*</code>, <code>pb-*</code>, <code>pl-*</code>) y margin (<code>m-*</code>, <code>mx-*</code>, <code>my-*</code>, <code>mt-*</code>, <code>mr-*</code>, <code>mb-*</code>, <code>ml-*</code>) utilizan una escala predefinida que va de 0 (0px) a 96 (24rem, 384px), con valores intermedios como 0.5 (2px), 1 (4px), 2 (8px), 3 (12px), 4 (16px), 5 (20px), 6 (24px), 8 (32px), 10 (40px), 12 (48px), 16 (64px), 20 (80px). La escala es exponencial, no lineal, lo que proporciona granularidad fina en valores pequeños y saltos útiles en valores grandes. <code>space-y-*</code> y <code>space-x-*</code> aplican margen entre hijos de forma más ergonómica que <code>gap</code> en ciertos contextos.</p>
+<p>Para colores, Tailwind incluye una paleta extensa y científicamente diseñada con nombres como <code>slate</code>, <code>gray</code>, <code>zinc</code>, <code>neutral</code>, <code>stone</code>, <code>red</code>, <code>orange</code>, <code>amber</code>, <code>yellow</code>, <code>lime</code>, <code>green</code>, <code>emerald</code>, <code>teal</code>, <code>cyan</code>, <code>sky</code>, <code>blue</code>, <code>indigo</code>, <code>violet</code>, <code>purple</code>, <code>fuchsia</code>, <code>pink</code> y <code>rose</code>. Cada color tiene 11 tonos (50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950). Las clases se aplican a color de texto (<code>text-{color}-{tono}</code>), fondo (<code>bg-{color}-{tono}</code>), borde (<code>border-{color}-{tono}</code>), sombra de anillo (<code>ring-{color}-{tono}</code>) y decoración. Los colores personalizados definidos en <code>@theme</code> siguen exactamente el mismo patrón, de modo que <code>--color-primary-500</code> genera las clases <code>bg-primary-500</code>, <code>text-primary-500</code>, etc.</p>
+<p>Para tipografía, las clases más utilizadas son <code>text-xs</code> (12px, 0.75rem), <code>text-sm</code> (14px, 0.875rem), <code>text-base</code> (16px, 1rem), <code>text-lg</code> (18px, 1.125rem), <code>text-xl</code> (20px, 1.25rem), <code>text-2xl</code> (24px, 1.5rem), <code>text-3xl</code> (30px, 1.875rem) y <code>text-4xl</code> (36px, 2.25rem). <code>font-thin</code>, <code>font-light</code>, <code>font-normal</code>, <code>font-medium</code>, <code>font-semibold</code>, <code>font-bold</code> controlan el peso. <code>leading-*</code> controla el interlineado. <code>tracking-*</code> controla el espaciado entre caracteres. <code>text-center</code>, <code>text-left</code>, <code>text-right</code> alinean el texto. <code>truncate</code> aplica <code>overflow: hidden; text-overflow: ellipsis; white-space: nowrap</code> para truncar texto largo, esencial en celdas de tablas y tarjetas. <code>line-clamp-*</code> limita el texto a un número de líneas con puntos suspensivos.</p>
+<p>Para estados interactivos, Tailwind proporciona variantes que se anteponen a cualquier clase: <code>hover:</code>, <code>focus:</code>, <code>active:</code>, <code>disabled:</code>, <code>focus-visible:</code>, <code>focus-within:</code>, <code>group-hover:</code>, <code>peer-checked:</code> y docenas más. Un botón típico combina varios estados: <code>bg-primary-500 hover:bg-primary-600 active:bg-primary-700 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:outline-none disabled:opacity-50 disabled:cursor-not-allowed</code>.</p>
+<p>La variante <code>dark:</code> permite estilizar la aplicación en modo oscuro. Tailwind soporta dos estrategias: <code>media</code> (respeta la configuración del sistema operativo mediante <code>prefers-color-scheme</code>) y <code>class</code> (añade o quita la clase <code>dark</code> manualmente, por ejemplo, mediante un toggle en la interfaz). Para aplicaciones de gestión, la estrategia <code>class</code> suele ser preferible porque permite a la persona usuaria elegir explícitamente el tema, independientemente de su configuración del sistema.</p>
+<p>Para diseño responsive, las variantes <code>sm:</code> (640px), <code>md:</code> (768px), <code>lg:</code> (1024px), <code>xl:</code> (1280px) y <code>2xl:</code> (1536px) permiten modificar cualquier clase en función del ancho de la ventana. Tailwind adopta el enfoque mobile-first: las clases sin prefijo se aplican a todos los tamaños, y las clases con prefijo se aplican a partir del breakpoint indicado hacia arriba. Por tanto, <code>grid-cols-1 md:grid-cols-2 lg:grid-cols-3</code> significa: 1 columna en móvil, 2 columnas a partir de 768px, 3 columnas a partir de 1024px.</p>
+<p>Para formularios, las clases específicas permiten crear inputs con apariencia personalizada sin perder accesibilidad: <code>focus:ring-2</code>, <code>focus:border-primary-500</code>, <code>disabled:opacity-50</code>, <code>disabled:bg-gray-100</code>, <code>read-only:bg-gray-50</code>. Las clases <code>accent-primary-500</code> estilizan el color de acento de checkboxes y radios nativos.</p>
+<p>Para accesibilidad, <code>sr-only</code> oculta visualmente un elemento manteniéndolo accesible para lectores de pantalla, ideal para labels de "saltar al contenido" o para proporcionar contexto adicional a elementos visualmente autodescriptivos. <code>focus-visible:ring-2</code> proporciona un foco visible solo cuando la navegación es por teclado, preservando la estética para personas usuarias de ratón. Los atributos ARIA pueden combinarse con clases y variantes de Tailwind para crear componentes accesibles sin CSS personalizado.</p>
+<h3 id="5-tecnicas-avanzadas-con-tailwind">5. Técnicas Avanzadas con Tailwind</h3>
+<p>Los valores arbitrarios son una de las características más potentes de Tailwind para resolver necesidades de diseño que no encajan en la escala predefinida. Mediante la sintaxis de corchetes, se puede especificar cualquier valor CSS válido: <code>w-[300px]</code>, <code>text-[#bada55]</code>, <code>grid-cols-[200px_1fr_200px]</code>, <code>bg-[url('/images/hero.webp')]</code>, <code>transition-[opacity,transform]</code>, <code>duration-[400ms]</code>, <code>delay-[200ms]</code>. Los valores arbitrarios deben usarse con moderación: si un valor arbitrario se repite en múltiples lugares, debería promocionarse a un token de diseño en <code>@theme</code>. Pero en el desarrollo diario, los valores arbitrarios evitan tener que escribir CSS personalizado para casos puntuales, lo que mantiene el proyecto libre de hojas de estilo adicionales.</p>
+<p>Las variantes <code>peer</code> y <code>group</code> permiten estilizar un elemento basándose en el estado de otro elemento. <code>peer</code> mira a un elemento hermano anterior (en el DOM): <code>peer</code> se aplica al elemento cuyo estado se observa, y <code>peer-*</code> se aplica a los elementos hermanos que reaccionan a ese estado. Un caso típico es un mensaje de error que se muestra cuando un input es inválido: <code>&lt;input class="peer" required /&gt; &lt;p class="hidden peer-invalid:block text-red-500"&gt;Este campo es obligatorio&lt;/p&gt;</code>. La clase <code>peer-invalid:block</code> convierte el párrafo de <code>display: none</code> a <code>display: block</code> cuando el input hermano (marcado con <code>peer</code>) está en estado <code>:invalid</code>. <code>group</code> funciona de forma similar pero basándose en el estado de un elemento padre: <code>&lt;div class="group"&gt;&lt;h2 class="group-hover:text-blue-500"&gt;Título&lt;/h2&gt;&lt;/div&gt;</code> aplica el color azul al título cuando el cursor pasa sobre el div padre.</p>
+<p>El selector <code>has-*</code> (soportado por Tailwind 4 con la variante <code>has-*</code>) permite estilizar un elemento padre basándose en el estado de uno de sus descendientes. Es decir, opera en dirección contraria a la cascada normal. Un uso práctico es estilizar un contenedor de formulario cuando alguno de sus campos es inválido: <code>&lt;fieldset class="has-[:invalid]:border-red-500 has-[:invalid]:bg-red-50"&gt;</code>. Cuando cualquier input dentro del fieldset tiene <code>:invalid</code>, el fieldset entero cambia su borde a rojo y su fondo a rojo claro. Otro uso común es estilizar un elemento de lista que contiene un checkbox marcado: <code>&lt;li class="has-[:checked]:bg-green-50 has-[:checked]:line-through"&gt;</code>.</p>
+<p>El motor JIT (Just-In-Time) de Tailwind es el responsable de que estas miles de clases utility no generen un archivo CSS de varios megabytes. En tiempo de compilación, Tailwind escanea todos los archivos de la aplicación (plantillas Angular, archivos TypeScript, estilos CSS) en busca de cadenas que coincidan con el patrón de sus clases utility. Solo las clases encontradas se incluyen en el CSS generado. Esto significa que aunque Tailwind ofrezca miles de clases, el CSS resultante contiene exclusivamente las que realmente utilizas. En un proyecto Angular típico con Tailwind 4 y JIT, el CSS generado rara vez supera los 15-20 KB comprimidos, a pesar de que el conjunto completo de clases de Tailwind ocuparía varios megabytes.</p>
+<h3 id="6-tailwind-css-intellisense-para-vs-code">6. Tailwind CSS IntelliSense para VS Code</h3>
+<p>La extensión oficial Tailwind CSS IntelliSense para Visual Studio Code, desarrollada por el equipo de Tailwind, transforma la experiencia de desarrollo con este framework. Sus funcionalidades principales incluyen:</p>
+<p>Autocompletado de clases mientras se escribe en el HTML o en las plantillas Angular. Al empezar a escribir <code>bg-</code>, la extensión sugiere todas las clases que comienzan por ese prefijo, mostrando el nombre de la clase, su valor CSS equivalente y una previsualización del color (si es una clase de color). Esto elimina la necesidad de consultar la documentación constantemente y acelera drásticamente el flujo de trabajo.</p>
+<p>Previsualización de colores inline en el código. Junto a cada clase de color, la extensión muestra un pequeño cuadrado del color correspondiente, facilitando la verificación visual inmediata de que el color elegido es el correcto.</p>
+<p>Linting de clases inválidas. Si escribes <code>bg-primari-500</code> (con una errata), la extensión lo subraya en amarillo o rojo y sugiere la clase correcta. También advierte sobre clases que no existen, clases con valores incorrectos, y clases que entran en conflicto entre sí (por ejemplo, <code>p-2 p-4</code> en el mismo elemento, donde la segunda anula a la primera).</p>
+<p>Documentación inline. Al pasar el cursor sobre una clase de Tailwind, se muestra un tooltip con la propiedad o propiedades CSS que genera esa clase, el valor calculado, y si es parte de una escala, su posición en la escala.</p>
+<p>Soporte para personalización con <code>@theme</code>. La extensión lee la configuración de <code>@theme</code> en los archivos CSS del proyecto y proporciona autocompletado para los colores, espaciados, familias tipográficas y demás tokens personalizados definidos por el equipo. Si defines <code>--color-brand-500: oklch(0.62 0.19 255)</code>, la extensión sugerirá <code>bg-brand-500</code> y mostrará la previsualización del color correspondiente.</p>
+<h3 id="7-estrategia-de-migracion-a-tailwind-en-proyectos-existentes">7. Estrategia de Migración a Tailwind en Proyectos Existentes</h3>
+<p>Introducir Tailwind en un proyecto Angular que ya tiene cientos o miles de líneas de CSS tradicional es un desafío que debe abordarse con estrategia, no con un "big bang" que rompa todo y requiera reescribir la aplicación entera. La migración se plantea en varias fases, cada una de las cuales puede implementarse incrementalmente sin detener el desarrollo de nuevas funcionalidades.</p>
+<p>La fase 0, de preparación, consiste en instalar Tailwind en el proyecto sin que afecte al CSS existente. Se instalan los paquetes npm, se configura el plugin de Vite o PostCSS, y se añade <code>@import "tailwindcss"</code> en el archivo de estilos globales, pero al final, de forma que su baja especificidad (las clases utility tienen todas especificidad 0-1-0, equivalente a una sola clase) no sobrescriba al CSS existente. En este punto, las classes de Tailwind están disponibles para usar en nuevos componentes, pero no interfieren con el CSS heredado.</p>
+<p>La fase 1 consiste en usar Tailwind exclusivamente para nuevos componentes. Cada componente nuevo que se crea en el proyecto se estiliza con Tailwind. Esto genera familiaridad con el framework en el equipo y empieza a acumular ejemplos de código con Tailwind dentro del proyecto. Los componentes existentes se siguen manteniendo con CSS tradicional.</p>
+<p>La fase 2 aborda la migración de componentes existentes de forma oportunista: cuando un componente necesita una modificación significativa por razones de negocio (una nueva funcionalidad, un rediseño de una sección), se aprovecha para migrarlo a Tailwind. Esto convierte la migración en un subproducto del trabajo planificado, no en una tarea independiente que compite por prioridad.</p>
+<p>La fase 3 aborda la eliminación del CSS heredado. A medida que los componentes se van migrando, sus hojas de estilo asociadas se van vaciando. Cuando una hoja de estilo queda completamente vacía o solo contiene reglas que ya no aplican a ningún componente activo, se elimina. Las herramientas de análisis de CSS no utilizado (como PurgeCSS, aunque Tailwind ya lo incluye, o la cobertura de CSS en Chrome DevTools) ayudan a identificar qué partes del CSS heredado siguen siendo necesarias.</p>
+<p>La fase 4 es la consolidación final: limpiar los estilos globales heredados, eliminar dependencias de frameworks CSS anteriores si los había (Bootstrap, Materialize, etc.), y establecer Tailwind como el estándar del proyecto documentado en el README y en la guía de contribución.</p>
+<p>Durante todo el proceso, es importante establecer reglas de coexistencia: no mezclar Tailwind y CSS tradicional en el mismo componente si no es estrictamente necesario, documentar los componentes ya migrados, y mantener tests visuales (con herramientas como Storybook o Chromatic) que detecten regresiones visuales durante la migración.</p>
+<h2 id="ejemplos-guiados">Ejemplos guiados</h2>
+<h3 id="ejemplo-guiado-1-configurar-tailwind-4-en-un-proyecto-angular-desde-cero">Ejemplo Guiado 1: Configurar Tailwind 4 en un Proyecto Angular desde Cero</h3>
+<p>En este ejemplo, se crea un proyecto Angular nuevo y se configura Tailwind 4 paso a paso. Se comienza generando el proyecto con Angular CLI: <code>ng new gestion-tareas --style=css --standalone --ssr=false</code>. Se navega al directorio del proyecto y se instalan los paquetes: <code>npm install tailwindcss @tailwindcss/vite</code>. En Angular 17+, se crea o edita el archivo <code>vite.config.ts</code> en la raíz del proyecto para añadir el plugin de Tailwind. En el archivo <code>src/styles.css</code>, se añade exclusivamente <code>@import "tailwindcss";</code>.</p>
+<p>A continuación, se personaliza el sistema de diseño mediante <code>@theme</code>. Se definen los colores corporativos de una empresa ficticia llamada "GestionaAndalucía", con un azul corporativo basado en oklch. Se crea una escala completa de 9 tonos del color primario (azul) y una escala reducida del secundario (naranja). Se define la familia tipográfica Inter para el texto general. Se añade un espaciado personalizado <code>--spacing-section: 5rem</code> para secciones de página.</p>
+<p>Se verifica la configuración creando un componente simple en <code>app.component.html</code> con varias clases de Tailwind, incluyendo los colores personalizados (<code>bg-primary-500</code>, <code>text-primary-100</code>). Al ejecutar <code>ng serve</code> y abrir el navegador, se comprueba que los estilos se aplican correctamente. Se inspecciona el elemento para verificar que las clases de Tailwind se han compilado a CSS real. Se abre DevTools y se comprueba el tamaño del CSS cargado, que debería ser mínimo (solo las clases utilizadas en la plantilla, gracias al motor JIT).</p>
+<p>Finalmente, se configura la extensión Tailwind CSS IntelliSense en VS Code para verificar que el autocompletado funciona con los colores personalizados de <code>@theme</code>.</p>
+<h3 id="ejemplo-guiado-2-construir-un-dashboard-widget-con-tailwind">Ejemplo Guiado 2: Construir un Dashboard Widget con Tailwind</h3>
+<p>Se construye un componente de widget de dashboard para mostrar una estadística con tendencia. El widget, típico en aplicaciones de gestión, muestra un título, un valor numérico grande, un indicador de tendencia (subida o bajada con porcentaje y flecha), y un área reservada para un gráfico placeholder.</p>
+<p>El HTML del componente se estructura con un <code>&lt;article&gt;</code> como contenedor raíz. Mediante Tailwind, se aplica un fondo blanco con borde redondeado y sombra sutil: <code>bg-white rounded-xl shadow-sm border border-gray-200 p-6</code>. El interior se organiza con flexbox: <code>flex flex-col gap-4</code>.</p>
+<p>La cabecera muestra el título del widget en gris medio con tamaño pequeño y peso semibold: <code>text-sm font-medium text-gray-500 tracking-wide uppercase</code>. El valor principal utiliza el tamaño de texto más grande disponible y peso bold: <code>text-4xl font-bold text-gray-900</code>.</p>
+<p>El indicador de tendencia se implementa con un <code>&lt;span&gt;</code> condicional que muestra una flecha hacia arriba o hacia abajo y el porcentaje. Los estilos se condicionan en la plantilla Angular: si la tendencia es positiva, se aplica <code>text-emerald-600 bg-emerald-50</code>; si es negativa, <code>text-red-600 bg-red-50</code>. Ambas variantes comparten estilos base: <code>inline-flex items-center gap-1 px-2 py-1 text-sm font-medium rounded-full</code>.</p>
+<p>El área del gráfico placeholder se implementa con un <code>&lt;div&gt;</code> que simula un gráfico de barras simples usando barras de diferentes alturas construidas con <code>h-*</code> arbitrarias (<code>h-[40px]</code>, <code>h-[65px]</code>, <code>h-[35px]</code>, <code>h-[80px]</code>, <code>h-[55px]</code>). Las barras se distribuyen con <code>flex items-end gap-1 h-24</code>. Cada barra es un <code>&lt;div&gt;</code> con <code>w-4 bg-primary-200 rounded-t</code> y la barra actual se destaca con <code>bg-primary-500</code>.</p>
+<p>El resultado es un widget profesional y consistente, implementado en aproximadamente 15 minutos sin escribir una sola línea de CSS personalizado. Este ejemplo ilustra la productividad de Tailwind cuando se domina el vocabulario de clases.</p>
+<h3 id="ejemplo-guiado-3-sistema-de-temas-clarooscuro-con-tailwind">Ejemplo Guiado 3: Sistema de Temas Claro/Oscuro con Tailwind</h3>
+<p>Se implementa un sistema de alternancia entre tema claro y oscuro en una aplicación Angular, utilizando la estrategia <code>class</code> de Tailwind. El primer paso es añadir <code>darkMode: 'class'</code> a la configuración de Tailwind (en Tailwind 4, esto se configura dentro de <code>@theme</code> o mediante CSS). En las plantillas de los componentes, se añade la variante <code>dark:</code> a las clases que deben cambiar en modo oscuro. Por ejemplo, el fondo de la aplicación pasa de <code>bg-gray-50</code> a <code>dark:bg-gray-900</code>, y el texto de <code>text-gray-900</code> a <code>dark:text-gray-100</code>.</p>
+<p>En Angular, se crea un servicio <code>ThemeService</code> que gestiona el estado del tema mediante una señal. El servicio lee la preferencia guardada en <code>localStorage</code> al iniciar, y si no hay preferencia guardada, respeta la preferencia del sistema operativo (consultando <code>window.matchMedia('(prefers-color-scheme: dark)')</code>). El servicio expone un método <code>toggle()</code> y una señal computada que devuelve <code>'dark'</code> o <code>'light'</code>.</p>
+<p>Un componente <code>ThemeToggle</code> inyecta el servicio y renderiza un botón con un icono de sol (tema claro) o luna (tema oscuro) según el estado actual. Al hacer clic, llama a <code>themeService.toggle()</code>.</p>
+<p>El servicio también se encarga de manipular la clase <code>dark</code> en el elemento <code>&lt;html&gt;</code>. Cuando el tema es oscuro, añade <code>document.documentElement.classList.add('dark')</code>; cuando es claro, la elimina. Esta manipulación del DOM es segura porque solo afecta al elemento raíz y es independiente del ciclo de detección de cambios de Angular.</p>
+<p>El resultado es una aplicación que respeta la preferencia del sistema, persiste la elección del usuario, y aplica el tema oscuro de forma consistente en todos los componentes sin CSS personalizado, utilizando exclusivamente las variantes <code>dark:</code> de Tailwind.</p>
+<h2 id="actividades-guiadas">Actividades guiadas</h2>
+<h3 id="actividad-guiada-1-configuracion-de-tailwind-4-en-un-proyecto-angular-existente">Actividad Guiada 1: Configuración de Tailwind 4 en un Proyecto Angular Existente</h3>
+<p>El alumnado partirá de un proyecto Angular proporcionado por el docente que contiene una aplicación de gestión de biblioteca con varios componentes estilizados con CSS tradicional. El proyecto no tiene Tailwind instalado. La actividad consiste en instalar y configurar Tailwind 4 siguiendo el procedimiento de migración incremental: instalar los paquetes npm sin romper el CSS existente, personalizar <code>@theme</code> con los colores corporativos de la biblioteca (verde institucional, beige de fondo), y verificar que tanto el CSS tradicional como las nuevas clases de Tailwind funcionan simultáneamente. El alumnado creará un nuevo componente de "panel de estadísticas" estilizado íntegramente con Tailwind que conviva con los componentes existentes en CSS tradicional.</p>
+<h3 id="actividad-guiada-2-construccion-de-un-dashboard-completo-con-tailwind">Actividad Guiada 2: Construcción de un Dashboard Completo con Tailwind</h3>
+<p>El alumnado construirá un dashboard de tres filas completamente con Tailwind. La primera fila contiene cuatro widgets de estadísticas (total de libros, préstamos activos, personas usuarias registradas, libros más prestados). La segunda fila contiene una tabla de últimos préstamos con columnas zebra y acciones. La tercera fila contiene dos gráficos placeholder (barras y líneas). El layout utiliza CSS grid con Tailwind: <code>grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6</code> para los widgets. Cada widget se estiliza con las clases vistas en el ejemplo guiado. La tabla utiliza <code>overflow-x-auto</code> para scroll horizontal en móvil y las clases <code>even:bg-gray-50</code> para el zebra. Los gráficos placeholder utilizan barras y puntos construidos con divs y clases de Tailwind.</p>
+<h3 id="actividad-guiada-3-migracion-de-un-componente-de-css-tradicional-a-tailwind">Actividad Guiada 3: Migración de un Componente de CSS Tradicional a Tailwind</h3>
+<p>El alumnado recibirá un componente Angular (un formulario de alta de libro) estilizado con CSS tradicional en un archivo <code>.css</code> separado que contiene aproximadamente 100 líneas de CSS. La actividad consiste en migrar este componente a Tailwind, eliminando todo el CSS tradicional y reemplazándolo con clases utility en la plantilla HTML. El componente debe conservar exactamente la misma apariencia visual tras la migración. El alumnado deberá identificar correspondencias entre las reglas CSS tradicionales y las clases de Tailwind, utilizar valores arbitrarios para propiedades que no tengan una clase Tailwind directa, y verificar visualmente que el resultado es idéntico. Al finalizar, el archivo CSS del componente deberá estar vacío y la apariencia del componente inalterada.</p>
+<h2 id="actividades-propuestas">Actividades propuestas</h2>
+<h3 id="actividad-propuesta-1-sistema-de-diseno-personalizado-con-theme">Actividad Propuesta 1: Sistema de Diseño Personalizado con @theme</h3>
+<p>Define un sistema de diseño completo para una aplicación de gestión de clínica dental andaluza. La aplicación se llama "DentAndalucía" y tiene los siguientes requisitos de marca: color primario azul corporativo (tono 220 en oklch), color secundario verde menta (tono 160 en oklch), tipografía principal Nunito, tipografía para datos tabulares JetBrains Mono, espaciado base 0.25rem (4px), y border-radius de 0.375rem para botones y 0.625rem para tarjetas. Crea el bloque <code>@theme</code> completo con escalas de color completas (9 tonos para primario, 5 para secundario, más success, warning y danger). Configura este <code>@theme</code> en un proyecto Angular y crea una página de demostración que muestre todos los colores, tipografías y espaciados definidos. La página debe servir como referencia de diseño para el equipo.</p>
+<h3 id="actividad-propuesta-2-analisis-comparativo-del-css-generado">Actividad Propuesta 2: Análisis Comparativo del CSS Generado</h3>
+<p>Instala Tailwind 4 en dos proyectos Angular idénticos (puedes usar el mismo proyecto con dos ramas de git). En uno, utiliza Tailwind de forma óptima (solo las clases necesarias, sin <code>@apply</code>). En el otro, introduce deliberadamente malas prácticas: abuso de <code>@apply</code> para recrear clases semánticas, duplicación de estilos, y clases de Tailwind que se anulan mutuamente. Utiliza las DevTools del navegador para comparar el tamaño del CSS generado por cada proyecto. Analiza el árbol de CSS en la pestaña "Coverage" de DevTools para identificar CSS no utilizado. Documenta tus hallazgos en un informe con capturas de pantalla y extrae conclusiones sobre las buenas prácticas que más impactan en el rendimiento.</p>
+<h3 id="actividad-propuesta-3-componentes-de-formulario-con-estados-complejos">Actividad Propuesta 3: Componentes de Formulario con Estados Complejos</h3>
+<p>Crea un sistema de 6 componentes de formulario reutilizables estilizados con Tailwind: InputText (con label, placeholder, estados normal, focus, error, disabled), InputSelect (con dropdown personalizado), Checkbox (con diseño personalizado que oculte el input nativo), ToggleSwitch (interruptor de encendido/apagado), InputSearch (con icono de lupa y botón de limpiar), y TextArea (con contador de caracteres). Cada componente debe aceptar propiedades Angular para su configuración (label, placeholder, valor, estado de error, mensaje de error, disabled) y reflejar correctamente todos los estados en su apariencia. Los estilos deben ser 100% Tailwind, sin CSS personalizado. Publica los componentes en una pequeña librería documentada con Storybook (Unidad 14).</p>
+<h3 id="actividad-propuesta-4-tema-oscuro-completo">Actividad Propuesta 4: Tema Oscuro Completo</h3>
+<p>Implementa un sistema de tema oscuro en una aplicación Angular existente (la de la biblioteca de unidades anteriores). El sistema debe incluir: servicio ThemeService con persistencia en localStorage, componente ThemeToggle con iconos animados, y aplicación de la variante <code>dark:</code> a TODOS los componentes de la aplicación (al menos 10 componentes distintos). Debes verificar visualmente cada pantalla en ambos temas para asegurar que el contraste cumple los requisitos WCAG AA (4.5:1 para texto normal, 3:1 para texto grande) en ambos modos. Documenta las combinaciones de colores problemáticas que has tenido que ajustar.</p>
+<h3 id="actividad-propuesta-5-guia-de-estilo-interactiva">Actividad Propuesta 5: Guía de Estilo Interactiva</h3>
+<p>Crea una página de guía de estilo interactiva (style guide) dentro de la aplicación Angular que sirva como documentación viva del sistema de diseño. La página debe incluir secciones para: colores (mostrando todos los tonos de cada color con su nombre de clase Tailwind), tipografías (todos los tamaños, pesos y estilos disponibles), botones (todas las variantes: primary, secondary, outline, ghost, danger, en todos los tamaños y estados), formularios (todos los tipos de input con sus estados), tarjetas, badges, alerts, y espaciado (una demostración visual de la escala de espaciado). Cada elemento de la guía debe mostrar su nombre de clase y el CSS generado. La guía debe servirse en una ruta <code>/style-guide</code> y ser responsive.</p>
+<h2 id="actividades-de-ampliacion">Actividades de ampliación</h2>
+<h3 id="actividad-de-ampliacion-1-plugin-de-tailwind-personalizado">Actividad de Ampliación 1: Plugin de Tailwind Personalizado</h3>
+<p>Investiga la API de plugins de Tailwind 4 y desarrolla un plugin personalizado que añada utilidades específicas para el dominio de una aplicación de gestión de inventario. El plugin debe proporcionar: utilidades para estilos de "nivel de stock" (in-stock, low-stock, out-of-stock) que combinen colores, iconos y bordes, componentes de "badge de estado" para estados de pedido (pending, processing, shipped, delivered, cancelled) con colores y estilos apropiados, y un sistema de grid para layouts de formularios de dos columnas con etiquetas alineadas a la derecha. Documenta el plugin, instálalo en un proyecto Angular y demuestra sus utilidades en una página de ejemplo.</p>
+<h3 id="actividad-de-ampliacion-2-migracion-completa-de-un-proyecto-grande">Actividad de Ampliación 2: Migración Completa de un Proyecto Grande</h3>
+<p>Toma un proyecto Angular con al menos 15 componentes y 500 líneas de CSS tradicional (puedes usar un proyecto de cursos anteriores o uno de código abierto) y realiza una migración completa a Tailwind siguiendo la estrategia de 4 fases descrita en la unidad. Documenta cada fase con métricas: líneas de CSS eliminadas, número de componentes migrados, tiempo empleado, problemas encontrados y soluciones aplicadas. Al finalizar el proceso, la carpeta de estilos del proyecto debe estar vacía (salvo los estilos globales con <code>@import "tailwindcss"</code> y <code>@theme</code>) y todas las clases personalizadas deben haber sido reemplazadas por clases de Tailwind. La aplicación debe pasar los tests existentes y ser visualmente idéntica a la versión original.</p>
+<h3 id="actividad-de-ampliacion-3-evaluacion-de-rendimiento-entre-tailwind-3-y-tailwind-4">Actividad de Ampliación 3: Evaluación de Rendimiento entre Tailwind 3 y Tailwind 4</h3>
+<p>Configura dos proyectos Angular idénticos, uno con Tailwind 3 (usando PostCSS y <code>tailwind.config.js</code>) y otro con Tailwind 4 (usando el plugin de Vite y <code>@theme</code>). En ambos proyectos, construye exactamente la misma aplicación de dashboard con las mismas clases de Tailwind. Mide y compara: tiempo de build de desarrollo, tiempo de build de producción, tamaño del bundle CSS generado, tiempo de Hot Module Replacement (HMR) al modificar una clase, y soporte de IntelliSense en VS Code. Documenta las diferencias, explica sus causas técnicas a partir de los cambios en el motor de Tailwind, y emite una recomendación argumentada sobre si merece la pena migrar de Tailwind 3 a 4.</p>
+<h2 id="buenas-practicas">Buenas prácticas</h2>
+<ol>
+<li>
+<p>Domina CSS antes de usar Tailwind. Las clases de Tailwind son una traducción directa de propiedades CSS. No saber qué hace <code>justify-between</code> te impedirá usar correctamente esta clase, por mucho que la tengas a golpe de autocompletado. Estudia CSS en profundidad: Tailwind es una herramienta para aplicar CSS más rápido, no un sustituto de saber CSS.</p>
+</li>
+<li>
+<p>Utiliza los colores y espaciados del <code>@theme</code> siempre que sea posible. Antes de recurrir a un valor arbitrario como <code>p-[13px]</code> o <code>text-[#1a2b3c]</code>, pregúntate si puedes usar un valor de la escala predefinida o añadir un nuevo token. La consistencia visual se construye usando siempre la misma paleta.</p>
+</li>
+<li>
+<p>No abuses de <code>@apply</code>. Si te descubres usando <code>@apply</code> constantemente para crear clases como <code>.btn-primary</code> o <code>.card</code>, estás luchando contra Tailwind en lugar de aprovecharlo. En Angular, extrae un componente reutilizable; en otros frameworks, usa un sistema de componentes equivalente. <code>@apply</code> debe ser la excepción, no la regla.</p>
+</li>
+<li>
+<p>Agrupa las clases de Tailwind de forma lógica en el HTML. Adopta una convención de orden en el equipo para que todas las plantillas sean legibles. Una recomendación común es: layout (display, position, flex/grid), espaciado (margin, padding), tamaño (width, height), tipografía, colores (fondo, texto, borde), bordes y sombras, estados (hover, focus), responsive, y miscelánea. La extensión Headwind para VS Code puede ordenar las clases automáticamente.</p>
+</li>
+<li>
+<p>Usa la variante <code>focus-visible</code> en lugar de <code>focus</code> para estilos de foco en elementos interactivos. Esto garantiza que los estilos de foco se muestren cuando la persona usuaria navega con teclado, pero no al hacer clic con el ratón, mejorando la accesibilidad sin sacrificar la estética.</p>
+</li>
+<li>
+<p>Aprovecha <code>peer</code> y <code>group</code> para reducir la lógica de estado en TypeScript. En lugar de manejar estados de hover/focus/error en el componente Angular con señales y bindings condicionales, pregunta si puedes delegar esa lógica a CSS mediante las variantes de Tailwind. Esto simplifica el código TypeScript y mejora el rendimiento.</p>
+</li>
+<li>
+<p>Utiliza las herramientas de desarrollo del navegador para depurar Tailwind. El panel de estilos de Chrome DevTools muestra las clases de Tailwind aplicadas a cada elemento junto con sus propiedades CSS equivalentes. Puedes marcar/desmarcar clases para experimentar y luego copiar el resultado a la plantilla.</p>
+</li>
+<li>
+<p>Mantén el archivo de estilos globales mínimo. Un proyecto Angular con Tailwind bien configurado debería tener <code>styles.css</code> con menos de 100 líneas: el <code>@import</code>, el bloque <code>@theme</code>, y quizás algunos estilos base o animaciones globales. Si tu <code>styles.css</code> crece, pregunta si ese CSS debería estar en un componente.</p>
+</li>
+<li>
+<p>Extrae componentes cuando un conjunto de clases se repita. Si tecleas las mismas 8 clases de Tailwind en 5 botones diferentes de la aplicación, no recurras a <code>@apply</code>: crea un componente <code>&lt;app-button&gt;</code> que encapsule esos estilos y exponga propiedades para las variantes. Esto es más idiomático en Angular y más mantenible.</p>
+</li>
+<li>
+<p>Verifica el contraste de colores después de personalizar <code>@theme</code>. Los colores generados con oklch no garantizan automáticamente el contraste WCAG AA. Utiliza un comprobador de contraste para verificar que las combinaciones de <code>text-primary-*</code> sobre <code>bg-primary-*</code> cumplen los requisitos, especialmente en los tonos claros.</p>
+</li>
+</ol>
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+<ol>
+<li>
+<p>Usar Tailwind sin entender CSS. El error más grave es aprender Tailwind como atajo para no aprender CSS. Cuando algo no funciona, el desarrollador prueba clases al azar hasta que "se ve bien", sin entender por qué. Esto genera código frágil e imposible de depurar. Tailwind acelera a quien sabe CSS; retrasa a quien no lo sabe.</p>
+</li>
+<li>
+<p>Abusar de valores arbitrarios. Si cada propiedad de tu interfaz usa <code>w-[314px]</code>, <code>h-[127px]</code>, <code>text-[15px]</code> y <code>p-[23px]</code>, no estás usando Tailwind: estás escribiendo CSS inline con una sintaxis diferente. Los valores arbitrarios deben ser excepcionales, no la norma.</p>
+</li>
+<li>
+<p>Crear clases semánticas con @apply de forma masiva. El error opuesto al anterior: usar <code>@apply</code> para redefinir <code>.btn</code>, <code>.card</code>, <code>.header</code>, <code>.sidebar</code> en un archivo CSS global, recreando el CSS tradicional dentro de Tailwind. Esto anula las ventajas del utility-first y crea dependencias ocultas entre el HTML y el CSS.</p>
+</li>
+<li>
+<p>No aprovechar la configuración de <code>@theme</code>. Usar siempre <code>text-[#1a56db]</code> en lugar de definir <code>--color-primary-500: #1a56db</code> una vez y usar <code>text-primary-500</code> consistentemente. La configuración centralizada existe precisamente para evitar valores mágicos dispersos por el código.</p>
+</li>
+<li>
+<p>Ignorar la variante <code>dark:</code> al construir la interfaz. Desarrollar toda la aplicación en modo claro y luego intentar añadir el modo oscuro "después" requiere revisitar cada componente y añadir <code>dark:</code> a cada clase. El tema oscuro debe contemplarse desde el primer componente.</p>
+</li>
+<li>
+<p>Mezclar CSS tradicional y Tailwind en el mismo componente sin criterio. Ver un componente con <code>class="sidebar"</code> y en la hoja de estilos <code>.sidebar { @apply flex flex-col h-full bg-gray-900 text-white; }</code>. Si ya estás usando Tailwind, usa las clases directamente en el HTML. Si necesitas una clase semántica, probablemente necesitas un componente Angular.</p>
+</li>
+<li>
+<p>Anidar variantes incorrectamente. Intentar escribir <code>hover:dark:bg-gray-800</code> cuando el orden correcto es <code>dark:hover:bg-gray-800</code>. Las variantes se aplican en el orden en que se escriben, de izquierda a derecha, y el orden afecta a la especificidad y al comportamiento.</p>
+</li>
+<li>
+<p>Olvidar que Tailwind usa mobile-first. Escribir <code>lg:grid-cols-3 grid-cols-1</code> es un error: las clases sin prefijo se aplican SIEMPRE, por lo que <code>grid-cols-1</code> anularía a <code>lg:grid-cols-3</code> incluso en pantallas grandes. El orden correcto es <code>grid-cols-1 lg:grid-cols-3</code>: 1 columna por defecto, 3 a partir de lg.</p>
+</li>
+<li>
+<p>Usar <code>@apply</code> con variantes responsive. No es válido escribir <code>.sidebar { @apply w-64 md:w-0; }</code>. <code>@apply</code> no soporta variantes responsive; las variantes deben aplicarse en el HTML directamente o replicarse en media queries CSS tradicionales.</p>
+</li>
+<li>
+<p>No verificar el CSS generado en producción. Durante el desarrollo, Tailwind puede generar más CSS del necesario. En producción, el motor JIT genera solo el CSS utilizado. Verifica siempre el build de producción (<code>ng build --configuration production</code>) para ver el tamaño real del CSS que recibirán las personas usuarias.</p>
+</li>
+</ol>
+<h2 id="resumen">Resumen</h2>
+<p>Esta unidad ha proporcionado una formación completa en Tailwind CSS 4 como herramienta profesional para el desarrollo de interfaces en Angular. Hemos comenzado desmontando el debate entre "CSS tradicional" y "Tailwind", aclarando que Tailwind es CSS con otro nombre y que su filosofía utility-first aborda problemas reales de los equipos de desarrollo: consistencia forzada, eliminación de guerras de naming, CSS muerto cero y un sistema de diseño embebido que genera coherencia visual sin esfuerzo.</p>
+<p>La configuración de Tailwind 4 en Angular aprovecha el ecosistema moderno de Vite con el plugin <code>@tailwindcss/vite</code>, simplificando la integración a tres pasos: instalar paquetes, añadir el plugin, e importar Tailwind en los estilos globales. La personalización con <code>@theme</code> y colores oklch proporciona un control preciso sobre el sistema de diseño sin archivos de configuración JavaScript.</p>
+<p>La organización del CSS en un proyecto Angular con Tailwind sigue una estrategia clara de tres niveles: estilos globales mínimos, Tailwind en plantillas como práctica estándar, y <code>@apply</code> como excepción muy justificada. Esta estrategia mantiene el código mantenible y evita los antipatrones de ambas filosofías.</p>
+<p>Hemos recorrido el vocabulario esencial de clases utility organizadas por funcionalidad (layout, espaciado, colores, tipografía, estados, dark mode, responsive, formularios, accesibilidad), y hemos explorado técnicas avanzadas como valores arbitrarios, variantes <code>peer</code> y <code>group</code>, y el selector <code>has-*</code>, todas ellas potenciadas por el motor JIT que genera exclusivamente el CSS utilizado.</p>
+<p>Finalmente, hemos abordado la integración de Tailwind en el flujo de trabajo con VS Code IntelliSense y la estrategia de migración progresiva en proyectos existentes, preparando al alumnado para aplicar estos conocimientos tanto en proyectos nuevos como en brownfield.</p>
+<h2 id="recursos-complementarios">Recursos complementarios</h2>
+<h3 id="documentacion-oficial">Documentación oficial</h3>
+<ul>
+<li>Tailwind CSS 4 - Documentación oficial: https://tailwindcss.com/docs/v4-beta</li>
+<li>Tailwind CSS con Vite: https://tailwindcss.com/docs/installation/vite</li>
+<li>Tailwind CSS con PostCSS: https://tailwindcss.com/docs/installation/postcss</li>
+<li>Tailwind CSS <code>@theme</code> directive: https://tailwindcss.com/docs/theme</li>
+<li>Tailwind CSS IntelliSense para VS Code: https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss</li>
+</ul>
+<h3 id="tutoriales-y-cursos">Tutoriales y cursos</h3>
+<ul>
+<li>Tailwind CSS from Zero to Production (canal oficial de Tailwind en YouTube)</li>
+<li>Tailwind CSS Fundamentals (Tailwind Labs)</li>
+<li>"Every Layout" de Heydon Pickering y Andy Bell (patrones de layout aplicables con Tailwind)</li>
+<li>"Refactoring UI" de Adam Wathan y Steve Schoger (libro de los creadores de Tailwind sobre diseño para desarrolladores)</li>
+</ul>
+<h3 id="herramientas-complementarias">Herramientas complementarias</h3>
+<ul>
+<li>Headwind: extensión de VS Code para ordenar clases de Tailwind automáticamente</li>
+<li>Tailwind Fold: extensión de VS Code para plegar clases de Tailwind largas</li>
+<li>Prettier plugin para Tailwind: https://github.com/tailwindlabs/prettier-plugin-tailwindcss</li>
+<li>Color.review: herramienta web para verificar contraste de colores con espacio oklch</li>
+<li>OKLCH Color Picker: https://oklch.com</li>
+</ul>
+<h3 id="comunidad-y-referencias">Comunidad y referencias</h3>
+<ul>
+<li>Tailwind CSS GitHub Discussions: https://github.com/tailwindlabs/tailwindcss/discussions</li>
+<li>Tailwind CSS Showcase: https://tailwindcss.com/showcase</li>
+<li>Tailwind UI (componentes de pago de referencia, no necesarios pero inspiradores): https://tailwindui.com</li>
+<li>Awesome Tailwind CSS: https://github.com/aniftyco/awesome-tailwindcss (lista curada de recursos)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

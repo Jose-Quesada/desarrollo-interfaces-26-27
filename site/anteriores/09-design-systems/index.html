@@ -1,0 +1,2191 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes básicos de Angular para Martos y alrededores.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Design Systems - Curso de Angular</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#design-systems" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Curso de Angular" class="md-header__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Angular
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Design Systems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Curso de Angular" class="md-nav__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Curso de Angular
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  00.Introduccion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  01.UX
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  02.Accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objetivos de aprendizaje
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-asociado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resultado de aprendizaje asociado
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conocimientos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conocimientos previos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Contenidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo-teorico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo teórico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo teórico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#seccion-a-que-es-un-design-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN A — QUÉ ES UN DESIGN SYSTEM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-b-atomic-design-aplicado-a-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN B — ATOMIC DESIGN APLICADO A ANGULAR
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN B — ATOMIC DESIGN APLICADO A ANGULAR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atomos-los-bloques-fundamentales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Átomos: los bloques fundamentales
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moleculas-combinacion-de-atomos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Moléculas: combinación de átomos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organismos-secciones-funcionales-complejas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Organismos: secciones funcionales complejas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates-estructura-de-pagina" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Templates: estructura de página
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paginas-instancias-concretas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Páginas: instancias concretas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicacion-practica-de-la-estructura-atomic-design-en-el-proyecto-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Aplicación práctica de la estructura Atomic Design en el proyecto Angular
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-c-design-tokens-en-profundidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN C — DESIGN TOKENS EN PROFUNDIDAD
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN C — DESIGN TOKENS EN PROFUNDIDAD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categorias-de-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Categorías de tokens
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacion-en-tailwind-4-con-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Implementación en Tailwind 4 con @theme
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokens-en-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tokens en TypeScript
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sincronizacion-figma-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sincronización Figma ↔ Código
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-d-construccion-de-un-design-system-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN D — CONSTRUCCIÓN DE UN DESIGN SYSTEM PASO A PASO
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN D — CONSTRUCCIÓN DE UN DESIGN SYSTEM PASO A PASO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-auditoria-de-interfaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Paso 1: Auditoría de interfaz
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-definir-principios-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Paso 2: Definir principios de diseño
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-definir-design-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Paso 3: Definir Design Tokens
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-implementar-tokens-en-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Paso 4: Implementar tokens en Tailwind
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-5-construir-componentes-atomicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Paso 5: Construir componentes atómicos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-6-construir-componentes-moleculares-y-organismos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Paso 6: Construir componentes moleculares y organismos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-7-documentar-en-storybook" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Paso 7: Documentar en Storybook
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-8-versionar-y-mantener" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Paso 8: Versionar y mantener
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-e-escalas-y-sistemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN E — ESCALAS Y SISTEMAS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN E — ESCALAS Y SISTEMAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escala-tipografica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escala tipográfica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escala-de-espaciado-baseline-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escala de espaciado (baseline grid)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paletas-de-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Paletas de color
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escala-de-sombras" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escala de sombras
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#border-radius" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Border radius
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-f-casos-reales-de-design-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN F — CASOS REALES DE DESIGN SYSTEMS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN F — CASOS REALES DE DESIGN SYSTEMS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#material-design-3-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Material Design 3 (Google)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ant-design-alibaba" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ant Design (Alibaba)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carbon-ibm" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Carbon (IBM)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectrum-adobe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Spectrum (Adobe)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightning-salesforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lightning (Salesforce)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccion-g-theme-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SECCIÓN G — THEME PROVIDER
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECCIÓN G — THEME PROVIDER">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementacion-del-themeservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Implementación del ThemeService
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-de-variables-css-para-temas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Uso de variables CSS para temas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componente-themetoggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Componente ThemeToggle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-guiados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplos guiados
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos guiados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-1-crear-un-design-system-desde-cero-para-una-aplicacion-saas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 1: Crear un Design System desde cero para una aplicación SaaS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-2-implementar-atomic-design-en-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 2: Implementar Atomic Design en Angular
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-guiado-3-crear-un-themeprovider-con-multiples-temas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo guiado 3: Crear un ThemeProvider con múltiples temas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-guiadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades guiadas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades guiadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-1-auditoria-visual-de-una-aplicacion-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 1: Auditoría visual de una aplicación web
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-2-definir-design-tokens-para-una-aplicacion-de-e-commerce" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 2: Definir Design Tokens para una aplicación de e-commerce
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-guiada-3-construir-un-themeprovider-con-3-temas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad guiada 3: Construir un ThemeProvider con 3 temas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-propuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades propuestas
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades propuestas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-1-construir-un-design-system-completo-para-una-aplicacion-de-banca-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 1: Construir un Design System completo para una aplicación de banca digital
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-2-sincronizar-design-tokens-entre-figma-y-codigo-con-style-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 2: Sincronizar Design Tokens entre Figma y código con Style Dictionary
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-3-implementar-atomic-design-en-un-proyecto-angular-existente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 3: Implementar Atomic Design en un proyecto Angular existente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-4-crear-un-theme-switcher-avanzado-con-previsualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 4: Crear un Theme Switcher avanzado con previsualización
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-propuesta-5-auditoria-de-accesibilidad-del-design-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad propuesta 5: Auditoría de accesibilidad del Design System
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades de ampliación
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividades de ampliación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-1-implementar-un-theme-builder-visual-wysiwyg" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliación 1: Implementar un Theme Builder visual (WYSIWYG)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-2-migrar-un-design-system-de-css-tradicional-a-tailwind-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliación 2: Migrar un Design System de CSS tradicional a Tailwind 4
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividad-de-ampliacion-3-crear-un-plugin-de-figma-para-exportar-componentes-a-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividad de ampliación 3: Crear un plugin de Figma para exportar componentes a Angular
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Buenas prácticas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errores-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Errores frecuentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-complementarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recursos complementarios
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursos complementarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentación oficial
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Herramientas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libros" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libros
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-systems-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Design Systems de referencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#articulos-y-guias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Artículos y guías
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="design-systems">Design Systems</h1>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p>Al finalizar esta unidad, el alumnado será capaz de:
+- Comprender qué es un Design System, sus componentes y su valor estratégico en el desarrollo de interfaces profesionales.
+- Aplicar la metodología Atomic Design para descomponer una interfaz en átomos, moléculas, organismos, templates y páginas, y trasladar esta estructura a un proyecto Angular.
+- Definir, implementar y gestionar Design Tokens como fuente única de verdad visual, sincronizándolos entre Figma y código mediante Tailwind CSS 4.
+- Construir un Design System completo paso a paso, desde la auditoría visual hasta la documentación y el versionado.
+- Establecer escalas consistentes de tipografía, espaciado, color, sombras y bordes como base de un lenguaje visual coherente.
+- Analizar y extraer aprendizajes de Design Systems reales (Material Design 3, Ant Design, Carbon, Spectrum, Lightning) para aplicarlos en proyectos propios.
+- Implementar un ThemeProvider en Angular con Signals para alternar entre temas visuales (claro, oscuro, high-contrast).</p>
+<h2 id="resultado-de-aprendizaje-asociado">Resultado de aprendizaje asociado</h2>
+<p>RA3 del currículo de Desarrollo de Aplicaciones Multiplataforma (DAM): "Desarrolla componentes software para la interfaz de usuario, aplicando las técnicas de programación orientada a eventos y utilizando librerías de componentes."</p>
+<p>Criterios de evaluación relacionados:
+- Se han identificado las guías de estilo y los sistemas de diseño aplicables al desarrollo de interfaces.
+- Se han utilizado herramientas de diseño visual para la definición de componentes de interfaz.
+- Se ha documentado el sistema de diseño y los componentes desarrollados.
+- Se han creado componentes visuales reutilizables siguiendo un sistema de diseño consistente.</p>
+<h2 id="conocimientos-previos">Conocimientos previos</h2>
+<p>El alumnado debe dominar los siguientes conocimientos antes de abordar esta unidad:
+- Angular Standalone Components, Signals, @Input/@Output, proyección de contenido (Unidades 6 y 7).
+- Tailwind CSS 4: sistema de clases utilitarias, configuración con @theme, capas (base, components, utilities).
+- Figma: fundamentos de diseño de interfaces, manejo de estilos compartidos, componentes y variantes.
+- TypeScript: tipos avanzados, interfaces, objetos de configuración.
+- CSS avanzado: custom properties (variables CSS), herencia, especificidad.
+- Principios de diseño: teoría del color, tipografía, espaciado, jerarquía visual, accesibilidad (contraste WCAG).
+- Control de versiones con Git y convenciones de commit semántico.</p>
+<h2 id="contenidos">Contenidos</h2>
+<ol>
+<li>Fundamentos de Design Systems</li>
+<li>Atomic Design aplicado a Angular</li>
+<li>Design Tokens: de Figma a Tailwind</li>
+<li>Construcción de un Design System paso a paso</li>
+<li>Escalas y sistemas visuales</li>
+<li>Casos reales de Design Systems</li>
+<li>ThemeProvider y cambio de tema</li>
+</ol>
+<h2 id="desarrollo-teorico">Desarrollo teórico</h2>
+<h3 id="seccion-a-que-es-un-design-system">SECCIÓN A — QUÉ ES UN DESIGN SYSTEM</h3>
+<p>Un Design System es mucho más que una librería de componentes o una guía de estilos. Es un lenguaje visual compartido que establece las reglas, los principios y los activos que permiten a equipos multidisciplinares (diseño, desarrollo, producto, marketing) construir interfaces coherentes, escalables y eficientes. Un Design System es, en esencia, la materialización de la identidad visual de un producto o marca en un conjunto de herramientas reutilizables y documentadas.</p>
+<p>Los componentes fundamentales de un Design System son:</p>
+<ol>
+<li>
+<p><strong>Principios de diseño:</strong> Los valores y creencias que guían las decisiones de diseño. Por ejemplo: "Claridad sobre consistencia", "Accesibilidad primero", "Menos es más". Estos principios ayudan a decidir cuando surgen dudas sobre qué enfoque tomar.</p>
+</li>
+<li>
+<p><strong>Design Tokens:</strong> Las unidades atómicas del sistema visual. Colores, tipografía, espaciado, sombras, bordes y animaciones expresadas como variables que pueden consumirse tanto en herramientas de diseño (Figma) como en código (CSS custom properties, Tailwind @theme, TypeScript). Los tokens son la fuente única de verdad que garantiza la coherencia entre diseño y desarrollo.</p>
+</li>
+<li>
+<p><strong>Componentes:</strong> Bloques de construcción de la interfaz implementados como componentes Angular reutilizables (Button, Input, Card, Modal, etc.), cada uno con sus variantes, estados y documentación.</p>
+</li>
+<li>
+<p><strong>Patrones:</strong> Combinaciones frecuentes de componentes que resuelven problemas comunes de interfaz (formulario de búsqueda con filtros, tabla con paginación y ordenación, wizard multi-paso).</p>
+</li>
+<li>
+<p><strong>Documentación:</strong> Storybook, guías de uso, principios de diseño, tokens disponibles, ejemplos de código, consideraciones de accesibilidad y directrices de contribución.</p>
+</li>
+</ol>
+<p>Los beneficios de invertir en un Design System son sustanciales y medibles:
+- <strong>Consistencia visual:</strong> La misma paleta de colores, la misma tipografía, los mismos espaciados en toda la aplicación, sin desviaciones accidentales.
+- <strong>Velocidad de desarrollo:</strong> Los desarrolladores ensamblan interfaces a partir de componentes existentes en lugar de construir cada pantalla desde cero. Se estima que un Design System reduce el tiempo de desarrollo de nuevas funcionalidades entre un 25% y un 50%.
+- <strong>Escalabilidad:</strong> Nuevas features y nuevos productos pueden construirse sobre la misma base, garantizando que se vean y se comporten como parte de la misma familia.
+- <strong>Comunicación diseño-desarrollo:</strong> Un lenguaje compartido (tokens, componentes nombrados) elimina ambigüedades y reduce el ida y vuelta entre diseñadores y desarrolladores.
+- <strong>Onboarding más rápido:</strong> Los nuevos miembros del equipo tienen un catálogo documentado de lo que existe y cómo usarlo, en lugar de tener que descubrirlo explorando el código.</p>
+<h3 id="seccion-b-atomic-design-aplicado-a-angular">SECCIÓN B — ATOMIC DESIGN APLICADO A ANGULAR</h3>
+<p>Atomic Design, metodología creada por Brad Frost, propone descomponer las interfaces en cinco niveles jerárquicos de complejidad creciente. Esta metodología se adapta perfectamente a la arquitectura de componentes de Angular y proporciona un marco mental para organizar el catálogo de componentes de un Design System.</p>
+<h4 id="atomos-los-bloques-fundamentales">Átomos: los bloques fundamentales</h4>
+<p>Los átomos son los elementos más básicos de la interfaz: etiquetas HTML nativas estilizadas y los tokens de diseño aplicados a ellas. En el contexto de Angular + Tailwind, los átomos no suelen ser componentes independientes, sino que se implementan como:
+- <strong>Design Tokens en Tailwind:</strong> La configuración <code>@theme</code> define los átomos de color (colores primitivos y semánticos), tipografía (familias, tamaños, pesos, alturas de línea) y espaciado (escala base de 4px).
+- <strong>Estilos base (layer base de Tailwind):</strong> Estilos globales para elementos HTML nativos como <code>h1-h6</code>, <code>p</code>, <code>a</code>, <code>ul</code>, <code>ol</code>, <code>blockquote</code>, <code>code</code>, que se definen una sola vez y afectan a toda la aplicación.
+- <strong>Componentes atómicos simples:</strong> <code>BadgeComponent</code>, <code>AvatarComponent</code>, <code>IconComponent</code>, <code>DividerComponent</code> — componentes que envuelven un único concepto visual sin composición de otros componentes.</p>
+<p>Ejemplo de átomos como tokens en Tailwind 4:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/* styles/tokens.css - Capa @theme de Tailwind 4 */
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>@import "tailwindcss";
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>@theme {
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  /* Colores primitivos */
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  --color-blue-50: #eff6ff;
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  --color-blue-100: #dbeafe;
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  --color-blue-500: #3b82f6;
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  --color-blue-600: #2563eb;
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  --color-blue-700: #1d4ed8;
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  --color-gray-50: #f9fafb;
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  --color-gray-100: #f3f4f6;
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  --color-gray-200: #e5e7eb;
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  --color-gray-500: #6b7280;
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  --color-gray-700: #374151;
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  --color-gray-900: #111827;
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  /* Colores semanticos */
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  --color-primary: var(--color-blue-600);
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>  --color-primary-hover: var(--color-blue-700);
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  --color-primary-light: var(--color-blue-50);
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  --color-success: #059669;
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>  --color-warning: #d97706;
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>  --color-error: #dc2626;
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>  --color-info: #2563eb;
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>  /* Tipografia */
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>  --font-family-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>  --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>  /* Escala tipografica modular */
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>  --font-size-xs: 0.75rem;    /* 12px */
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>  --font-size-sm: 0.875rem;   /* 14px */
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>  --font-size-base: 1rem;     /* 16px */
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>  --font-size-lg: 1.125rem;   /* 18px */
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>  --font-size-xl: 1.25rem;    /* 20px */
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>  --font-size-2xl: 1.5rem;    /* 24px */
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>  --font-size-3xl: 1.875rem;  /* 30px */
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>  --font-size-4xl: 2.25rem;   /* 36px */
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>  --font-size-5xl: 3rem;      /* 48px */
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>  /* Escala de espaciado (baseline grid 4px) */
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>  --spacing-1: 0.25rem;   /* 4px */
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>  --spacing-2: 0.5rem;    /* 8px */
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>  --spacing-3: 0.75rem;   /* 12px */
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>  --spacing-4: 1rem;      /* 16px */
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>  --spacing-5: 1.25rem;   /* 20px */
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>  --spacing-6: 1.5rem;    /* 24px */
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>  --spacing-8: 2rem;      /* 32px */
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>  --spacing-10: 2.5rem;   /* 40px */
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>  --spacing-12: 3rem;     /* 48px */
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>  --spacing-16: 4rem;     /* 64px */
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>  /* Sombras (escala de elevacion) */
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>  /* Bordes */
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>  --radius-sm: 0.375rem;   /* 6px */
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>  --radius-md: 0.5rem;     /* 8px */
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>  --radius-lg: 0.75rem;    /* 12px */
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>  --radius-xl: 1rem;       /* 16px */
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>  --radius-full: 9999px;
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>}
+</span></code></pre></div>
+<h4 id="moleculas-combinacion-de-atomos">Moléculas: combinación de átomos</h4>
+<p>Las moléculas son combinaciones de átomos que funcionan juntos como una unidad. En Angular, las moléculas son componentes que combinan elementos HTML (átomos) y posiblemente otros componentes atómicos para formar una unidad funcional con propósito específico.</p>
+<p>Ejemplos de moléculas en Angular:
+- <strong>FormFieldComponent:</strong> Combina un <code>label</code> (átomo), un <code>input</code> (átomo HTML), un mensaje de <code>error</code> (átomo de texto) y posiblemente un <code>icon</code> (átomo visual) en una unidad cohesiva de entrada de datos.
+- <strong>SearchBarComponent:</strong> Combina un <code>FormField</code> o un <code>input</code> con un <code>Button</code> de búsqueda y posiblemente un <code>Dropdown</code> de filtros.
+- <strong>NavItemComponent:</strong> Combina un <code>icon</code> con un texto y un enlace, con estado activo basado en la ruta actual.
+- <strong>StatCardComponent:</strong> Combina un <code>Card</code> (molécula/átomo), texto (átomo), badge de tendencia (átomo) y posiblemente un icono.
+- <strong>ListItemComponent:</strong> Combina un <code>Avatar</code>, texto primario, texto secundario y acciones (botones o iconos).</p>
+<p>Ejemplo de molécula SearchBar:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@Component({
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  selector: 'ui-search-bar',
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  standalone: true,
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  template: `
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    &lt;div class="relative"&gt;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      &lt;div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"&gt;
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        &lt;svg class="h-5 w-5 text-gray-400" aria-hidden="true" ...&gt;&lt;!-- icono lupa --&gt;&lt;/svg&gt;
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>      &lt;/div&gt;
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      &lt;input
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        type="search"
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        [placeholder]="placeholder()"
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        [value]="value()"
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        (input)="onInput($event)"
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        (keydown.escape)="clear()"
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        class="block w-full rounded-lg border border-gray-300 bg-white py-2 pl-10 pr-10 text-sm
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>               placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500" /&gt;
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>      @if (value()) {
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        &lt;button
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>          type="button"
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>          class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>          (click)="clear()"&gt;
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>          &lt;svg class="h-5 w-5" aria-label="Limpiar busqueda" ...&gt;&lt;!-- icono X --&gt;&lt;/svg&gt;
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        &lt;/button&gt;
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>      }
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    &lt;/div&gt;
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>  `,
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>})
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>export class SearchBarComponent {
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>  value = model('');
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>  placeholder = input('Buscar...');
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>  search = output&lt;string&gt;();
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>  onInput(event: Event): void { ... }
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>  clear(): void { this.value.set(''); }
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>}
+</span></code></pre></div>
+<h4 id="organismos-secciones-funcionales-complejas">Organismos: secciones funcionales complejas</h4>
+<p>Los organismos son conjuntos de moléculas y átomos que forman una sección distintiva de la interfaz. Son lo suficientemente complejos como para tener una función autónoma dentro de la página, pero no son páginas completas. En Angular, los organismos son Smart Components o componentes compuestos que orquestan múltiples moléculas.</p>
+<p>Ejemplos de organismos:
+- <strong>HeaderComponent:</strong> Contiene el logotipo, la navegación principal (múltiples NavItem), la barra de búsqueda (SearchBar), el menú de usuario (Dropdown) y el toggle de tema (ThemeToggle).
+- <strong>DataTableWithFiltersComponent:</strong> Combina una barra de filtros (SearchBar + Dropdowns + DatePicker), una tabla de datos (DataTable) con paginación, y un contador de resultados.
+- <strong>ProductFormComponent:</strong> Formulario completo con secciones de datos básicos, imágenes, precios y variantes, cada una con múltiples FormField.
+- <strong>NotificationCenterComponent:</strong> Panel que lista notificaciones (ListItem + Badge) con un botón "Marcar todas como leídas".</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>@Component({
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  selector: 'app-header',
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  standalone: true,
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  imports: [SearchBarComponent, ThemeToggleComponent, DropdownComponent, RouterLink],
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  template: `
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    &lt;header class="sticky top-0 z-40 border-b border-gray-200 bg-white"&gt;
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>      &lt;div class="flex h-16 items-center gap-4 px-4 sm:px-6"&gt;
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        &lt;!-- Logo --&gt;
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        &lt;a routerLink="/" class="flex items-center gap-2"&gt;
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>          &lt;img src="../logo.svg" alt="Logo" class="h-8 w-auto" /&gt;
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>          &lt;span class="text-lg font-bold text-gray-900"&gt;Brand&lt;/span&gt;
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        &lt;/a&gt;
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        &lt;!-- Navegacion principal --&gt;
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        &lt;nav class="hidden md:flex items-center gap-1 ml-8" aria-label="Navegacion principal"&gt;
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>          @for (item of navItems(); track item.label) {
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            &lt;a [routerLink]="item.route"
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>               class="rounded-lg px-3 py-2 text-sm font-medium transition-colors"
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>               [routerLinkActive]="'bg-gray-100 text-gray-900'"
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>               [routerLinkActiveOptions]="{ exact: item.exact }"&gt;
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>              {{ item.label }}
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>            &lt;/a&gt;
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>          }
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>        &lt;/nav&gt;
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>        &lt;!-- Espaciador --&gt;
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>        &lt;div class="flex-1"&gt;&lt;/div&gt;
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>        &lt;!-- Busqueda (escritorio) --&gt;
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>        &lt;div class="hidden lg:block w-80"&gt;
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>          &lt;ui-search-bar placeholder="Buscar..." /&gt;
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>        &lt;/div&gt;
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>        &lt;!-- Acciones --&gt;
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>        &lt;div class="flex items-center gap-2"&gt;
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>          &lt;ui-theme-toggle /&gt;
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>          &lt;ui-dropdown [items]="userMenuItems()" placement="bottom-end"&gt;
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>            &lt;button dropdown-trigger class="flex items-center gap-2"&gt;
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>              &lt;ui-avatar [name]="userName()" size="sm" /&gt;
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>              &lt;span class="hidden sm:block text-sm font-medium"&gt;{{ userName() }}&lt;/span&gt;
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>            &lt;/button&gt;
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>          &lt;/ui-dropdown&gt;
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>        &lt;/div&gt;
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>      &lt;/div&gt;
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>    &lt;/header&gt;
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>  `,
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>})
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>export class HeaderComponent { ... }
+</span></code></pre></div>
+<h4 id="templates-estructura-de-pagina">Templates: estructura de página</h4>
+<p>Los templates son la estructura de página donde los organismos se combinan para formar el layout completo. Definen la disposición espacial y el esqueleto, pero sin contenido real. En Angular, el template por excelencia es el <code>LayoutComponent</code> que contiene el header, sidebar, área de contenido y footer.</p>
+<h4 id="paginas-instancias-concretas">Páginas: instancias concretas</h4>
+<p>Las páginas son instancias específicas de templates rellenas con contenido real. Por ejemplo, el <code>DashboardPageComponent</code> es una página que utiliza el <code>LayoutComponent</code> como template y lo rellena con datos reales de estadísticas, gráficos y tablas. Las páginas son donde se prueba que el Design System funciona en condiciones reales.</p>
+<h4 id="aplicacion-practica-de-la-estructura-atomic-design-en-el-proyecto-angular">Aplicación práctica de la estructura Atomic Design en el proyecto Angular</h4>
+<p>La estructura de carpetas del proyecto refleja naturalmente la jerarquía de Atomic Design:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>src/app/
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── design-system/          # Átomos (tokens, configuración)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│   ├── tokens.css          # Design Tokens (@theme de Tailwind)
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│   └── theme.service.ts    # Servicio de tema
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>├── shared/                 # Átomos y moléculas reutilizables
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│   └── components/
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│       ├── button/         # Átomo
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│       ├── badge/          # Átomo
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│       ├── avatar/         # Átomo
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│       ├── form-field/     # Molécula (label + input + error)
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│       ├── search-bar/     # Molécula (input + icono + boton)
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>│       ├── data-table/     # Organismo (tabla + paginacion + estados)
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>│       └── modal/          # Organismo (overlay + panel + animaciones)
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>├── layout/                 # Templates
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│   ├── layout.component.ts
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>│   ├── header/             # Organismo
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>│   ├── sidebar/            # Organismo
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>│   └── footer/             # Organismo
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>└── features/               # Páginas
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    ├── dashboard/
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    │   └── dashboard.page.ts
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    └── products/
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        └── products.page.ts
+</span></code></pre></div>
+<h3 id="seccion-c-design-tokens-en-profundidad">SECCIÓN C — DESIGN TOKENS EN PROFUNDIDAD</h3>
+<h4 id="categorias-de-tokens">Categorías de tokens</h4>
+<p>Los Design Tokens se organizan en tres niveles jerárquicos, cada uno con un propósito y un ámbito de uso específico:</p>
+<p><strong>Tokens globales (opciones primitivas):</strong> Son los valores más básicos y atómicos. No tienen significado semántico, solo representan opciones disponibles en la paleta. Ejemplos:
+- <code>--color-blue-500: #3b82f6</code>
+- <code>--color-red-500: #ef4444</code>
+- <code>--font-size-16: 1rem</code>
+- <code>--spacing-16: 1rem</code></p>
+<p>Estos tokens no deberían usarse directamente en componentes, porque si se decide cambiar el color primario de azul a verde, habría que modificar todos los componentes individualmente.</p>
+<p><strong>Tokens de alias (semánticos):</strong> Mapean los tokens globales a significados funcionales en el contexto de la aplicación. Son el nivel que los componentes deben consumir:
+- <code>--color-primary: var(--color-blue-600)</code>
+- <code>--color-success: var(--color-green-600)</code>
+- <code>--color-text-primary: var(--color-gray-900)</code>
+- <code>--color-text-secondary: var(--color-gray-500)</code></p>
+<p>Si el color primario cambia de azul a verde, solo se modifica la definición del alias, y todos los componentes que usan <code>--color-primary</code> se actualizan automáticamente. Esta indirección es la clave de la flexibilidad de un Design System.</p>
+<p><strong>Tokens de componente:</strong> Valores específicos para componentes concretos que heredan de los tokens semánticos pero pueden sobrescribirse:
+- <code>--button-primary-bg: var(--color-primary)</code>
+- <code>--button-primary-text: var(--color-white)</code>
+- <code>--card-padding-x: var(--spacing-6)</code>
+- <code>--card-border-radius: var(--radius-xl)</code></p>
+<h4 id="implementacion-en-tailwind-4-con-theme">Implementación en Tailwind 4 con @theme</h4>
+<p>Tailwind 4 introduce la directiva <code>@theme</code> que permite definir tokens directamente en CSS, reemplazando el antiguo archivo de configuración <code>tailwind.config.js</code>. Los tokens definidos en <code>@theme</code> se integran automáticamente con el motor de clases utilitarias y están disponibles mediante la función <code>theme()</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/* styles/tokens.css */
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>@import "tailwindcss";
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>@theme {
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  /* Colores semanticos */
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  --color-primary: var(--color-blue-600);
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  --color-primary-light: var(--color-blue-50);
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  --color-primary-dark: var(--color-blue-700);
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  --color-surface: var(--color-white);
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  --color-surface-secondary: var(--color-gray-50);
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  --color-text-primary: var(--color-gray-900);
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  --color-text-secondary: var(--color-gray-500);
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  --color-text-disabled: var(--color-gray-400);
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  --color-border: var(--color-gray-200);
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  --color-border-focus: var(--color-blue-500);
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>}
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>/* En componentes: usar las clases generadas automaticamente */
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>/* bg-primary, text-primary, border-primary, etc. */
+</span></code></pre></div>
+<h4 id="tokens-en-typescript">Tokens en TypeScript</h4>
+<p>En ocasiones, los tokens de diseño necesitan estar disponibles en la lógica TypeScript del componente (por ejemplo, para pasarlos como datos a una librería de gráficos, para configurar colores de un canvas, o para animaciones procedurales). Para estos casos, se define un archivo de tokens en TypeScript que replica la misma información que el CSS:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// design-system/tokens.ts
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>export const tokens = {
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  colors: {
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    primary: {
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>      50: '#eff6ff',
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>      100: '#dbeafe',
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>      500: '#3b82f6',
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>      600: '#2563eb',
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>      700: '#1d4ed8',
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    },
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    success: '#059669',
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    warning: '#d97706',
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    error: '#dc2626',
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>  },
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>  spacing: {
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    1: '0.25rem',
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    2: '0.5rem',
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    4: '1rem',
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    6: '1.5rem',
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    8: '2rem',
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>  },
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>  fontSize: {
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    xs: '0.75rem',
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    sm: '0.875rem',
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>    base: '1rem',
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    lg: '1.125rem',
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>    xl: '1.25rem',
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>  },
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>  borderRadius: {
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>    sm: '0.375rem',
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>    md: '0.5rem',
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>    lg: '0.75rem',
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>    xl: '1rem',
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>  },
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>  shadow: {
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>    sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>    md: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>    lg: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>  },
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>} as const;
+</span></code></pre></div>
+<p>Para mantener la sincronización entre los tokens CSS y TypeScript, se pueden utilizar herramientas como Style Dictionary, que genera ambos formatos a partir de una única fuente en JSON o YAML.</p>
+<h4 id="sincronizacion-figma-codigo">Sincronización Figma ↔ Código</h4>
+<p>La sincronización entre Figma (diseño) y el código (Tailwind + Angular) es uno de los mayores desafíos en la implementación de Design Systems. Existen varias estrategias y herramientas:</p>
+<p><strong>Figma Tokens (plugin):</strong> Este plugin permite definir Design Tokens directamente en Figma y exportarlos a formato JSON. Luego, herramientas como Style Dictionary pueden transformar ese JSON en variables CSS de Tailwind y en el archivo <code>tokens.ts</code> de TypeScript. El flujo es: Figma → JSON → Style Dictionary → CSS + TypeScript.</p>
+<p><strong>Variables de Figma:</strong> Las variables nativas de Figma (introducidas en 2023) permiten definir tokens directamente en la herramienta de diseño. A través de la API REST de Figma, se pueden extraer estas variables y transformarlas a código mediante scripts automatizados.</p>
+<p><strong>Workflow bidireccional ideal:</strong>
+1. Los diseñadores definen/actualizan tokens en Figma (usando Figma Tokens o Variables).
+2. Un pipeline de CI/CD (GitHub Actions) ejecuta un script que: extrae los tokens de Figma vía API, los transforma a CSS (@theme) y TypeScript usando Style Dictionary, y crea un Pull Request automático con los cambios.
+3. Los desarrolladores revisan y aprueban el PR, integrando los tokens actualizados.
+4. Los componentes Angular consumen los nuevos tokens automáticamente gracias a Tailwind y al archivo <code>tokens.ts</code>.</p>
+<h3 id="seccion-d-construccion-de-un-design-system-paso-a-paso">SECCIÓN D — CONSTRUCCIÓN DE UN DESIGN SYSTEM PASO A PASO</h3>
+<h4 id="paso-1-auditoria-de-interfaz">Paso 1: Auditoría de interfaz</h4>
+<p>La auditoría consiste en inventariar sistemáticamente todos los elementos visuales existentes en la aplicación. El objetivo es identificar:
+- Colores utilizados (muchas veces hay 15 azules ligeramente diferentes).
+- Tamaños de fuente y familias tipográficas presentes.
+- Tipos de botones y sus variaciones visuales.
+- Tipos de tarjetas, modales, formularios.
+- Patrones de espaciado utilizados (márgenes, paddings).
+- Inconsistencias: elementos que deberían ser iguales pero son diferentes.</p>
+<p>Herramientas para la auditoría: capturas de pantalla de todas las pantallas, extensión "CSS Peeper" para extraer estilos, e inspección manual con DevTools. El resultado de la auditoría es un documento que lista todos los hallazgos y las inconsistencias detectadas.</p>
+<h4 id="paso-2-definir-principios-de-diseno">Paso 2: Definir principios de diseño</h4>
+<p>Los principios de diseño son 3-5 frases que resumen los valores que guiarán las decisiones del Design System. Ejemplos de principios comunes:</p>
+<ul>
+<li><strong>"Claridad ante todo":</strong> La interfaz debe comunicar la información de forma inequívoca. Si un elemento puede malinterpretarse, debe rediseñarse.</li>
+<li><strong>"Accesibilidad por defecto":</strong> Todo componente debe cumplir WCAG AA desde su primera implementación. La accesibilidad no es opcional ni un añadido posterior.</li>
+<li><strong>"Consistencia, no uniformidad":</strong> Elementos similares deben comportarse de forma similar, pero la consistencia no debe sacrificar la usabilidad específica de cada contexto.</li>
+<li><strong>"Menos es más":</strong> Ante la duda, eliminar. Cada elemento en pantalla debe justificar su presencia.</li>
+<li><strong>"Progressive enhancement":</strong> La funcionalidad básica debe funcionar en todos los navegadores y dispositivos; las mejoras visuales y de interacción se añaden progresivamente.</li>
+</ul>
+<h4 id="paso-3-definir-design-tokens">Paso 3: Definir Design Tokens</h4>
+<p>Con la auditoría completada, se procede a consolidar todos los valores en un conjunto coherente de tokens:
+- Consolidar colores: elegir una paleta principal con escalas de 50 a 950 para cada matiz, definir colores semánticos (primary, success, warning, error, info) y colores de superficie y texto.
+- Definir la escala tipográfica: elegir una o dos familias tipográficas, definir la escala modular de tamaños y sus pesos y alturas de línea asociados.
+- Definir la escala de espaciado: baseline grid de 4px u 8px, definiendo los valores de spacing desde 1 (4px) hasta 16 (64px) o más.
+- Definir sombras/elevación (1-5 niveles) y bordes redondeados (escala de 3 valores: sm, md, lg).</p>
+<h4 id="paso-4-implementar-tokens-en-tailwind">Paso 4: Implementar tokens en Tailwind</h4>
+<p>Crear el archivo <code>design-system/tokens.css</code> con la directiva <code>@theme</code> de Tailwind 4 que contiene todos los tokens definidos. Importar este archivo en el <code>styles.css</code> global:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/* styles.css */
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>@import './app/design-system/tokens.css';
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>/* Estilos base para elementos HTML (atomos de tipografia) */
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>@layer base {
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  h1 { font-size: var(--font-size-3xl); font-weight: 700; line-height: 1.2; }
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  h2 { font-size: var(--font-size-2xl); font-weight: 600; line-height: 1.3; }
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  h3 { font-size: var(--font-size-xl); font-weight: 600; line-height: 1.4; }
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  body { font-family: var(--font-family-sans); color: var(--color-text-primary); }
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>}
+</span></code></pre></div>
+<h4 id="paso-5-construir-componentes-atomicos">Paso 5: Construir componentes atómicos</h4>
+<p>Comenzar por los componentes más básicos (Botón, Input, Badge, Avatar, Icon) y construirlos siguiendo estrictamente los tokens definidos. Cada componente debe usar exclusivamente las clases de Tailwind generadas a partir de los tokens, nunca valores hardcodeados como <code>#3b82f6</code> o <code>16px</code>.</p>
+<h4 id="paso-6-construir-componentes-moleculares-y-organismos">Paso 6: Construir componentes moleculares y organismos</h4>
+<p>Con la base atómica sólida, construir las moléculas (FormField, SearchBar, NavItem) y los organismos (Header, Sidebar, DataTable, ProductForm) componiendo los átomos y moléculas ya existentes.</p>
+<h4 id="paso-7-documentar-en-storybook">Paso 7: Documentar en Storybook</h4>
+<p>Cada componente debe documentarse en Storybook con:
+- Descripción del propósito y uso del componente.
+- Stories para cada variante y estado.
+- Tabla de inputs, outputs y slots de contenido.
+- Notas de accesibilidad.
+- Código de ejemplo listo para copiar y pegar.</p>
+<h4 id="paso-8-versionar-y-mantener">Paso 8: Versionar y mantener</h4>
+<p>El Design System es un producto vivo que evoluciona con la aplicación. Debe versionarse semánticamente (MAJOR.MINOR.PATCH):
+- <strong>MAJOR:</strong> Cambios que rompen la compatibilidad (eliminación de un componente, cambio en la API de inputs).
+- <strong>MINOR:</strong> Nuevos componentes o nuevas variantes en componentes existentes.
+- <strong>PATCH:</strong> Corrección de bugs visuales o de accesibilidad.</p>
+<p>Cada cambio debe documentarse en un CHANGELOG y comunicarse al equipo. Las deprecaciones deben anunciarse con al menos una versión de antelación, ofreciendo una migración clara.</p>
+<h3 id="seccion-e-escalas-y-sistemas">SECCIÓN E — ESCALAS Y SISTEMAS</h3>
+<h4 id="escala-tipografica">Escala tipográfica</h4>
+<p>Una escala tipográfica define un conjunto limitado y armonioso de tamaños de fuente. La escala modular (basada en una razón matemática, comúnmente 1.25 o 1.333) produce tamaños que guardan una relación proporcional entre sí, creando un ritmo visual agradable.</p>
+<p>Escala modular típica (razón 1.25):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>xs:   12px  (0.75rem)   — Texto auxiliar, notas legales
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sm:   14px  (0.875rem)  — Texto de cuerpo pequeño, labels
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>base: 16px  (1rem)      — Texto de cuerpo principal
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>lg:   18px  (1.125rem)  — Texto de cuerpo destacado
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>xl:   20px  (1.25rem)   — Subtítulos
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>2xl:  24px  (1.5rem)    — Títulos de sección
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>3xl:  30px  (1.875rem)  — Títulos de página (H1)
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>4xl:  36px  (2.25rem)   — Títulos principales (Hero)
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>5xl:  48px  (3rem)      — Títulos de landing page
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>6xl:  60px  (3.75rem)   — Títulos muy grandes (marketing)
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>7xl:  72px  (4.5rem)    — Super-títulos
+</span></code></pre></div></p>
+<h4 id="escala-de-espaciado-baseline-grid">Escala de espaciado (baseline grid)</h4>
+<p>El baseline grid establece que todos los espacios verticales y horizontales deben ser múltiplos de una unidad base (normalmente 4px). Esto garantiza un ritmo vertical consistente y alineación perfecta entre columnas y elementos.</p>
+<p>Escala de espaciado base 4px:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Token     REM        PX       Uso
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>spacing-1  0.25rem    4px     Espacio mínimo entre icono y texto
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>spacing-2  0.5rem     8px     Padding interior pequeño, gap entre badges
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>spacing-3  0.75rem   12px     Padding interior de inputs
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>spacing-4  1rem      16px     Padding de tarjetas, margen entre párrafos
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>spacing-5  1.25rem   20px     Margen entre secciones pequeñas
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>spacing-6  1.5rem    24px     Padding de tarjetas grandes
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>spacing-8  2rem      32px     Margen entre secciones
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>spacing-10 2.5rem    40px     Margen de página
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>spacing-12 3rem      48px     Separación entre grandes bloques
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>spacing-16 4rem      64px     Márgenes de layout en desktop
+</span></code></pre></div></p>
+<h4 id="paletas-de-color">Paletas de color</h4>
+<p>Cada color en el Design System debe tener una escala completa (50-950) que permita seleccionar el tono adecuado según el contexto. Las escalas se definen matemáticamente para que cada paso sea perceptiblemente diferente del anterior.</p>
+<p>Estructura de paleta semántica:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>primary:    blue-600      — Acciones principales, enlaces, elementos activos
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>success:    green-600     — Confirmaciones, estados positivos
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>warning:    yellow-600    — Advertencias, estados de atención
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>error:      red-600       — Errores, acciones destructivas
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>info:       blue-500      — Información, estados neutrales
+</span></code></pre></div></p>
+<p>Además de los colores semánticos, se necesitan colores de superficie y texto:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>surface:         white        — Fondo principal
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>surface-secondary: gray-50    — Fondo secundario (filas alternas, aside)
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>surface-tertiary: gray-100    — Fondo terciario (hover, seleccionado)
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>text-primary:    gray-900     — Texto principal
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>text-secondary:  gray-500     — Texto secundario, placeholders
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>text-disabled:   gray-400     — Texto deshabilitado
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>border:          gray-200     — Bordes
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>border-focus:    blue-500     — Borde en foco
+</span></code></pre></div></p>
+<h4 id="escala-de-sombras">Escala de sombras</h4>
+<p>Las sombras comunican elevación y jerarquía. Una escala de 1 a 5 niveles, de menor a mayor elevación, es suficiente para la mayoría de aplicaciones:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Nivel 1 (sm):   0 1px 2px 0 rgb(0 0 0 / 0.05)           — Tarjetas, inputs
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Nivel 2 (md):   0 4px 6px -1px rgb(0 0 0 / 0.1)         — Tarjetas con hover, dropdowns
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Nivel 3 (lg):   0 10px 15px -3px rgb(0 0 0 / 0.1)       — Modales, paneles desplegables
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Nivel 4 (xl):   0 20px 25px -5px rgb(0 0 0 / 0.1)       — Modales grandes, drawers
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Nivel 5 (2xl):  0 25px 50px -12px rgb(0 0 0 / 0.25)     — Solo para elementos muy destacados
+</span></code></pre></div>
+<h4 id="border-radius">Border radius</h4>
+<p>Una escala de 4-5 valores cubre todas las necesidades de redondeo:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sm:    0.375rem (6px)   — Checkboxes, badges pequeños
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>md:    0.5rem (8px)     — Botones, inputs, tabs
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>lg:    0.75rem (12px)   — Tarjetas, modales, dropdowns
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>xl:    1rem (16px)      — Tarjetas grandes, contenedores principales
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>full:  9999px           — Elementos circulares (avatares, badges circulares)
+</span></code></pre></div>
+<h3 id="seccion-f-casos-reales-de-design-systems">SECCIÓN F — CASOS REALES DE DESIGN SYSTEMS</h3>
+<h4 id="material-design-3-google">Material Design 3 (Google)</h4>
+<p>Material Design 3 (Material You) representa la evolución más reciente del sistema de diseño de Google. Sus características distintivas incluyen:
+- <strong>Dynamic Color:</strong> Extrae colores del wallpaper del usuario y genera automáticamente una paleta de colores completa (primario, secundario, terciario, neutral y sus variantes), demostrando el poder de los tokens semánticos.
+- <strong>Tokens en 3 niveles:</strong> Reference tokens (valores crudos de color, tipografía, forma), System tokens (mapeo semántico de los reference tokens al contexto), y Component tokens (valores específicos de cada componente Material).
+- <strong>Tipografía:</strong> Escala de 15 tamaños agrupados en 5 categorías (Display, Headline, Title, Body, Label), cada una con 3 tamaños.
+- <strong>Forma (Shape):</strong> Sistema de redondeo con 4 familias (none, extra small, small, medium, large, extra large, full) aplicables a 3 categorías de componentes.</p>
+<p>Lecciones para nuestro Design System:
+- La separación en 3 niveles de tokens es muy poderosa y debería adoptarse.
+- La generación dinámica de temas a partir de una semilla de color demuestra la importancia de los tokens semánticos.
+- La documentación exhaustiva y las guías de uso son tan importantes como los componentes mismos.</p>
+<h4 id="ant-design-alibaba">Ant Design (Alibaba)</h4>
+<p>Ant Design es el sistema de diseño enterprise más popular del mundo, creado por Alibaba. Sus características:
+- <strong>Enfoque enterprise:</strong> Diseñado para aplicaciones de gestión con mucha densidad de datos: tablas complejas, formularios extensos, flujos de trabajo.
+- <strong>Sistema de 10 colores:</strong> Paleta con 12 tonos por color, más colores funcionales (success, warning, error, info, link).
+- <strong>Componentes de alto nivel:</strong> Más de 60 componentes que cubren casos de uso enterprise (Transfer, Cascader, ProTable, ProForm).
+- <strong>Internacionalización integrada:</strong> Todos los componentes soportan i18n como ciudadano de primera clase.</p>
+<p>Lecciones: La densidad de información no está reñida con un diseño limpio si se gestiona adecuadamente el espaciado, el color y la jerarquía tipográfica. Ant Design demuestra que las aplicaciones de datos pueden ser visualmente agradables.</p>
+<h4 id="carbon-ibm">Carbon (IBM)</h4>
+<p>Carbon es el sistema de diseño open-source de IBM, orientado a productos enterprise con un fuerte énfasis en accesibilidad e inclusión:
+- <strong>Accesibilidad como requisito fundamental:</strong> Cada componente está diseñado y testeado para cumplir WCAG AA, con documentación específica de accesibilidad.
+- <strong>Sistema de grid 2x:</strong> El grid de Carbon usa el concepto de "2x grid" donde cada unidad de grid es 8px, y todo el layout se construye sobre múltiplos de 8.
+- <strong>Temas:</strong> Soporte para 4 temas (White, Gray 10, Gray 90, Gray 100) que cubren desde claro hasta oscuro extremo.
+- <strong>Data visualization:</strong> Componentes específicos para gráficos y visualizaciones de datos, un área que muchos Design Systems descuidan.</p>
+<p>Lecciones: La accesibilidad debe ser un pilar fundacional, no un añadido. El sistema de grid 2x (8px) es superior al tradicional 4px para aplicaciones enterprise porque reduce las opciones y fuerza decisiones más consistentes.</p>
+<h4 id="spectrum-adobe">Spectrum (Adobe)</h4>
+<p>Spectrum es el sistema de diseño de Adobe para sus productos Creative Cloud y Experience Cloud. Sus características:
+- <strong>Multiplataforma:</strong> Diseñado para funcionar en web, desktop y mobile con adaptaciones específicas para cada plataforma pero manteniendo el lenguaje visual.
+- <strong>Escala de títulos y cuerpos separadas:</strong> Spectrum distingue entre "heading" (para títulos) y "body" (para texto de lectura), con escalas diferentes.
+- <strong>Sistema de slots visuales:</strong> Componentes como Card, Dialog y Popover tienen "slots" predefinidos (imagen, encabezado, cuerpo, acciones) que guían la composición.</p>
+<p>Lecciones: La distinción entre plataformas es importante; un botón en web puede necesitar 40px de altura mínima (para touch), mientras que en desktop 32px es suficiente. El Design System debe contemplar estas diferencias.</p>
+<h4 id="lightning-salesforce">Lightning (Salesforce)</h4>
+<p>Lightning Design System es la base de todas las interfaces de Salesforce. Su enfoque:
+- <strong>Consistencia ecosistema:</strong> Cientos de aplicaciones construidas por equipos diferentes deben verse y comportarse como una sola.
+- <strong>Componentes accesibles e internacionalizados:</strong> Todo componente funciona con lectores de pantalla y soporta RTL (right-to-left) y traducción.
+- <strong>Sistema de iconos:</strong> Más de 500 iconos SVG personalizados y categorizados, disponibles como componentes o como URLs de sprite.</p>
+<p>Lecciones: Para grandes ecosistemas, la gobernanza del Design System es tan importante como su implementación técnica. Se necesita un proceso claro de contribución, revisión y aprobación de cambios.</p>
+<h3 id="seccion-g-theme-provider">SECCIÓN G — THEME PROVIDER</h3>
+<p>El ThemeProvider es el mecanismo que permite cambiar el tema visual de toda la aplicación en tiempo real (claro ↔ oscuro, o entre diferentes paletas corporativas). En Angular, se implementa como un servicio con Signals que manipula clases CSS a nivel de documento y, opcionalmente, variables CSS.</p>
+<h4 id="implementacion-del-themeservice">Implementación del ThemeService</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>@Injectable({ providedIn: 'root' })
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>export class ThemeService {
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  private readonly THEME_KEY = 'app-theme';
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  private themeSignal = signal&lt;'light' | 'dark' | 'high-contrast'&gt;(
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    this.loadInitialTheme()
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>  );
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>  currentTheme = this.themeSignal.asReadonly();
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>  // Opcional: color primario personalizable
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>  private primaryColorSignal = signal('#2563eb');
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>  primaryColor = this.primaryColorSignal.asReadonly();
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>  constructor() {
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>    this.applyTheme(this.themeSignal());
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>  }
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>  setTheme(theme: 'light' | 'dark' | 'high-contrast'): void {
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>    this.themeSignal.set(theme);
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>    this.applyTheme(theme);
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>    localStorage.setItem(this.THEME_KEY, theme);
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>  }
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>  toggleTheme(): void {
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>    const next = this.themeSignal() === 'dark' ? 'light' : 'dark';
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>    this.setTheme(next);
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>  }
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>  setPrimaryColor(color: string): void {
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>    this.primaryColorSignal.set(color);
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>    document.documentElement.style.setProperty('--color-primary', color);
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>  }
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>  private applyTheme(theme: string): void {
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>    const root = document.documentElement;
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a>
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>    // Limpiar clases de tema anteriores
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>    root.classList.remove('light', 'dark', 'high-contrast');
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>    root.classList.add(theme);
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a>
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a>    // Establecer color-scheme CSS para barras nativas del navegador
+</span><span id="__span-13-42"><a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a>    root.style.colorScheme = theme === 'dark' ? 'dark' : 'light';
+</span><span id="__span-13-43"><a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a>  }
+</span><span id="__span-13-44"><a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a>
+</span><span id="__span-13-45"><a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a>  private loadInitialTheme(): 'light' | 'dark' | 'high-contrast' {
+</span><span id="__span-13-46"><a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a>    const stored = localStorage.getItem(this.THEME_KEY) as any;
+</span><span id="__span-13-47"><a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a>    if (stored &amp;&amp; ['light', 'dark', 'high-contrast'].includes(stored)) {
+</span><span id="__span-13-48"><a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a>      return stored;
+</span><span id="__span-13-49"><a id="__codelineno-13-49" name="__codelineno-13-49" href="#__codelineno-13-49"></a>    }
+</span><span id="__span-13-50"><a id="__codelineno-13-50" name="__codelineno-13-50" href="#__codelineno-13-50"></a>    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+</span><span id="__span-13-51"><a id="__codelineno-13-51" name="__codelineno-13-51" href="#__codelineno-13-51"></a>  }
+</span><span id="__span-13-52"><a id="__codelineno-13-52" name="__codelineno-13-52" href="#__codelineno-13-52"></a>}
+</span></code></pre></div>
+<h4 id="uso-de-variables-css-para-temas">Uso de variables CSS para temas</h4>
+<p>En lugar de depender exclusivamente del selector <code>.dark</code> de Tailwind, se pueden usar variables CSS para definir los colores del tema y luego cambiarlas con JavaScript cuando el tema cambia:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/* tokens.css - Definicion de variables para temas */
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>@theme {
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  --color-surface: var(--surface-color);
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  --color-text-primary: var(--text-primary-color);
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>  --color-border: var(--border-color);
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>}
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>/* Tema claro (por defecto) */
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>:root, .light {
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>  --surface-color: #ffffff;
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>  --text-primary-color: #111827;
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>  --border-color: #e5e7eb;
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>}
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>/* Tema oscuro */
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>.dark {
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>  --surface-color: #1f2937;
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>  --text-primary-color: #f9fafb;
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>  --border-color: #374151;
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>}
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>/* Tema high-contrast */
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>.high-contrast {
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>  --surface-color: #000000;
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>  --text-primary-color: #ffffff;
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>  --border-color: #ffffff;
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>}
+</span></code></pre></div>
+<h4 id="componente-themetoggle">Componente ThemeToggle</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>@Component({
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  selector: 'ui-theme-toggle',
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  standalone: true,
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  template: `
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    &lt;button
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>      type="button"
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>      class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>      (click)="themeService.toggleTheme()"
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>      [attr.aria-label]="'Cambiar a modo ' + nextThemeLabel()"&gt;
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>      @if (themeService.currentTheme() === 'dark') {
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>        &lt;!-- Icono sol --&gt;
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>        &lt;svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>          &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /&gt;
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>        &lt;/svg&gt;
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>      } @else {
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>        &lt;!-- Icono luna --&gt;
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>        &lt;svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>          &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /&gt;
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>        &lt;/svg&gt;
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>      }
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>    &lt;/button&gt;
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>  `,
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>})
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>export class ThemeToggleComponent {
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>  themeService = inject(ThemeService);
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>  nextThemeLabel = computed(() =&gt;
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a>    this.themeService.currentTheme() === 'dark' ? 'claro' : 'oscuro'
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>  );
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a>}
+</span></code></pre></div>
+<hr />
+<h2 id="ejemplos-guiados">Ejemplos guiados</h2>
+<h3 id="ejemplo-guiado-1-crear-un-design-system-desde-cero-para-una-aplicacion-saas">Ejemplo guiado 1: Crear un Design System desde cero para una aplicación SaaS</h3>
+<p><strong>Objetivo:</strong> Construir paso a paso todos los elementos de un Design System para una aplicación SaaS de gestión de proyectos, desde los tokens hasta los componentes base.</p>
+<p><strong>Paso 1 — Auditoría visual de una app existente:</strong> El docente proporciona capturas de una aplicación SaaS con múltiples pantallas (dashboard, lista de proyectos, detalle de proyecto, configuración). El alumnado identifica y lista todos los elementos visuales: colores (primario azul, éxito verde, error rojo, fondo gris claro, texto gris oscuro), tipografía (Inter para todo), tamaños de texto, tipos de tarjetas, botones (primario relleno azul, secundario outline, ghost para acciones de tabla), inputs y modales.</p>
+<p><strong>Paso 2 — Definición de tokens:</strong> A partir de la auditoría, se definen los tokens globales y semánticos. Se crea el archivo <code>tokens.css</code> con la directiva <code>@theme</code> de Tailwind 4.</p>
+<p><strong>Paso 3 — Implementación de componentes atómicos:</strong> Se construyen los componentes Button, Input/FormField, Badge, Avatar y Skeleton siguiendo estrictamente los tokens definidos.</p>
+<p><strong>Paso 4 — Implementación de moléculas y organismos:</strong> SearchBar, DataTable, Modal, EmptyState.</p>
+<p><strong>Paso 5 — Documentación:</strong> Cada componente se documenta con un archivo README.md provisional y se prepara para Storybook (Unidad 10).</p>
+<h3 id="ejemplo-guiado-2-implementar-atomic-design-en-angular">Ejemplo guiado 2: Implementar Atomic Design en Angular</h3>
+<p><strong>Objetivo:</strong> Reorganizar un proyecto Angular existente para que refleje la estructura de Atomic Design.</p>
+<p><strong>Desarrollo:</strong> Partiendo de un proyecto con componentes desorganizados, el alumnado:
+1. Identifica qué componentes son átomos, cuáles moléculas, cuáles organismos.
+2. Reubica los componentes en la estructura de carpetas adecuada.
+3. Asegura que los átomos no dependen de moléculas ni organismos.
+4. Verifica el cumplimiento de la jerarquía de dependencias.</p>
+<h3 id="ejemplo-guiado-3-crear-un-themeprovider-con-multiples-temas">Ejemplo guiado 3: Crear un ThemeProvider con múltiples temas</h3>
+<p><strong>Objetivo:</strong> Implementar el <code>ThemeService</code> y <code>ThemeToggle</code> para soportar 3 temas (claro, oscuro, high-contrast).</p>
+<p><strong>Desarrollo:</strong>
+1. Definir las variables CSS para los 3 temas en <code>tokens.css</code>.
+2. Implementar <code>ThemeService</code> con Signals.
+3. Crear <code>ThemeToggleComponent</code> con ciclo entre los 3 temas o toggle claro/oscuro.
+4. Verificar que todos los componentes del Design System responden correctamente al cambio de tema.
+5. Persistir la preferencia del usuario en <code>localStorage</code>.</p>
+<hr />
+<h2 id="actividades-guiadas">Actividades guiadas</h2>
+<h3 id="actividad-guiada-1-auditoria-visual-de-una-aplicacion-web">Actividad guiada 1: Auditoría visual de una aplicación web</h3>
+<p><strong>Duración:</strong> 60 minutos.</p>
+<p><strong>Objetivo:</strong> Realizar una auditoría visual completa de una aplicación web existente para identificar todos sus elementos de diseño.</p>
+<p><strong>Desarrollo:</strong>
+1. El docente proporciona la URL de una aplicación web real (puede ser una demo de un template de SaaS).
+2. El alumnado, en equipos de 2, navega por al menos 5 pantallas diferentes y documenta:
+   - Todos los colores utilizados (fondo, texto, primario, secundario, error, éxito, bordes).
+   - Todas las familias y tamaños tipográficos encontrados.
+   - Tipos de botones y sus variantes.
+   - Tipos de tarjetas, modales y contenedores.
+   - Espaciados (márgenes entre secciones, padding de tarjetas).
+   - Inconsistencias detectadas (mismo elemento con diferente estilo en distintas pantallas).
+3. El alumnado presenta sus hallazgos en una tabla y propone una paleta consolidada de colores y tipografía.</p>
+<p><strong>Entregable:</strong> Documento de auditoría visual con capturas y tabla de hallazgos.</p>
+<h3 id="actividad-guiada-2-definir-design-tokens-para-una-aplicacion-de-e-commerce">Actividad guiada 2: Definir Design Tokens para una aplicación de e-commerce</h3>
+<p><strong>Duración:</strong> 90 minutos.</p>
+<p><strong>Objetivo:</strong> Definir el conjunto completo de Design Tokens para una aplicación de comercio electrónico.</p>
+<p><strong>Desarrollo:</strong>
+1. A partir de un briefing de diseño (proporcionado por el docente), el alumnado define:
+   - Paleta de colores completa (primarios, semánticos, superficie, texto, borde).
+   - Escala tipográfica (familia, tamaños, pesos, alturas de línea).
+   - Escala de espaciado (baseline grid de 4px).
+   - Escala de sombras (1-5 niveles de elevación).
+   - Escala de border radius (3-4 valores).
+   - Animaciones: duraciones y curvas de easing estándar.
+2. Implementar los tokens en dos formatos: CSS con <code>@theme</code> de Tailwind 4 y TypeScript (<code>tokens.ts</code>).
+3. Verificar que los tokens TypeScript y CSS están sincronizados (mismos nombres, mismos valores).</p>
+<p><strong>Entregable:</strong> Archivos <code>tokens.css</code> y <code>tokens.ts</code> completos y sincronizados.</p>
+<h3 id="actividad-guiada-3-construir-un-themeprovider-con-3-temas">Actividad guiada 3: Construir un ThemeProvider con 3 temas</h3>
+<p><strong>Duración:</strong> 60 minutos.</p>
+<p><strong>Objetivo:</strong> Implementar un sistema de temas múltiples usando el patrón de ThemeService con Signals.</p>
+<p><strong>Desarrollo:</strong>
+1. Implementar <code>ThemeService</code> (como se muestra en la Sección G).
+2. Crear <code>ThemeToggleComponent</code> con selector de 3 temas (no solo toggle binario).
+3. Definir variables CSS para los 3 temas en <code>tokens.css</code>.
+4. Probar el cambio de tema en tiempo real en una página de demostración.
+5. Persistir la preferencia en <code>localStorage</code> y respetar <code>prefers-color-scheme</code>.</p>
+<p><strong>Entregable:</strong> <code>ThemeService</code>, <code>ThemeToggleComponent</code> y <code>tokens.css</code> con soporte multi-tema.</p>
+<hr />
+<h2 id="actividades-propuestas">Actividades propuestas</h2>
+<h3 id="actividad-propuesta-1-construir-un-design-system-completo-para-una-aplicacion-de-banca-digital">Actividad propuesta 1: Construir un Design System completo para una aplicación de banca digital</h3>
+<p><strong>Duración:</strong> 300 minutos.</p>
+<p><strong>Descripción:</strong> Diseñar e implementar un Design System completo para una aplicación de banca digital ficticia.</p>
+<p><strong>Requisitos:</strong>
+- Definir al menos 30 Design Tokens organizados en 3 niveles (globales, semánticos, de componente).
+- Implementar 8 componentes atómicos: Button (5 variantes), Input (5 estados), Card (3 variantes), Badge (5 tipos), Avatar, Modal, Tabs, y DataTable.
+- Todos los componentes deben estar correctamente tematizados (responder a los temas claro, oscuro y high-contrast aplicando solo las clases de Tailwind generadas).
+- Crear un <code>ThemeService</code> que permita cambiar entre los 3 temas.
+- Implementar un ThemeProvider (componente wrapper opcional) que aplique el tema a sus hijos mediante CSS custom properties.
+- Documentar la API de cada componente (inputs, outputs, slots) en formato JSDoc y en un README.md.</p>
+<p><strong>Entregable:</strong> Proyecto Angular con el Design System completo en la carpeta <code>design-system/</code> y los componentes en <code>shared/components/</code>.</p>
+<h3 id="actividad-propuesta-2-sincronizar-design-tokens-entre-figma-y-codigo-con-style-dictionary">Actividad propuesta 2: Sincronizar Design Tokens entre Figma y código con Style Dictionary</h3>
+<p><strong>Duración:</strong> 150 minutos.</p>
+<p><strong>Descripción:</strong> Implementar un pipeline automatizado que extraiga Design Tokens desde Figma y los transforme a CSS y TypeScript usando Style Dictionary.</p>
+<p><strong>Requisitos:</strong>
+- Definir los tokens en Figma usando el plugin "Figma Tokens" o las Variables nativas.
+- Exportar los tokens a un archivo JSON.
+- Configurar Style Dictionary para transformar el JSON a: variables CSS de Tailwind 4 (@theme), archivo TypeScript de tokens, y documentación en Markdown.
+- Crear un script npm (<code>npm run build:tokens</code>) que ejecute la transformación.
+- Documentar el flujo de trabajo para que otros desarrolladores puedan replicarlo.</p>
+<p><strong>Entregable:</strong> Configuración de Style Dictionary, script de build, archivos generados y documentación del flujo.</p>
+<h3 id="actividad-propuesta-3-implementar-atomic-design-en-un-proyecto-angular-existente">Actividad propuesta 3: Implementar Atomic Design en un proyecto Angular existente</h3>
+<p><strong>Duración:</strong> 120 minutos.</p>
+<p><strong>Descripción:</strong> Refactorizar un proyecto Angular existente (proporcionado por el docente) aplicando la metodología Atomic Design.</p>
+<p><strong>Requisitos:</strong>
+- Clasificar todos los componentes existentes como átomos, moléculas u organismos.
+- Reorganizar la estructura de carpetas del proyecto para reflejar esta clasificación.
+- Asegurar que los componentes atómicos no dependen de moléculas ni organismos.
+- Identificar componentes que deberían dividirse (violan SRP) y proponer una refactorización.
+- Documentar la nueva estructura y la justificación de cada decisión.</p>
+<p><strong>Entregable:</strong> Proyecto refactorizado y documento de análisis.</p>
+<h3 id="actividad-propuesta-4-crear-un-theme-switcher-avanzado-con-previsualizacion">Actividad propuesta 4: Crear un Theme Switcher avanzado con previsualización</h3>
+<p><strong>Duración:</strong> 120 minutos.</p>
+<p><strong>Descripción:</strong> Construir un componente de configuración de tema que permita al usuario personalizar visualmente los colores primarios y ver los cambios en tiempo real.</p>
+<p><strong>Requisitos:</strong>
+- Panel de configuración con: selector de tema (claro, oscuro, sistema), color picker para el color primario, selector de radio de borde (sharp, rounded, pill), y selector de densidad (compact, default, comfortable).
+- Previsualización en tiempo real: una miniatura de la aplicación que muestra los cambios instantáneamente.
+- Los cambios se aplican al tema global mediante el ThemeService.
+- Las preferencias se persisten en localStorage.
+- Botón "Restablecer valores por defecto".</p>
+<p><strong>Entregable:</strong> <code>ThemeConfigComponent</code> con panel de configuración y previsualización.</p>
+<h3 id="actividad-propuesta-5-auditoria-de-accesibilidad-del-design-system">Actividad propuesta 5: Auditoría de accesibilidad del Design System</h3>
+<p><strong>Duración:</strong> 90 minutos.</p>
+<p><strong>Descripción:</strong> Realizar una auditoría completa de accesibilidad sobre todos los componentes del Design System construido.</p>
+<p><strong>Requisitos:</strong>
+- Evaluar cada componente contra los criterios WCAG 2.1 AA: contraste de color, navegación por teclado, etiquetas ARIA, foco visible, texto alternativo.
+- Utilizar herramientas: axe DevTools, Lighthouse, y comprobación manual con lector de pantalla (NVDA en Windows o VoiceOver en macOS).
+- Documentar los problemas encontrados, su severidad y la solución propuesta.
+- Implementar las correcciones y verificar que los problemas han sido resueltos.</p>
+<p><strong>Entregable:</strong> Informe de auditoría de accesibilidad y componentes corregidos.</p>
+<hr />
+<h2 id="actividades-de-ampliacion">Actividades de ampliación</h2>
+<h3 id="actividad-de-ampliacion-1-implementar-un-theme-builder-visual-wysiwyg">Actividad de ampliación 1: Implementar un Theme Builder visual (WYSIWYG)</h3>
+<p><strong>Duración:</strong> 300 minutos.</p>
+<p><strong>Descripción:</strong> Construir una herramienta visual que permita a diseñadores o desarrolladores crear nuevos temas para el Design System sin escribir código.</p>
+<p><strong>Requisitos:</strong>
+- Interfaz visual con controles para modificar: color primario (con generación automática de la paleta completa), color de fondo, color de texto, familia tipográfica, radio de borde base, y densidad de espaciado.
+- Previsualización en vivo de una página de muestra con todos los componentes del Design System.
+- Exportación del tema creado a: archivo CSS de variables, archivo de configuración de Tailwind, y archivo JSON de tokens.
+- Los temas exportados deben ser directamente importables en el proyecto Angular.</p>
+<p><strong>Entregable:</strong> Theme Builder funcional con al menos 3 temas de ejemplo exportados.</p>
+<h3 id="actividad-de-ampliacion-2-migrar-un-design-system-de-css-tradicional-a-tailwind-4">Actividad de ampliación 2: Migrar un Design System de CSS tradicional a Tailwind 4</h3>
+<p><strong>Duración:</strong> 180 minutos.</p>
+<p><strong>Descripción:</strong> Tomar un Design System existente implementado con CSS tradicional (clases BEM o similares) y migrarlo completamente a Tailwind 4 con Design Tokens.</p>
+<p><strong>Requisitos:</strong>
+- Analizar el Design System de origen (proporcionado por el docente o uno público como Bootstrap).
+- Mapear todas las variables CSS y clases a tokens de Tailwind (@theme).
+- Reescribir los componentes usando exclusivamente clases utilitarias de Tailwind.
+- Verificar que el resultado visual es pixel-perfect comparado con el original.
+- Documentar el proceso de migración y las decisiones tomadas.</p>
+<p><strong>Entregable:</strong> Design System migrado a Tailwind 4 + documento de migración.</p>
+<h3 id="actividad-de-ampliacion-3-crear-un-plugin-de-figma-para-exportar-componentes-a-angular">Actividad de ampliación 3: Crear un plugin de Figma para exportar componentes a Angular</h3>
+<p><strong>Duración:</strong> 240 minutos.</p>
+<p><strong>Descripción:</strong> Desarrollar un plugin de Figma que, dado un componente de diseño seleccionado, genere automáticamente el código Angular correspondiente con Tailwind.</p>
+<p><strong>Requisitos:</strong>
+- El plugin detecta las propiedades del componente en Figma: dimensiones, colores, tipografía, espaciado, bordes, sombras.
+- Mapea los estilos de Figma a tokens del Design System (si el componente usa estilos de Figma que coinciden con tokens definidos).
+- Genera un archivo TypeScript con el componente Angular (decorador, inputs/outputs deducidos de las variantes de Figma) y un template HTML con las clases de Tailwind correspondientes.
+- No se requiere generación 100% automática perfecta, pero sí una base sólida que un desarrollador pueda refinar.</p>
+<p><strong>Entregable:</strong> Plugin de Figma funcional (puede ser en desarrollo, no necesariamente publicado) + documentación.</p>
+<hr />
+<h2 id="buenas-practicas">Buenas prácticas</h2>
+<ol>
+<li>
+<p><strong>Una única fuente de verdad para los tokens.</strong> Los valores de color, tipografía y espaciado deben definirse en un solo lugar (archivo de tokens CSS + TypeScript) y todo el código debe referenciarlos. Nunca usar valores literales como <code>#3b82f6</code> en componentes.</p>
+</li>
+<li>
+<p><strong>Tres niveles de tokens.</strong> Mantener la jerarquía: tokens globales (paleta cruda) → tokens semánticos (significado funcional) → tokens de componente (específicos). Los componentes solo deben consumir tokens semánticos o de componente, nunca globales directamente.</p>
+</li>
+<li>
+<p><strong>Nombrar tokens por su función, no por su valor.</strong> <code>--color-primary</code> es un buen nombre; <code>--color-blue-600</code> es un nombre de token global, no semántico. Si el azul cambia a verde, <code>primary</code> sigue teniendo sentido; <code>blue</code> no.</p>
+</li>
+<li>
+<p><strong>Versionar el Design System con semver.</strong> Tratar el Design System como una librería software: MAJOR para breaking changes, MINOR para nuevas funcionalidades, PATCH para correcciones. Mantener un CHANGELOG.</p>
+</li>
+<li>
+<p><strong>Documentar el "por qué" de cada decisión de diseño.</strong> No basta con mostrar el token o el componente; explicar por qué existe, cuándo usarlo y cuándo no. Esta información es invaluable para nuevos miembros del equipo.</p>
+</li>
+<li>
+<p><strong>Probar el tema oscuro desde el principio.</strong> Diseñar el tema claro primero y luego "traducirlo" al oscuro es un error común que resulta en temas oscuros deficientes. Ambos temas deben diseñarse y probarse simultáneamente.</p>
+</li>
+<li>
+<p><strong>Mantener el Design System desacoplado de la aplicación.</strong> Los tokens y componentes del Design System no deben importar nada de la aplicación (modelos, servicios de features, rutas). El Design System es un producto independiente que la aplicación consume.</p>
+</li>
+<li>
+<p><strong>WCAG AA como requisito mínimo.</strong> Todo componente del Design System debe cumplir AA en contraste, navegación por teclado, y ARIA. Si un componente no cumple, no está terminado.</p>
+</li>
+<li>
+<p><strong>Los cambios en el Design System deben ser revisados por diseño y desarrollo.</strong> Un cambio en un token o componente afecta a toda la aplicación. Establecer un proceso de revisión cruzada (design review + code review) antes de mergear cualquier cambio.</p>
+</li>
+<li>
+<p><strong>Proporcionar migraciones para breaking changes.</strong> Si un cambio rompe la API de un componente, proporcionar una guía de migración clara y, cuando sea posible, un script automatizado que realice la migración.</p>
+</li>
+</ol>
+<hr />
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+<ol>
+<li>
+<p><strong>Construir una librería de componentes y llamarla Design System.</strong> Un Design System incluye componentes, pero también principios, tokens, patrones, documentación y gobernanza. Reducirlo a solo componentes es perder la mayor parte de su valor.</p>
+</li>
+<li>
+<p><strong>No separar tokens globales de tokens semánticos.</strong> Si los componentes usan directamente <code>--color-blue-500</code> en lugar de <code>--color-primary</code>, cambiar el color primario de azul a verde requiere modificar decenas de componentes en lugar de un solo token.</p>
+</li>
+<li>
+<p><strong>Crear demasiados tokens demasiado pronto.</strong> Definir tokens para cada posible valor lleva a un sistema inflado e inmanejable. Es mejor comenzar con los tokens mínimos necesarios e ir añadiendo según surjan necesidades reales.</p>
+</li>
+<li>
+<p><strong>Ignorar el tema oscuro hasta el final.</strong> Añadir soporte para tema oscuro a posteriori es costoso y suele resultar en un tema oscuro de baja calidad. Todos los componentes deben diseñarse desde el principio con ambos temas en mente.</p>
+</li>
+<li>
+<p><strong>Romper la encapsulación atómica.</strong> Un átomo no debe importar una molécula. Si <code>BadgeComponent</code> importa <code>ButtonComponent</code>, la jerarquía está rota y se generan dependencias circulares.</p>
+</li>
+<li>
+<p><strong>No testear los componentes en todos los temas y breakpoints.</strong> Un componente que se ve bien en tema claro y desktop puede ser ilegible en tema oscuro o móvil. Testear cada variante en cada combinación de tema y viewport.</p>
+</li>
+<li>
+<p><strong>Usar medidas absolutas (px) en lugar de relativas (rem).</strong> Los tokens de espaciado y tipografía deben estar en <code>rem</code> para respetar la configuración de zoom del usuario y las preferencias de tamaño de fuente del navegador.</p>
+</li>
+<li>
+<p><strong>Cambiar tokens sin revisar el impacto.</strong> Modificar un token de espaciado o color puede causar efectos en cascada en docenas de componentes. Antes de cambiar un token, revisar todos los lugares donde se utiliza.</p>
+</li>
+<li>
+<p><strong>Sobrecargar los tokens de componente.</strong> No es necesario crear un token para cada propiedad CSS de cada componente. Los tokens de componente deben reservarse para valores que realmente necesitan ser tematizables o variables.</p>
+</li>
+<li>
+<p><strong>Olvidar los estados de los componentes en el Design System.</strong> Un Design System no está completo si solo define el estado default de cada componente. Debe incluir hover, active, focus, disabled, loading, error, success y empty.</p>
+</li>
+</ol>
+<hr />
+<h2 id="resumen">Resumen</h2>
+<p>Esta unidad ha cubierto la teoría y práctica de los Design Systems aplicados al desarrollo de interfaces con Angular y Tailwind:</p>
+<ul>
+<li>
+<p>Un <strong>Design System</strong> es un lenguaje visual compartido que abarca principios, Design Tokens, componentes, patrones, documentación y gobernanza, proporcionando consistencia, velocidad y escalabilidad.</p>
+</li>
+<li>
+<p>La metodología <strong>Atomic Design</strong> de Brad Frost descompone las interfaces en átomos, moléculas, organismos, templates y páginas, proporcionando un marco que se alinea naturalmente con la arquitectura de componentes de Angular.</p>
+</li>
+<li>
+<p>Los <strong>Design Tokens</strong> son la unidad atómica del sistema visual y se organizan en tres niveles: globales (valores crudos), semánticos (significado funcional) y de componente (específicos). En Tailwind 4 se implementan con la directiva <code>@theme</code>.</p>
+</li>
+<li>
+<p>La <strong>construcción de un Design System</strong> sigue un proceso de 8 pasos: auditoría visual, definición de principios, definición de tokens, implementación en código, construcción de componentes atómicos, construcción de componentes compuestos, documentación y versionado.</p>
+</li>
+<li>
+<p>Las <strong>escalas</strong> (tipográfica, espaciado, color, sombras, bordes) son la base matemática que garantiza un ritmo visual consistente y armonioso.</p>
+</li>
+<li>
+<p>El estudio de <strong>Design Systems reales</strong> (Material Design 3, Ant Design, Carbon, Spectrum, Lightning) proporciona patrones y lecciones aplicables a nuestros propios sistemas.</p>
+</li>
+<li>
+<p>El <strong>ThemeProvider</strong> implementado mediante un servicio Angular con Signals permite cambiar entre temas visuales en tiempo real, persistiendo la preferencia del usuario.</p>
+</li>
+</ul>
+<hr />
+<h2 id="recursos-complementarios">Recursos complementarios</h2>
+<h3 id="documentacion-oficial">Documentación oficial</h3>
+<ul>
+<li>Tailwind CSS 4 — @theme directive: https://tailwindcss.com/docs/theme</li>
+<li>Angular — Style Guide: https://angular.dev/style-guide</li>
+<li>WCAG 2.1 (Web Content Accessibility Guidelines): https://www.w3.org/WAI/WCAG21/quickref/</li>
+</ul>
+<h3 id="herramientas">Herramientas</h3>
+<ul>
+<li>Figma Tokens (plugin): https://www.figmatokens.com</li>
+<li>Style Dictionary: https://styledictionary.com (generación de tokens multi-plataforma)</li>
+<li>Storybook: https://storybook.js.org (documentación de componentes, Unidad 10)</li>
+<li>Chromatic: https://www.chromatic.com (testing visual y revisión de cambios)</li>
+</ul>
+<h3 id="libros">Libros</h3>
+<ul>
+<li>"Atomic Design" — Brad Frost (gratuito online: https://atomicdesign.bradfrost.com)</li>
+<li>"Design Systems" — Alla Kholmatova (arquitectura y gobernanza de sistemas de diseño)</li>
+<li>"Refactoring UI" — Adam Wathan y Steve Schoger (diseño práctico con Tailwind)</li>
+<li>"Designing Design Systems" — Jina Anne</li>
+</ul>
+<h3 id="design-systems-de-referencia">Design Systems de referencia</h3>
+<ul>
+<li>Material Design 3: https://m3.material.io</li>
+<li>Ant Design: https://ant.design</li>
+<li>Carbon Design System (IBM): https://carbondesignsystem.com</li>
+<li>Spectrum (Adobe): https://spectrum.adobe.com</li>
+<li>Lightning Design System (Salesforce): https://lightningdesignsystem.com</li>
+<li>Polaris (Shopify): https://polaris.shopify.com</li>
+</ul>
+<h3 id="articulos-y-guias">Artículos y guías</h3>
+<ul>
+<li>"Design Tokens: What They Are and How to Use Them" — Adobe Spectrum Blog</li>
+<li>"Building a Design System with Angular and Tailwind" — Angular Addicts</li>
+<li>"The Anatomy of a Design System" — UX Collective</li>
+<li>"Design Tokens in Figma and Code" — Jan Six (Figma blog)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

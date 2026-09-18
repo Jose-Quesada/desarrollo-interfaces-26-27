@@ -1,0 +1,846 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes básicos de Angular para Martos y alrededores.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Documentación de Aplicaciones - Curso de Angular</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentacion-de-aplicaciones" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="./.." title="Curso de Angular" class="md-header__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Angular
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documentación de Aplicaciones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Curso de Angular" class="md-nav__button md-logo" aria-label="Curso de Angular" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Curso de Angular
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  00.Introduccion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  01.UX
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  02.Accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objetivos de aprendizaje
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-de-aprendizaje-asociado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resultado de aprendizaje asociado
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conocimientos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Conocimientos previos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Contenidos
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo-teorico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo teórico
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo teórico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-documento-correcto-para-la-persona-correcta" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. El documento correcto para la persona correcta
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ayuda-sensible-al-contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Ayuda sensible al contexto
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-documentar-la-informacion-persistente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Documentar la información persistente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-documentacion-viva-con-storybook-y-generadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Documentación viva con Storybook y generadores
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-guiados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplos guiados
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos guiados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-ayuda-contextual-accesible" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 1: Ayuda contextual accesible
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-contrato-openapi-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 2: Contrato OpenAPI de la aplicación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casos-reales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Casos reales
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-guiadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades guiadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-propuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades propuestas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Actividades de ampliación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Buenas prácticas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errores-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Errores frecuentes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resumen
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-complementarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recursos complementarios
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="documentacion-de-aplicaciones">Documentación de Aplicaciones</h1>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p>Al finalizar esta unidad, el alumnado será capaz de:</p>
+<ol>
+<li>Identificar los distintos tipos de documentación de una aplicación (ayuda general y sensible al contexto, manual de usuario, guía de referencia, manuales de instalación/configuración/administración y tutoriales) y su destinatario.</li>
+<li>Seleccionar herramientas específicas para generar cada tipo de documentación, valorando formatos habituales (HTML, PDF, Markdown) y sistemas de generación de ayudas.</li>
+<li>Documentar la estructura de la información persistente de una aplicación (modelo de datos, esquemas y contratos de API).</li>
+<li>Producir el conjunto documental mínimo de una aplicación del módulo (Angular + Tailwind + Electron), integrando la documentación en el flujo de desarrollo y en la propia aplicación.</li>
+</ol>
+<h2 id="resultado-de-aprendizaje-asociado">Resultado de aprendizaje asociado</h2>
+<p>Esta unidad contribuye al <strong>RA 6</strong> del módulo profesional 0488 <em>Desarrollo de interfaces</em> (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):</p>
+<blockquote>
+<p><strong>RA 6.</strong> Documenta aplicaciones seleccionando y utilizando herramientas específicas.</p>
+</blockquote>
+<p>Criterios de evaluación oficiales que se trabajan en esta unidad:</p>
+<ul>
+<li>CE a) Se han identificado sistemas de generación de ayudas.</li>
+<li>CE b) Se han generado ayudas en los formatos habituales.</li>
+<li>CE c) Se han generado ayudas sensibles al contexto.</li>
+<li>CE d) Se ha documentado la estructura de la información persistente.</li>
+<li>CE e) Se ha confeccionado el manual de usuario y la guía de referencia.</li>
+<li>CE f) Se han confeccionado los manuales de instalación, configuración y administración.</li>
+<li>CE g) Se han confeccionado tutoriales.</li>
+</ul>
+<h2 id="conocimientos-previos">Conocimientos previos</h2>
+<p>Para abordar esta unidad con garantías, el alumnado debe:</p>
+<ul>
+<li>Dominar Markdown y su uso en README, guías y documentación técnica.</li>
+<li>Conocer la aplicación del módulo (Angular + Tailwind + Electron) para poder describir su instalación, configuración y uso.</li>
+<li>Tener nociones de la información persistente que utiliza la aplicación (base de datos o API), para documentar su estructura.</li>
+<li>Haber trabajado Storybook (Unidad 14), cuya documentación de componentes es un caso concreto de documentación técnica reutilizable.</li>
+</ul>
+<h2 id="contenidos">Contenidos</h2>
+<p><strong>Bloque 1: Tipos de documentación y destinatarios</strong>
+- Ayuda general vs. ayuda sensible al contexto (context-sensitive help).
+- Manual de usuario, guía de referencia rápida, guías rápidas (<em>quick start</em>).
+- Manuales de instalación, configuración y administración.
+- Tutoriales orientados a tareas.
+- Matriz documento → destinatario (usuario final, administrador, desarrollador).</p>
+<p><strong>Bloque 2: Sistemas y herramientas de generación de ayudas</strong>
+- Generadores de documentación estática: Docusaurus, VitePress, MkDocs, Sphinx.
+- Documentación in-app: tooltips, paneles de ayuda contextuales, <code>title</code>/<code>aria-describedby</code>, atajos de teclado documentados.
+- Formatos de exportación: HTML, PDF (con las herramientas vistas en la unidad de informes), Markdown.
+- Integración en el repositorio y en el pipeline (CI que publica la documentación).</p>
+<p><strong>Bloque 3: Documentación de la información persistente</strong>
+- Diagramas del modelo de datos (entidad-relación) y esquemas.
+- Contratos de API: OpenAPI/Swagger como fuente única de verdad.
+- Diccionario de datos: campos, tipos, restricciones y valores permitidos.</p>
+<p><strong>Bloque 4: Documentación de código y componentes</strong>
+- Comentar el «por qué», no el «qué». Convenciones (TSDoc/JSDoc).
+- Storybook como documentación viva de componentes (Unidad 14).
+- Changelogs, <code>CONTRIBUTING.md</code> y política de versiones.</p>
+<h2 id="desarrollo-teorico">Desarrollo teórico</h2>
+<h3 id="1-el-documento-correcto-para-la-persona-correcta">1. El documento correcto para la persona correcta</h3>
+<p>Documentar no es escribir más: es poner la información adecuada ante el usuario adecuado en el momento adecuado. Un administrador necesita el manual de configuración; un usuario nuevo necesita una guía rápida; un desarrollador que integra la API necesita el contrato OpenAPI. La primera decisión, por tanto, es definir <strong>matriz documento → destinatario → formato</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Documento</th>
+<th>Destinatario</th>
+<th>Formato habitual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guía rápida / tutorial</td>
+<td>Usuario nuevo</td>
+<td>HTML/PDF, pasos orientados a tareas</td>
+</tr>
+<tr>
+<td>Manual de usuario</td>
+<td>Usuario</td>
+<td>HTML/PDF</td>
+</tr>
+<tr>
+<td>Guía de referencia</td>
+<td>Usuario avanzado</td>
+<td>HTML (búsqueda)</td>
+</tr>
+<tr>
+<td>Ayuda sensible al contexto</td>
+<td>Usuario, in situ</td>
+<td>In-app (tooltips, paneles)</td>
+</tr>
+<tr>
+<td>Manual de instalación/configuración/administración</td>
+<td>Administrador/DevOps</td>
+<td>Markdown/HTML en repositorio</td>
+</tr>
+<tr>
+<td>Contrato de API / diccionario de datos</td>
+<td>Desarrollador</td>
+<td>OpenAPI, diagramas E/R</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-ayuda-sensible-al-contexto">2. Ayuda sensible al contexto</h3>
+<p>La ayuda contextual aparece «donde el usuario la necesita»: un icono de ayuda junto a cada campo que despliega una explicación específica, o un panel lateral que cambia según la vista activa. En Angular se implementa con directivas/componentes reutilizables:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// help.directive.ts (esquemático)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">@Directive</span><span class="p">({</span><span class="w"> </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'[appHelp]'</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">HelpDirective</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="kd">@Input</span><span class="p">()</span><span class="w"> </span><span class="nx">appHelp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">''</span><span class="p">;</span><span class="w"> </span><span class="c1">// texto de ayuda específico del elemento</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="kd">@HostListener</span><span class="p">(</span><span class="s1">'mouseenter'</span><span class="p">)</span><span class="w"> </span><span class="nx">show</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* muestra tooltip con this.appHelp */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="kd">@HostListener</span><span class="p">(</span><span class="s1">'mouseleave'</span><span class="p">)</span><span class="w"> </span><span class="nx">hide</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* oculta */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Buenas prácticas: textos cortos y accionables, activación predecible (hover/focus), accesibles por teclado (<code>role="tooltip"</code>, <code>aria-describedby</code>) y coherentes en tono con la guía de referencia.</p>
+<h3 id="3-documentar-la-informacion-persistente">3. Documentar la información persistente</h3>
+<p>Documentar «la estructura de la información persistente» (CE d) significa dejar constancia clara del modelo de datos: entidades, relaciones, campos, tipos, restricciones y valores permitidos. Las herramientas habituales son diagramas entidad-relación (DBML, Mermaid, Lucidchart) y, para APIs, un especificador <strong>OpenAPI/Swagger</strong> que actúa como contrato entre frontend y backend:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># openapi.yaml (fragmento)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">paths</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">/notas</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">get</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lista las notas del usuario autenticado</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">responses</span><span class="p">:</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="s">'200'</span><span class="p p-Indicator">:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Colección de notas</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">          </span><span class="nt">content</span><span class="p">:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="nt">application/json</span><span class="p">:</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">              </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> $ref</span><span class="p">:</span><span class="w"> </span><span class="s">'#/components/schemas/Nota'</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nt">components</span><span class="p">:</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nt">schemas</span><span class="p">:</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nt">Nota</span><span class="p">:</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">id</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">titulo</span><span class="p p-Indicator">]</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="nt">properties</span><span class="p">:</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">string</span><span class="p p-Indicator">,</span><span class="nt"> format</span><span class="p">:</span><span class="w"> </span><span class="nv">uuid</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="nt">titulo</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">string</span><span class="p p-Indicator">,</span><span class="nt"> maxLength</span><span class="p">:</span><span class="w"> </span><span class="nv">120</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">        </span><span class="nt">cuerpo</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">string</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="nt">creadaEl</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">string</span><span class="p p-Indicator">,</span><span class="nt"> format</span><span class="p">:</span><span class="w"> </span><span class="nv">date-time</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span></code></pre></div>
+<h3 id="4-documentacion-viva-con-storybook-y-generadores">4. Documentación viva con Storybook y generadores</h3>
+<p>La documentación de componentes en Storybook (Unidad 14) es documentación <strong>ejecutable</strong>: muestra cada variante, estado y prop del componente. Para la documentación de la aplicación completa se usan generadores estáticos (Docusaurus/VitePress) que versionan las guías y se publican desde el CI. La clave es tratar la documentación como código: vive en el repositorio, se revisa en pull request y se actualiza junto al cambio.</p>
+<h2 id="ejemplos-guiados">Ejemplos guiados</h2>
+<h3 id="ejemplo-1-ayuda-contextual-accesible">Ejemplo 1: Ayuda contextual accesible</h3>
+<p>Añadimos <code>HelpDirective</code> a los campos de un formulario (Unidad 12). Cada campo muestra un tooltip al hacer foco o hover, con <code>role="tooltip"</code> y <code>aria-describedby</code>, verificando la navegación por teclado.</p>
+<h3 id="ejemplo-2-contrato-openapi-de-la-aplicacion">Ejemplo 2: Contrato OpenAPI de la aplicación</h3>
+<p>Generamos el especificador OpenAPI del servicio de notas que consume la aplicación Angular, lo validamos con una herramienta (Swagger Editor) y documentamos los códigos de error y ejemplos de petición/respuesta.</p>
+<h2 id="casos-reales">Casos reales</h2>
+<ul>
+<li><strong>Documentación in-app de productos SaaS:</strong> las aplicaciones empresariales combinan guías rápidas interactivas (<em>onboarding</em>), base de conocimiento y ayuda contextual; la coherencia entre ellas reduce el soporte.</li>
+<li><strong>OpenAPI como contrato:</strong> equipos frontend/backend que comparten un único especificador evitan divergencias y permiten generar clientes y documentación automáticamente.</li>
+</ul>
+<h2 id="actividades-guiadas">Actividades guiadas</h2>
+<ol>
+<li>Elabora la matriz documento → destinatario para la aplicación del módulo y justifica el formato de cada documento.</li>
+<li>Implementa ayuda sensible al contexto accesible en tres pantallas de la aplicación.</li>
+<li>Documenta el modelo de datos con un diagrama entidad-relación y un diccionario de campos.</li>
+</ol>
+<h2 id="actividades-propuestas">Actividades propuestas</h2>
+<ul>
+<li>Genera un manual de usuario (PDF) a partir de las capturas y flujos principales, usando las herramientas de la unidad de informes.</li>
+<li>Redacta el manual de instalación y configuración para la versión de escritorio (Electron), incluyendo requisitos y resolución de problemas frecuentes.</li>
+<li>Crea un tutorial orientado a una tarea concreta («crear y exportar mi primer informe»).</li>
+</ul>
+<h2 id="actividades-de-ampliacion">Actividades de ampliación</h2>
+<ul>
+<li>Publica la documentación con Docusaurus/VitePress desde el pipeline del proyecto (CI que genera y despliega el sitio).</li>
+<li>Genera documentación de API automáticamente a partir del especificador OpenAPI.</li>
+<li>Define una política de <code>CHANGELOG</code> y versionado semántico para la aplicación.</li>
+</ul>
+<h2 id="buenas-practicas">Buenas prácticas</h2>
+<ul>
+<li>Trata la documentación como código: en el repositorio, revisada y actualizada con cada cambio.</li>
+<li>Un documento, un destinatario, un formato; evita duplicar contenido que puede desincronizarse.</li>
+<li>Documenta el «por qué» en el código y las decisiones de diseño (ADR).</li>
+<li>Haz la ayuda contextual accesible por teclado y coherente con la guía de referencia.</li>
+<li>Usa OpenAPI como fuente única de verdad para los contratos de API.</li>
+</ul>
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+<ul>
+<li>Documentar solo al final, cuando la aplicación ya cambió (desactualización inmediata).</li>
+<li>Ayuda contextual que no es accesible por teclado ni está asociada con ARIA.</li>
+<li>Duplicar información entre manual y ayuda in-app sin un único origen.</li>
+<li>Omitir la documentación de instalación/configuración/administración, imprescindible para el despliegue (RA 7).</li>
+<li>Comentar el «qué» en lugar del «por qué», aportando poco valor a quien mantiene el código.</li>
+</ul>
+<h2 id="resumen">Resumen</h2>
+<p>Documentar una aplicación (RA 6) exige elegir el documento adecuado para cada destinatario: ayuda general y sensible al contexto, manual de usuario, guía de referencia, manuales de instalación/configuración/administración y tutoriales, en formatos habituales (HTML, PDF, Markdown). Se documenta también la información persistente (modelo de datos, diccionario y contratos OpenAPI) y el código (comentarios, Storybook, changelogs). La documentación se trata como código: vive en el repositorio, se revisa y se publica desde el pipeline.</p>
+<h2 id="recursos-complementarios">Recursos complementarios</h2>
+<ul>
+<li>Docusaurus, VitePress, MkDocs — generadores de documentación estática.</li>
+<li>OpenAPI Initiative / Swagger Editor — especificación y herramientas de contratos de API.</li>
+<li>Mermaid y DBML — diagramas de modelo de datos en texto.</li>
+<li>W3C WCAG (criterios sobre información y comunicación) para ayuda contextual accesible.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

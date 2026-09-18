@@ -17,17 +17,23 @@ Al finalizar esta unidad, el alumnado será capaz de:
 
 ## Resultado de aprendizaje asociado
 
-**RA 6. Genera informes y documentación**, perteneciente al currículo oficial del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) en Andalucía, para el módulo profesional 0488 Desarrollo de Interfaces.
+Esta unidad contribuye, como RA principal, al **RA 5** del módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):
 
-Este resultado de aprendizaje se evalúa conforme a los siguientes criterios de evaluación oficiales:
+> **RA 5.** Crea informes evaluando y utilizando herramientas gráficas.
 
-- **CE 6.a)** Se han identificado los diferentes tipos de informes y documentos que se pueden generar desde una aplicación.
-- **CE 6.b)** Se han utilizado librerías y herramientas de generación de informes.
-- **CE 6.c)** Se han diseñado plantillas de documentos reutilizables.
-- **CE 6.d)** Se han generado documentos en formatos estándar (PDF, CSV, Excel).
-- **CE 6.e)** Se ha integrado la generación de documentos en el flujo de la aplicación.
-- **CE 6.f)** Se han aplicado técnicas de maquetación y estilos en los documentos generados.
-- **CE 6.g)** Se han verificado la correcta generación y descarga de los documentos.
+Criterios de evaluación oficiales que se trabajan en esta unidad:
+
+- CE a) Se ha establecido la estructura del informe.
+- CE b) Se han generado informes básicos a partir de diferentes fuentes de datos mediante asistentes.
+- CE c) Se han establecidos filtros sobre los valores a presentar en los informes.
+- CE d) Se han incluido valores calculados, recuentos y totales.
+- CE f) Se han utilizado herramientas para generar el código correspondiente a los informes de una aplicación.
+- CE g) Se ha modificado el código correspondiente a los informes.
+- CE h) Se ha desarrollado una aplicación que incluye informes incrustados.
+
+Como RA secundario, se vincula al **RA 6** («Documenta aplicaciones seleccionando y utilizando herramientas específicas»), en particular:
+
+- CE e) Se ha confeccionado el manual de usuario y la guía de referencia (documentos generados como PDF).
 
 ## Conocimientos previos
 
